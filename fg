@@ -1,255 +1,196 @@
 -- =====================================================================
--- IFS 2026 VALIDATION — 3/3: REKORD-PÁR SZABÁLYOK + VIN2026 + ÖSSZESÍTŐK
--- Alap: VW_BASE_ENRICHED (és a VW_VAL_CROSS_TABLE_FULL a 2/3 részből)
+-- DIAGNOSZTIKAI CSOMAG — a ma hozzáadott szabályok ellenőrzésére
 -- =====================================================================
 
 
 -- ---------------------------------------------------------------------
--- A) Rekord-pár (window function) szabályok — külön view-k,
---    mert ezek csoport-szintű (PSU/SSU-nkénti) logikát igényelnek,
---    nem fér bele egyetlen soronkénti CASE kifejezésbe.
+-- 1. STRUKTURÁLIS ELLENŐRZÉS
+--    Létezik-e minden view, és van-e bennük érvénytelen objektum
 -- ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW VW_VAL_CORE143 AS
-SELECT FARM_ID, 'CORE143' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same PSU and different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT STRA_ID_CORE) OVER (PARTITION BY PSU_CORE) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE PSU_CORE IS NOT NULL
+SELECT object_name, object_type, status
+FROM user_objects
+WHERE object_name IN (
+    'VW_BASE_ENRICHED', 'VW_VAL_CROSS_TABLE_FULL',
+    'VW_VAL_CORE003', 'VW_VAL_CORE143', 'VW_VAL_CORE144',
+    'VW_VAL_LAFO081', 'VW_VAL_LAFO082',
+    'VW_VAL_RDEV026', 'VW_VAL_RDEV027',
+    'VW_VAL_AHMM037', 'VW_VAL_AHMM038',
+    'VW_VAL_VINY022', 'VW_VAL_VINY023',
+    'VW_VAL_VINY028', 'VW_VAL_VINY029',
+    'VW_VAL_BY_IDENTIFIER_FULL', 'VW_VAL_BY_RULE_FULL'
 )
-WHERE distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_CORE144 AS
-SELECT FARM_ID, 'CORE144' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same SSU and different PSU or different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT PSU_CORE) OVER (PARTITION BY SSU_CORE) AS distinct_psu,
-           COUNT(DISTINCT STRA_ID_CORE) OVER (PARTITION BY SSU_CORE) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE SSU_CORE IS NOT NULL
-)
-WHERE distinct_psu > 1 OR distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_LAFO081 AS
-SELECT FARM_ID, 'LAFO081' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same PSU and different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT STRA_ID_LAFO) OVER (PARTITION BY PSU_LAFO) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE PSU_LAFO IS NOT NULL
-)
-WHERE distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_LAFO082 AS
-SELECT FARM_ID, 'LAFO082' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same SSU and different PSU or different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT PSU_LAFO) OVER (PARTITION BY SSU_LAFO) AS distinct_psu,
-           COUNT(DISTINCT STRA_ID_LAFO) OVER (PARTITION BY SSU_LAFO) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE SSU_LAFO IS NOT NULL
-)
-WHERE distinct_psu > 1 OR distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_RDEV026 AS
-SELECT FARM_ID, 'RDEV026' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same PSU and different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT STRA_ID_RDEV) OVER (PARTITION BY PSU_RDEV) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE PSU_RDEV IS NOT NULL
-)
-WHERE distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_RDEV027 AS
-SELECT FARM_ID, 'RDEV027' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same SSU and different PSU or different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT PSU_RDEV) OVER (PARTITION BY SSU_RDEV) AS distinct_psu,
-           COUNT(DISTINCT STRA_ID_RDEV) OVER (PARTITION BY SSU_RDEV) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE SSU_RDEV IS NOT NULL
-)
-WHERE distinct_psu > 1 OR distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_AHMM037 AS
-SELECT FARM_ID, 'AHMM037' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same PSU and different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT STRA_ID_AHMM) OVER (PARTITION BY PSU_AHMM) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE PSU_AHMM IS NOT NULL
-)
-WHERE distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_AHMM038 AS
-SELECT FARM_ID, 'AHMM038' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same SSU and different PSU or different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT PSU_AHMM) OVER (PARTITION BY SSU_AHMM) AS distinct_psu,
-           COUNT(DISTINCT STRA_ID_AHMM) OVER (PARTITION BY SSU_AHMM) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE SSU_AHMM IS NOT NULL
-)
-WHERE distinct_psu > 1 OR distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_VINY022 AS
-SELECT FARM_ID, 'VINY022' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same PSU and different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT STRA_ID_VINY) OVER (PARTITION BY PSU_VINY) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE PSU_VINY IS NOT NULL
-)
-WHERE distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_VINY023 AS
-SELECT FARM_ID, 'VINY023' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There should not be 2 records with the same SSU and different PSU or different strata' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID AS FARM_ID,
-           COUNT(DISTINCT PSU_VINY) OVER (PARTITION BY SSU_VINY) AS distinct_psu,
-           COUNT(DISTINCT STRA_ID_VINY) OVER (PARTITION BY SSU_VINY) AS distinct_strata
-    FROM VW_BASE_ENRICHED WHERE SSU_VINY IS NOT NULL
-)
-WHERE distinct_psu > 1 OR distinct_strata > 1;
-
-CREATE OR REPLACE VIEW VW_VAL_CORE003 AS
-SELECT b.HLD_ID AS FARM_ID, 'CORE003' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'There are duplicates in the holding ID' AS VAL_ERROR_MESSAGE
-FROM (
-    SELECT HLD_ID FROM VW_BASE_ENRICHED GROUP BY HLD_ID HAVING COUNT(*) > 1
-) dup
-JOIN VW_BASE_ENRICHED b ON b.HLD_ID = dup.HLD_ID;
+ORDER BY object_name;
+-- ELVÁRÁS: minden sor STATUS = 'VALID'. Ha bármelyik 'INVALID',
+-- a lefordítás sikertelen volt -- futtasd le rá:
+-- SELECT text FROM user_errors WHERE name = '<VIEW_NEVE>' ORDER BY sequence;
 
 
 -- ---------------------------------------------------------------------
--- B) VIN2026 kapcsolt szabályok (kulcs: HLD_ID)
+-- 2. OSZLOPSZÁM-ELLENŐRZÉS
+--    Hány szabály-oszlop van ténylegesen a kereszttáblában,
+--    és ez egyezik-e a várt darabszámmal (FARM_ID nélkül)
 -- ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW VW_VAL_VINY028 AS
-SELECT v.HLD_ID AS FARM_ID, 'VINY028' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'The holding ID in the varieties table must exist in the microdata table when the holding is relevant for the vineyards module' AS VAL_ERROR_MESSAGE
-FROM "MO26E"."VIN2026" v
-WHERE v.HLD_ID IS NOT NULL
-  AND NOT EXISTS (
-      SELECT 1 FROM VW_BASE_ENRICHED c
-      WHERE c.HLD_ID = v.HLD_ID AND c.EXTPOL_FACT1_VINY IS NOT NULL
-  );
-
-CREATE OR REPLACE VIEW VW_VAL_VINY029 AS
-SELECT c.HLD_ID AS FARM_ID, 'VINY029' AS VAL_RULE_ID, 'Error' AS VAL_SEVERITY,
-       'The total number of lines for the HLD_ID in the varieties table must equal the number of variables indicated in the microdata' AS VAL_ERROR_MESSAGE
-FROM VW_BASE_ENRICHED c
-JOIN (
-    SELECT HLD_ID, COUNT(*) AS var_count
-    FROM "MO26E"."VIN2026"
-    WHERE HLD_ID IS NOT NULL
-    GROUP BY HLD_ID
-) v ON v.HLD_ID = c.HLD_ID
-WHERE v.var_count <> c.WINE_VAR_NR;
+SELECT COUNT(*) - 1 AS RULE_COLUMN_COUNT  -- -1, mert a FARM_ID nem szabály
+FROM all_tab_columns
+WHERE table_name = 'VW_VAL_CROSS_TABLE_FULL';
+-- ELVÁRÁS: kb. 220-230 (a 2/3 részben felsorolt CASE WHEN oszlopok száma)
 
 
 -- ---------------------------------------------------------------------
--- C) ÖSSZESÍTŐ 1: Gazdaság-központú hosszú formátum
---    (a VW_VAL_CROSS_TABLE_FULL "1"-es celláiból UNPIVOT-tal,
---     kiegészítve a rekord-pár és VIN2026 view-kkal)
+-- 3. NULL-BIZTONSÁGI TESZT
+--    A CASE WHEN kifejezések soha nem adhatnak vissza NULL-t --
+--    csak 0 vagy 1 lehet az eredmény. Ha bármelyik NULL, az azt
+--    jelenti, hogy egy NVL/IS NULL lefedettség hiányzik valahol.
 -- ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW VW_VAL_BY_IDENTIFIER_FULL AS
-SELECT FARM_ID, RULE_ID AS VAL_RULE_ID
+SELECT
+    SUM(CASE WHEN CORE001 IS NULL THEN 1 ELSE 0 END) AS NULL_CORE001,
+    SUM(CASE WHEN CORE039 IS NULL THEN 1 ELSE 0 END) AS NULL_CORE039,
+    SUM(CASE WHEN CORE164 IS NULL THEN 1 ELSE 0 END) AS NULL_CORE164,
+    SUM(CASE WHEN LAFO083 IS NULL THEN 1 ELSE 0 END) AS NULL_LAFO083,
+    SUM(CASE WHEN LAFO084 IS NULL THEN 1 ELSE 0 END) AS NULL_LAFO084,
+    SUM(CASE WHEN LAFO095 IS NULL THEN 1 ELSE 0 END) AS NULL_LAFO095,
+    SUM(CASE WHEN RDEV009 IS NULL THEN 1 ELSE 0 END) AS NULL_RDEV009,
+    SUM(CASE WHEN RDEV011 IS NULL THEN 1 ELSE 0 END) AS NULL_RDEV011,
+    SUM(CASE WHEN AHMM017 IS NULL THEN 1 ELSE 0 END) AS NULL_AHMM017,
+    SUM(CASE WHEN AHMM018 IS NULL THEN 1 ELSE 0 END) AS NULL_AHMM018,
+    SUM(CASE WHEN AHMM020 IS NULL THEN 1 ELSE 0 END) AS NULL_AHMM020,
+    SUM(CASE WHEN AHMM022 IS NULL THEN 1 ELSE 0 END) AS NULL_AHMM022,
+    SUM(CASE WHEN AHMM040 IS NULL THEN 1 ELSE 0 END) AS NULL_AHMM040,
+    SUM(CASE WHEN VINY006 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY006,
+    SUM(CASE WHEN VINY008 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY008,
+    SUM(CASE WHEN VINY025 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY025,
+    SUM(CASE WHEN VINY026 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY026,
+    SUM(CASE WHEN VINY027 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY027,
+    SUM(CASE WHEN VINY030 IS NULL THEN 1 ELSE 0 END) AS NULL_VINY030
+FROM VW_VAL_CROSS_TABLE_FULL;
+-- ELVÁRÁS: minden érték 0. Ha valahol nem 0, az adott szabály
+-- CASE WHEN feltétele hiányos lefedettségű valamelyik NULL-mintázatra.
+
+
+-- ---------------------------------------------------------------------
+-- 4. HIBASZÁM-ELOSZLÁS a ma hozzáadott szabályokra
+--    Ha egy szabály 0-t vagy a teljes populációt adja hibaként,
+--    az gyanús -- vagy a szabály triviálisan igaz/hamis, vagy hibás.
+-- ---------------------------------------------------------------------
+
+SELECT 'CORE003' AS RULE, COUNT(*) AS ERROR_COUNT FROM VW_VAL_CORE003
+UNION ALL SELECT 'CORE039', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE CORE039 = 1
+UNION ALL SELECT 'CORE143', COUNT(*) FROM VW_VAL_CORE143
+UNION ALL SELECT 'CORE144', COUNT(*) FROM VW_VAL_CORE144
+UNION ALL SELECT 'CORE164', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE CORE164 = 1
+UNION ALL SELECT 'LAFO081', COUNT(*) FROM VW_VAL_LAFO081
+UNION ALL SELECT 'LAFO082', COUNT(*) FROM VW_VAL_LAFO082
+UNION ALL SELECT 'LAFO083', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE LAFO083 = 1
+UNION ALL SELECT 'LAFO084', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE LAFO084 = 1
+UNION ALL SELECT 'LAFO095', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE LAFO095 = 1
+UNION ALL SELECT 'RDEV009', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE RDEV009 = 1
+UNION ALL SELECT 'RDEV011', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE RDEV011 = 1
+UNION ALL SELECT 'RDEV026', COUNT(*) FROM VW_VAL_RDEV026
+UNION ALL SELECT 'RDEV027', COUNT(*) FROM VW_VAL_RDEV027
+UNION ALL SELECT 'AHMM017', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE AHMM017 = 1
+UNION ALL SELECT 'AHMM018', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE AHMM018 = 1
+UNION ALL SELECT 'AHMM020', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE AHMM020 = 1
+UNION ALL SELECT 'AHMM022', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE AHMM022 = 1
+UNION ALL SELECT 'AHMM037', COUNT(*) FROM VW_VAL_AHMM037
+UNION ALL SELECT 'AHMM038', COUNT(*) FROM VW_VAL_AHMM038
+UNION ALL SELECT 'AHMM040', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE AHMM040 = 1
+UNION ALL SELECT 'VINY006', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY006 = 1
+UNION ALL SELECT 'VINY008', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY008 = 1
+UNION ALL SELECT 'VINY022', COUNT(*) FROM VW_VAL_VINY022
+UNION ALL SELECT 'VINY023', COUNT(*) FROM VW_VAL_VINY023
+UNION ALL SELECT 'VINY025', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY025 = 1
+UNION ALL SELECT 'VINY026', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY026 = 1
+UNION ALL SELECT 'VINY027', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY027 = 1
+UNION ALL SELECT 'VINY028', COUNT(*) FROM VW_VAL_VINY028
+UNION ALL SELECT 'VINY029', COUNT(*) FROM VW_VAL_VINY029
+UNION ALL SELECT 'VINY030', COUNT(*) FROM VW_VAL_CROSS_TABLE_FULL WHERE VINY030 = 1
+ORDER BY RULE;
+
+-- Ellenőrzési szempontok az eredményhez:
+--  - Ha egy szabály hibaszáma == a teljes gazdaságszám -> valószínűleg
+--    a feltétel fordítva van (pl. NOT hiányzik vagy fölösleges).
+--  - Ha egy szabály hibaszáma == 0, de logikailag várható lenne néhány
+--    hiba (pl. CORE003 duplikáció), érdemes manuálisan rákeresni.
+--  - LAFO083 / RDEV009 / AHMM020 / VINY006 stb. jellemzően kevés hibát
+--    kell adjanak (csak akkor jeleznek, ha egy modul-adat inkonzisztens
+--    az EXTPOL_FACT-tal) -- ha ezek nagy számot adnak, a modul-mező-lista
+--    lefedettsége gyanús.
+
+
+-- ---------------------------------------------------------------------
+-- 5. KERESZT-ELLENŐRZÉS: a CORE039 új szabály és a régi CORE145
+--    logikailag rokon (mindkettő UAA vs. organikus terület) --
+--    nem szabad, hogy egymásnak ellentmondjanak ugyanarra a sorra.
+-- ---------------------------------------------------------------------
+
+SELECT c.FARM_ID, c.CORE039, c.CORE145
+FROM VW_VAL_CROSS_TABLE_FULL c
+WHERE (c.CORE039 = 1 AND c.CORE145 = 0)
+   OR (c.CORE039 = 0 AND c.CORE145 = 1);
+-- Ha itt sok sor jön vissza, érdemes megnézni miért tér el a két
+-- logikailag hasonló szabály ugyanarra a gazdaságra -- ez segít
+-- kiszűrni, ha az egyikben elírás van (pl. >= helyett <=).
+
+
+-- ---------------------------------------------------------------------
+-- 6. AHMM017/018 KERESZT-ELLENŐRZÉS a DECODE-transzformációval
+--    Ellenőrizd, hogy a VW_BASE_ENRICHED-ben számolt *_NUM oszlopok
+--    valóban a várt tartományban (0-100) vannak-e.
+-- ---------------------------------------------------------------------
+
+SELECT
+    MIN(INC_BC_LE4H_NUM) AS MIN_VAL, MAX(INC_BC_LE4H_NUM) AS MAX_VAL,
+    COUNT(CASE WHEN INC_BC_LE4H_PC IS NOT NULL AND INC_BC_LE4H_NUM IS NULL THEN 1 END) AS UNMAPPED_CODES
+FROM VW_BASE_ENRICHED;
+-- ELVÁRÁS: MIN >= 0, MAX <= 100, UNMAPPED_CODES = 0.
+-- Ha UNMAPPED_CODES > 0, van olyan INC_BC_LE4H_PC érték a táblában,
+-- amit a DECODE lista nem fed le (pl. új kód, amit nem ismertünk).
+-- Ha ez előfordul, futtasd le, hogy lásd melyik kód hiányzik:
+
+SELECT DISTINCT INC_BC_LE4H_PC
+FROM VW_BASE_ENRICHED
+WHERE INC_BC_LE4H_PC IS NOT NULL AND INC_BC_LE4H_NUM IS NULL;
+
+
+-- ---------------------------------------------------------------------
+-- 7. LAFO083/084/095 LOGIKAI KOMPLEMENTARITÁS
+--    083 (van modul-adat, de EXTPOL hiányzik) és 084 (nincs EXTPOL,
+--    minden nullnak kéne lennie) és 095 (van EXTPOL, minden kitöltve
+--    kell legyen) -- egy adott gazdaságra legfeljebb az egyik lehet
+--    igaz egyszerre (083 és 095 kizárják egymást; 084 és 095 is).
+-- ---------------------------------------------------------------------
+
+SELECT FARM_ID, LAFO083, LAFO084, LAFO095
 FROM VW_VAL_CROSS_TABLE_FULL
-UNPIVOT (
-    FLAG FOR RULE_ID IN (
-        CORE001, CORE021, CORE024, CORE025, CORE026, CORE027, CORE028, CORE029, CORE030,
-        CORE031, CORE032, CORE038, CORE039, CORE040, CORE041, CORE042, CORE043, CORE044,
-        CORE046, CORE047, CORE048, CORE049, CORE050, CORE051, CORE052, CORE053, CORE054,
-        CORE055, CORE056, CORE057, CORE058, CORE059, CORE060, CORE061, CORE062, CORE063,
-        CORE064, CORE065, CORE066, CORE067, CORE068, CORE069, CORE070, CORE071, CORE072,
-        CORE073, CORE074, CORE075, CORE076, CORE077, CORE078, CORE079, CORE080, CORE081,
-        CORE082, CORE083, CORE084, CORE085, CORE086, CORE087, CORE088, CORE089, CORE090,
-        CORE091, CORE092, CORE093, CORE094, CORE095, CORE096, CORE097, CORE098, CORE099,
-        CORE100, CORE101, CORE121, CORE122, CORE123, CORE124, CORE125, CORE126, CORE129,
-        CORE130, CORE131, CORE132, CORE133, CORE134, CORE135, CORE136, CORE137, CORE138,
-        CORE139, CORE140, CORE141, CORE142, CORE145, CORE165, CORE166, CORE146, CORE147,
-        CORE148, CORE149, CORE150, CORE151, CORE152, CORE153, CORE154, CORE155, CORE156,
-        CORE157, CORE158, CORE159, CORE160, CORE161, CORE162, CORE163, CORE164, CORE167,
-        CORE168,
-        LAFO001, LAFO002, LAFO003, LAFO004, LAFO005, LAFO007, LAFO008, LAFO009, LAFO010,
-        LAFO011, LAFO012, LAFO013, LAFO014, LAFO015, LAFO016, LAFO017, LAFO018, LAFO019,
-        LAFO020, LAFO021, LAFO022, LAFO023, LAFO024, LAFO025, LAFO026, LAFO027, LAFO028,
-        LAFO029, LAFO030, LAFO031, LAFO032, LAFO033, LAFO034, LAFO035, LAFO036, LAFO037,
-        LAFO047, LAFO057, LAFO058, LAFO060, LAFO062, LAFO063, LAFO065, LAFO066, LAFO067,
-        LAFO068, LAFO069, LAFO070, LAFO071, LAFO072, LAFO073, LAFO074, LAFO075, LAFO076,
-        LAFO077, LAFO078, LAFO079, LAFO080, LAFO088, LAFO089, LAFO093, LAFO094, LAFO083,
-        LAFO084, LAFO095,
-        RDEV002, RDEV003, RDEV004, RDEV005, RDEV006, RDEV010, RDEV013, RDEV014, RDEV015,
-        RDEV016, RDEV017, RDEV018, RDEV019, RDEV020, RDEV021, RDEV022, RDEV023, RDEV024,
-        RDEV025, RDEV033, RDEV009, RDEV011,
-        AHMM002, AHMM003, AHMM004, AHMM005, AHMM006, AHMM007, AHMM008, AHMM009, AHMM017,
-        AHMM018, AHMM019, AHMM021, AHMM024, AHMM025, AHMM026, AHMM027, AHMM028, AHMM029,
-        AHMM030, AHMM031, AHMM032, AHMM033, AHMM034, AHMM035, AHMM036, AHMM039, AHMM020,
-        AHMM022, AHMM040,
-        VINY001, VINY002, VINY003, VINY004, VINY005, VINY006, VINY007, VINY008, VINY009,
-        VINY010, VINY011, VINY012, VINY013, VINY014, VINY015, VINY016, VINY017, VINY018,
-        VINY019, VINY020, VINY021, VINY024, VINY025, VINY026, VINY027, VINY030
-    )
-)
-WHERE FLAG = 1
-
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_CORE003
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_CORE143
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_CORE144
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_LAFO081
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_LAFO082
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_RDEV026
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_RDEV027
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_AHMM037
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_AHMM038
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_VINY022
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_VINY023
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_VINY028
-UNION ALL
-SELECT FARM_ID, VAL_RULE_ID FROM VW_VAL_VINY029;
+WHERE (LAFO083 = 1 AND LAFO095 = 1)
+   OR (LAFO084 = 1 AND LAFO095 = 1)
+   OR (LAFO083 = 1 AND LAFO084 = 1);
+-- ELVÁRÁS: 0 sor. Ha van találat, az logikai ellentmondást jelez
+-- (pl. EXTPOL_FACT1_LAFO NULL-sága körüli feltétel valahol hibás).
 
 
 -- ---------------------------------------------------------------------
--- D) ÖSSZESÍTŐ 2: Szabály-központú hosszú formátum
---    (ugyanaz, csak RULE_ID szerint rendezve, FARM_ID lista mellé)
+-- 8. VIN2026 REFERENCIÁLIS INTEGRITÁS ÖSSZEFOGLALÓ
 -- ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW VW_VAL_BY_RULE_FULL AS
-SELECT VAL_RULE_ID, FARM_ID
-FROM VW_VAL_BY_IDENTIFIER_FULL
-ORDER BY VAL_RULE_ID, FARM_ID;
+SELECT
+    (SELECT COUNT(*) FROM "MO26E"."VIN2026") AS VIN2026_TOTAL_ROWS,
+    (SELECT COUNT(DISTINCT HLD_ID) FROM "MO26E"."VIN2026") AS VIN2026_DISTINCT_HLD,
+    (SELECT COUNT(*) FROM VW_VAL_VINY028) AS VINY028_VIOLATIONS,
+    (SELECT COUNT(*) FROM VW_VAL_VINY029) AS VINY029_VIOLATIONS
+FROM DUAL;
 
 
 -- ---------------------------------------------------------------------
--- E) Ellenőrző lekérdezések (futtasd le a végén)
+-- 9. TELJES ÖSSZESÍTÉS — a végső mátrix méret-ellenőrzése
 -- ---------------------------------------------------------------------
 
--- Hány önálló szabály fut aktívan a mátrixban:
--- SELECT COUNT(DISTINCT VAL_RULE_ID) AS ACTIVE_RULE_COUNT FROM VW_VAL_BY_IDENTIFIER_FULL;
-
--- Hány gazdaságnak van legalább egy hibája:
--- SELECT COUNT(DISTINCT FARM_ID) AS FARMS_WITH_ERRORS FROM VW_VAL_BY_IDENTIFIER_FULL;
-
--- Szabályonkénti hibaszám (Top 20 leggyakoribb hiba):
--- SELECT VAL_RULE_ID, COUNT(*) AS ERROR_COUNT
--- FROM VW_VAL_BY_IDENTIFIER_FULL
--- GROUP BY VAL_RULE_ID
--- ORDER BY ERROR_COUNT DESC
--- FETCH FIRST 20 ROWS ONLY;
+SELECT
+    (SELECT COUNT(*) FROM VW_BASE_ENRICHED) AS TOTAL_FARMS,
+    (SELECT COUNT(DISTINCT VAL_RULE_ID) FROM VW_VAL_BY_IDENTIFIER_FULL) AS DISTINCT_RULES_WITH_HITS,
+    (SELECT COUNT(*) FROM VW_VAL_BY_IDENTIFIER_FULL) AS TOTAL_VIOLATION_ROWS,
+    (SELECT COUNT(DISTINCT FARM_ID) FROM VW_VAL_BY_IDENTIFIER_FULL) AS FARMS_WITH_AT_LEAST_ONE_ERROR
+FROM DUAL;
