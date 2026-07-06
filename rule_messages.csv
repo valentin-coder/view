@@ -1,0 +1,295 @@
+﻿RULE_ID;ERROR_TYPE;ERROR_MESSAGE
+CORE001;Error;Time period needs to be 2026
+CORE001C;Error;Time period needs to be consistent with the filename
+CORE002;Error;REF_AREA needs to be consistent with file name
+CORE003;Error;There are duplicates in the holding ID
+CORE021;Error;GEO_LCT has to be compatible with REF_AREA
+CORE022;Error;GEO_LCT has to be compatible with REGION
+CORE169;Info;for each country each REGION listed in CL_REGIONAL2024_IFS should be present in the dataset
+CORE023;Error;GEO_LCT code (statistical grid code, 3035) is not compatible with the REGION (NUTS2021 level 3) code
+CORE024;Info;Manager was born before 1926 or after 2009
+CORE025;Error;The year of birth of the manager cannot be after the year the manager took over the management of the farm
+CORE026;Error;Sex of manager cannot be not relevant when the holding is not a common land unit (UNIT_CML)
+CORE027;Error;Sex of manager must be either female OR male (except for common land units (UNIT_CML))
+CORE028;Error;Manager working hours cannot be not relevant when the holding is not a common land unit
+CORE029;Error;IF Sole holder is also the manager OR Farm co-managed by holder and spouse or family member OR holding is a group holding then the percentage bands of the working hours of the manager cannot be not relevant and must be > 0
+CORE030;Error;Year when manager took up duties cannot be not relevant when the holding is not a common land unit
+CORE031;Error;Training of the manager cannot be not relevant when the holding is not a common land unit
+CORE032;Error;Vocational training of the manager cannot be not relevant when the holding is not a common land unit
+CORE038;Error;Utilised Agricultural Area (ha) outdoor is not = SUM ha of (Arable land outdoor + Permanent grassland outdoor + Permanent crops outdoor + Kitchen gardens)
+CORE039;Error;Utilised Agricultural Area (ha) is not > = SUM ha of (Farming system: Organic farming certified + Conversion to organic farming )
+CORE040;Error;Total holding area (utilised agricultural area + mushrooms area + unutilised agricultural land + wooded area + other land) has to be larger than 0 even if the holding has only animals
+CORE041;Error;Utilised agricultural area under glass or high accessible cover (ha) is not = Fresh vegetables (including melons) and strawberries under glass or high accessible cover + Flowers and ornamental plants under glass or high accessible cover + Other arable land crops n.e.c. under glass or high accessible cover + Permanent crops under glass or high accessible cover + Other utilised agricultural area under glass or high accessible cover
+CORE042;Error;Utilised Agricultural Area (ha) is not = SUM ha of ( Agricultural area utilised for farming by owner+ Agricultural area utilised for farming by tenant + Agricultural area utilised for shared farming or other modes + Common land)
+CORE043;Error;Arable land outdoor (ha) is not = SUM ha of (cereals outdoor + dry pulses and protein crops outdoor + root crops outdoor + industrial crops outdoor + Plants harvested green outdoor + fresh vegetables (including melons) and strawberries outdoor + Flowers and other ornamental plants outdoor + Seeds and seedlings outdoor + other arable land crops n.e.c. outdoor + Fallow land outdoor)
+CORE044;Error;Organic utilised agricultural area outdoor (ha) is not = SUM ha of (organic arable land outdoor + organic permanent grassland outdoor + organic permanent crops outdoor)
+CORE046;Error;Organic arable land outdoor is not >= organic cereals outdoor + organic dry pulses and protein crops outdoor + organic root crops outdoor + organic industrial crops outdoor + organic plants harvested green outdoor + organic fresh vegetables (including melons) and strawberries outdoor + organic seeds and seedlings outdoor
+CORE047;Error;Cereals outodoor (ha) is not = SUM ha of (Common wheat and spelt outdoor + Durum wheat outdoor + Rye and winter cereal mix (maslin) outdoor + Barley outdoor + Oats and spring cereal mix outdoor + Grain maize and corn-cob-mix outdoor + Triticale outdoor + Sorghum outdoor + Rice outdoor + Other cereals n.e.c. outdoor)
+CORE048;Error;Dry pulses outdoor (ha) is not >= ha of field peas + beans + sweet lupins
+CORE049;Error;Root crops outdoor (ha) is not = SUM ha of (potatoes incl. Seed outdoor + sugar beet excl. seed outdoor + other root crops n.e.c. outdoor)
+CORE050;Error;Industrial plants outdoor (ha) is not >= SUM ha of (oilseeds excl. cotton outdoor + fibre crops outdoor + tobacco outdoor + hops outdoor + aromatic medicinal and culinary plants outdoor + Energy crops n.e.c. outdoor + other industrial crops n.e.c. outdoor)
+CORE051;Error;Oilseeds excluding cotton outdoor (ha) is not = SUM ha of (rape and turnip rape seeds outdoor + sunflower seed outdoor + soya outdoor + linseed (oilflax) outdoor + other oilseed crops n.e.c. outdoor)
+CORE052;Error;Fibre crops outdoor (ha) is not >= SUM ha of (fibre flax outdoor + hemp outdoor + cotton outdoor + other fibre crops n.e.c. outdoor)
+CORE053;Error;Fresh vegetables (including melons) and strawberries outdoor (ha) is not = SUM ha of (fresh vegetables (including melons) and strawberries open field + market garden)
+CORE054;Error;Plants harvested green outdoor (ha) is not = SUM ha of (temporary grasses and grazings outdoor + leguminous plants harvested green outdoor + Green maize outdoor + other cereals harvested green (excl. green maize) outdoor + other plants harvested green n.e.c. outdoor)
+CORE055;Error;Fruits and berries and nuts outdoor (ha) is not >= SUM ha of ( Pome fruits outdoor + Stone fruits outdoor + Sub-tropical and tropical fruits outdoor + Berries excluding strawberries outdoor + Nuts outdoor)
+CORE056;Error;Grapes outdoor (ha) is not >= SUM ha of (grapes for wines outdoor + grapes for table use outdoor + grapes for raisins outdoor)
+CORE057;Error;Grapes for wines outdoor (ha) is not >= SUM ha of (grapes for wines PDO outdoor + grapes for wines PGI outdoor + grapes for other wines n.e.c. outdoor)
+CORE058;Info;Surface of kitchen gardens is expected to be below 1 ha
+CORE059;Error;Permanent grassland and meadow outdoor (ha) is not = SUM ha of (pasture and meadow + rough grazings + not used for production but eligible for subsidies)
+CORE060;Error;Permanent crops outdoor (ha) is not = SUM ha of (Fruits berries and nuts outdoor + Citrus fruits outdoor + Grapes outdoor + Olives outdoor + Other permanent crops including other permanent crops for human consumption+ Nurseries outdoor)
+CORE061;Error;Wooded area (ha) is not >= Wooded area with short rotation coppice (ha)
+CORE062;Error;Organic farming cereals outdoor (ha) is not <= Cereals outdoor (ha)
+CORE063;Error;Organic farming cereals outdoor (ha) is not >= SUM ha of (organic common wheat and spelt outdoor + organic durum wheat outdoor)
+CORE064;Error;Organic farming dried pulses outdoor (ha) is not <= Pulses outdoor (ha)
+CORE065;Error;Organic farming root crops outdoor (ha) is not <= Root crops outdoor (ha)
+CORE066;Error;Organic farming root crops outdoor (ha) is not >= SUM ha of (organic farming potatoes (incl. seed potatoes) outdoor + organic sugar beet (excl. seed) outdoor)
+CORE067;Error;Organic farming potatoes outdoor (ha) is not <= Potatoes outdoor (ha)
+CORE068;Error;Organic farming sugar beet outdoor (ha) is not <= Sugar beet outdoor (ha)
+CORE069;Error;Organic farming industrial crops outdoor (ha) is not <= Industrial crops outdoor (ha)
+CORE070;Error;Organic farming industrial crops outdoor (ha) must be >= than organic oilseeds except cotton outdoor (ha)
+CORE071;Error;Organic farming oilseeds except cotton outdoor (ha) must be <= Oilseeds except cotton outdoor (ha)
+CORE072;Error;Organic farming oilseeds except cotton outdoor (ha) must be >= Organic soya outdoor (ha)
+CORE073;Error;Organic plants harvested green outdoor (ha) is not <= plants harvested green outdoor (ha)
+CORE074;Error;Organic plants harvested green outdoor (ha) is not >= SUM of ha (organic temporary grasses and grazings outdoor + organic leguminous plants harvested green outdoor)
+CORE075;Error;Organic fresh vegetables (including melons) and strawberries outdoor (ha) is not <= fresh vegetables (including melons) and strawberries outodoor (ha)
+CORE076;Error;Organic seeds and seedlings outdoor (ha) is not <= seeds and seedlings outdoor (ha)
+CORE077;Error;Organic permanent grassland outdoor (ha) is not <= permanent grassland outdoor (ha)
+CORE078;Error;Organic permanent grassland outdoor (ha) is not >= SUM of ha (organic pasture and meadow outdoor + organic rough grazings outdoor)
+CORE079;Error;Organic pasture and meadow outdoor (ha) is not <= pasture and meadow outdoor (ha)
+CORE080;Error;Organic rough grazings outdoor (ha) is not <= rough grazings outdoor (ha)
+CORE081;Error;Organic permanent crops outdoor (ha) is not <= permanent crops outdoor (ha)
+CORE082;Error;Organic permanent crops outdoor (ha) is not >= SUM of ha (organic fruits and berries and nuts outdoor + organic citrus outdoor + organic grapes outdoor + organic olives outdoor)
+CORE083;Error;Organic fruits and berries and nuts outdoor (ha) is not <= fruits and berries and nuts outdoor (ha)
+CORE084;Error;Organic citrus fruits outdoor (ha) is not <= citrus fruits outdoor (ha)
+CORE085;Error;Organic grapes for wines outdoor (ha) is not <= grapes for wines outdoor (ha)
+CORE086;Error;Organic olives outdoor (ha) is not <= olives outdoor (ha)
+CORE087;Error;Organic bovine animals (heads) is not >= SUM of heads organic dairy cows + organic non-dairy cows
+CORE088;Error;Organic pigs (heads) is not <= piglets <20kg + breeding sows >=50kg + other pigs
+CORE089;Error;Organic sheep (heads) is not <= sheep (heads)
+CORE090;Error;Organic goats (heads) is not <= goats (heads)
+CORE091;Error;Organic poultry (heads) is not >= SUM of heads (organic laying hens + organic broilers)
+CORE092;Error;Organic laying hens (heads) is not <= laying hens (heads)
+CORE093;Error;Organic broilers (heads) is not <= broilers (heads)
+CORE094;Error;Bovine animals 1 to less than 2 years old is not >= SUM of heads (male bovines 1 to less than 2 years old + heifers 1 to less than 2 years)
+CORE095;Error;Cows (heads) is not = SUM of heads (dairy cows + non-dairy cows)
+CORE096;Error;Breeding female buffaloes (heads) is not <= Cows (heads)
+CORE097;Error;Female bovine 2 years or over including all cows is not = SUM of heads (heifers 2 years or over + cows)
+CORE098;Error;Sheep (heads) must be >= SUM of heads (ewes and ewe lambs put to the ram + other sheep)
+CORE099;Error;Goats (heads) must be >= SUM of heads (goats breeding females + other goats)
+CORE100;Error;Live poultry excluding chicken (species) (heads) is not = SUM of heads (ducks + geese + turkeys + ostriches + other poultry fowls n.e.c.)
+CORE101;Error;Total irrigable area outdoor (ha) is not <= Utilised agricultural area outdoor (ha)
+CORE111;Error;GEO_LCT and NUTS cross checks failed
+CORE112;Error;GEO_LCT has to be compatible with FROM token in filename
+CORE121;Error;For Albania the reference year should be 2022
+CORE122;Error;For Serbia the reference year should be 2021
+CORE123;Error;For Bosnia and Herzegovina the reference year should be 2021
+CORE124;Error;For Kosovo* the reference year should be 2023 *This designation is without prejudice to positions on status and is in line with UNSCR 1244 and the ICJ Opinion on the Kosovo Declaration of Independence
+CORE125;Error;For Turkey the reference year should be 2022
+CORE126;Error;For North Macedonia the reference year should be 2020
+CORE127;Error;For Montenegro the reference year should be YYYY
+CORE129;Error;Fresh vegetables (including melons) and strawberries - outdoor is not >= organic fresh vegetables (including melons) and strawberries - outdoor
+CORE130;Error;Fresh vegetables (including melons) and strawberries - under glass or high accessible cover is not >= organic fresh vegetables (including melons) and strawberries - under glass or high accessible cover
+CORE131;Error;If the extrapolation factor 2 for core is null then the extrapolation factor 3 for core must be also null
+CORE132;Error;If the only extrapolation factor completed is 1 then the fields of PSU and SSU are not relevant
+CORE133;Error;If the only extrapolation factors completed are 1 and 2 then the field of PSU is relevant and the field of SSU is not relevant
+CORE134;Error;If all 3 extrapolation factors are completed then the fields of PSU and SSU are relevant
+CORE135;Error;If the stratum is not filled in then the flag of the stratum indicates NOT APPLICABLE
+CORE136;Error;If the stratum is filled in then the flag of the stratum is filled in with the code indicating its meaning
+CORE137;Error;If the PSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+CORE138;Error;If the PSU is filled in then the corresponding flag is filled in with 1
+CORE139;Error;If the SSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+CORE140;Error;If the SSU is filled in then the corresponding flag is filled in with 1
+CORE141;Error;If the OSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+CORE142;Error;If the OSU is filled in then the corresponding flag is filled in with 1
+CORE143;Error;There should not be 2 records with the same PSU and different strata
+CORE144;Error;There should not be 2 records with the same SSU and different PSU or different strata
+CORE145;Error;Utilised Agricultural Area (ha) outdoor must be > = Organic UAA (excluding kitchen gardens) outdoor (ha) is not
+CORE165;Error;sum of organic farming certified + conversion to organic farming must be >= sum of organic outdoor utilised agricultural area and organic vegetables and strawberries under glass
+CORE166;Error;Total utilised agricultural area excluding kitchen garden must be >= Total outdoor organic area
+CORE146;Error;Arable land outdoor (ha) must be >= Organic Arable outdoor (ha)
+CORE147;Error;Common wheat and spelt outdoor (C1110T) must be >= Organic common wheat and spelt outdoor (C1110T_ORG)
+CORE148;Error;Durum wheat outdoor (C1120T) must be >= Organic durum wheat outdoor (C1120T_ORG)
+CORE149;Error;Soya outdoor (I1130T) must be >= Organic soya outdoor (I1130T_ORG)
+CORE150;Error;Temporary grasses and grazings outdoor (G1000T) must be >= Organic temporary grasses and grazings outdoor (G1000T_ORG)
+CORE151;Error;Leguminous plants harvested green outdoor (G2000T) must be >= Organic leguminous plants harvested green outdoor (G2000T_ORG)
+CORE152;Error;Permanent pastures and meadow outdoor (J1000T) must be >= Organic permanent pastures and meadow outdoor (J1000T_ORG)
+CORE153;Error;Permanent rough grazings outdoor (J2000T) must be >= Organic permanent rough grazings outdoor (J2000T_ORG)
+CORE154;Error;Fresh vegetables (including melons) and strawberries under glass or high accessible cover must be >= Organic fresh vegetables (including melons) and strawberries under glass or high accessible cover
+CORE155;Error;Organic bovine animals (A2000_ORG) must be <= SUM of Bovine animals less than 1 year old (A2010) + Bovine animals 1 to less than 2 years old (A2020) + Female bovine 2 years old or over (including all cows) (A2230_2300) + Male bovine animals 2 years old or over (A2130)
+CORE156;Error;Organic poultry (A5000_ORG) must be <= SUM of Laying hens (A5110O) + Broilers (A5140) + Other poultry excluding chicken (species) (A5000X5100)
+CORE157;Error;Manager cannot be born after 2011 nor before 1906
+CORE158;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE159;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE160;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE161;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE162;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE163;Error;For common land units that are treated as agricultural holding all manager variables have to be completed (Y_BIRTH_MAN SEX_MAN WH_MAN_AWU_PC Y_FARM_MAN TNG_MAN VT_MAN_M12)
+CORE164;Info;The holding is below all thresholds and is not a part of the frame extension
+CORE167;Error;If the holding has non-organic production then the organic utilised agricultural area excluding kitchen gardens and total organic livestock should be zero.
+CORE168;Info;"If the holding has organic utilised agricultural area excl. Kitchen gardens or total organic livestock greater than zero, then the holding is expected to be flagged as ORG=""1"""
+LAFO001;Info;For farms with LAFO data the extrapolation factor 1 of LAFO module has to be larger than or equal to the extrapolation factor 1 in the CORE
+LAFO002;Info;If the stratum ID is completed for the core we expect the same stratum ID in the module for each holding. However exceptions might occur when strata are collapsed in the smaller module sub-sample due to a single responding holding in a stratum
+LAFO003;Error;IF the primary sampling unit is completed for the core we expect the same PSU in the module for each holding
+LAFO004;Error;IF the secondary sampling unit is completed for the core we expect the same in the module for each holding
+LAFO005;Error;IF the order of the selection of the holding or of the primary sampling unit in the first stage is completed in the core the same is expected in the module for each holding
+LAFO007;Error;IF legal form is a legal person or common land then sex of the holder is not applicable
+LAFO008;Error;IF legal form is NOT (a legal person (PER_LEG_NEG or PER_LEG_EG) OR common land (UNIT_CML)) THEN the sex of the holder must be either female OR male
+LAFO009;Error;The sex of the manager is not = the sex of the holder in a sole holder holding or a group holding
+LAFO010;Error;IF legal form is a legal person or common land then the year of birth of the holder must be null
+LAFO011;Error;IF legal form is NOT a legal person (PER_LEG_NEG or PER_LEG_EG) NOR common land (UNIT_CML) THEN the year of birth of the holder must not be null
+LAFO012;Error;IF Sole holder is also the manager OR the holding is a group holding THEN the year of birth of the manager = the year of birth of the holder
+LAFO013;Error;IF Sole holder is also the manager OR Farm co-managed by holder and spouse or family member OR holding is a group holding then the percentage bands of the working hours of the holder cannot be not relevant and are > 0
+LAFO014;Error;IF Holder spouse is the manager of the holding OR Manager is a member of the holder family but not his spouse OR manager is not a member of the holder family then the percentage bands of the working hours of the holder must be >=0
+LAFO015;Error;IF legal form is a legal person (PER_LEG_NEG or PER_LEG_EG) OR common land (UNIT_CML) THEN the percentage bands of the work of the holder must be not applicable
+LAFO016;Error;IF sole holder is also the manager OR holding is a group holding THEN the percent band of work the manager must be = the percent band of work of the holder
+LAFO017;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a male AND the manager work time is in 1-24 percent band THEN the number of male family members with Work time 1-24 has to be > 0
+LAFO018;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a male AND the manager work time is in 25-49 percent band THEN the number of male family members with Work time 25-49 has to be > 0
+LAFO019;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a male AND the manager work time is in 50-74 percent band THEN the number of male family members with Work time 50-74 has to be > 0
+LAFO020;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a male AND the manager work time is in 75-99 percent band THEN the number of male family members with Work time 75-99 has to be > 0
+LAFO021;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a male AND the manager work time is in 100 percent band THEN the number of male family members with Work time 100 has to be > 0
+LAFO022;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a female AND the manager work time is in 1-24 percent band THEN the number of female family members with Work time 1-24 has to be > 0
+LAFO023;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a female AND the manager work time is in 25-49 percent band THEN the number of female family members with Work time 25-49 has to be > 0
+LAFO024;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a female AND the manager work time is in 50-74 percent band THEN the number of female family members with Work time 50-74 has to be > 0
+LAFO025;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a female AND the manager work time is in 75-99 percent band THEN the number of female family members with Work time 75-99 has to be > 0
+LAFO026;Error;IF (the holder spouse is the manager of the holding OR the manager is a member of the holder family but not his spouse) AND the manager is a female AND the manager work time is in 100 percent band THEN the number of female family members with Work time 100 has to be > 0
+LAFO027;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a male AND the manager work time is in 1-24 percent band THEN the number of male non-family members (directly employed by the holding) with Work time 1-24 has to be > 0
+LAFO028;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a male AND the manager work time is in 25-49 percent band THEN the number of male non-family members (directly employed by the holding) with Work time 25-49 has to be > 0
+LAFO029;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a male AND the manager work time is in 50-74 percent band THEN the number of male non-family members (directly employed by the holding) with Work time 50-74 has to be > 0
+LAFO030;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a male AND the manager work time is in 75-99 percent band THEN the number of male non-family members (directly employed by the holding) with Work time 75-99 has to be > 0
+LAFO031;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a male AND the manager work time is in 100 percent band THEN the number of male non-family members (directly employed by the holding) with Work time 100 has to be > 0
+LAFO032;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a female AND the manager work time is in 1-24 percent band THEN the number of female non-family members (directly employed by the holding) with Work time 1-24 has to be > 0
+LAFO033;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a female AND the manager work time is in 25-49 percent band THEN the number of female non-family members (directly employed by the holding) with Work time 25-49 has to be > 0
+LAFO034;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a female AND the manager work time is in 50-74 percent band THEN the number of female non-family members (directly employed by the holding) with Work time 50-74 has to be > 0
+LAFO035;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a female AND the manager work time is in 75-99 percent band THEN the number of female non-family members (directly employed by the holding) with Work time 75-99 has to be > 0
+LAFO036;Error;IF (the manager of the holding is not a family member of the holder OR holding is a legal person (PER_LEG_NEG or PER_LEG_EG)) AND the manager is a female AND the manager work time is in 100 percent band THEN the number of female non-family members (directly employed by the holding) with Work time 100 has to be > 0
+LAFO037;Error;IF the holding is a legal person (PER_LEG_NEG or PER_LEG_EG) OR the holding is a group holding (HLD_GRP) OR the holding is a common land unit (UNIT_CML) THEN the farm work of family members of the holder is 0 (zero)
+LAFO042;Error;IF holding is of type (Holding is a legal person (PER_LEG_NEG or PER_LEG_EG) OR Holding is common land (UNIT_CML)) must have NOGA_HLD_RH = 1
+LAFO043;Error;For OGA of the holder (MLFO023) which are directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO044;Error;For OGA of the holder (MLFO023) which are directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO045;Error;For OGA of the holder (MLFO023) which are directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO047;Error;Legal holdings (PER_LEG_NEG OR PER_LEG_EG), holding-groups (HLD_GRP) or common land units (UNIT_CML) must have MOGA_FAM_RH = 0 AND SOGA_FAM_RH = 0
+LAFO052;Error;Other gainful activities of non-family members (related to the holding) as secondary activity (MLFO027) are collected for sole holder holdings and holding-groups
+LAFO053;Error;Other gainful activities of non-family members (related to the holding) as main activity (MLFO026) are NOT collected for legal holdings ((PER_LEG_NEG or PER_LEG_EG) NOR common land units ((UNIT_CML))
+LAFO054;Error;Other gainful activities of non-family members (related to the holding) as seconday activity (MLFO027) are NOT collected for legal holdings ((PER_LEG_NEG or PER_LEG_EG)) NOR common land units ((UNIT_CML))
+LAFO057;Error;Other gainful activities of family members (not related to the holding) as main activity (MLFO029) are only collected for sole holder holdings where the holder is the manager
+LAFO058;Error;Other gainful activities of family members (not related to the holding) as secondary activity (MLFO030) are only collected for sole holder holdings where the holder is the manager
+LAFO060;Error;Type of other gainful activities is NOT collected (= 0) for legal persons ((PER_LEG_NEG or PER_LEG_EG)) NOR common land units (UNIT_CML)
+LAFO062;Error;Percent band of other gainful activities directly related to the agricultural holding on the final output of the holding is NOT collected (PC_OGA_OUT = _Z) for legal persons ((PER_LEG_NEG or PER_LEG_EG)) NOR common land units (UNIT_CML)
+LAFO063;Error;With the exception of legal persons ((PER_LEG_NEG or PER_LEG_EG)) OR common land units (UNIT_CML) IF there are no other gainful activities in the holding THEN the importance of other gainful activities in the holding must be >=0 AND <=10
+LAFO065;Error;If extrapolation factor 1 for the module LAFO is null extrapolation factors 2 and 3 must be null
+LAFO066;Error;If extrapolation factor 2 for the module LAFO is null then extrapolation factor 3 must be null
+LAFO067;Error;IF the holders spouse or family member is co-manager of the holding THEN the farmwork (in AWU) of family members of the sole holder has to be > 0 (zero)
+LAFO068;Info;For farms with LAFO data the extrapolation factor 2 of LAFO module has to be larger than or equal to the extrapolation factor 2 in the CORE
+LAFO069;Info;For farms with LAFO data the extrapolation factor 3 of LAFO module has to be larger than or equal to the extrapolation factor 3 in the CORE
+LAFO070;Error;If the only extrapolation factor completed is 1 then the fields of PSU and SSU are not relevant
+LAFO071;Error;If the only extrapolation factors completed are 1 and 2 then the field of PSU is relevant and the field of SSU is not relevant
+LAFO072;Error;If all 3 extrapolation factors are completed then the fields of PSU and SSU are relevant
+LAFO073;Error;If the stratum is not filled in then the flag of the stratum indicates NOT APPLICABLE
+LAFO074;Error;If the stratum is filled in then the flag of the stratum is filled in with the code indicating its meaning
+LAFO075;Error;If the PSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+LAFO076;Error;If the PSU is filled in then the corresponding flag is filled in with 1
+LAFO077;Error;If the SSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+LAFO078;Error;If the SSU is filled in then the corresponding flag is filled in with 1
+LAFO079;Error;If the OSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+LAFO080;Error;If the OSU is filled in then the corresponding flag is filled in with 1
+LAFO081;Error;There should not be 2 records with the same PSU and different strata
+LAFO082;Error;There should not be 2 records with the same SSU and different PSU or different strata
+LAFO083;Error;All holdings with LAFO module data should have EXTPOL_FACT1_LAFO completed
+LAFO084;Error;All holdings without LAFO module data shall have all data fields and sampling design fields for the LAFO module null. Flag fields excepted (they need to be filled in)
+LAFO088;Info;Holder was born before 1926 or after 2009
+LAFO089;Error;Holder cannot be born after 2011 nor before 1906
+LAFO090;Error;For OGA of the holder (MLFO028) which are not directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO091;Error;For OGA of the holder (MLFO028) which are not directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO092;Error;For OGA of the holder (MLFO028) which are not directly related to the holding, only one option can be true out of MOGA or SOGA or NOGA
+LAFO093;Error;If the holder has OGA (MLFO023) which are directly related to the holding as main activity (MOGA_HLD_RH = 1) then it is not possible to have OGA (MLFO028) which are not related to the holding also as main activity.
+LAFO094;Error;If the holder has OGA (MLFO028) which are not directly related to the holding as main activity (MOGA_HLD_NRH = 1) then it is not possible to have OGA (MLFO023) which are related to the holding also as main activity.
+LAFO095;Error;All holdings with LAFO module data shall have all fields and sampling design data fields for the LAFO module filled in
+RDEV002;Info;For farms with RDEV data the extrapolation factor 1 of RDEV module has to be larger than or equal to extrapolation factor 1 in the CORE
+RDEV003;Info;IF the stratum ID is completed for the core we expect the same stratum ID in the module for each holding however exceptions might occur when strata are collapsed in the smaller module sub-sample due to a single responding holding in a stratum
+RDEV004;Error;When the core is sample-based having PSUs and a module is a sub-sample of the core the holdings in the sub-sample (with both core and module data) shall have the same code in PSU_RDEV and PSU_CORE
+RDEV005;Error;IF the secondary sampling unit is completed for the core we expect the same in the module for each holding
+RDEV006;Error;IF the order of the selection of the holding or of the primary sampling unit in the first stage is completed in the core the same is expected in the module for each holding
+RDEV008;Error;Measure 18 applies only to Croatia
+RDEV009;Error;All holdings without RDEV module data shall have all data fields and sampling design fields for the RDEV module null. Flag fields excepted (they need to be filled in)
+RDEV010;Error;If extrapolation factor 2 for the module RDEV is null then extrapolation factor 3 must be null
+RDEV011;Error;All holdings with RDEV module data should have at least the first two extrapolation factors for the module (EXTPOL_FACT1_RDEV and EXTPOL_FACT2_RDEV) completed
+RDEV013;Info;For farms with RDEV data the extrapolation factor 2 of RDEV module has to be larger than or equal to extrapolation factor 2 in the CORE
+RDEV014;Info;For farms with RDEV data the extrapolation factor 3 of RDEV module has to be larger than or equal to extrapolation factor 3 in the CORE
+RDEV015;Error;If the only extrapolation factor completed is 1 then the fields of PSU and SSU are not relevant
+RDEV016;Error;If the only extrapolation factors completed are 1 and 2 then the field of PSU is relevant and the field of SSU is not relevant
+RDEV017;Error;If all 3 extrapolation factors are completed then the fields of PSU and SSU are relevant
+RDEV018;Error;If the stratum is not filled in then the flag of the stratum indicates NOT APPLICABLE
+RDEV019;Error;If the stratum is filled in then the flag of the stratum is filled in with the code indicating its meaning
+RDEV020;Error;If the PSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+RDEV021;Error;If the PSU is filled in then the corresponding flag is filled in with 1
+RDEV022;Error;If the SSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+RDEV023;Error;If the SSU is filled in then the corresponding flag is filled in with 1
+RDEV024;Error;If the OSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+RDEV025;Error;If the OSU is filled in then the corresponding flag is filled in with 1
+RDEV026;Error;There should not be 2 records with the same PSU and different strata
+RDEV027;Error;There should not be 2 records with the same SSU and different PSU or different strata
+RDEV028;Info;The farm has received support under rural development for organic farming (RDEV_29_11) but has no organic area (UAATXK0000_ORG)
+RDEV029;Info;The farm has received support under rural development for animal welfare (RDEV_33_14) but has no livestock
+RDEV033;Error;If extrapolation factor 1 for the module RDEV is null extrapolation factors 2 and 3 must be null
+AHMM002;Info;For farms with AHMM data the extrapolation factor 1 of AHMM module has to be larger than or equal to the extrapolation factor 1 in the CORE
+AHMM003;Info;IF the stratum ID is completed for the core we expect the same stratum ID in the module for each holding however exceptions might occur when strata are collapsed in the smaller module sub-sample due to a single responding holding in a stratum
+AHMM004;Error;IF the primary sampling unit is completed for the core we expect the same PSU in the module for each holding
+AHMM005;Error;IF the secondary sampling unit is completed for the core we expect the same in the module for each holding
+AHMM006;Error;IF the order of the selection of the holding or of the primary sampling unit in the first stage is completed in the core the same is expected in the module for each holding
+AHMM007;Error;The area fertilised with mineral fertilisers cannot be bigger than the total utilised agricultural area
+AHMM008;Error;The area fertilised with livestock manure cannot be bigger than the total utilised agricultural area
+AHMM009;Info;The sum of area fertilised with mineral fertilisers + area fertilised with livestock manure can be bigger than the total utilised agricultural area if there are areas that are fertilised both with mineral fertilisers and livestock manure
+AHMM017;Error;The sum of percentage bands of manure application techniques must be smaller or equal to 100
+AHMM018;Error;The sum of storage must be <=100
+AHMM019;Info;IF sum of storage <100 THEN net export NETEXP_FER_O_LM_LQ_SL must be positive (> 0) or net export NETEXP_FER_O_LM_SO must be positive (> 0) or all the animals in the farm are outdoors all of the time (and there is no storage)
+AHMM020;Error;All holdings without AHMM module data shall have all data fields and sampling design fields for the AHMM module null (flag fields excepted as they need to be filled in)
+AHMM021;Error;If extrapolation factor 2 for the module is null then extrapolation factor 3 must be null
+AHMM022;Error;All holdings with AHMM module data should have EXTPOL_FACT1_AHMM completed
+AHMM024;Error;For farms with AHMM data the extrapolation factor 2 of AHMM module has to be larger than or equal to the extrapolation factor 2 in the CORE
+AHMM025;Error;For farms with AHMM data the extrapolation factor 3 of AHMM module has to be larger than or equal to the extrapolation factor 3 in the CORE
+AHMM026;Error;If the only extrapolation factor completed is 1 then the fields of PSU and SSU are not relevant
+AHMM027;Error;If the only extrapolation factors completed are 1 and 2 then the field of PSU is relevant and the field of SSU is not relevant
+AHMM028;Error;If all 3 extrapolation factors are completed then the fields of PSU and SSU are relevant
+AHMM029;Error;If the stratum is not filled in then the flag of the stratum indicates NOT APPLICABLE
+AHMM030;Error;If the stratum is filled in then the flag of the stratum is filled in with the code indicating its meaning
+AHMM031;Error;If the PSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+AHMM032;Error;If the PSU is filled in then the corresponding flag is filled in with 1
+AHMM033;Error;If the SSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+AHMM034;Error;If the SSU is filled in then the corresponding flag is filled in with 1
+AHMM035;Error;If the OSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+AHMM036;Error;If the OSU is filled in then the corresponding flag is filled in with 1
+AHMM037;Error;There should not be 2 records with the same PSU and different strata
+AHMM038;Error;There should not be 2 records with the same SSU and different PSU or different strata
+AHMM039;Error;If extrapolation factor 2 for the module AHMM is null then extrapolation factor 3 must be null
+AHMM040;Error;All holdings with AHMM module data shall have all fields and sampling design data fields for the AHMM module filled in
+VINY001;Info;For farms with VINY data the extrapolation factor 1 of VINY module has to be larger than or equal to extrapolation factor 1 in the CORE
+VINY002;Info;IF the stratum ID is completed for the core we expect the same stratum ID in the module for each holding however exceptions might occur when strata are collapsed in the smaller module sub-sample due to a single responding holding in a stratum
+VINY003;Error;When the core is sample-based having PSUs and a module is a sub-sample of the core the holdings in the sub-sample (with both core and module data) shall have the same code in PSU_VINY and PSU_CORE
+VINY004;Error;IF the secondary sampling unit is completed for the core we expect the same in the module for each holding
+VINY005;Error;IF the order of the selection of the holding or of the primary sampling unit in the first stage is completed in the core the same is expected in the module for each holding
+VINY006;Error;All holdings without VINY module data shall have all data fields and sampling design fields for the VINY module null. Flag fields excepted (they need to be filled in)
+VINY007;Error;If extrapolation factor 2 for the module VINY is null then extrapolation factor 3 must be null
+VINY008;Error;All holdings with VINY module data should have at least the first two extrapolation factors for the module (EXTPOL_FACT1_VINY and EXTPOL_FACT2_VINY) completed
+VINY009;Info;For farms with VINY data the extrapolation factor 2 of VINY module has to be larger than or equal to extrapolation factor 2 in the CORE
+VINY010;Info;For farms with VINY data the extrapolation factor 3 of VINY module has to be larger than or equal to extrapolation factor 3 in the CORE
+VINY011;Error;If the only extrapolation factor completed is 1 then the fields of PSU and SSU are not relevant
+VINY012;Error;If the only extrapolation factors completed are 1 and 2 then the field of PSU is relevant and the field of SSU is not relevant
+VINY013;Error;If all 3 extrapolation factors are completed then the fields of PSU and SSU are relevant
+VINY014;Error;If the stratum is not filled in then the flag of the stratum indicates NOT APPLICABLE
+VINY015;Error;If the stratum is filled in then the flag of the stratum is filled in with the code indicating its meaning
+VINY016;Error;If the PSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+VINY017;Error;If the PSU is filled in then the corresponding flag is filled in with 1
+VINY018;Error;If the SSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+VINY019;Error;If the SSU is filled in then the corresponding flag is filled in with 1
+VINY020;Error;If the OSU is not filled in then the corresponding flag indicates NOT APPLICABLE
+VINY021;Error;If the OSU is filled in then the corresponding flag is filled in with 1
+VINY022;Error;There should not be 2 records with the same PSU and different strata
+VINY023;Error;There should not be 2 records with the same SSU and different PSU or different strata
+VINY024;Error;If extrapolation factor 1 for the module VINY is null extrapolation factors 2 and 3 must be null
+VINY025;Error;The total area of grapes for wine must be higher or equal to the sum of areas of grapes for wine in different age classes
+VINY026;Error;The total area of grapes for must be greater or equal to the total outdoor area of grapes for wine
+VINY027;Info;The total area of grapes for wine must be greater or equal to the total outdoor area of grapes for wine (different reference years)
+VINY028;Error;The holding ID in the varieties table must exist in the microdata table when the holding is relevant for the vineyards module
+VINY029;Error;The total number of lines for the HLD_ID in the varieties table must equal the number of variables indicated in the microdata
+VINY030;Error;TIME_PERIOD_VINY covers 1 year that must end within 12 months from the reference time period
