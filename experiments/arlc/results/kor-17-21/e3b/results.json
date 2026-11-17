@@ -1,0 +1,438 @@
+{
+ "e3b": {
+  "rows": [
+   {
+    "kappa": 10,
+    "n": 4,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 4,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 4,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 4,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 2,
+    "correct": true
+   },
+   {
+    "kappa": 10,
+    "n": 8,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 8,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 8,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 8,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 8,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": true
+   },
+   {
+    "kappa": 10,
+    "n": 16,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 16,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 16,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 16,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 16,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 7,
+    "correct": true
+   },
+   {
+    "kappa": 10,
+    "n": 32,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 32,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 32,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 32,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 10,
+    "n": 32,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 19,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 4,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": false
+   },
+   {
+    "kappa": 30,
+    "n": 4,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 4,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 30,
+    "n": 4,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 2,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 8,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 8,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 8,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 16,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 16,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 16,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 7,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 32,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 32,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 30,
+    "n": 32,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 19,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 4,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": false
+   },
+   {
+    "kappa": 100,
+    "n": 4,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 4,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 100,
+    "n": 4,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 2,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 8,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 8,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 8,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 16,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 16,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 16,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 7,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 32,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 32,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 100,
+    "n": 32,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 19,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 4,
+    "cond": "systematic-A-first",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": false
+   },
+   {
+    "kappa": 300,
+    "n": 4,
+    "cond": "systematic-B-first",
+    "decision": "reject",
+    "rej_A": 4,
+    "rej_B": 0,
+    "correct": false
+   },
+   {
+    "kappa": 300,
+    "n": 4,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 2,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 8,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 8,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 8,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 4,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 16,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 16,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 16,
+    "cond": "noise",
+    "decision": "reject",
+    "rej_A": 0,
+    "rej_B": 7,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 32,
+    "cond": "systematic-A-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 32,
+    "cond": "systematic-B-first",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": true
+   },
+   {
+    "kappa": 300,
+    "n": 32,
+    "cond": "noise",
+    "decision": "split",
+    "rej_A": 0,
+    "rej_B": 0,
+    "correct": false
+   }
+  ]
+ }
+}

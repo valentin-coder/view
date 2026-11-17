@@ -16,11 +16,18 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 14 | [14-utiterv.md](14-utiterv.md) | Útiterv kapukkal. Az ARLC szimbolikus fele LLM nélkül, orákulum-groundinggal most is tesztelhető. |
 | 15 | [15-arlc-spec.md](15-arlc-spec.md) | Az ARLC v3 szimbolikus magjának formális specifikációja; viszony az AGM/KM posztulátumokhoz (nem priorizált, hitelességkorlátos revízió). |
 | 16 | [16-a-fazis-eredmenyek.md](16-a-fazis-eredmenyek.md) | **Első valódi eredmények** (szimbolikus bemeneten): R2 részben, R3 és R4 teljesül; a kontextusdöntés hangolt paramétertől függ; a használatfüggő hiszterézis-jóslat cáfolva; frissítés vs. revízió működik. |
+| 17 | [17-tanult-megbizhatosag.md](17-tanult-megbizhatosag.md) | Tanult forrás-megbízhatóság: a kontextusdöntés méretfüggetlen lesz (κ = 30–100). Gyenge prior mellett megerősítési torzítás. A „kontextus vagy hazug” adatból elvben nem dönthető el. |
+| 18 | [18-korrelalt-zaj.md](18-korrelalt-zaj.md) | A konzisztencia-alapú revízió a korrelált grounding-hibára vak; két ugyanolyan hibamintázatú forrás sem segít. |
+| 19 | [19-ellenseges-injektalas.md](19-ellenseges-injektalas.md) | A „ez nem is tartozik ide” helyi kiút megkerüli a forrásellenőrzést. Tanult megbízhatóság + múlt: valódi elválasztás, de a sybilek ellen alig véd. |
+| 20 | [20-szintezis.md](20-szintezis.md) | Újrakeretezés: az LLM ott kell, ahol a szimbolikus adat információelméletileg kevés (kontextus-, függetlenségi, változékonysági jel). |
+| 21 | [21-kovetelmeny-levezetes.md](21-kovetelmeny-levezetes.md) | Szimulált jellel: egy LLM-kontextusjelnek kb. 0,95-ös pontosság kell; a közepes jel nem segít. |
+| 22 | [22-divergens-2.md](22-divergens-2.md) | Divergens kör a kísérletek után: mini-LM, tipikusság, offline újrakeresés, hőmérséklet, Wikipedia-benchmark. |
+| 23 | [23-mini-lm.md](23-mini-lm.md) | Saját fagyasztott mini-LM: az aktivációk „előnye” egy távoli felügyeletű BoW-val teljesen reprodukálható; a literálkinyerésben a BoW jobb. Új módszertani követelmény a B fázisra. |
 
 ## Következő körök (tervezett)
 
-1. **17. kör:** tanult forrás-megbízhatóság (12. kör V2) a magban; az E3 újrafuttatása vele.
-2. **18. kör:** korrelált zaj (rokon kategóriák összetévesztése) az E4-ben.
-3. **19. kör:** E5 ellenséges injektálás és a V1–V5 védekezések.
-4. **20. kör:** a TFB-benchmark (Thagard 9 fokozata) szimbolikus generátora és első futása.
-5. **21. kör:** új divergens kör: a 16–20. eredményei után mi dőlt meg, és mi következik.
+1. **24. kör:** mini-LM kompozicionális kontextus-jellel (amit a BoW-DS elvben nem érhet el).
+2. **25. kör:** offline kötegelt újrakeresés: mekkora az online keresés optimalitási rése (22. kör 3. ötlet, 10. kör M3).
+3. **26. kör:** a „helyi kiút” MDL-ből levezetett javítása (20. kör, nyitott kérdés).
+4. **27. kör:** tipikusság (fokozatos tagság) prototípus-változata, és hatása a 19. kör támadásaira.
+5. **28. kör:** új divergens és kritikai kör.

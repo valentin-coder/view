@@ -134,7 +134,7 @@ def stream_base(tx: Taxo, ctr, skip_facts=(), noise=0.0, rng=None, facts_per=2,
     return obs, t
 
 
-def e4b(eps_list=(0.05, 0.1, 0.2), seeds=range(5)):
+def e4b(eps_list=(0.05, 0.1, 0.2), seeds=range(3)):
     """Korrelált vs. független zaj, egy vagy két független forrással (18. kör)."""
     rows = []
     variants = [("wms", {}), ("arlc", {}), ("arlc-beta", {"reliability": "beta", "prior_strength": 30})]
@@ -348,6 +348,45 @@ def e3b(ns=(4, 8, 16, 32), kappas=(10, 30, 100, 300), c_ctx=6.0):
     return rows
 
 
+def e3c(accs=(0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.99), trials=40, ns=(4, 8, 16, 32), c_ctx0=6.0,
+        reliabilities=("fixed", "beta"), depth=3, beam=4):
+    """21. kör: szimulált kontextus-jel (pontosság = a). A jel a B forrásra mondja meg, hogy
+    'más kontextus' vagy 'ugyanaz'; a szétválasztás költsége c_ctx0 - log2(LR)."""
+    rows = []
+    for rel in reliabilities:
+        for acc in accs:
+            rng = random.Random(1000 + int(acc * 100))
+            correct = []
+            for tr in range(trials):
+                n = rng.choice(ns)
+                systematic = tr % 2 == 0
+                hint_ctx = (rng.random() < acc) if systematic else (rng.random() >= acc)
+                lr = acc / (1 - acc) if acc < 1 else 1e6
+                bits = math.log2(lr) if acc > 0.5 else 0.0
+                kw = {"reliability": "beta", "prior_strength": 30} if rel == "beta" else {}
+                sch = Schema(n_entities=n, n_categories=1, n_props=1)
+                mem = Memory(sch, mode="arlc", c_ctx=c_ctx0, depth=depth, beam=beam, **kw)
+                mem.ctx_cost = {"B": c_ctx0 - bits if hint_ctx else c_ctx0 + bits}
+                ctr = Counter_()
+                t = 0
+                for i in range(n):
+                    t += 1
+                    mem.observe(Obs(next(ctr), "survey", t, 0.9, lit=Lit("isa", f"m{i}", "dax")))
+                for i in range(n):
+                    t += 1
+                    mem.observe(Obs(next(ctr), "A", t, 0.9, lit=Lit("has", f"m{i}", "poisonous", True)))
+                for i in range(n):
+                    t += 1
+                    v = False if systematic else (rng.random() < 0.5)
+                    mem.observe(Obs(next(ctr), "B", t, 0.9, lit=Lit("has", f"m{i}", "poisonous", v)))
+                split = bool(mem.best.iso)
+                rej_a = sum(1 for i in mem.best.rej if mem.by_id[i].source == "A")
+                correct.append(split if systematic else (not split and rej_a == 0))
+            rows.append({"reliability": rel, "acc": acc, "decision_acc": sum(correct) / len(correct),
+                         "trials": trials})
+    return rows
+
+
 # ======================================================================= E4
 def e4(eps_list=(0.0, 0.02, 0.05, 0.1), seeds=range(5)):
     """Zaj meglepetés nélkül: hamis szerkezeti átrendezések 50 megfigyelésenként."""
@@ -554,6 +593,8 @@ def main(argv=None):
                                                     for k, v in summ.items()}}
         elif name == "e3b":
             res["e3b"] = {"rows": e3b()}
+        elif name == "e3c":
+            res["e3c"] = {"rows": e3c()}
         elif name == "e5":
             res["e5"] = {"rows": e5(kappas=(30, 100), both_from_source=False)
                          + e5(kappas=(30, 100), both_from_source=True)}

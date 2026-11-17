@@ -97,13 +97,17 @@ kudarcmódjának tűnik ez is, de ez itt csak analógia, nem bizonyíték.
 | ε | recency hamis átrend./50 | wms | **ARLC** | pontosság: recency / wms / **ARLC** |
 |---|---|---|---|---|
 | 0 | 0 | 0 | **0** | 1,00 / 1,00 / **1,00** |
-| 0,02 | 0,30 | 0,08 | **0,08** | 0,96 / 0,96 / **0,97** |
-| 0,05 | **1,44** | 0,08 | **0,08** | 0,88 / 0,84 / **0,95** |
-| 0,10 | 1,74 | 0,30 | **0,23** | 0,87 / 0,83 / **0,94** |
+| 0,02 | 0,30 | 0,00 | **0,00** | 0,96 / 0,96 / **0,99** |
+| 0,05 | **1,52** | 0,15 | **0,15** | 0,88 / 0,86 / **0,94** |
+| 0,10 | 1,97 | 0,15 | **0,15** | 0,86 / 0,81 / **0,95** |
+
+*A táblázatot a 21. kör után az aktuális kóddal újragenerált eredményekből frissítettem. Az
+adatfolyam-generátor a 18. körben átíródott, és más véletlenszám-sorozatot használ; a számok kissé
+elmozdultak, a következtetések nem.*
 
 - **Az R3 kritérium (ε = 0,05 mellett legfeljebb 1 hamis átrendezés 50 megfigyelésenként)
-  az ARLC-nél teljesül (0,08), a `recency`-nél nem (1,44).**
-- Az ARLC pontossága zajban 10–11 ponttal jobb a `wms`-nél. Az ok valószínűleg az, hogy a
+  az ARLC-nél teljesül (0,15), a `recency`-nél nem (1,52).**
+- Az ARLC pontossága zajban 8–14 ponttal jobb a `wms`-nél. Az ok valószínűleg az, hogy a
   tömörítési tag megvédi azokat a tagságokat, amelyek sok megfigyelt tényt jósolnak, míg a
   `wms` ezeket ugyanolyan olcsón eldobja, mint bármit.
 - **Megszorítás:** a zaj itt független és egyenletes. Az 1. fázis szerint a valódi grounding-hiba

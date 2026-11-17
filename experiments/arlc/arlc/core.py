@@ -60,7 +60,11 @@ class Hyp:
     ind: tuple = ()           # indukált Obs-ok
 
     def key(self):
-        return (self.rej, self.exc, self.iso, self.cut, tuple(o.rule for o in self.ind))
+        k = self.__dict__.get("_key")
+        if k is None:
+            k = (self.rej, self.exc, self.iso, self.cut, tuple(o.rule for o in self.ind))
+            object.__setattr__(self, "_key", k)
+        return k
 
 
 @dataclass
@@ -87,12 +91,16 @@ class Memory:
         self.use_decay = use_decay
         self.reliability = reliability          # 'fixed' | 'beta' (tanult forrás-megbízhatóság)
         self.kappa = prior_strength
+        self.ctx_cost: dict = {}               # forrásonkénti szétválasztási költség (külső jelből)
+        self.reinstate_all = False             # True: minden jelöltre fut a visszahelyezés (lassú)
+        self.ctx_induction = False             # True: izolált kontextusban is indukál, oda szkópolva
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
         self.beam: list[Hyp] = [Hyp()]
         self.now = 0
         self.uses: Counter = Counter()
         self._ccache: dict = {}
+        self._scache: dict = {}
         self._ind_counter = 0
         self.events: list[dict] = []
 
@@ -215,6 +223,14 @@ class Memory:
 
     # ------------------------------------------------------------ score
     def score(self, H: Hyp) -> float:
+        k = H.key()
+        if k in self._scache:
+            return self._scache[k]
+        v = self._score(H)
+        self._scache[k] = v
+        return v
+
+    def _score(self, H: Hyp) -> float:
         if self.mode == "wms":
             return sum(math.log2(self.by_id[i].q / (1 - self.by_id[i].q)) for i in H.rej)
         bits = 0.0
@@ -236,7 +252,7 @@ class Memory:
                 pred = (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ())
                 bits += -math.log2(1 - self.delta) if pred else 1.0
         bits += len(H.exc) * math.log2(max(2, self.s.n_entities))
-        bits += len(H.iso) * self.c_ctx
+        bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
         for oid, _ in H.cut:
             g = self._group(self.by_id[oid].lit)
             bits += -math.log2(self.s.update_prior.get(g, 1e-3))
@@ -338,7 +354,9 @@ class Memory:
         cur = self.score(H)
         while improved:
             improved = False
-            moves = [replace(H, rej=H.rej - {i}) for i in sorted(H.rej)]
+            cl = self.closure(H, None, self.now)
+            moves = [replace(H, rej=H.rej - {i}) for i in sorted(H.rej)
+                     if not self._surely_conflicts(cl, self.by_id[i], H)]
             moves += [replace(H, exc=H.exc - {x}) for x in sorted(H.exc)]
             moves += [replace(H, iso=H.iso - {s}) for s in sorted(H.iso)]
             for H2 in moves:
@@ -349,9 +367,31 @@ class Memory:
                         break
         return H
 
+    def _surely_conflicts(self, cl: Closure, o: Obs, H: Hyp) -> bool:
+        """Biztosan ütközne-e o visszavétele (csak a globális kontextusban, változó csoport
+        és vágás nélkül ítélünk; minden más esetben a teljes ellenőrzés fut)."""
+        if o.lit is None or o.source in H.iso or H.cut or self._mutable(o):
+            return False
+        l = o.lit
+        if l.pred == "has":
+            return (l.obj, not l.pos) in cl.has.get(l.subj, {})
+        d = cl.isa.get(l.subj, {})
+        if (l.obj, not l.pos) in d:
+            return True
+        if l.pos:
+            return any(pos and frozenset((c, l.obj)) in self.s.disjoint for (c, pos) in d)
+        return False
+
     # ------------------------------------------------------------ induction
     def _induce(self, H: Hyp, subj: str) -> list[Hyp]:
-        cl = self.closure(H, None, self.now)
+        out = []
+        ctxs = [None] + (sorted(H.iso) if self.ctx_induction else [])
+        for ctx in ctxs:
+            out.extend(self._induce_in(H, subj, ctx))
+        return out
+
+    def _induce_in(self, H: Hyp, subj: str, ctx: Optional[str]) -> list[Hyp]:
+        cl = self.closure(H, ctx, self.now)
         cats = [c for (c, pos) in cl.isa.get(subj, {}) if pos]
         out = []
         for c in cats:
@@ -359,7 +399,8 @@ class Memory:
             if len(members) < self.induce_min:
                 continue
             existing = {(o.rule.obj, o.rule.pos) for o in list(self.obs) + list(H.ind)
-                        if o.rule and o.rule.body == c and o.id not in H.rej}
+                        if o.rule and o.rule.body == c and o.id not in H.rej
+                        and (o.source not in H.iso or o.source == ctx)}
             votes: Counter = Counter()
             for e in members:
                 for (p, pos), sup in cl.has.get(e, {}).items():
@@ -369,7 +410,7 @@ class Memory:
                 if n >= self.induce_min and votes.get((p, not pos), 0) == 0 and (p, pos) not in existing \
                         and (p, not pos) not in existing:
                     self._ind_counter += 1
-                    o = Obs(IND_BASE + self._ind_counter, "__induced__", self.now, 1.0,
+                    o = Obs(IND_BASE + self._ind_counter, ctx or "__induced__", self.now, 1.0,
                             rule=Rule(c, "has", p, pos))
                     H2 = replace(H, ind=H.ind + (o,))
                     if self.find_conflict(H2) is None:
@@ -379,6 +420,7 @@ class Memory:
     # ------------------------------------------------------------ public API
     def observe(self, o: Obs) -> dict:
         self._ccache.clear()
+        self._scache.clear()
         if self.use_decay < 1.0:
             for k in list(self.uses):
                 self.uses[k] *= self.use_decay
@@ -392,10 +434,12 @@ class Memory:
             self.beam = [self._recency_repair(self.best)]
             return self._event(prev, self.best, o)
         cands: dict = {}
+        parent: dict = {}
         seen: set = set()
         for H in self.beam:
             for H2 in self._repair(H, self.depth, seen):
                 cands[H2.key()] = H2
+                parent.setdefault(H2.key(), H)
         if not cands:
             for H in self.beam:
                 H2 = replace(H, rej=H.rej | {o.id})
@@ -405,7 +449,15 @@ class Memory:
             for H in sorted(cands.values(), key=self.score)[:2]:
                 for H3 in self._induce(H, o.lit.subj):
                     cands[H3.key()] = H3
-        ranked = sorted({h.key(): h for h in (self._reinstate(h) for h in cands.values())}.values(),
+        def structural(h: Hyp) -> bool:
+            p = parent.get(h.key())
+            if p is None or self.reinstate_all:
+                return True
+            new_rej = h.rej - p.rej
+            return (h.iso != p.iso or h.exc != p.exc or h.cut != p.cut or h.ind != p.ind
+                    or any(self.by_id[i].rule is not None for i in new_rej))
+        ranked = sorted({h.key(): h for h in (self._reinstate(h) if structural(h) else h
+                                              for h in cands.values())}.values(),
                         key=lambda h: (self.score(h), len(h.rej) + len(h.exc) + len(h.iso) + len(h.cut)))
         self.beam = ranked[: self.B] if ranked else self.beam
         return self._event(prev, self.best, o)
@@ -455,4 +507,5 @@ class Memory:
         if record_use and self.eta:
             for tok in sup:
                 self.uses[tok] += 1
+            self._scache.clear()
         return ans
