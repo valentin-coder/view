@@ -1,5 +1,7 @@
 # 30. kör – Kategória-feltalálás anomáliákból (Thagard 6. fokozata)
 
+> **Helyesbítés (47. kör):** az itt mért, 4 anomáliás tökéletes általánosítás keresési műtermék volt. A teljes célfüggvény szerint (az indukált szabályokat elhagyó lépéssel) a feltalált *szabály* 7 anomáliától éri meg; 4–6 anomália mellett az optimum a *kizárás* (a kategória megmarad, a tulajdonságáról a rendszer nem állít semmit). Lásd [47-kolcsonhatasok.md](47-kolcsonhatasok.md).
+
 ## Kérdés
 
 A 27. körben bevezetett osztályszintű kivétel csak *megnevezett* alosztályra működik. Ha az

@@ -40,13 +40,18 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 38 | [38-quine-halo.md](38-quine-halo.md) | Quine hiedelemhálója: a „mag” a nagyobb jóslati kúpú szabály; tétel és 47/48 egyezés (a maradék holtverseny). |
 | 39 | [39-magyarazatok.md](39-magyarazatok.md) | Ellentényes magyarázatok: túldetermináltság; az elégséges magyarázat a rögzített háttértől függ, és helyesen a küszöböt adja. |
 | 40 | [40-tanuk-fuggetlensege.md](40-tanuk-fuggetlensege.md) | Egy eset sok tanújának súlya korlátos (Hume csodái); hallomás és Condorcet. |
-| 41 | [41-elvi-kivetel.md](41-elvi-kivetel.md) | Abnormalitás-prior a log₂|E| helyett: a világméret-műtermék eltűnik; ProbLoggal igazolva; ε mint a terület kivétel-gazdagsága. |
+| 41 | [41-elvi-kivetel.md](41-elvi-kivetel.md) | Abnormalitás-prior a log₂|E| helyett: a világméret-műtermék eltűnik; ProbLoggal igazolva; ε mint a terület kivétel-gazdagsága. (Egy hibáját a 43. kör találta meg és javította.) |
+| 42 | [42-azonnalisag.md](42-azonnalisag.md) | Az átrendezés a lassú út (0,15–24 s vs. 0,1–0,7 ms); mélység 2 + helyi becslésű mohó lépés kb. 25× gyorsít, optimalitásvesztés nélkül a tesztelt méreten. |
+| 43 | [43-arlc-v4.md](43-arlc-v4.md) | ARLC v4 befagyasztva; az abláció szerint együtt rosszabb, mint a komponensek külön. Két hiba (ingyenes kivételek – javítva; elméleti hírnév-farmolás κ_T = 1-nél – nyitott); a v4.1 (megerősítés-alapú múlt) nem javít. |
+| 44 | [44-procedurialis-benchmark.md](44-procedurialis-benchmark.md) | Előre rögzített procedurális benchmark (1. rész: előregisztráció; 2. rész: folyamatban). |
+| 46 | [46-inkrementalis-terv.md](46-inkrementalis-terv.md) | Inkrementális zárás és pontozás terve; rejtett akadály: a konfliktus kiválasztásának sorrendje. |
+| 47 | [47-kolcsonhatasok.md](47-kolcsonhatasok.md) | A két kölcsönhatás oka: homogén forrásmodell × állításonkénti hitelesség; az elhagyó lépés helyesbíti a 30. kört (a feltalált szabály 7 anomáliától éri meg, alatta kizárás). |
+| – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **42. kör:** mennyire „azonnali” az átrendezés? Skálázási mérés és keresési változatok (folyamatban).
-2. **43. kör:** ARLC v4 befagyasztott specifikáció és ablációs tábla.
-3. **44. kör:** procedurálisan generált benchmark, előre rögzített generátorral és elemzési tervvel.
-4. **45. kör:** empirikus Bayes az ε, κ paraméterekre.
-5. **46. kör:** inkrementális pontozás.
-6. **47. kör:** divergens és kritikai kör.
+1. **44. kör, 2. rész:** a procedurális benchmark eredményei (fut; az előregisztrációtól való eltérés: a kód javítva, a konfiguráció változatlan).
+2. **45. kör:** empirikus Bayes az ε, κ paraméterekre (kód kész: `empirical_bayes.py`).
+3. **48. kör:** állításonkénti hitelesség a tanult forrásmodellben (47. kör, 1. kölcsönhatás); az elméleti hírnév-farmolás elvi javítása (43. kör, 2. hiba).
+4. **46. kör (megvalósítás):** inkrementális pontozás kanonikus konfliktussorrenddel, kapcsolóként.
+5. **49. kör:** divergens és kritikai kör.
