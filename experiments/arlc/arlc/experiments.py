@@ -501,6 +501,47 @@ def r25_gap(cases=None, perms=3):
     return rows
 
 
+def r26_sybil(Ns=(6, 12, 20), records=(20, 80), newcomer_qs=(None, 0.8, 0.7, 0.5), kappa=30, M=40):
+    """26. kör: olcsó álnevek. Négy forgatókönyv: becsületes régi forrás, becsületes ÚJ forrás,
+    sybil-támadás (minden állítás új identitásból), egyetlen támadó. Mindkét állítást
+    (tagság + ellenpélda) a forgatókönyv forrása közli. newcomer_q=None: mindenki a deklarált
+    q = 0.9-et kapja (eddigi viselkedés); különben csak a 'vetted' források."""
+    rows = []
+    for nq in newcomer_qs:
+        for N in Ns:
+            for record in records:
+                for scenario in ("honest-established", "honest-newcomer", "sybil", "single-attacker"):
+                    sch = Schema(disjoint={frozenset(("dax", "other"))}, n_entities=N + M + record + 2,
+                                 n_categories=2, n_props=3)
+                    mem = Memory(sch, mode="arlc", reliability="beta", prior_strength=kappa)
+                    if nq is not None:
+                        mem.vetted, mem.newcomer_q = {"book", "survey", "field"}, nq
+                    ctr = Counter_()
+                    t = 0
+                    mem.observe(Obs(next(ctr), "book", 0, 0.95, rule=Rule("dax", "has", "poisonous", True)))
+                    mem.observe(Obs(next(ctr), "survey", 1, 0.9, lit=Lit("isa", "probe", "dax")))
+                    for i in range(N):
+                        t += 1
+                        mem.observe(Obs(next(ctr), "survey", t, 0.9, lit=Lit("isa", f"d{i}", "dax")))
+                        mem.observe(Obs(next(ctr), "field", t, 0.9, lit=Lit("has", f"d{i}", "poisonous", True)))
+                    for i in range(record):
+                        t += 1
+                        mem.observe(Obs(next(ctr), "field", t, 0.9, lit=Lit("has", f"o{i}", "shiny", True)))
+                    flip = None
+                    for j in range(1, M + 1):
+                        t += 1
+                        src = {"honest-established": "field", "honest-newcomer": "newsci",
+                               "sybil": f"sybil{j}", "single-attacker": "attacker"}[scenario]
+                        mem.observe(Obs(next(ctr), src, t, 0.9, lit=Lit("isa", f"x{j}", "dax")))
+                        mem.observe(Obs(next(ctr), src, t, 0.9, lit=Lit("has", f"x{j}", "poisonous", False)))
+                        if 1 in mem.best.rej:
+                            flip = j
+                            break
+                    rows.append({"newcomer_q": nq, "N": N, "record": record, "scenario": scenario,
+                                 "flip_at": flip})
+    return rows
+
+
 # ======================================================================= A5
 def a5(etas=(0.0, 0.05, 0.1, 0.2, 0.4), decays=(1.0, 0.9, 0.7, 0.5), u=5, n0=3, kmax=40, dwell=0):
     """Hiszterézis: használatfüggő beágyazottság mellett a visszaváltás több evidenciát kíván?
@@ -644,6 +685,8 @@ def main(argv=None):
             res["e3c"] = {"rows": e3c()}
         elif name == "r25":
             res["r25"] = {"rows": r25_gap()}
+        elif name == "r26":
+            res["r26"] = {"rows": r26_sybil()}
         elif name == "e5":
             res["e5"] = {"rows": e5(kappas=(30, 100), both_from_source=False)
                          + e5(kappas=(30, 100), both_from_source=True)}

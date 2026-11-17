@@ -29,6 +29,7 @@ class Rule:
     pred: str          # 'isa' | 'has'
     obj: str
     pos: bool = True
+    cond: Optional[tuple] = None   # második feltétel: (tulajdonság, előjel) explicit tényként (30. kör)
 
 
 @dataclass(frozen=True)
@@ -94,6 +95,16 @@ class Memory:
         self.ctx_cost: dict = {}               # forrásonkénti szétválasztási költség (külső jelből)
         self.reinstate_all = False             # True: minden jelöltre fut a visszahelyezés (lassú)
         self.ctx_induction = False             # True: izolált kontextusban is indukál, oda szkópolva
+        self.vetted: Optional[set] = None      # ha meg van adva: csak ezek a források kapják a deklarált q-t
+        self.newcomer_q: float = 0.9           # a többi (nem ellenőrzött) forrás előzetes átlaga
+        self.source_q: dict = {}               # forrásszintű felülírás (pl. hiteltelenítés után)
+        self.source_moves = False              # True: forrásszintű elutasítás és indukált-szabály-elhagyás lépés
+        self.age_discount = 1.0                # < 1: a régi evidencia log-esélye λ^kor szerint gyengül (nem normatív)
+        self.class_exceptions = False          # True: osztályszintű kivétel (a szabály hatókörének szűkítése)
+        self.invention = False                 # True: kategória-feltalálás anomáliákból (30. kör)
+        self.invent_min = 2                    # legalább ennyi anomália kell a feltaláláshoz
+        self.invent_revive = False             # True: egy már elvetett szabályt is visszavehet finomítva
+        self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
         self.beam: list[Hyp] = [Hyp()]
@@ -150,7 +161,17 @@ class Memory:
         if use_rules:
             by_body = defaultdict(list)
             for r in rules:
-                by_body[r.rule.body].append(r)
+                if r.rule.cond is None:
+                    by_body[r.rule.body].append(r)
+            # kétfeltételes (feltalált) tagsági szabályok: explicit tagság + explicit tény
+            for ro in rules:
+                if ro.rule.cond is None:
+                    continue
+                for e in list(isa.keys()):
+                    b = isa[e].get((ro.rule.body, True))
+                    f = has.get(e, {}).get(ro.rule.cond)
+                    if b is not None and f is not None and (ro.id, e) not in H.exc:
+                        isa[e].setdefault((ro.rule.obj, ro.rule.pos), b | f | {("obs", ro.id), ("inst", ro.id, e)})
             for e in list(isa.keys()):
                 queue = [c for (c, pos) in isa[e] if pos]
                 seen = set(queue)
@@ -159,6 +180,8 @@ class Memory:
                     base = isa[e][(c, True)]
                     for ro in by_body.get(c, []):
                         if (ro.id, e) in H.exc:
+                            continue
+                        if H.exc and any((ro.id, "cat:" + c2) in H.exc for (c2, p2) in isa[e] if p2):
                             continue
                         sup = base | {("obs", ro.id), ("inst", ro.id, e)}
                         r = ro.rule
@@ -238,20 +261,25 @@ class Memory:
         if self.reliability == "beta":
             bits += self._beta_bits(H)
         for o in self.obs:
+            q_o = self.source_q.get(o.source, o.q)
+            if self.age_discount < 1.0:
+                q_o = 0.5 + (q_o - 0.5) * self.age_discount ** max(0, self.now - o.time)
             if o.id in H.rej:
                 if self.reliability != "beta":
-                    bits += -math.log2(1 - o.q)
+                    bits += -math.log2(1 - q_o)
                 if o.lit is not None and o.lit.pred == "has":
                     bits += 1.0
                 continue
             if self.reliability != "beta":
-                bits += -math.log2(o.q)
+                bits += -math.log2(q_o)
             if o.lit is not None and o.lit.pred == "has":
                 ctx = o.source if o.source in H.iso else None
                 cl = self.closure(H, ctx, o.time if has_cut else self.now)
                 pred = (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ())
                 bits += -math.log2(1 - self.delta) if pred else 1.0
-        bits += len(H.exc) * math.log2(max(2, self.s.n_entities))
+        n_cls = sum(1 for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:"))
+        bits += (len(H.exc) - n_cls) * math.log2(max(2, self.s.n_entities))
+        bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
         for oid, _ in H.cut:
             g = self._group(self.by_id[oid].lit)
@@ -266,7 +294,9 @@ class Memory:
         Előzetes: Beta(κ·q, κ·(1−q)), q = a forrás deklarált hitelessége (átlag)."""
         stats: dict = {}
         for o in self.obs:
-            n, k, q = stats.get(o.source, (0, 0, o.q))
+            q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
+            q0 = self.source_q.get(o.source, q0)
+            n, k, q = stats.get(o.source, (0, 0, q0))
             stats[o.source] = (n + 1, k + (o.id in H.rej), q)
         bits = 0.0
         for src, (n, k, q) in stats.items():
@@ -305,6 +335,12 @@ class Memory:
                             yield replace(H, cut=tuple(sorted(H.cut + ((o.id, min(later)),))))
             elif tok[0] == "inst" and full and self.mode != "arlc-noexc":
                 yield replace(H, exc=H.exc | {(tok[1], tok[2])})
+                if self.class_exceptions:
+                    body = self._get(tok[1], H).rule.body
+                    cl = self.closure(H, None, self.now)
+                    for (c2, p2) in cl.isa.get(tok[2], {}):
+                        if p2 and c2 != body:
+                            yield replace(H, exc=H.exc | {(tok[1], "cat:" + c2)})
 
     def _repair(self, H: Hyp, depth: int, seen: set) -> list[Hyp]:
         k = H.key()
@@ -359,6 +395,12 @@ class Memory:
                      if not self._surely_conflicts(cl, self.by_id[i], H)]
             moves += [replace(H, exc=H.exc - {x}) for x in sorted(H.exc)]
             moves += [replace(H, iso=H.iso - {s}) for s in sorted(H.iso)]
+            if self.source_moves:
+                moves += [replace(H, ind=tuple(x for x in H.ind if x is not o)) for o in H.ind]
+                for src in sorted({o.source for o in self.obs}):
+                    ids = frozenset(o.id for o in self.obs if o.source == src and o.q < 1.0)
+                    if ids and not ids <= H.rej:
+                        moves.append(replace(H, rej=H.rej | ids))
             for H2 in moves:
                 if self.find_conflict(H2) is None:
                     sc = self.score(H2)
@@ -381,6 +423,51 @@ class Memory:
         if l.pos:
             return any(pos and frozenset((c, l.obj)) in self.s.disjoint for (c, pos) in d)
         return False
+
+    def _invent(self, H: Hyp) -> list[Hyp]:
+        """Kategória-feltalálás: ha egy c → p szabálynak legalább invent_min olyan tagja van,
+        amelyről ¬p-t figyeltünk meg, és ezek mind osztoznak egy F tényben, amelyet a 'normális'
+        tagok közül egyik sem mutat, javasolt: c' := c ∧ F, c' → ¬p, és a c → p szabály
+        osztályszintű kivétele c'-re."""
+        out = []
+        facts: dict = defaultdict(dict)       # e -> {(prop, pos): obs_id}  (explicit, nem elutasított)
+        members: dict = defaultdict(set)      # c -> explicit tagok
+        for o in self.obs:
+            if o.lit is None or (o.id in H.rej and o.lit.pred == "isa"):
+                continue
+            if o.lit.pred == "has":
+                facts[o.lit.subj][(o.lit.obj, o.lit.pos)] = o.id
+            elif o.lit.pos:
+                members[o.lit.obj].add(o.lit.subj)
+        for ro in self.obs:
+            r = ro.rule
+            if r is None or r.pred != "has" or r.cond is not None:
+                continue
+            if ro.id in H.rej and not self.invent_revive:
+                continue
+            anom = [e for e in members.get(r.body, ()) if (r.obj, not r.pos) in facts[e]]
+            normal = [e for e in members.get(r.body, ()) if (r.obj, r.pos) in facts[e]]
+            if len(anom) < self.invent_min:
+                continue
+            shared = set.intersection(*[set(facts[e]) for e in anom]) - {(r.obj, not r.pos)}
+            for F in sorted(shared):
+                if any(F in facts[e] for e in normal):
+                    continue
+                if any(o.rule and o.rule.cond == F and o.rule.body == r.body for o in H.ind):
+                    continue
+                self._inv_counter += 1
+                new_cat = f"{r.body}&{F[0]}{'' if F[1] else '-'}"
+                m_rule = Obs(IND_BASE + 500000 + 2 * self._inv_counter, "__invented__", self.now, 1.0,
+                             rule=Rule(r.body, "isa", new_cat, True, cond=F))
+                h_rule = Obs(IND_BASE + 500001 + 2 * self._inv_counter, "__invented__", self.now, 1.0,
+                             rule=Rule(new_cat, "has", r.obj, not r.pos))
+                exc = {x for x in H.exc if not (x[0] == ro.id and x[1] in anom)}
+                exc.add((ro.id, "cat:" + new_cat))
+                rej = H.rej - {facts[e][(r.obj, not r.pos)] for e in anom} - {ro.id}
+                H2 = replace(H, ind=H.ind + (m_rule, h_rule), exc=frozenset(exc), rej=frozenset(rej))
+                if self.find_conflict(H2) is None:
+                    out.append(H2)
+        return out
 
     # ------------------------------------------------------------ induction
     def _induce(self, H: Hyp, subj: str) -> list[Hyp]:
@@ -456,6 +543,11 @@ class Memory:
             new_rej = h.rej - p.rej
             return (h.iso != p.iso or h.exc != p.exc or h.cut != p.cut or h.ind != p.ind
                     or any(self.by_id[i].rule is not None for i in new_rej))
+        if self.invention:
+            for H in sorted(cands.values(), key=self.score)[:2]:
+                for H4 in self._invent(H):
+                    cands[H4.key()] = H4
+                    parent.setdefault(H4.key(), None)
         ranked = sorted({h.key(): h for h in (self._reinstate(h) if structural(h) else h
                                               for h in cands.values())}.values(),
                         key=lambda h: (self.score(h), len(h.rej) + len(h.exc) + len(h.iso) + len(h.cut)))
@@ -476,6 +568,21 @@ class Memory:
         }
         self.events.append(ev)
         return ev
+
+    def set_source_q(self, source: str, q: float) -> dict:
+        """Meta-információ egy forrásról (pl. 'a visszajelzés hamis volt'): a forrás előzetes
+        megbízhatósága q lesz, majd a nyaláb újraoptimalizálódik."""
+        self.source_q[source] = q
+        return self.reoptimize()
+
+    def reoptimize(self) -> dict:
+        self._ccache.clear()
+        self._scache.clear()
+        prev = self.best
+        cands = {h.key(): self._reinstate(h) for h in self.beam}
+        self.beam = sorted({h.key(): h for h in cands.values()}.values(), key=self.score)[: self.B]
+        return {"changed": self.best.key() != prev.key(), "rej_added": sorted(self.best.rej - prev.rej),
+                "ind_dropped": [(o.rule.body, o.rule.obj, o.rule.pos) for o in prev.ind if o not in self.best.ind]}
 
     def answer(self, e: str, p: str, ctx: Optional[str] = None, t: Optional[int] = None,
                record_use: bool = True) -> Optional[bool]:

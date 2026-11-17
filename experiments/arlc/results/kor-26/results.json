@@ -1,0 +1,678 @@
+{
+ "r26": {
+  "rows": [
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 3
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 2
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 6,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": null,
+    "N": 12,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 9
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 9
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 9
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": null,
+    "N": 20,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 9
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 3
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 2
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 6,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 12,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.8,
+    "N": 20,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 3
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 2
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 6,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 8
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 11
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 11
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 11
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 12
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 12,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 11
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 16
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": 18
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 16
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 16
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": 18
+   },
+   {
+    "newcomer_q": 0.7,
+    "N": 20,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 16
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 3
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 14
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 14
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 2
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 14
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 6,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 14
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 19
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 19
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 4
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 19
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 12,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 19
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-established",
+    "flip_at": 6
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 20,
+    "scenario": "honest-newcomer",
+    "flip_at": 24
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 20,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 20,
+    "scenario": "single-attacker",
+    "flip_at": 24
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-established",
+    "flip_at": 5
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 80,
+    "scenario": "honest-newcomer",
+    "flip_at": 24
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 80,
+    "scenario": "sybil",
+    "flip_at": null
+   },
+   {
+    "newcomer_q": 0.5,
+    "N": 20,
+    "record": 80,
+    "scenario": "single-attacker",
+    "flip_at": 24
+   }
+  ]
+ }
+}

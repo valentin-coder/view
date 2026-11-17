@@ -25,10 +25,18 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 23 | [23-mini-lm.md](23-mini-lm.md) | Saját fagyasztott mini-LM: az aktivációk „előnye” egy távoli felügyeletű BoW-val teljesen reprodukálható; a literálkinyerésben a BoW jobb. Új módszertani követelmény a B fázisra. |
 | 24 | [24-kompozicionalis-jel.md](24-kompozicionalis-jel.md) | XOR-kontextus: az LM lineárisan hozzáférhetővé teszi (0,83–0,95), de egy nemlineáris felszíni modell jobb. A „neuro” fél súlypontja a következmény-motor (KTP) felé tolódik. |
 | 25 | [25-optimalitasi-res.md](25-optimalitasi-res.md) | Az online keresés optimalitási rése 0 bit a tesztelt feladatokon; a sorrendhatás holtversenyes optimumok közti útfüggés, nem keresési hiba. |
+| 26 | [26-olcso-alnevek.md](26-olcso-alnevek.md) | A „helyi kiút” valójában bizalmi összevetés (hibajegyzék a 19–20. körhöz). Zárt alakú tételek: friss identitás, sybil vs. egyetlen, múlt, újonc ≡ támadó; 96/96 jóslat egyezik. Planck-költség, hírnév-farmolás. |
+| 27 | [27-emberi-adatok.md](27-emberi-adatok.md) | Elio–Pelletier, Hogarth–Einhorn, Chinn–Brewer, Ross–Lepper–Hubbard szimbolikusan. Két tervezési hiba: hiányzó specifikussági elv (osztályszintű kivétel bevezetve) és a konfliktus-vezérelt keresés okozta kitartás. |
+| 28 | [28-tfb-benchmark.md](28-tfb-benchmark.md) | TFB 1–9. fokozat. A 7. kifejezhető; a 9. (fafelcserélés) rögzített megbízhatósággal inkoherens hibridet ad, koherens váltás csak csomagszintű (tanult) hitelességgel. Gyors váltás ↔ zajtűrés feszültség. |
+| 29 | [29-divergens-3.md](29-divergens-3.md) | Kritika: a kísérletek egyre inkább a saját költségmodellt tesztelik; külső érvényesség hiányzik. Új irányok: kategória-feltalálás, polarizáció, kétszintű hitelesség, B fázis csomag. |
+| 30 | [30-kategoria-feltalalas.md](30-kategoria-feltalalas.md) | Kategória-feltalálás anomáliákból: általánosít új példányokra (1,00/1,00); korai elméletfeladás útfüggést okoz (visszavétel kell); vegyes jelnél helyesen „kizárás”. |
+| 31 | [31-polarizacio.md](31-polarizacio.md) | Többágenses ARLC: két külön polarizációs mechanizmus – visszhang/kettős számolás (100%, κ-független) és bizalomtanulás (csak kis κ, gyenge evidencia). A származás elsőrendű. |
 
 ## Következő körök (tervezett)
 
-1. **26. kör:** a „helyi kiút” MDL-ből levezetett javítása (20. kör, nyitott kérdés).
-2. **27. kör:** tipikusság (fokozatos tagság) prototípus-változata, és hatása a 19. kör támadásaira.
-3. **28. kör:** a TFB-benchmark (Thagard 9 fokozata) generátora, a nehéz (7–9.) fokozatokkal; az optimalitási rés újramérése ott.
-4. **29. kör:** új divergens és kritikai kör.
+1. **32. kör:** kétszintű hitelesség (elmélet és forrás külön) – feloldja-e a gyors váltás ↔ zajtűrés feszültséget (28. kör)?
+2. **33. kör:** származás-tudatos kommunikáció (támaszhalmazok ágensek között) – megszünteti-e a visszhang-polarizációt hiedelem-továbbadás mellett is (31. kör)?
+3. **34. kör:** divergens és kritikai kör.
+4. **35. kör:** a B fázis egylépéses csomagja (E0, KTP, ISZB, B4 valódi modellen, a 23. kör távoli felügyeletű alapvonalával).
+5. **36. kör:** laza (valószínűségi) kategória-feltalálás és a túltanulás kockázata (30. kör).
+6. **37. kör:** tömörítés és felejtés („alvás” mint konszolidáció) (29. kör D).
