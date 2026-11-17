@@ -108,6 +108,7 @@ class Memory:
         self.summary: Counter = Counter()      # 37. kör: elfelejtett, szabály által jósolt tények: (rule_id, e, q) -> darab
         self.exc_prior: Optional[float] = None # 41. kör: ha meg van adva, a kivétel egy ε valószínűségű abnormalitás
         self.cheap_greedy = False              # 42. kör: a mohó befejezés helyi költségbecsléssel választ
+        self.corroboration = False             # 43. kör (v4.1): csak a megerősített állítás épít múltat
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -315,12 +316,17 @@ class Memory:
         """Forrásonként béta-binomiális kód az elfogadás/elutasítás sorozatra.
         Előzetes: Beta(κ·q, κ·(1−q)), q = a forrás deklarált hitelessége (átlag)."""
         stats: dict = {}
+        corr = self._corroborated(H) if self.corroboration else None
         for o in self.obs:
             q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
             q0 = self.source_q.get(o.source, q0)
             key = (o.source, "elmélet") if (self.theory_kappa is not None and o.rule is not None) else o.source
             n, k, q = stats.get(key, (0, 0, q0))
-            stats[key] = (n + 1, k + (o.id in H.rej), q)
+            rej = o.id in H.rej
+            if corr is not None and not rej and o.id not in corr:
+                stats.setdefault(key, (n, k, q))        # semleges: nem épít múltat
+                continue
+            stats[key] = (n + 1, k + rej, q)
         bits = 0.0
         for src, (n, k, q) in stats.items():
             kap = self.theory_kappa if isinstance(src, tuple) else self.kappa
@@ -330,17 +336,47 @@ class Memory:
         return bits
 
     def _candidate_applications(self) -> list:
-        """(has-szabály, entitás) párok, ahol valamely megfigyelés az entitást a szabály törzsébe sorolja."""
+        """Minden (feltétel nélküli szabály, entitás) pár egy abnormalitás-változó (41. kör, a 43. körben
+        javítva): a kivétel ára így akkor is -log2 ε, ha a tagság levezetett, nem állított. Ahol a
+        szabály nem alkalmazható, a pár csak konstans -log2(1-ε) tagot ad."""
         key = len(self.obs)
         if getattr(self, "_capp_key", None) == key:
             return self._capp
-        members = defaultdict(set)
-        for o in self.obs:
-            if o.lit is not None and o.lit.pred == "isa" and o.lit.pos:
-                members[o.lit.obj].add(o.lit.subj)
-        out = [(r.id, e) for r in self.obs if r.rule is not None and r.rule.pred == "has" and r.rule.cond is None
-               for e in sorted(members.get(r.rule.body, ()))]
+        ents = sorted({o.lit.subj for o in self.obs if o.lit is not None})
+        out = [(r.id, e) for r in self.obs if r.rule is not None and r.rule.cond is None for e in ents]
         self._capp_key, self._capp = key, out
+        return out
+
+    def _corroborated(self, H: Hyp) -> set:
+        """Az elfogadott megfigyelések közül azok, amelyeket más forrás vagy egy szabály megerősít."""
+        cl = self.closure(H, None, self.now)
+        fact_src = defaultdict(set)
+        isa_src = defaultdict(set)
+        for o in self.obs:
+            if o.lit is None or o.id in H.rej:
+                continue
+            key = (o.lit.subj, o.lit.obj, o.lit.pos)
+            (fact_src if o.lit.pred == "has" else isa_src)[key].add(o.source)
+        members = defaultdict(list)
+        for e, d in cl.isa.items():
+            for (c, pos) in d:
+                if pos:
+                    members[c].append(e)
+        out = set()
+        for o in self.obs:
+            if o.id in H.rej:
+                continue
+            if o.lit is not None:
+                key = (o.lit.subj, o.lit.obj, o.lit.pos)
+                if o.lit.pred == "has":
+                    if (fact_src[key] - {o.source}) or (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ()):
+                        out.add(o.id)
+                elif isa_src[key] - {o.source}:
+                    out.add(o.id)
+            elif o.rule is not None and o.rule.pred == "has" and o.rule.cond is None:
+                r = o.rule
+                if any(fact_src.get((e, r.obj, r.pos), set()) - {o.source} for e in members.get(r.body, ())):
+                    out.add(o.id)
         return out
 
     def _lost(self, tok, H: Hyp) -> bool:

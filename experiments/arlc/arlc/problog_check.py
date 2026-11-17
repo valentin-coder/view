@@ -21,10 +21,13 @@ def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
     for o in mem.obs:
         if o.rule is not None:
             r = o.rule
-            if eps is None:
-                L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}).")
+            guard = "" if eps is None else f", \\+ ab({o.id}, X)"
+            if r.pred == "has":
+                L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}){guard}.")
+            elif r.pos:
+                L.append(f"isa(X, {r.obj}) :- rel({o.id}), isa(X, {r.body}){guard}.")
             else:
-                L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}), \\+ ab({o.id}, X).")
+                L.append(f"nisa(X, {r.obj}) :- rel({o.id}), isa(X, {r.body}){guard}.")
         elif o.lit.pred == "isa":
             L.append(f"isa({o.lit.subj}, {o.lit.obj}) :- rel({o.id}).")
         else:
@@ -45,6 +48,8 @@ def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
           "conflict :- rule_has(E, P, V), fact_has(E, P, W), V \\= W.",
           "conflict :- fact_has(E, P, 1), fact_has(E, P, 0).",
           "conflict :- isa(E, dax), isa(E, fep).",
+          "nisa(dummy, dummy) :- fail.",
+          "conflict :- isa(E, C), nisa(E, C).",
           "evidence(conflict, false).", "query(conflict)."]
     return "\n".join(L)
 
@@ -84,3 +89,26 @@ def check(problems, n_assign=20, seed=0, delta=0.05, exc_prior=None):
             rows.append({"problem": pid, "rej": sorted(rej), "arlc_bits": arlc, "problog_bits": pl,
                          "diff": arlc - pl})
     return rows
+
+
+def problems_with_isa(n, seed=0):
+    """Véletlen feladatok alosztály- és negatív (diszjunkt) szabályokkal is."""
+    import itertools
+    from .core import Lit, Obs, Rule, Schema
+    rng = random.Random(seed)
+    out = []
+    for k in range(n):
+        c = itertools.count(1)
+        sch = Schema(disjoint={frozenset(("dax", "fep"))}, n_entities=5, n_categories=4, n_props=2)
+        obs = [Obs(next(c), "b1", 0, rng.choice([0.9, 0.95]), rule=Rule("dax", "isa", "animal", True)),
+               Obs(next(c), "b1", 0, 0.9, rule=Rule("animal", "has", "p", True)),
+               Obs(next(c), "b2", 0, 0.9, rule=Rule("fep", "has", "p", False))]
+        if rng.random() < 0.5:
+            obs.append(Obs(next(c), "b2", 0, 0.8, rule=Rule("animal", "isa", "fep", False)))
+        for i in range(3):
+            obs.append(Obs(next(c), rng.choice(["s1", "s2"]), i + 1, 0.9, lit=Lit("isa", f"e{i}", rng.choice(["dax", "fep"]))))
+        for i in range(3):
+            obs.append(Obs(next(c), "f", i + 5, rng.choice([0.8, 0.9]),
+                           lit=Lit("has", f"e{rng.randrange(3)}", "p", rng.random() < 0.5)))
+        out.append((sch, obs))
+    return out

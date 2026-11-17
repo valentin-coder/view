@@ -79,3 +79,24 @@ Kód: [`problog_check.py`](../../experiments/arlc/arlc/problog_check.py); eredm�
 | A nyalábkeresés megtalálja a célfüggvény optimumát | 25. kör: közelítő, nulla rés | kimerítő ellenőrzéssel igazolva, **a javítás után**; egy hiba megtalálva és javítva |
 | A pontszám egy valószínűségi modell MAP-célja | feltételezés | **igazolva** a mag részre |
 | Az ARLC új következtetési módszer | gyanú (29. kör) | **nem az**: egy valószínűségi logika MAP-következtetése; az újdonság legfeljebb a modellezésben van |
+
+
+## Függelék (a 43. kör után)
+
+**Az ismétlés eredménye a javított keresővel.** A 22–31. kör kísérleteit a teljes visszahelyezéssel
+újrafuttattam:
+
+| kör | összevetett esetek | eltérés |
+|---|---|---|
+| 26 (olcsó álnevek) | 96 | **0** |
+| 28 (TFB) | 245 | **0** |
+| 30 (feltalálás) | 378 | **0** |
+| 31 (polarizáció) | 108 | 1 végső hiedelem, 8 kis pontosság-eltérés |
+
+A szűkített visszahelyezés hibája ezeket a köröket érdemben nem érintette.
+
+**Lefedettségi rés.** A 41. körben a ProbLog-ellenőrzés a kivétel-priort csak tulajdonság-szabályokon
+igazolta, és egy programhibát (ingyenes kivételek az alosztály-szabályokra és a levezetett
+tagságokra) nem fogott meg. A 43. kör ablációja találta meg. Javítva, és az ellenőrzés kiterjesztve
+alosztály- és negatív szabályokra: [`results/kor-36/problog_isa_eps*.json`](../../experiments/arlc/results/kor-36/).
+**Egy validáció csak arra érvényes, ami a tesztfeladatokban előfordul.**

@@ -27,6 +27,8 @@ V4 = {
     "depth": 2,                   # 42. kör (kimerítő ellenőrzéssel igazolva; kb. 25× gyorsabb)
 }
 
+V41_OVERRIDES = {"corroboration": True}   # v4.1: a 43. kör diagnózisa után, feltáró jelleggel
+
 ABLATIONS = {
     "v4": {},
     "− tanult megbízhatóság": {"reliability": "fixed", "theory_kappa": None},
@@ -54,6 +56,7 @@ def configured(overrides: dict):
             for key in ("theory_kappa", "exc_prior", "class_exceptions", "invention", "invent_revive",
                         "source_moves", "ctx_induction", "reinstate_all", "cheap_greedy", "depth"):
                 setattr(self, key, cfg[key])
+            self.corroboration = cfg.get("corroboration", False)
     core.Memory.__init__ = init
     try:
         yield cfg
