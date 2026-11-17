@@ -44,6 +44,27 @@ def auc(scores, labels):
     return float((pos[:, None] > neg[None, :]).mean() + 0.5 * (pos[:, None] == neg[None, :]).mean())
 
 
+def _pairs(X, keep):
+    """Páronkénti szorzatjellemzők a tanítóhalmazon nem triviális oszlopokra (keep)."""
+    Xk = X[:, keep]
+    iu = torch.triu_indices(Xk.shape[1], Xk.shape[1], offset=1)
+    return torch.cat([Xk, Xk[:, iu[0]] * Xk[:, iu[1]]], 1)
+
+
+def _mlp_acc(Xtr, ytr, Xte, yte, hidden=64, steps=600, seed=0):
+    torch.manual_seed(seed)
+    net = torch.nn.Sequential(torch.nn.Linear(Xtr.shape[1], hidden), torch.nn.ReLU(),
+                              torch.nn.Linear(hidden, 2))
+    opt = torch.optim.Adam(net.parameters(), lr=1e-2)
+    y = torch.as_tensor(ytr)
+    for _ in range(steps):
+        opt.zero_grad()
+        torch.nn.functional.cross_entropy(net(Xtr), y).backward()
+        opt.step()
+    with torch.no_grad():
+        return float((net(Xte).argmax(1).numpy() == yte).mean())
+
+
 class _T:
     def __init__(self, text):
         self.text = text
@@ -63,8 +84,15 @@ def bow(sents, vocab):
     return X
 
 
+CTX_DEP_PROPS: set = set()   # a main tölti ki: a kontextusfüggő tulajdonságok
+
+
+def _ctx_filter(s):
+    return not s.explicit_ctx and not (s.kind != "isa" and s.obj in CTX_DEP_PROPS)
+
+
 TASKS = {
-    "context": (lambda s: CONTEXTS.index(s.context), 2, lambda s: not s.explicit_ctx),
+    "context": (lambda s: CONTEXTS.index(s.context), 2, _ctx_filter),
     "polarity": (lambda s: int(s.pos), 2, lambda s: True),
     "kind": (lambda s: ["isa", "has", "gen"].index(s.kind), 3, lambda s: True),
     "object": (lambda s: (CATS + PROPS).index(s.obj), len(CATS) + len(PROPS), lambda s: True),
@@ -77,14 +105,16 @@ def main(argv=None):
     ap.add_argument("--steps", type=int, default=1500)
     ap.add_argument("--n-pretrain", type=int, default=40000)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--ctx-mode", default="source", choices=["source", "xor"])
     a = ap.parse_args(argv)
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     torch.manual_seed(a.seed)
     world = World(a.seed)
-    pre = generate(world, a.n_pretrain, seed=a.seed + 1, templates="all")     # „előtanítás”
-    probe_pool = generate(world, 6000, seed=a.seed + 2, templates="train")
-    held_t = generate(world, 2000, seed=a.seed + 3, templates="heldout")
+    CTX_DEP_PROPS.update(world.ctx_dep.values())
+    pre = generate(world, a.n_pretrain, seed=a.seed + 1, templates="all", ctx_mode=a.ctx_mode)
+    probe_pool = generate(world, 6000, seed=a.seed + 2, templates="train", ctx_mode=a.ctx_mode)
+    held_t = generate(world, 2000, seed=a.seed + 3, templates="heldout", ctx_mode=a.ctx_mode)
     vocab = Vocab([s.text for s in pre + probe_pool + held_t])
     model = TinyGPT(len(vocab))
     print(f"mini-LM: {sum(p.numel() for p in model.parameters()) / 1e6:.2f}M paraméter, szótár {len(vocab)}")
@@ -140,9 +170,23 @@ def main(argv=None):
                 r["auc_bow"] = auc(p_bow[:, 1], yte[keep])
             res[name] = r
         if task == "context":
+            # nemlineáris, LM nélküli kontrollok: páronkénti BoW-jellemzők és MLP a BoW-on
+            f_idx = np.where(keep_tr)[0]
+            for name, ss in sets.items():
+                keep = np.array([_ctx_filter(s) for s in ss])
+                yte = np.array([CONTEXTS.index(s.context) for s in ss])[keep]
+                Xtr_b, Xte_b = B_tr[f_idx], B_te[name][keep]
+                cols = (Xtr_b.sum(0) > 0).nonzero().flatten()
+                p2 = logreg(_pairs(Xtr_b, cols), ytr_all[f_idx], _pairs(Xte_b, cols), 2)
+                res[name]["acc_bow_pairs"] = float((p2.argmax(1) == yte).mean())
+                res[name]["acc_bow_mlp"] = _mlp_acc(Xtr_b, ytr_all[f_idx], Xte_b, yte)
             # távoli felügyeletű BoW: ugyanazon az előtanító korpuszon, a címkét az explicit
             # kontextus-kifejezés adja, amelyet a jellemzőkből kivágunk
             ds = [s for s in pre if s.explicit_ctx]
+            if not ds:          # XOR-módban nincs explicit címke: a távoli felügyelet nem értelmezett
+                results[task] = res
+                print(task, json.dumps(res), flush=True)
+                continue
             ds_x = bow([_strip_ctx(s) for s in ds], vocab)
             ds_y = np.array([CONTEXTS.index(s.context) for s in ds])
             for name, ss in sets.items():

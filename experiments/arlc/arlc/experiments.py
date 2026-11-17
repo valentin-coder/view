@@ -454,6 +454,53 @@ def e5(N=6, record=20, M=25, kappas=(30,), both_from_source=True):
     return rows
 
 
+def r25_gap(cases=None, perms=3):
+    """25. kör: az online keresés optimalitási rése. Ugyanazokat a megfigyeléseket egy
+    nagyobb kereséssel (nyaláb 32, mélység 4) és véletlen sorrendekben is feldolgozzuk,
+    és összevetjük a végső legjobb pontszámot."""
+    rows = []
+
+    def final_score(schema, obs, mode="arlc", beam=8, depth=3, order=None, **kw):
+        mem = Memory(schema, mode=mode, beam=beam, depth=depth, **kw)
+        seq = obs if order is None else [obs[i] for i in order]
+        for o in seq:
+            mem.observe(o)
+        return mem.score(mem.best), mem
+
+    cases = cases or []
+    # E4-szerű zajos folyamok
+    for seed in range(3):
+        tx = Taxo(seed)
+        for eps in (0.05, 0.1):
+            ctr = Counter_()
+            obs, _ = stream_base(tx, ctr, noise=eps, rng=random.Random(seed * 7 + int(eps * 100)))
+            cases.append((f"E4 seed{seed} eps{eps}", tx.schema(), obs, {}))
+    # E2a-szerű anomália-folyam
+    for N in (4, 12):
+        sch, obs, ctr, t = _dax_world(N, 10)
+        for j in range(1, 8):
+            t += 1
+            obs.append(Obs(next(ctr), f"a{j}", t, 0.9, lit=Lit("isa", f"x{j}", "dax")))
+            t += 1
+            obs.append(Obs(next(ctr), f"a{j}", t, 0.9, lit=Lit("has", f"x{j}", "poisonous", False)))
+        cases.append((f"E2a N{N} m7", sch, obs, {}))
+    for name, sch, obs, kw in cases:
+        online, _ = final_score(sch, obs, **kw)
+        big, _ = final_score(sch, obs, beam=32, depth=4, **kw)
+        perm_scores = []
+        for p in range(perms):
+            order = list(range(len(obs)))
+            random.Random(p).shuffle(order)
+            # a szabályok maradjanak elöl (a sorrend csak a tényeken belül változik)
+            rules = [i for i in order if obs[i].rule is not None]
+            facts = [i for i in order if obs[i].rule is None]
+            sc, _ = final_score(sch, obs, order=sorted(rules) + facts, **kw)
+            perm_scores.append(sc)
+        rows.append({"case": name, "n_obs": len(obs), "online": online, "big_search": big,
+                     "gap_bits": online - big, "perm_min": min(perm_scores), "perm_max": max(perm_scores)})
+    return rows
+
+
 # ======================================================================= A5
 def a5(etas=(0.0, 0.05, 0.1, 0.2, 0.4), decays=(1.0, 0.9, 0.7, 0.5), u=5, n0=3, kmax=40, dwell=0):
     """Hiszterézis: használatfüggő beágyazottság mellett a visszaváltás több evidenciát kíván?
@@ -595,6 +642,8 @@ def main(argv=None):
             res["e3b"] = {"rows": e3b()}
         elif name == "e3c":
             res["e3c"] = {"rows": e3c()}
+        elif name == "r25":
+            res["r25"] = {"rows": r25_gap()}
         elif name == "e5":
             res["e5"] = {"rows": e5(kappas=(30, 100), both_from_source=False)
                          + e5(kappas=(30, 100), both_from_source=True)}

@@ -23,11 +23,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 21 | [21-kovetelmeny-levezetes.md](21-kovetelmeny-levezetes.md) | Szimulált jellel: egy LLM-kontextusjelnek kb. 0,95-ös pontosság kell; a közepes jel nem segít. |
 | 22 | [22-divergens-2.md](22-divergens-2.md) | Divergens kör a kísérletek után: mini-LM, tipikusság, offline újrakeresés, hőmérséklet, Wikipedia-benchmark. |
 | 23 | [23-mini-lm.md](23-mini-lm.md) | Saját fagyasztott mini-LM: az aktivációk „előnye” egy távoli felügyeletű BoW-val teljesen reprodukálható; a literálkinyerésben a BoW jobb. Új módszertani követelmény a B fázisra. |
+| 24 | [24-kompozicionalis-jel.md](24-kompozicionalis-jel.md) | XOR-kontextus: az LM lineárisan hozzáférhetővé teszi (0,83–0,95), de egy nemlineáris felszíni modell jobb. A „neuro” fél súlypontja a következmény-motor (KTP) felé tolódik. |
+| 25 | [25-optimalitasi-res.md](25-optimalitasi-res.md) | Az online keresés optimalitási rése 0 bit a tesztelt feladatokon; a sorrendhatás holtversenyes optimumok közti útfüggés, nem keresési hiba. |
 
 ## Következő körök (tervezett)
 
-1. **24. kör:** mini-LM kompozicionális kontextus-jellel (amit a BoW-DS elvben nem érhet el).
-2. **25. kör:** offline kötegelt újrakeresés: mekkora az online keresés optimalitási rése (22. kör 3. ötlet, 10. kör M3).
-3. **26. kör:** a „helyi kiút” MDL-ből levezetett javítása (20. kör, nyitott kérdés).
-4. **27. kör:** tipikusság (fokozatos tagság) prototípus-változata, és hatása a 19. kör támadásaira.
-5. **28. kör:** új divergens és kritikai kör.
+1. **26. kör:** a „helyi kiút” MDL-ből levezetett javítása (20. kör, nyitott kérdés).
+2. **27. kör:** tipikusság (fokozatos tagság) prototípus-változata, és hatása a 19. kör támadásaira.
+3. **28. kör:** a TFB-benchmark (Thagard 9 fokozata) generátora, a nehéz (7–9.) fokozatokkal; az optimalitási rés újramérése ott.
+4. **29. kör:** új divergens és kritikai kör.

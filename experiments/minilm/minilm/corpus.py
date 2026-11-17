@@ -94,8 +94,20 @@ class World:
         return dict(self.rules[ctx][self.entities[ent]])
 
 
+PLACES = ["marsh", "ridge"]
+SEASONS = ["spring", "autumn"]
+
+
+def xor_ctx(place: str, season: str) -> str:
+    """Kompozicionális kontextus: csak a hely és az évszak együtt dönti el (XOR)."""
+    return CONTEXTS[(PLACES.index(place) + SEASONS.index(season)) % 2]
+
+
 def generate(world: World, n: int, seed: int = 1, p_explicit: float = 0.3,
-             templates: str = "train") -> list[Sent]:
+             templates: str = "train", ctx_mode: str = "source") -> list[Sent]:
+    """ctx_mode='source': a kontextust a forrás és néha egy explicit szó árulja el.
+    ctx_mode='xor': a forrás véletlen, explicit szó nincs; minden mondat elején
+    'at the {hely} in {évszak} ,' áll, és a kontextus = XOR(hely, évszak)."""
     """templates: 'train' (az első N_TRAIN_TEMPLATES) | 'heldout' (a többi) | 'all'."""
     rng = random.Random(seed)
     lo, hi = (0, N_TRAIN_TEMPLATES) if templates == "train" else \
@@ -103,8 +115,13 @@ def generate(world: World, n: int, seed: int = 1, p_explicit: float = 0.3,
     out = []
     ents = list(world.entities)
     for _ in range(n):
-        ctx = rng.choice(CONTEXTS)
-        src = rng.choice(SOURCES[ctx])
+        if ctx_mode == "xor":
+            place, season = rng.choice(PLACES), rng.choice(SEASONS)
+            ctx = xor_ctx(place, season)
+            src = rng.choice(SOURCES["north"] + SOURCES["south"])
+        else:
+            ctx = rng.choice(CONTEXTS)
+            src = rng.choice(SOURCES[ctx])
         ti = rng.randrange(lo, hi)
         kind = rng.choices(["isa", "has", "gen"], weights=[2, 5, 2])[0]
         if kind == "isa":
@@ -122,9 +139,11 @@ def generate(world: World, n: int, seed: int = 1, p_explicit: float = 0.3,
             p = rng.choice(sorted(world.rules[ctx][c]))
             subj, obj, pos = c, p, world.rules[ctx][c][p]
             body = GEN_T[ti][0 if pos else 1]
-        explicit = rng.random() < p_explicit
+        explicit = rng.random() < p_explicit and ctx_mode != "xor"
         text = body.format(S=src, X=subj, Y=obj)
         if explicit:
             text = rng.choice(CTX_PHRASE).format(C=ctx) + text
+        if ctx_mode == "xor":
+            text = f"at the {place} in {season} , " + text
         out.append(Sent(text, kind, subj, obj, pos, src, ctx, ti, explicit))
     return out

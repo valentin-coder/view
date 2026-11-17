@@ -1,5 +1,5 @@
 {
- "train_seconds": 40.630709409713745,
+ "train_seconds": 41.245601654052734,
  "loss_hist": [
   [
    0,
@@ -32,23 +32,27 @@
  ],
  "n_layers": 4,
  "context": {
-  "best_layer": 3,
+  "best_layer": 2,
   "val_acc": 1.0,
   "kitartott_sablon": {
-   "n": 1069,
-   "acc_act": 0.9204864359214219,
+   "n": 415,
+   "acc_act": 0.8289156626506025,
    "acc_bow": 1.0,
-   "auc_act": 0.9923273478245651,
+   "auc_act": 0.8784668989547039,
    "auc_bow": 1.0,
+   "acc_bow_pairs": 1.0,
+   "acc_bow_mlp": 1.0,
    "acc_bow_ds": 1.0,
    "auc_bow_ds": 1.0
   },
   "kitartott_forras": {
-   "n": 1082,
-   "acc_act": 0.9953789279112755,
-   "acc_bow": 0.48706099815157117,
-   "auc_act": 0.9998803897244521,
-   "auc_bow": 0.47214447554311606,
+   "n": 443,
+   "acc_act": 1.0,
+   "acc_bow": 0.48081264108352145,
+   "auc_act": 1.0,
+   "auc_bow": 0.4560657943010884,
+   "acc_bow_pairs": 0.49209932279909707,
+   "acc_bow_mlp": 0.34085778781038373,
    "acc_bow_ds": 1.0,
    "auc_bow_ds": 1.0
   }
