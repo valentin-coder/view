@@ -1,0 +1,199 @@
+{
+ "anomaly_and_support_candidates": [
+  {
+   "N": 4,
+   "m": 3,
+   "rule_dropped": true,
+   "n_candidates": 15,
+   "necessary": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  },
+  {
+   "N": 4,
+   "m": 6,
+   "rule_dropped": true,
+   "n_candidates": 21,
+   "necessary": [],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  },
+  {
+   "N": 8,
+   "m": 4,
+   "rule_dropped": true,
+   "n_candidates": 25,
+   "necessary": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  },
+  {
+   "N": 8,
+   "m": 7,
+   "rule_dropped": true,
+   "n_candidates": 31,
+   "necessary": [],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  },
+  {
+   "N": 12,
+   "m": 5,
+   "rule_dropped": true,
+   "n_candidates": 35,
+   "necessary": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  },
+  {
+   "N": 12,
+   "m": 8,
+   "rule_dropped": true,
+   "n_candidates": 41,
+   "necessary": [],
+   "sufficient": [
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has",
+    "anom\u00e1lia:isa",
+    "anom\u00e1lia:has"
+   ]
+  }
+ ],
+ "anomaly_only_candidates": [
+  {
+   "N": 4,
+   "m": 3,
+   "rule_dropped": true,
+   "necessary": 6,
+   "sufficient": 6,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 3,
+    "anom\u00e1lia:has": 3
+   }
+  },
+  {
+   "N": 4,
+   "m": 6,
+   "rule_dropped": true,
+   "necessary": 0,
+   "sufficient": 6,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 3,
+    "anom\u00e1lia:has": 3
+   }
+  },
+  {
+   "N": 8,
+   "m": 4,
+   "rule_dropped": true,
+   "necessary": 8,
+   "sufficient": 8,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 4,
+    "anom\u00e1lia:has": 4
+   }
+  },
+  {
+   "N": 8,
+   "m": 7,
+   "rule_dropped": true,
+   "necessary": 0,
+   "sufficient": 8,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 4,
+    "anom\u00e1lia:has": 4
+   }
+  },
+  {
+   "N": 12,
+   "m": 5,
+   "rule_dropped": true,
+   "necessary": 10,
+   "sufficient": 10,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 5,
+    "anom\u00e1lia:has": 5
+   }
+  },
+  {
+   "N": 12,
+   "m": 8,
+   "rule_dropped": true,
+   "necessary": 0,
+   "sufficient": 10,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 5,
+    "anom\u00e1lia:has": 5
+   }
+  },
+  {
+   "N": 16,
+   "m": 7,
+   "rule_dropped": true,
+   "necessary": 14,
+   "sufficient": 14,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 7,
+    "anom\u00e1lia:has": 7
+   }
+  },
+  {
+   "N": 16,
+   "m": 10,
+   "rule_dropped": true,
+   "necessary": 0,
+   "sufficient": 14,
+   "sufficient_kinds": {
+    "anom\u00e1lia:isa": 7,
+    "anom\u00e1lia:has": 7
+   }
+  }
+ ]
+}
