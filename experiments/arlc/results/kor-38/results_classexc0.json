@@ -1,0 +1,338 @@
+[
+ {
+  "n_S": 0,
+  "n_G": 0,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "p\u00e9ld\u00e1ny-kiv\u00e9tel"
+ },
+ {
+  "n_S": 0,
+  "n_G": 0,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 0,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 2,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "p\u00e9ld\u00e1ny-kiv\u00e9tel"
+ },
+ {
+  "n_S": 0,
+  "n_G": 2,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 2,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 6,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 0,
+  "n_G": 6,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 6,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 12,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 0,
+  "n_G": 12,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 0,
+  "n_G": 12,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 0,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "p\u00e9ld\u00e1ny-kiv\u00e9tel"
+ },
+ {
+  "n_S": 2,
+  "n_G": 0,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 0,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 2,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "p\u00e9ld\u00e1ny-kiv\u00e9tel"
+ },
+ {
+  "n_S": 2,
+  "n_G": 2,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 2,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 6,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 2,
+  "n_G": 6,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 6,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 12,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 2,
+  "n_G": 12,
+  "m": 3,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 2,
+  "n_G": 12,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 6,
+  "n_G": 0,
+  "m": 1,
+  "choice": "p\u00e9ld\u00e1ny-kiv\u00e9tel",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 0,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 0,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 6,
+  "n_G": 2,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 2,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 2,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 6,
+  "n_G": 6,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 6,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 6,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 6,
+  "n_G": 12,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 12,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 6,
+  "n_G": 12,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 12,
+  "n_G": 0,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 0,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 0,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 12,
+  "n_G": 2,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 2,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 2,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 12,
+  "n_G": 6,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 6,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 6,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ },
+ {
+  "n_S": 12,
+  "n_G": 12,
+  "m": 1,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 12,
+  "m": 3,
+  "choice": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve",
+  "predicted": "anom\u00e1lia elutas\u00edtva / \u00fajra\u00e9rtelmezve"
+ },
+ {
+  "n_S": 12,
+  "n_G": 12,
+  "m": 6,
+  "choice": "S (dax \u2282 \u00e1llat) feladva",
+  "predicted": "S (dax \u2282 \u00e1llat) feladva"
+ }
+]

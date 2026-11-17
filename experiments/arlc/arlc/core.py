@@ -105,6 +105,7 @@ class Memory:
         self.invent_min = 2                    # legalább ennyi anomália kell a feltaláláshoz
         self.invent_revive = False             # True: egy már elvetett szabályt is visszavehet finomítva
         self.theory_kappa: Optional[float] = None  # ha meg van adva: a forrás szabályai külön, ilyen κ-jú paramétert kapnak (32. kör)
+        self.summary: Counter = Counter()      # 37. kör: elfelejtett, szabály által jósolt tények: (rule_id, e, q) -> darab
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -282,6 +283,10 @@ class Memory:
         bits += (len(H.exc) - n_cls) * math.log2(max(2, self.s.n_entities))
         bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
+        if self.summary:
+            for (rid, e, q), cnt in self.summary.items():
+                active = rid not in H.rej and (rid, e) not in H.exc
+                bits += cnt * (-math.log2(q) + (-math.log2(1 - self.delta) if active else 1.0))
         for oid, _ in H.cut:
             g = self._group(self.by_id[oid].lit)
             bits += -math.log2(self.s.update_prior.get(g, 1e-3))
@@ -571,6 +576,35 @@ class Memory:
         }
         self.events.append(ev)
         return ev
+
+    def consolidate(self, keep_summary: bool = True) -> int:
+        """37. kör: a legjobb hipotézisben elfogadott, egyetlen szabály által jósolt 'has' tények
+        törlése a memóriából. keep_summary=True: a pontszám megőrzi a hozzájárulásukat egy
+        (szabály, entitás, hitelesség) számlálóban; False: naiv törlés."""
+        H = self.best
+        cl = self.closure(H, None, self.now)
+        drop = []
+        for o in self.obs:
+            if o.lit is None or o.lit.pred != "has" or o.id in H.rej or o.source in H.iso:
+                continue
+            k = (o.lit.obj, o.lit.pos)
+            if k not in cl.ruled.get(o.lit.subj, ()):
+                continue
+            cats = {c for (c, pos) in cl.isa.get(o.lit.subj, {}) if pos}
+            rids = [r.id for r in self.obs if r.rule is not None and r.rule.cond is None and r.rule.pred == "has"
+                    and r.id not in H.rej and r.rule.body in cats and (r.rule.obj, r.rule.pos) == k
+                    and (r.id, o.lit.subj) not in H.exc]
+            if len(rids) != 1:
+                continue
+            drop.append((o, rids[0]))
+        ids = {o.id for o, _ in drop}
+        self.obs = [o for o in self.obs if o.id not in ids]
+        if keep_summary:
+            for o, rid in drop:
+                self.summary[(rid, o.lit.subj, o.q)] += 1
+        self._ccache.clear()
+        self._scache.clear()
+        return len(drop)
 
     def set_source_q(self, source: str, q: float) -> dict:
         """Meta-információ egy forrásról (pl. 'a visszajelzés hamis volt'): a forrás előzetes
