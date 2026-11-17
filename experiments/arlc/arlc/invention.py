@@ -9,13 +9,13 @@ from .core import Lit, Memory, Obs, Rule, Schema
 OTHER_ATTRS = ["heavy", "shiny", "slow", "warm", "noisy"]
 
 
-def run_one(N, m, invention, seed, q_anom=0.9, distractor_rate=0.4, mixed=0, revive=False):
+def run_one(N, m, invention, seed, q_anom=0.9, distractor_rate=0.4, mixed=0, revive=False, class_exc=True):
     """N normál dax (mérges, nem csíkos), m anomális dax (csíkos, nem mérges), véletlen egyéb
     attribútumokkal. mixed: ennyi normál dax is csíkos (a jel nem tiszta)."""
     rng = random.Random(seed)
     sch = Schema(n_entities=N + m + 10, n_categories=4, n_props=8)
     mem = Memory(sch, mode="arlc", reliability="beta", prior_strength=30, depth=3, beam=6)
-    mem.class_exceptions = True
+    mem.class_exceptions = class_exc
     mem.invention = invention
     mem.invent_revive = revive
     c = itertools.count(1)

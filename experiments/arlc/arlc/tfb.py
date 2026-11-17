@@ -36,11 +36,13 @@ class Ctr:
 
 def make(method: str, schema: Schema) -> Memory:
     kw = dict(METHODS[method])
-    sm = kw.pop("source_moves", False)
-    tk = kw.pop("theory_kappa", None)
+    sm = kw.pop("source_moves", None)
+    tk = kw.pop("theory_kappa", "nincs megadva")
     mem = Memory(schema, **kw)
-    mem.source_moves = sm
-    mem.theory_kappa = tk
+    if sm is not None:
+        mem.source_moves = sm
+    if tk != "nincs megadva":
+        mem.theory_kappa = tk
     return mem
 
 
