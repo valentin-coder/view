@@ -14,14 +14,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 12 | [12-robusztussag.md](12-robusztussag.md) | Elválasztó jel nélkül a plaszticitás és a robusztusság ugyanaz a szám. Védekezések V1–V6, robusztussági margó, E5. |
 | 13 | [13-meta-axiomak.md](13-meta-axiomak.md) | Az ARLC v2 saját axiómái. Legfontosabb új hiány: frissítés vs. revízió (Katsuno–Mendelzon). Aktív kérdezés. |
 | 14 | [14-utiterv.md](14-utiterv.md) | Útiterv kapukkal. Az ARLC szimbolikus fele LLM nélkül, orákulum-groundinggal most is tesztelhető. |
+| 15 | [15-arlc-spec.md](15-arlc-spec.md) | Az ARLC v3 szimbolikus magjának formális specifikációja; viszony az AGM/KM posztulátumokhoz (nem priorizált, hitelességkorlátos revízió). |
+| 16 | [16-a-fazis-eredmenyek.md](16-a-fazis-eredmenyek.md) | **Első valódi eredmények** (szimbolikus bemeneten): R2 részben, R3 és R4 teljesül; a kontextusdöntés hangolt paramétertől függ; a használatfüggő hiszterézis-jóslat cáfolva; frissítés vs. revízió működik. |
 
 ## Következő körök (tervezett)
 
-1. **15. kör:** az ARLC v3 szimbolikus magjának formális specifikációja (adatszerkezetek,
-   operátorok (a)–(e), pontszám, nyaláb), és mely AGM/KM-posztulátumokat teljesíti vagy sérti.
-2. **16. kör:** az A2 kísérlet megvalósítása orákulum-groundinggal (ez modell nélkül fut),
-   és az első valódi eredmények.
-3. **17. kör:** a TFB-benchmark szimbolikus változatának adatgenerátora.
-4. **18. kör:** az A5 hiszterézis- és az A6 robusztussági kísérlet.
-5. **19. kör:** a frissítés vs. revízió (U-ötlet) feladatkészlete.
-6. **20. kör:** új divergens kör: a 15–19. eredményei után mi dőlt meg, és mi következik.
+1. **17. kör:** tanult forrás-megbízhatóság (12. kör V2) a magban; az E3 újrafuttatása vele.
+2. **18. kör:** korrelált zaj (rokon kategóriák összetévesztése) az E4-ben.
+3. **19. kör:** E5 ellenséges injektálás és a V1–V5 védekezések.
+4. **20. kör:** a TFB-benchmark (Thagard 9 fokozata) szimbolikus generátora és első futása.
+5. **21. kör:** új divergens kör: a 16–20. eredményei után mi dőlt meg, és mi következik.
