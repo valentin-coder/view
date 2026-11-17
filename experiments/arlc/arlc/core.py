@@ -77,13 +77,16 @@ MODES = ("lookup", "recency", "wms", "arlc", "arlc-nocut", "arlc-noctx", "arlc-n
 class Memory:
     def __init__(self, schema: Schema, mode: str = "arlc", beam: int = 8, depth: int = 3,
                  eta: float = 0.0, delta: float = 0.05, c_ctx: float = 6.0,
-                 induce: bool = True, induce_min: int = 3, use_decay: float = 1.0):
+                 induce: bool = True, induce_min: int = 3, use_decay: float = 1.0,
+                 reliability: str = "fixed", prior_strength: float = 10.0):
         assert mode in MODES, mode
         self.s, self.mode, self.B, self.depth = schema, mode, beam, depth
         self.eta, self.delta, self.c_ctx = eta, delta, c_ctx
         self.induce_on = induce and mode.startswith("arlc")
         self.induce_min = induce_min
         self.use_decay = use_decay
+        self.reliability = reliability          # 'fixed' | 'beta' (tanult forrás-megbízhatóság)
+        self.kappa = prior_strength
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
         self.beam: list[Hyp] = [Hyp()]
@@ -216,13 +219,17 @@ class Memory:
             return sum(math.log2(self.by_id[i].q / (1 - self.by_id[i].q)) for i in H.rej)
         bits = 0.0
         has_cut = bool(H.cut)
+        if self.reliability == "beta":
+            bits += self._beta_bits(H)
         for o in self.obs:
             if o.id in H.rej:
-                bits += -math.log2(1 - o.q)
+                if self.reliability != "beta":
+                    bits += -math.log2(1 - o.q)
                 if o.lit is not None and o.lit.pred == "has":
                     bits += 1.0
                 continue
-            bits += -math.log2(o.q)
+            if self.reliability != "beta":
+                bits += -math.log2(o.q)
             if o.lit is not None and o.lit.pred == "has":
                 ctx = o.source if o.source in H.iso else None
                 cl = self.closure(H, ctx, o.time if has_cut else self.now)
@@ -236,6 +243,20 @@ class Memory:
         bits += len(H.ind) * math.log2(max(2, 2 * self.s.n_categories * self.s.n_props))
         if self.eta:
             bits += self.eta * sum(n for tok, n in self.uses.items() if self._lost(tok, H))
+        return bits
+
+    def _beta_bits(self, H: Hyp) -> float:
+        """Forrásonként béta-binomiális kód az elfogadás/elutasítás sorozatra.
+        Előzetes: Beta(κ·q, κ·(1−q)), q = a forrás deklarált hitelessége (átlag)."""
+        stats: dict = {}
+        for o in self.obs:
+            n, k, q = stats.get(o.source, (0, 0, o.q))
+            stats[o.source] = (n + 1, k + (o.id in H.rej), q)
+        bits = 0.0
+        for src, (n, k, q) in stats.items():
+            a0, b0 = self.kappa * q, self.kappa * (1 - q)
+            lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
+            bits += (lb(a0, b0) - lb(a0 + n - k, b0 + k)) / math.log(2)
         return bits
 
     def _lost(self, tok, H: Hyp) -> bool:

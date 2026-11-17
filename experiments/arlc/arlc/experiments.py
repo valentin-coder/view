@@ -98,26 +98,65 @@ def feed(mem: Memory, obs: list[Obs]):
         mem.observe(o)
 
 
-def stream_base(tx: Taxo, ctr, skip_facts=(), noise=0.0, rng=None, facts_per=2):
-    """Szabályok, majd entitásonként tagság + tények (opcionális zajjal)."""
+def stream_base(tx: Taxo, ctr, skip_facts=(), noise=0.0, rng=None, facts_per=2,
+                noise_type="uniform", n_sources=1):
+    """Szabályok, majd entitásonként tagság + tények (opcionális zajjal).
+
+    noise_type='uniform': független hibák (a tagság véletlen levélre, a tény előjele megfordul).
+    noise_type='sibling': korrelált hiba – a zajos entitást a testvérlevélbe sorolja, és a
+        tényei is a testvérlevél igazságát követik (következetesen hibás világ).
+    n_sources: hány független forrás figyeli meg ugyanazt (külön zajjal)."""
     obs = tx.rule_obs(ctr)
     t = 1
     for e, leaf in tx.entities.items():
-        lf = leaf
-        if noise and rng.random() < noise:
-            lf = rng.choice([x for x in tx.leaves if x != leaf])
-        obs.append(Obs(next(ctr), "survey", t, 0.9, lit=Lit("isa", e, lf, True)))
-        t += 1
-        if e in skip_facts:
-            continue
-        tr = tx.truth(leaf)
-        for p in rng.sample(sorted(tr), facts_per):
-            v = tr[p]
+        tr_true = tx.truth(leaf)
+        props = rng.sample(sorted(tr_true), facts_per)
+        for si in range(n_sources):
+            sfx = "" if si == 0 else str(si + 1)
+            lf, flip_each = leaf, False
             if noise and rng.random() < noise:
-                v = not v
-            obs.append(Obs(next(ctr), "field", t, 0.9, lit=Lit("has", e, p, v)))
+                if noise_type == "sibling":
+                    sib = [x for x in tx.leaves if x != leaf and tx.parent[x] == tx.parent[leaf]]
+                    lf = rng.choice(sib) if sib else leaf
+                else:
+                    lf = rng.choice([x for x in tx.leaves if x != leaf])
+            obs.append(Obs(next(ctr), "survey" + sfx, t, 0.9, lit=Lit("isa", e, lf, True)))
             t += 1
+            if e in skip_facts:
+                continue
+            tr = tx.truth(lf) if noise_type == "sibling" else tr_true
+            for p in props:
+                v = tr.get(p, tr_true[p])
+                if noise_type == "uniform" and noise and rng.random() < noise:
+                    v = not v
+                obs.append(Obs(next(ctr), "field" + sfx, t, 0.9, lit=Lit("has", e, p, v)))
+                t += 1
     return obs, t
+
+
+def e4b(eps_list=(0.05, 0.1, 0.2), seeds=range(5)):
+    """Korrelált vs. független zaj, egy vagy két független forrással (18. kör)."""
+    rows = []
+    variants = [("wms", {}), ("arlc", {}), ("arlc-beta", {"reliability": "beta", "prior_strength": 30})]
+    for noise_type in ("uniform", "sibling"):
+        for n_src in (1, 2):
+            for eps in eps_list:
+                for seed in seeds:
+                    tx = Taxo(seed)
+                    for name, kw in variants:
+                        ctr = Counter_()
+                        obs, _ = stream_base(tx, ctr, noise=eps, noise_type=noise_type, n_sources=n_src,
+                                             rng=random.Random(seed * 7 + int(eps * 100)))
+                        mem = Memory(tx.schema(), mode=name.split("-")[0], **kw)
+                        feed(mem, obs)
+                        struct = sum(len(ev.get(k, [])) for ev in mem.events
+                                     for k in ("rules_dropped", "exc_added", "iso_added", "cut_added"))
+                        acc = [mem.answer(x, p, record_use=False) == v
+                               for x, leaf in tx.entities.items() for p, v in tx.truth(leaf).items()]
+                        rows.append({"noise": noise_type, "sources": n_src, "eps": eps, "seed": seed,
+                                     "method": name, "acc": sum(acc) / len(acc),
+                                     "struct_per50": 50 * struct / len(obs)})
+    return rows
 
 
 # ======================================================================= E1
@@ -279,6 +318,36 @@ def e3(n=8, systematic=True, c_ctx=6.0):
     return rows
 
 
+def e3b(ns=(4, 8, 16, 32), kappas=(10, 30, 100, 300), c_ctx=6.0):
+    """17. kör: tanult forrás-megbízhatóság – szétválasztás vagy elutasítás, sorrendfüggés."""
+    rows = []
+    for kappa in kappas:
+        for n in ns:
+            for cond in ("systematic-A-first", "systematic-B-first", "noise"):
+                rng = random.Random(3)
+                sch = Schema(n_entities=n, n_categories=1, n_props=1)
+                mem = Memory(sch, mode="arlc", c_ctx=c_ctx, reliability="beta", prior_strength=kappa)
+                ctr = Counter_()
+                t = 0
+                for i in range(n):
+                    t += 1
+                    mem.observe(Obs(next(ctr), "survey", t, 0.9, lit=Lit("isa", f"m{i}", "dax")))
+                vals = [False if cond != "noise" else (rng.random() < 0.5) for _ in range(n)]
+                seq_a = [("A", i, True) for i in range(n)]
+                seq_b = [("B", i, vals[i]) for i in range(n)]
+                for src, i, v in (seq_b + seq_a if cond == "systematic-B-first" else seq_a + seq_b):
+                    t += 1
+                    mem.observe(Obs(next(ctr), src, t, 0.9, lit=Lit("has", f"m{i}", "poisonous", v)))
+                b = mem.best
+                decision = "split" if b.iso else "reject"
+                rej_a = sum(1 for i in b.rej if mem.by_id[i].source == "A")
+                rej_b = sum(1 for i in b.rej if mem.by_id[i].source == "B")
+                correct = (decision == "split") if cond != "noise" else (decision == "reject" and rej_a == 0)
+                rows.append({"kappa": kappa, "n": n, "cond": cond, "decision": decision,
+                             "rej_A": rej_a, "rej_B": rej_b, "correct": correct})
+    return rows
+
+
 # ======================================================================= E4
 def e4(eps_list=(0.0, 0.02, 0.05, 0.1), seeds=range(5)):
     """Zaj meglepetés nélkül: hamis szerkezeti átrendezések 50 megfigyelésenként."""
@@ -306,6 +375,43 @@ def e4(eps_list=(0.0, 0.02, 0.05, 0.1), seeds=range(5)):
                              "struct_events_per50": 50 * struct / n_obs,
                              "rules_lost_final": rules_lost, "exc_final": len(final.exc),
                              "acc": sum(acc) / len(acc)})
+    return rows
+
+
+def e5(N=6, record=20, M=25, kappas=(30,), both_from_source=True):
+    """19. kör: becsületes evidencia (régóta hiteles forrásból) vs. támadás (friss sybil-
+    forrásokból, vagy egyetlen új forrásból). Hány ellenpélda kell az átfordításhoz?"""
+    rows = []
+    variants = [("fixed", {}), *[(f"beta-k{k}", {"reliability": "beta", "prior_strength": k}) for k in kappas]]
+    for vname, kw in variants:
+        for scenario in ("honest-established", "sybil-fresh", "single-attacker"):
+            sch = Schema(disjoint={frozenset(("dax", "other"))}, n_entities=N + M + record + 2,
+                         n_categories=2, n_props=3)
+            mem = Memory(sch, mode="arlc", **kw)
+            ctr = Counter_()
+            t = 0
+            mem.observe(Obs(next(ctr), "book", 0, 0.95, rule=Rule("dax", "has", "poisonous", True)))
+            mem.observe(Obs(next(ctr), "survey", 1, 0.9, lit=Lit("isa", "probe", "dax")))
+            for i in range(N):
+                t += 1
+                mem.observe(Obs(next(ctr), "survey", t, 0.9, lit=Lit("isa", f"d{i}", "dax")))
+                mem.observe(Obs(next(ctr), "field", t, 0.9, lit=Lit("has", f"d{i}", "poisonous", True)))
+            for i in range(record):   # a 'field' forrás múltja: sok, ütközésmentes, elfogadott állítás
+                t += 1
+                mem.observe(Obs(next(ctr), "field", t, 0.9, lit=Lit("has", f"o{i}", "shiny", True)))
+            flip = None
+            for j in range(1, M + 1):
+                t += 1
+                src = {"honest-established": "field", "sybil-fresh": f"sybil{j}",
+                       "single-attacker": "attacker"}[scenario]
+                isa_src = src if both_from_source else "survey"
+                mem.observe(Obs(next(ctr), isa_src, t, 0.9, lit=Lit("isa", f"x{j}", "dax")))
+                mem.observe(Obs(next(ctr), src, t, 0.9, lit=Lit("has", f"x{j}", "poisonous", False)))
+                if 1 in mem.best.rej:     # a szabály kiesett
+                    flip = j
+                    break
+            rows.append({"reliability": vname, "scenario": scenario, "both_from_source": both_from_source,
+                         "flip_at": flip})
     return rows
 
 
@@ -416,7 +522,7 @@ def main(argv=None):
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     res = {}
-    todo = a.only or ["e1", "e2a", "e2b", "e3", "e4", "a5", "a7"]
+    todo = a.only or ["e1", "e2a", "e2b", "e3", "e3b", "e4", "e4b", "e5", "a5", "a7"]
     for name in todo:
         t0 = time.time()
         if name == "e1":
@@ -437,6 +543,20 @@ def main(argv=None):
         elif name == "e4":
             rows = e4()
             res["e4"] = {"rows": rows, "summary": summarize_e4(rows)}
+        elif name == "e4b":
+            rows = e4b()
+            summ = {}
+            for r in rows:
+                k = f"{r['noise']}|src{r['sources']}|{r['eps']}|{r['method']}"
+                summ.setdefault(k, []).append(r)
+            res["e4b"] = {"rows": rows, "summary": {k: {"acc": st.mean(x["acc"] for x in v),
+                                                        "struct_per50": st.mean(x["struct_per50"] for x in v)}
+                                                    for k, v in summ.items()}}
+        elif name == "e3b":
+            res["e3b"] = {"rows": e3b()}
+        elif name == "e5":
+            res["e5"] = {"rows": e5(kappas=(30, 100), both_from_source=False)
+                         + e5(kappas=(30, 100), both_from_source=True)}
         elif name == "a5":
             res["a5"] = {"rows": a5(dwell=0) + a5(dwell=3) + a5(dwell=10)}
         elif name == "a7":
