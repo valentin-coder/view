@@ -1,0 +1,6590 @@
+[
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 0.9722222222222222,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0.05,
+  "within_reject": 0.04878048780487805,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 0.9722222222222222,
+  "entity_acc_B": 0.9722222222222222,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.043478260869565216,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 0.9722222222222222,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.05128205128205128,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   null,
+   true
+  ],
+  "frac_true": 0.8333333333333334,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 0.8055555555555556,
+  "polarized": false,
+  "cross_reject": 0.14285714285714285,
+  "within_reject": 0.16666666666666666,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    null,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    null,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    null,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    null,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 3,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.06060606060606061,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.05128205128205128,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 0.9722222222222222,
+  "polarized": false,
+  "cross_reject": 0.1,
+  "within_reject": 0.1,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    null,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 30,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.06060606060606061,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "teljes",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.1,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.3,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.05128205128205128,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 0,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 1,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 0.9722222222222222,
+  "polarized": false,
+  "cross_reject": 0.1,
+  "within_reject": 0.0967741935483871,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ },
+ {
+  "K": 6,
+  "rounds": 12,
+  "eps": 0.45,
+  "kappa": 100,
+  "net": "klikkek",
+  "seed": 2,
+  "share": "provenance",
+  "final": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "frac_true": 1.0,
+  "frac_false": 0.0,
+  "entity_acc_A": 1.0,
+  "entity_acc_B": 1.0,
+  "polarized": false,
+  "cross_reject": 0,
+  "within_reject": 0.06060606060606061,
+  "history": [
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  ]
+ }
+]

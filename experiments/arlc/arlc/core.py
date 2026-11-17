@@ -107,6 +107,7 @@ class Memory:
         self.theory_kappa: Optional[float] = None  # ha meg van adva: a forrás szabályai külön, ilyen κ-jú paramétert kapnak (32. kör)
         self.summary: Counter = Counter()      # 37. kör: elfelejtett, szabály által jósolt tények: (rule_id, e, q) -> darab
         self.exc_prior: Optional[float] = None # 41. kör: ha meg van adva, a kivétel egy ε valószínűségű abnormalitás
+        self.cheap_greedy = False              # 42. kör: a mohó befejezés helyi költségbecsléssel választ
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -161,6 +162,7 @@ class Memory:
             l = o.lit
             tok = frozenset([("obs", o.id)])
             (isa if l.pred == "isa" else has)[l.subj].setdefault((l.obj, l.pos), tok)
+        cls_exc = {(x[0], x[1][4:]) for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:")}
         if use_rules:
             by_body = defaultdict(list)
             for r in rules:
@@ -184,7 +186,7 @@ class Memory:
                     for ro in by_body.get(c, []):
                         if (ro.id, e) in H.exc:
                             continue
-                        if H.exc and any((ro.id, "cat:" + c2) in H.exc for (c2, p2) in isa[e] if p2):
+                        if cls_exc and any((ro.id, c2) in cls_exc for (c2, p2) in isa[e] if p2):
                             continue
                         sup = base | {("obs", ro.id), ("inst", ro.id, e)}
                         r = ro.rule
@@ -263,6 +265,13 @@ class Memory:
         has_cut = bool(H.cut)
         if self.reliability == "beta":
             bits += self._beta_bits(H)
+        cl_cache: dict = {}
+
+        def cl_for(ctx, t):
+            k = (ctx, t)
+            if k not in cl_cache:
+                cl_cache[k] = self.closure(H, ctx, t)
+            return cl_cache[k]
         for o in self.obs:
             q_o = self.source_q.get(o.source, o.q)
             if self.age_discount < 1.0:
@@ -277,7 +286,7 @@ class Memory:
                 bits += -math.log2(q_o)
             if o.lit is not None and o.lit.pred == "has":
                 ctx = o.source if o.source in H.iso else None
-                cl = self.closure(H, ctx, o.time if has_cut else self.now)
+                cl = cl_for(ctx, o.time if has_cut else self.now)
                 pred = (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ())
                 bits += -math.log2(1 - self.delta) if pred else 1.0
         n_cls = sum(1 for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:"))
@@ -387,6 +396,22 @@ class Memory:
             out.extend(self._repair(H2, depth - 1, seen))
         return out
 
+    def _local_cost(self, H: Hyp, H2: Hyp) -> float:
+        """Olcsó, helyi költségbecslés egy módosításra (42. kör): csak a megváltozott elemek."""
+        c = 0.0
+        for i in H2.rej - H.rej:
+            o = self.by_id.get(i)
+            if o is not None:
+                q = min(max(self.source_q.get(o.source, o.q), 1e-6), 1 - 1e-6)
+                c += math.log2(q / (1 - q))
+        c += len(H2.exc - H.exc) * (math.log2((1 - self.exc_prior) / self.exc_prior) if self.exc_prior
+                                    else math.log2(max(2, self.s.n_entities)))
+        c += sum(self.ctx_cost.get(src, self.c_ctx) for src in H2.iso - H.iso)
+        c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
+                 for i, _ in set(H2.cut) - set(H.cut))
+        c -= 4.0 * (len(H.ind) - len(H2.ind))
+        return c
+
     def _greedy(self, H: Hyp, max_steps: int = 80) -> Optional[Hyp]:
         """Mohó befejezés: a maradék konfliktusokat egyenként, a legolcsóbb lépéssel oldja fel."""
         for _ in range(max_steps):
@@ -396,7 +421,10 @@ class Memory:
             opts = list(self._mods(H, c))
             if not opts:
                 return None
-            H = min(opts, key=self.score)
+            if self.cheap_greedy:
+                H = min(opts, key=lambda h: (self._local_cost(H, h), str(h.key())))
+            else:
+                H = min(opts, key=self.score)
         return None
 
     def _recency_repair(self, H: Hyp) -> Hyp:

@@ -31,12 +31,22 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 29 | [29-divergens-3.md](29-divergens-3.md) | Kritika: a kísérletek egyre inkább a saját költségmodellt tesztelik; külső érvényesség hiányzik. Új irányok: kategória-feltalálás, polarizáció, kétszintű hitelesség, B fázis csomag. |
 | 30 | [30-kategoria-feltalalas.md](30-kategoria-feltalalas.md) | Kategória-feltalálás anomáliákból: általánosít új példányokra (1,00/1,00); korai elméletfeladás útfüggést okoz (visszavétel kell); vegyes jelnél helyesen „kizárás”. |
 | 31 | [31-polarizacio.md](31-polarizacio.md) | Többágenses ARLC: két külön polarizációs mechanizmus – visszhang/kettős számolás (100%, κ-független) és bizalomtanulás (csak kis κ, gyenge evidencia). A származás elsőrendű. |
+| 32 | [32-ketszintu-hitelesseg.md](32-ketszintu-hitelesseg.md) | Kétszintű hitelesség (elmélet κ_T ≈ 1, adat κ_S ≈ 30) feloldja a gestalt–zaj feszültséget; a kaszkád zárt alakú küszöbe. |
+| 33 | [33-szarmazas.md](33-szarmazas.md) | Származás-tudatos kommunikáció: polarizáció egyetlen konfigurációban sincs, a nyers továbbadásnál is jobb. |
+| 34 | [34-divergens-4.md](34-divergens-4.md) | Kritika: kilenc új kapcsoló, saját feladatokon értékelve – túlillesztés-veszély. Befagyasztott v4, procedurális benchmark, empirikus Bayes, inkrementális pontozás. Őszinte újdonság-helyzetkép. |
+| 35 | [35-b-fazis-csomag.md](35-b-fazis-csomag.md) | A B fázis egylépéses csomagja; a smoke futás három módszertani hibát szűrt ki (szivárgás, kifejezésszintű mintaméret, lexikai átfedés) és a véletlen súlyú kontroll szükségességét. |
+| 36 | [36-validacio.md](36-validacio.md) | Kimerítő ellenőrzés: egy valódi optimalitási rés a 21. körös gyorsítás miatt (javítva). ProbLog: a célfüggvény pontosan egy generatív modell MAP-célja. |
+| 37 | [37-felejtes.md](37-felejtes.md) | Felejtés összesítővel: a beágyazottság megmarad, a konkrét ütközési szerkezet nem (komplementer tanulórendszerek). |
+| 38 | [38-quine-halo.md](38-quine-halo.md) | Quine hiedelemhálója: a „mag” a nagyobb jóslati kúpú szabály; tétel és 47/48 egyezés (a maradék holtverseny). |
+| 39 | [39-magyarazatok.md](39-magyarazatok.md) | Ellentényes magyarázatok: túldetermináltság; az elégséges magyarázat a rögzített háttértől függ, és helyesen a küszöböt adja. |
+| 40 | [40-tanuk-fuggetlensege.md](40-tanuk-fuggetlensege.md) | Egy eset sok tanújának súlya korlátos (Hume csodái); hallomás és Condorcet. |
+| 41 | [41-elvi-kivetel.md](41-elvi-kivetel.md) | Abnormalitás-prior a log₂|E| helyett: a világméret-műtermék eltűnik; ProbLoggal igazolva; ε mint a terület kivétel-gazdagsága. |
 
 ## Következő körök (tervezett)
 
-1. **32. kör:** kétszintű hitelesség (elmélet és forrás külön) – feloldja-e a gyors váltás ↔ zajtűrés feszültséget (28. kör)?
-2. **33. kör:** származás-tudatos kommunikáció (támaszhalmazok ágensek között) – megszünteti-e a visszhang-polarizációt hiedelem-továbbadás mellett is (31. kör)?
-3. **34. kör:** divergens és kritikai kör.
-4. **35. kör:** a B fázis egylépéses csomagja (E0, KTP, ISZB, B4 valódi modellen, a 23. kör távoli felügyeletű alapvonalával).
-5. **36. kör:** laza (valószínűségi) kategória-feltalálás és a túltanulás kockázata (30. kör).
-6. **37. kör:** tömörítés és felejtés („alvás” mint konszolidáció) (29. kör D).
+1. **42. kör:** mennyire „azonnali” az átrendezés? Skálázási mérés és keresési változatok (folyamatban).
+2. **43. kör:** ARLC v4 befagyasztott specifikáció és ablációs tábla.
+3. **44. kör:** procedurálisan generált benchmark, előre rögzített generátorral és elemzési tervvel.
+4. **45. kör:** empirikus Bayes az ε, κ paraméterekre.
+5. **46. kör:** inkrementális pontozás.
+6. **47. kör:** divergens és kritikai kör.
