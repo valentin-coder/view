@@ -14,13 +14,17 @@ from .core import Hyp, Memory
 
 def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
     L = []
+    eps = mem.exc_prior
     for o in mem.obs:
         L.append(f"{o.q}::rel({o.id}).")
         L.append(f"evidence(rel({o.id}), {'false' if o.id in H.rej else 'true'}).")
     for o in mem.obs:
         if o.rule is not None:
             r = o.rule
-            L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}).")
+            if eps is None:
+                L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}).")
+            else:
+                L.append(f"rule_has(X, {r.obj}, {int(r.pos)}) :- rel({o.id}), isa(X, {r.body}), \\+ ab({o.id}, X).")
         elif o.lit.pred == "isa":
             L.append(f"isa({o.lit.subj}, {o.lit.obj}) :- rel({o.id}).")
         else:
@@ -31,6 +35,11 @@ def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
             L.append(f"ok({o.id}) :- rel({o.id}), \\+ rule_has({l.subj}, {l.obj}, {int(l.pos)}), lu({o.id}).")
             L.append(f"ok({o.id}) :- \\+ rel({o.id}), lr({o.id}).")
             L.append(f"evidence(ok({o.id}), true).")
+    if eps is not None:
+        for rid, e in mem._candidate_applications():
+            L.append(f"{eps}::ab({rid}, {e}).")
+            L.append(f"evidence(ab({rid}, {e}), {'true' if (rid, e) in H.exc else 'false'}).")
+        L.append("ab(dummy, dummy) :- fail.")
     L += ["rule_has(dummy, dummy, 0) :- fail.", "fact_has(dummy, dummy, 0) :- fail.", "isa(dummy, dummy) :- fail.",
           "conflict :- rule_has(E, P, 1), rule_has(E, P, 0).",
           "conflict :- rule_has(E, P, V), fact_has(E, P, W), V \\= W.",
@@ -52,18 +61,21 @@ def logp_evidence(program: str) -> float:
     return math.log2(e.evaluate_evidence())
 
 
-def check(problems, n_assign=20, seed=0, delta=0.05):
+def check(problems, n_assign=20, seed=0, delta=0.05, exc_prior=None):
     rng = random.Random(seed)
     rows = []
     for pid, (sch, obs) in enumerate(problems):
         mem = Memory(sch, mode="arlc-noctx", induce=False)
+        mem.exc_prior = exc_prior
         for o in obs:
             mem.observe(o)
         ids = [o.id for o in obs]
+        apps = mem._candidate_applications() if exc_prior else []
         tried = 0
         while tried < n_assign:
             rej = frozenset(i for i in ids if rng.random() < 0.3)
-            H = Hyp(rej=rej)
+            exc = frozenset(a for a in apps if rng.random() < 0.3)
+            H = Hyp(rej=rej, exc=exc)
             if mem.find_conflict(H) is not None:
                 continue
             tried += 1

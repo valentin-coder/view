@@ -1,0 +1,56 @@
+[
+ {
+  "N": 4,
+  "r": 0,
+  "naive": 3,
+  "provenance": 3
+ },
+ {
+  "N": 4,
+  "r": 1,
+  "naive": 2,
+  "provenance": 3
+ },
+ {
+  "N": 4,
+  "r": 3,
+  "naive": 2,
+  "provenance": 3
+ },
+ {
+  "N": 8,
+  "r": 0,
+  "naive": 4,
+  "provenance": 4
+ },
+ {
+  "N": 8,
+  "r": 1,
+  "naive": 3,
+  "provenance": 4
+ },
+ {
+  "N": 8,
+  "r": 3,
+  "naive": 3,
+  "provenance": 4
+ },
+ {
+  "N": 16,
+  "r": 0,
+  "naive": 7,
+  "provenance": 7
+ },
+ {
+  "N": 16,
+  "r": 1,
+  "naive": 5,
+  "provenance": 7
+ },
+ {
+  "N": 16,
+  "r": 3,
+  "naive": 5,
+  "provenance": 7
+ }
+]

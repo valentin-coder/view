@@ -106,6 +106,7 @@ class Memory:
         self.invent_revive = False             # True: egy már elvetett szabályt is visszavehet finomítva
         self.theory_kappa: Optional[float] = None  # ha meg van adva: a forrás szabályai külön, ilyen κ-jú paramétert kapnak (32. kör)
         self.summary: Counter = Counter()      # 37. kör: elfelejtett, szabály által jósolt tények: (rule_id, e, q) -> darab
+        self.exc_prior: Optional[float] = None # 41. kör: ha meg van adva, a kivétel egy ε valószínűségű abnormalitás
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -280,7 +281,13 @@ class Memory:
                 pred = (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ())
                 bits += -math.log2(1 - self.delta) if pred else 1.0
         n_cls = sum(1 for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:"))
-        bits += (len(H.exc) - n_cls) * math.log2(max(2, self.s.n_entities))
+        if self.exc_prior is None:
+            bits += (len(H.exc) - n_cls) * math.log2(max(2, self.s.n_entities))
+        else:
+            # minden (szabály, jelölt tag) pár egy abnormalitás-változó: kivétel -log2 ε, egyébként -log2(1-ε)
+            eps = self.exc_prior
+            for rid, e in self._candidate_applications():
+                bits += -math.log2(eps) if (rid, e) in H.exc else -math.log2(1 - eps)
         bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
         if self.summary:
@@ -312,6 +319,20 @@ class Memory:
             lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
             bits += (lb(a0, b0) - lb(a0 + n - k, b0 + k)) / math.log(2)
         return bits
+
+    def _candidate_applications(self) -> list:
+        """(has-szabály, entitás) párok, ahol valamely megfigyelés az entitást a szabály törzsébe sorolja."""
+        key = len(self.obs)
+        if getattr(self, "_capp_key", None) == key:
+            return self._capp
+        members = defaultdict(set)
+        for o in self.obs:
+            if o.lit is not None and o.lit.pred == "isa" and o.lit.pos:
+                members[o.lit.obj].add(o.lit.subj)
+        out = [(r.id, e) for r in self.obs if r.rule is not None and r.rule.pred == "has" and r.rule.cond is None
+               for e in sorted(members.get(r.rule.body, ()))]
+        self._capp_key, self._capp = key, out
+        return out
 
     def _lost(self, tok, H: Hyp) -> bool:
         if tok[0] == "obs":

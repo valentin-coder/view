@@ -11,9 +11,10 @@ import itertools
 from .core import Lit, Memory, Obs, Rule, Schema
 
 
-def run_one(N, k, r, provenance, q=0.9, q_membership=0.999):
+def run_one(N, k, r, provenance, q=0.9, q_membership=0.999, exc_prior=None):
     sch = Schema(disjoint={frozenset(("dax", "other"))}, n_entities=N + k + 2, n_categories=2, n_props=2)
     mem = Memory(sch, mode="arlc")
+    mem.exc_prior = exc_prior
     c = itertools.count(1)
     mem.observe(Obs(next(c), "book", 0, 0.95, rule=Rule("dax", "has", "poisonous", True)))
     mem.observe(Obs(next(c), "survey", 1, 0.9, lit=Lit("isa", "probe", "dax")))
@@ -36,9 +37,9 @@ def run_one(N, k, r, provenance, q=0.9, q_membership=0.999):
     return mem.answer("probe", "poisonous", record_use=False) is not True
 
 
-def min_originals(N, r, provenance, kmax=20, q_membership=0.999):
+def min_originals(N, r, provenance, kmax=20, q_membership=0.999, exc_prior=None):
     for k in range(1, kmax + 1):
-        if run_one(N, k, r, provenance, q_membership=q_membership):
+        if run_one(N, k, r, provenance, q_membership=q_membership, exc_prior=exc_prior):
             return k
     return None
 
