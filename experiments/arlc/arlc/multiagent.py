@@ -14,6 +14,24 @@ import statistics as st
 from .core import Lit, Memory, Obs, Rule, Schema
 
 
+def provenance(agent: Memory, e: str) -> list:
+    """Az ágens e-re vonatkozó hiedelmének eredeti támaszai: a támaszhalmaz megfigyelései
+    (érzékelés, tankönyvi szabály), a tagsági alapadatok nélkül."""
+    H = agent.best
+    cl = agent.closure(H, None, agent.now)
+    d = cl.has.get(e, {})
+    sup = d.get(("poisonous", True)) if ("poisonous", False) not in d else d.get(("poisonous", False))
+    if sup is None or (("poisonous", True) in d and ("poisonous", False) in d):
+        return []
+    out = []
+    for tok in sup:
+        if tok[0] == "obs" and tok[1] < 10 ** 6:
+            o = agent.by_id[tok[1]]
+            if o.source != "census":
+                out.append(o)
+    return out
+
+
 def network(kind: str, K: int) -> dict[int, list[int]]:
     if kind == "teljes":
         return {i: [j for j in range(K) if j != i] for i in range(K)}
@@ -44,6 +62,8 @@ def run_one(K=6, rounds=12, n_ent=12, eps=0.2, kappa=30, net="teljes", seed=0, q
             m.observe(Obs(next(ids), "census", 0, 0.99, lit=Lit("isa", f"d{e}", "dax")))
         agents.append(m)
     history = []
+    # minden ágens a saját (forrás, tartalom) párjait már ismeri: ezeket nem kapja meg újra
+    seen_by = {i: {(o.source, o.lit, o.rule) for o in agents[i].obs} for i in range(K)}
     for r in range(1, rounds + 1):
         beliefs = [a.answer("probe", "poisonous", record_use=False) for a in agents]
         history.append(beliefs)
@@ -58,10 +78,20 @@ def run_one(K=6, rounds=12, n_ent=12, eps=0.2, kappa=30, net="teljes", seed=0, q
             e = f"d{rng.randrange(n_ent)}"
             truth = True
             obs_val = truth if rng.random() >= eps else (not truth)
-            a.observe(Obs(next(ids), f"sense{i}", r, q_private, lit=Lit("has", e, "poisonous", obs_val)))
+            o_s = Obs(next(ids), f"sense{i}", r, q_private, lit=Lit("has", e, "poisonous", obs_val))
+            a.observe(o_s)
+            seen_by[i].add((o_s.source, o_s.lit, o_s.rule))
             raw_now[i] = (e, obs_val)
         for i, a in enumerate(agents):
             for j in nb[i]:
+                if share == "provenance":
+                    for o in provenance(agents[j], said[j][0]):
+                        key = (o.source, o.lit, o.rule)
+                        if key in seen_by[i]:
+                            continue
+                        seen_by[i].add(key)
+                        a.observe(Obs(next(ids), o.source, o.time, o.q, lit=o.lit, rule=o.rule))
+                    continue
                 if share == "raw":
                     e_j, v_j = raw_now[j]
                     a.observe(Obs(next(ids), f"sense{j}", r, q_private, lit=Lit("has", e_j, "poisonous", v_j)))
@@ -90,7 +120,7 @@ def run_one(K=6, rounds=12, n_ent=12, eps=0.2, kappa=30, net="teljes", seed=0, q
 
 
 def run(kappas=(3, 10, 30, 100), nets=("teljes", "klikkek"), epss=(0.1, 0.3, 0.45), seeds=range(3),
-        shares=("belief", "raw"), **kw):
+        shares=("belief", "raw", "provenance"), **kw):
     rows = []
     for kappa, net, eps, seed, share in itertools.product(kappas, nets, epss, seeds, shares):
         rows.append(run_one(kappa=kappa, net=net, eps=eps, seed=seed, share=share, **kw))

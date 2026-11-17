@@ -93,7 +93,7 @@ class Memory:
         self.reliability = reliability          # 'fixed' | 'beta' (tanult forrás-megbízhatóság)
         self.kappa = prior_strength
         self.ctx_cost: dict = {}               # forrásonkénti szétválasztási költség (külső jelből)
-        self.reinstate_all = False             # True: minden jelöltre fut a visszahelyezés (lassú)
+        self.reinstate_all = True              # True (alapértelmezés a 36. kör óta): minden jelöltre fut a visszahelyezés; False: csak szerkezeti jelöltekre (gyorsabb, de a 36. kör szerint szuboptimális lehet)
         self.ctx_induction = False             # True: izolált kontextusban is indukál, oda szkópolva
         self.vetted: Optional[set] = None      # ha meg van adva: csak ezek a források kapják a deklarált q-t
         self.newcomer_q: float = 0.9           # a többi (nem ellenőrzött) forrás előzetes átlaga
@@ -104,6 +104,7 @@ class Memory:
         self.invention = False                 # True: kategória-feltalálás anomáliákból (30. kör)
         self.invent_min = 2                    # legalább ennyi anomália kell a feltaláláshoz
         self.invent_revive = False             # True: egy már elvetett szabályt is visszavehet finomítva
+        self.theory_kappa: Optional[float] = None  # ha meg van adva: a forrás szabályai külön, ilyen κ-jú paramétert kapnak (32. kör)
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -296,11 +297,13 @@ class Memory:
         for o in self.obs:
             q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
             q0 = self.source_q.get(o.source, q0)
-            n, k, q = stats.get(o.source, (0, 0, q0))
-            stats[o.source] = (n + 1, k + (o.id in H.rej), q)
+            key = (o.source, "elmélet") if (self.theory_kappa is not None and o.rule is not None) else o.source
+            n, k, q = stats.get(key, (0, 0, q0))
+            stats[key] = (n + 1, k + (o.id in H.rej), q)
         bits = 0.0
         for src, (n, k, q) in stats.items():
-            a0, b0 = self.kappa * q, self.kappa * (1 - q)
+            kap = self.theory_kappa if isinstance(src, tuple) else self.kappa
+            a0, b0 = kap * q, kap * (1 - q)
             lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
             bits += (lb(a0, b0) - lb(a0 + n - k, b0 + k)) / math.log(2)
         return bits

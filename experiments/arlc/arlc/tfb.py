@@ -19,6 +19,9 @@ METHODS = {
     "arlc-beta30+forrás": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=30),
     "arlc-beta10+forrás": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=10),
     "arlc-beta3+forrás": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=3),
+    "arlc-2szint(T3,S30)": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=30, theory_kappa=3),
+    "arlc-2szint(T3,S100)": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=100, theory_kappa=3),
+    "arlc-2szint(T1,S30)": dict(mode="arlc", source_moves=True, reliability="beta", prior_strength=30, theory_kappa=1),
 }
 
 
@@ -34,8 +37,10 @@ class Ctr:
 def make(method: str, schema: Schema) -> Memory:
     kw = dict(METHODS[method])
     sm = kw.pop("source_moves", False)
+    tk = kw.pop("theory_kappa", None)
     mem = Memory(schema, **kw)
     mem.source_moves = sm
+    mem.theory_kappa = tk
     return mem
 
 
