@@ -1,0 +1,32 @@
+{
+ "pop": "C",
+ "seed": 8000,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": "book",
+ "post_v4.4e": 0.672,
+ "target_v4.4e": 0.25,
+ "types_a0.8": {
+  "book": "szak\u00e9rt\u0151",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a0.8": 0.672,
+ "target_a0.8": 0.25,
+ "dismissed_book_a0.8": true,
+ "dismissed_book2_a0.8": true,
+ "types_a0.9": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a0.9": 0.672,
+ "target_a0.9": 0.25,
+ "dismissed_book_a0.9": true,
+ "dismissed_book2_a0.9": true,
+ "types_a1.0": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a1.0": 0.672,
+ "target_a1.0": 0.25,
+ "dismissed_book_a1.0": true,
+ "dismissed_book2_a1.0": true
+}

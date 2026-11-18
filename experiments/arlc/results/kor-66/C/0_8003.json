@@ -1,0 +1,32 @@
+{
+ "pop": "C",
+ "seed": 8003,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": "book",
+ "post_v4.4e": 0.47878787878787876,
+ "target_v4.4e": 0.16666666666666666,
+ "types_a0.8": {
+  "book": "gondozott",
+  "book2": "szak\u00e9rt\u0151"
+ },
+ "post_a0.8": 0.6303030303030303,
+ "target_a0.8": 0.6666666666666666,
+ "dismissed_book_a0.8": true,
+ "dismissed_book2_a0.8": false,
+ "types_a0.9": {
+  "book": "gondozott",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a0.9": 0.024242424242424242,
+ "target_a0.9": 0.6666666666666666,
+ "dismissed_book_a0.9": false,
+ "dismissed_book2_a0.9": true,
+ "types_a1.0": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a1.0": 0.47878787878787876,
+ "target_a1.0": 0.16666666666666666,
+ "dismissed_book_a1.0": true,
+ "dismissed_book2_a1.0": true
+}
