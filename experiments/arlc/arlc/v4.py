@@ -40,6 +40,7 @@ V44_OVERRIDES = {**V43_OVERRIDES, "auto_specificity": True}   # 49. kör: + spec
 V45_OVERRIDES = {**V44_OVERRIDES, "ctx_override": True}        # 50. kör: + kontextuson belüli elsőbbség (ELVETVE)
 V44E_OVERRIDES = {**V44_OVERRIDES, "theory_kappa": None}       # 50. kör: v4.4-egyszintű
 V46_OVERRIDES = {**V44E_OVERRIDES, "latent_truth": True}       # 53. kör: + közös látens igazság
+V47_OVERRIDES = {**V44E_OVERRIDES, "ctx_cost": {"book": 10.0, "census": 10.0}}  # 56. kör: gondozott forrás kontextusa 10 bit
 
 ABLATIONS = {
     "v4": {},
@@ -76,6 +77,7 @@ def configured(overrides: dict):
             self.auto_specificity = cfg.get("auto_specificity", False)
             self.ctx_override = cfg.get("ctx_override", False)
             self.latent_truth = cfg.get("latent_truth", False)
+            self.ctx_cost.update(cfg.get("ctx_cost", {}))
     core.Memory.__init__ = init
     try:
         yield cfg
