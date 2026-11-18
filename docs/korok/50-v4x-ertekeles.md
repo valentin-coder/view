@@ -114,6 +114,52 @@ valódi, de mérsékelt** (kb. 5–10%). 150 esetből 107–112-ben javul, 2–3
     párosított különbsége, a CI nem tartalmazza a nullát).
 - **Ha H50a nem teljesül,** a 44. körös másodlagos előny a seedekre illesztés terméke volt, és ezt jelentem.
 
-## 7. Az ismétlés eredményei
+## 7. Az ismétlés eredményei (seed 3000–3029, 150 eset)
 
-*(a futtatás után)*
+Elemzés: [`analyze_r50.py`](../../experiments/arlc/arlc/analyze_r50.py) →
+[`replication_analysis.json`](../../experiments/arlc/results/kor-50/replication_analysis.json). Eltérés a
+futtatásban: a konténer egyszer újraindult (65/150 esetnél), a futtató folytatta. Az eredményt ez nem
+érinti, mert az esetek egymástól függetlenek és determinisztikusak.
+
+| módszer | pre-acc | post-acc | target-acc | meglepetés ideje (átlag) |
+|---|---|---|---|---|
+| wms | 0,769 | 0,755 | 0,598 | 0,6 s |
+| arlc (v3) | 0,796 | 0,783 | 0,591 | 24,1 s |
+| **v4.4-egyszintű** | **0,813** | **0,807** | **0,704** | 11,1 s |
+
+| hipotézis | különbség | 95% CI | eredmény |
+|---|---|---|---|
+| **H50a:** v4.4e − v3 (post) > 0 | +0,024 | [−0,009; +0,053] | **nem teljesül** (a CI tartalmazza a nullát) |
+| **H50b:** v4.4e − wms (post) ≥ 0,02 | **+0,052** | [+0,014; +0,083] | **teljesül** |
+| **H50c:** Brier, MAP − átlag > 0 | **+0,0054** | [+0,0035; +0,0076] | **teljesül** |
+
+Típusonként (post-acc / target-acc):
+
+| | átkategorizálás | szabály-helyesbítés | kivételes alfaj | hazug forrás | más régió |
+|---|---|---|---|---|---|
+| wms | 0,761 / 0,626 | 0,777 / 0,801 | 0,738 / 0,789 | 0,748 / 0,596 | 0,752 / 0,179 |
+| v3 | 0,806 / **0,630** | 0,815 / 0,827 | 0,777 / 0,762 | 0,744 / 0,600 | 0,774 / 0,135 |
+| v4.4e | **0,813** / 0,587 | **0,851 / 0,844** | **0,791 / 0,801** | **0,775 / 0,750** | **0,806 / 0,539** |
+
+### Értelmezés
+
+1. **Az előregisztrált fő kérdés (H50a) nem teljesül.** A 44. kör seedjein mért +0,037-es előny a v3-mal
+   szemben friss seedeken +0,024-re csökken, és nem szignifikáns. **A másodlagos eredmény egy része a
+   seedekre illesztés terméke volt**, ahogy az 5. pont figyelmeztetett. Ezt eredményként jelentem.
+2. **A wms-sel szemben az előny megmarad** (+0,052, szignifikáns), és a célkérdéseken nagy: hazug forrás
+   0,75 vs. 0,60, más régió **0,54 vs. 0,14**. A tanult megbízhatóság és a forráslépés tehát a célzott
+   képességet valóban hozza. A v3 általános pontosságát viszont nem múlja felül biztosan.
+3. **A félretevés és az összeomlás ritkábban, de megmarad:** egy világban (3024) a tankönyv félretéve (pre-acc
+   0,57, a v3-é 0,80), és két esetben (3022, 3024, hazug forrás) post-acc ≈ 0. A κ_T elhagyása tehát a fő
+   okot kezeli, de nem az egyetlent. A 45. és 49. kör szerint a maradék az adatszűkösség és a félretevő
+   lépések nem skálázódó ára.
+4. **A nyaláb-átlagolás (H50c) kicsi, de stabil javulás** a helyes pontozási szabály szerint.
+
+### A 44–50. kör mérlege
+
+| állítás | eredmény |
+|---|---|
+| a 26–42. kör mechanizmusai együtt (v4) jobbak a v3-nál | **cáfolva** (44. kör: −0,084) |
+| a hibák diagnózisa után javított változat (v4.4e) jobb a v3-nál | **nem igazolt** (friss seedeken +0,024, n.s.) |
+| a javított változat jobb a wms-nél | **igazolt** (+0,052) |
+| a célzott képesség (hazug forrás, más régió) javul | **igazolt, nagy hatással** (target-acc +0,15 és +0,40 a v3-hoz képest) |
