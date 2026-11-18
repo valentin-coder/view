@@ -1,0 +1,48 @@
+{
+ "pop": "C",
+ "seed": 6000,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": "book2",
+ "ctx_cost": {
+  "book": 2.9999999999999996,
+  "book2": 9.149747119504683,
+  "census": 9.149747119504683,
+  "field": 9.149747119504683,
+  "review": 9.149747119504683
+ },
+ "post_v3": 0.6692307692307692,
+ "brier_v3": 0.1,
+ "cov_v3": 0.6923076923076923,
+ "sel_v3": 0.9666666666666667,
+ "target_v3": 0.6,
+ "tbrier_v3": 0.1,
+ "dismissed_book_v3": true,
+ "dismissed_book2_v3": true,
+ "iso_v3": [
+  "book",
+  "book2",
+  "census"
+ ],
+ "post_v4.4e": 0.038461538461538464,
+ "brier_v4.4e": 0.2403846153846154,
+ "cov_v4.4e": 0.038461538461538464,
+ "sel_v4.4e": 1.0,
+ "target_v4.4e": 1.0,
+ "tbrier_v4.4e": 0.0,
+ "dismissed_book_v4.4e": true,
+ "dismissed_book2_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "book2",
+  "field"
+ ],
+ "post_v4.8": 0.9,
+ "brier_v4.8": 0.08269230769230769,
+ "cov_v4.8": 0.9769230769230769,
+ "sel_v4.8": 0.9212598425196851,
+ "target_v4.8": 1.0,
+ "tbrier_v4.8": 0.0,
+ "dismissed_book_v4.8": false,
+ "dismissed_book2_v4.8": true,
+ "iso_v4.8": []
+}
