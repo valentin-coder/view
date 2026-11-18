@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1011,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "v4.4",
+  "pre_acc": 0.9084967320261438,
+  "post_acc": 0.9078947368421053,
+  "target_acc": 0.8,
+  "n_target": 5,
+  "seconds": 22.512315799000135,
+  "surprise_seconds": 0.11159847099952458,
+  "avg_post_acc": 0.9078947368421053,
+  "brier_avg": 0.055002919411841135,
+  "brier_map": 0.05756578947368421,
+  "avg_target_acc": 0.8,
+  "brier_avg_target": 0.2,
+  "brier_map_target": 0.2,
+  "beam_spread_bits": 3.0283216097529078,
+  "beam_n": 8
+ }
+]

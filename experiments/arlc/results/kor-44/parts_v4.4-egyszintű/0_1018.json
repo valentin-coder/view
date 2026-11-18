@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1018,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "v4.4-egyszint\u0171",
+  "pre_acc": 0.7803468208092486,
+  "post_acc": 0.7701149425287356,
+  "target_acc": 0.5,
+  "n_target": 6,
+  "seconds": 22.00972346799972,
+  "surprise_seconds": 0.06704663399978017,
+  "avg_post_acc": 0.7816091954022989,
+  "brier_avg": 0.10739698522861985,
+  "brier_map": 0.10919540229885058,
+  "avg_target_acc": 0.5,
+  "brier_avg_target": 0.2526090119717216,
+  "brier_map_target": 0.25,
+  "beam_spread_bits": 0.27633122844721925,
+  "beam_n": 8
+ }
+]

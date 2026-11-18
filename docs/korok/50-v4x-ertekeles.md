@@ -62,6 +62,58 @@ A helyes érték tehát területi tény, és a terület tapasztalatából kell j
 priorja. Ha az 52. kör működik, egy TFB-szerű populációban (rivális elméletek) π̂ ≈ 0,5, a procedurálisban
 π̂ ≈ 0,96, és a két viselkedés ugyanabból a mechanizmusból adódik.
 
-## 5. Másodlagos benchmark-eredmények
+## 5. Másodlagos benchmark-eredmények (a 44. kör seedjein; NEM független)
 
-*(a v4.4 és a v4.4-egyszintű futás befejezése után)*
+A 44. kör 150 esetén, ugyanazzal az elemzéssel ([`analysis_secondary.json`](../../experiments/arlc/results/kor-44/analysis_secondary.json)):
+
+| módszer | pre-acc | post-acc | target-acc | meglepetés ideje (átlag) |
+|---|---|---|---|---|
+| wms | 0,780 | 0,767 | 0,587 | 0,6 s |
+| arlc (v3) | 0,806 | 0,788 | 0,572 | 25,6 s |
+| v4 | 0,754 | 0,704 | 0,614 | 22,8 s |
+| v4.4 | 0,816 | 0,778 | 0,660 | 19,1 s |
+| **v4.4-egyszintű** | **0,831** | **0,825** | **0,698** | 12,2 s |
+
+| különbség (post-acc) | átlag | 95% CI |
+|---|---|---|
+| v4.4 − v4 | +0,075 | [+0,028; +0,130] |
+| v4.4 − v3 | −0,009 | [−0,051; +0,028] |
+| v4.4-egyszintű − v3 | **+0,037** | [+0,019; +0,056] |
+| v4.4-egyszintű − wms | **+0,058** | [+0,030; +0,081] |
+
+A v4.4-egyszintű mind az öt típusban a legjobb post-acc-ot és target-acc-ot adja.
+
+**Miért nem független ez az eredmény:** az egyszintű döntést (κ_T elhagyása) *ugyanezeken a seedeken*
+végzett diagnózis után hoztam. Az automatikus specifikusság más seedekből (kis világok, 21–28) jött, de
+ugyanabból a generátorból. Ez a „kerti út”-hiba (Gelman–Loken) klasszikus esete. **Ezért alább friss
+seedeken előre rögzített ismétlés következik.**
+
+### Nyaláb-átlagolt válasz (feltáró)
+
+| | post-acc MAP → átlag | Brier MAP → átlag | target Brier MAP → átlag |
+|---|---|---|---|
+| v4.4 | 0,778 → 0,861 | 0,102 → 0,095 | 0,253 → 0,228 |
+| v4.4-egyszintű | 0,825 → 0,868 | 0,088 → 0,084 | 0,235 → 0,212 |
+
+**Óvatosan:** a pontosság a „nem tudom” választ hibának számolja. A Brier-pontszámból visszaszámolva a
+v4.4 MAP-válaszai a kérdések kb. 16%-ánál tartózkodnak, és az átlagolás ezeket tippekké alakítja. A
+pontosság-nyereség nagyobbik része ebből jön. **A helyes pontozási szabály (Brier) szerinti javulás
+valódi, de mérsékelt** (kb. 5–10%). 150 esetből 107–112-ben javul, 2–3-ban romlik.
+
+## 6. Előregisztráció: ismétlés friss seedeken (a futtatás előtt commitolva)
+
+- **Seedek:** 3000–3029, mind az öt meglepetéstípus (150 eset). A generátor változatlan.
+- **Módszerek:** lookup, recency, wms, arlc (v3), v4.4-egyszintű (a konfiguráció a
+  [`run_r44.py`](../../experiments/arlc/arlc/run_r44.py) `run_variant` függvényében rögzítve). Futtató:
+  [`run_r50.py`](../../experiments/arlc/arlc/run_r50.py).
+- **Elemzés:** mint a 44. körben (világok szerinti klaszteres bootstrap, 10 000 minta).
+- **Hipotézisek:**
+  - **H50a:** v4.4-egyszintű − arlc (post-acc) > 0, és a 95% CI nem tartalmazza a nullát;
+  - **H50b:** v4.4-egyszintű − wms (post-acc) ≥ 0,02, és a CI nem tartalmazza a nullát;
+  - **H50c:** a v4.4-egyszintű nyaláb-átlagolt Brier-pontszáma kisebb a MAP-énál (világonkénti átlagok
+    párosított különbsége, a CI nem tartalmazza a nullát).
+- **Ha H50a nem teljesül,** a 44. körös másodlagos előny a seedekre illesztés terméke volt, és ezt jelentem.
+
+## 7. Az ismétlés eredményei
+
+*(a futtatás után)*

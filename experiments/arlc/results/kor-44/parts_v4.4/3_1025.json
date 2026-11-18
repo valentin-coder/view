@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1025,
+  "kind": "hazug forr\u00e1s",
+  "method": "v4.4",
+  "pre_acc": 0.9177215189873418,
+  "post_acc": 0.9177215189873418,
+  "target_acc": 0.875,
+  "n_target": 8,
+  "seconds": 42.591836613999476,
+  "surprise_seconds": 20.080279026000426,
+  "avg_post_acc": 0.930379746835443,
+  "brier_avg": 0.056261495655791506,
+  "brier_map": 0.058544303797468354,
+  "avg_target_acc": 0.875,
+  "brier_avg_target": 0.125197294572778,
+  "brier_map_target": 0.125,
+  "beam_spread_bits": 2.6104975928282954,
+  "beam_n": 8
+ }
+]

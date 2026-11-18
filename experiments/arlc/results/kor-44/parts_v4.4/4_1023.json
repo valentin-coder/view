@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1023,
+  "kind": "m\u00e1s r\u00e9gi\u00f3",
+  "method": "v4.4",
+  "pre_acc": 0.9515151515151515,
+  "post_acc": 0.9515151515151515,
+  "target_acc": 1.0,
+  "n_target": 3,
+  "seconds": 30.769062426001256,
+  "surprise_seconds": 12.962309925998852,
+  "avg_post_acc": 0.9575757575757575,
+  "brier_avg": 0.043897309836334726,
+  "brier_map": 0.048484848484848485,
+  "avg_target_acc": 1.0,
+  "brier_avg_target": 0.0,
+  "brier_map_target": 0.0,
+  "beam_spread_bits": 0.8281434949150537,
+  "beam_n": 8
+ }
+]

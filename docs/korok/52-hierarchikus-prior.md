@@ -49,6 +49,10 @@ ezért nem kalibrált (q₁ = q). A B populációban a kalibráció nem is volna
   π₀ = 0,999 indítással ellenőrzöm. Ha a két indítás más π̂-ot ad, az eljárás nem azonosít, és ezt
   eredményként jelentem.
 
+- **J4 (a 50. kör után, még a futtatás előtt):** a 50. kör szerint a κ_T = 1 egy 50%-os szemét-arányú
+  terület priorja (TFB-9: két rivális elmélet, az egyik téves). Ha az eljárás működik, a B populációban a
+  teszt két szemét tankönyvét (seed 21 és 28) a rendszer elveti vagy izolálja, a többi hatot nem.
+
 ### Ismert módszerek
 
 Ez a hierarchikus Bayes / meta-tanulás legegyszerűbb esete: egy hiperparaméter becslése sok feladat

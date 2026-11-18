@@ -1,0 +1,69 @@
+{
+ "seed": 2000,
+ "exc_rate": 0.005,
+ "noise": 0.02,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.0,
+ "noise_vis": 0.0,
+ "n_true_exc": 0,
+ "n_cands": 22,
+ "n_all": 980,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.8018867924528302,
+   "key": [
+    "frozenset({2, 102, 6, 46, 18})",
+    "frozenset({(5, 'cat:L5')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='T0', pred='has', obj='p1', pos=False, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.8490566037735849,
+   "key": [
+    "frozenset({1, 2, 35, 34, 6, 46, 18})",
+    "frozenset()",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='T0', pred='has', obj='p1', pos=False, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.7735849056603774,
+   "key": [
+    "frozenset({2, 5, 46, 7})",
+    "frozenset({(34, 'e13'), (35, 'e13'), (6, 'e1')})",
+    "frozenset()",
+    [],
+    []
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 100,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 100,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "acc_frozen": 0.8490566037735849,
+ "acc_eb_marg": 0.8207547169811321
+}

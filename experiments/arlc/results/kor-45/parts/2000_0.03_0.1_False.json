@@ -1,0 +1,65 @@
+{
+ "seed": 2000,
+ "exc_rate": 0.03,
+ "noise": 0.1,
+ "repeated": false,
+ "n_fact": 60,
+ "eps_vis": 0.03333333333333333,
+ "noise_vis": 0.05,
+ "n_true_exc": 3,
+ "n_cands": 21,
+ "n_all": 980,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.8113207547169812,
+   "key": [
+    "frozenset({32, 1, 5, 6, 37, 12, 62})",
+    "frozenset()",
+    "frozenset()",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.8113207547169812,
+   "key": [
+    "frozenset({32, 1, 5, 6, 37, 12, 62})",
+    "frozenset()",
+    "frozenset()",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.8301886792452831,
+   "key": [
+    "frozenset({32, 1, 6, 12, 14})",
+    "frozenset({(44, 'e3'), (37, 'e19'), (19, 'e18')})",
+    "frozenset()",
+    [],
+    []
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 10.0,
+  "k": 0,
+  "n_rel": 43,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.002,
+  "kappa": 10.0,
+  "k": 0,
+  "n_rel": 43,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "acc_frozen": 0.8113207547169812,
+ "acc_eb_marg": 0.8113207547169812
+}
