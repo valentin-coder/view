@@ -134,9 +134,10 @@ v4.4 − v3 = **+0,220** [+0,154; +0,284]; v4.4 − v4.4e = +0,206 [+0,144; +0,2
 
 ### Értelmezés
 
-1. **A 44–57. kör legtisztább eredménye.** Ugyanazon a generátoron, ugyanazokon a seedeken a κ_T = 1 a rivális
-   elméletek populációjában (C) **+0,21-et ad**, a „mindig nagyjából helyes tankönyv” populációjában (A, 44.
-   kör) **−0,08-at**. Az 50. kör sejtése, hogy a κ_T = 1 egy 50%-os szemét-arányú terület priorja, ezzel közvetlenül
+1. **A 44–57. kör legtisztább eredménye.** Ugyanazon a generátoron a κ_T = 1 (kétszintű v4.4 az egyszintű
+   v4.4e-hez képest) a rivális elméletek populációjában (C, seed 5000–5029) **+0,21-et ad**, a „mindig
+   nagyjából helyes tankönyv” populációjában (A, a 44. kör seedjein, 50. kör másodlagos futás) **−0,047-et**
+   (0,778 vs. 0,825). Az 50. kör sejtése, hogy a κ_T = 1 egy 50%-os szemét-arányú terület priorja, ezzel közvetlenül
    igazolódott. **Egyik beállítás sem helyes önmagában; a helyes érték területi tény.**
 2. **Az előregisztrált v4.7 a C-ben a legrosszabb.** A gondozott-forrás prior (kontextus 10 bit) a kontextus-utat
    drágítja, a szemét elmélet elvetését viszont nem könnyíti. Így a rendszer egyik jó utat sem találja meg.
