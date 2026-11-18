@@ -54,11 +54,31 @@ def ctx_bits_for(pi):
     return -math.log2(max(1e-6, (1 - pi) / 2))
 
 
+CACHE = __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)),
+                                   "..", "results", "kor-52", "cache")
+
+
+def _cached(key, fn):
+    """Folytathatóság konténer-újraindulás után: (populáció, seed, méret, π) szerint lemezre mentve."""
+    import os
+    os.makedirs(CACHE, exist_ok=True)
+    p = os.path.join(CACHE, key + ".json")
+    if os.path.exists(p):
+        return json.load(open(p))
+    r = fn()
+    json.dump(r, open(p + ".tmp", "w"))
+    os.replace(p + ".tmp", p)
+    return r
+
+
 def _train_job(args):
     population, s, pi = args
     garbage = population == "B" and random.Random(s).random() < 0.3
-    sch, obs, truth = world(s, 30, garbage)
-    return {"seed": s, "true_garbage": garbage, **run_world(sch, obs, truth, pi, ctx_bits_for(pi))}
+
+    def fn():
+        sch, obs, truth = world(s, 30, garbage)
+        return {"seed": s, "true_garbage": garbage, **run_world(sch, obs, truth, pi, ctx_bits_for(pi))}
+    return _cached(f"{population}_{s}_30_{pi:.6f}", fn)
 
 
 def em(population, train_seeds, pi0, iters=3, log=print, workers=int(__import__("os").environ.get("W", "2"))):
@@ -83,8 +103,11 @@ def test(population, test_seeds, pi, log=print):
     out = []
     for s in test_seeds:
         garbage = population == "B" and random.Random(s).random() < 0.3
-        sch, obs, truth = world(s, 12, garbage)
-        r = run_world(sch, obs, truth, pi, ctx_bits_for(pi))
+
+        def fn():
+            sch, obs, truth = world(s, 12, garbage)
+            return run_world(sch, obs, truth, pi, ctx_bits_for(pi))
+        r = _cached(f"{population}_{s}_12_{pi:.6f}", fn)
         out.append({"seed": s, "true_garbage": garbage, **r})
         log({"pop": population, "test_pi": pi, **out[-1]})
     return out

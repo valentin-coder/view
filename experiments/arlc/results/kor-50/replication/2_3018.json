@@ -1,0 +1,65 @@
+[
+ {
+  "seed": 3018,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "lookup",
+  "pre_acc": 0.5059523809523809,
+  "post_acc": 0.483695652173913,
+  "target_acc": 1.0,
+  "n_target": 7,
+  "seconds": 0.003624770999977045,
+  "surprise_seconds": 4.7900000481604366e-06
+ },
+ {
+  "seed": 3018,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "recency",
+  "pre_acc": 0.6964285714285714,
+  "post_acc": 0.6739130434782609,
+  "target_acc": 1.0,
+  "n_target": 7,
+  "seconds": 0.02474041900006796,
+  "surprise_seconds": 0.004340060999993511
+ },
+ {
+  "seed": 3018,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "wms",
+  "pre_acc": 0.7678571428571429,
+  "post_acc": 0.7336956521739131,
+  "target_acc": 1.0,
+  "n_target": 7,
+  "seconds": 4.876517048999972,
+  "surprise_seconds": 1.5296891760000335
+ },
+ {
+  "seed": 3018,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "arlc",
+  "pre_acc": 0.7678571428571429,
+  "post_acc": 0.7663043478260869,
+  "target_acc": 0.42857142857142855,
+  "n_target": 7,
+  "seconds": 66.8563215669999,
+  "surprise_seconds": 33.895528970999976
+ },
+ {
+  "seed": 3018,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "v4.4-egyszint\u0171",
+  "pre_acc": 0.8154761904761905,
+  "post_acc": 0.8315217391304348,
+  "target_acc": 1.0,
+  "n_target": 7,
+  "seconds": 50.05406482599983,
+  "surprise_seconds": 18.679801233000035,
+  "avg_post_acc": 0.8315217391304348,
+  "brier_avg": 0.09104870912469787,
+  "brier_map": 0.09510869565217392,
+  "avg_target_acc": 1.0,
+  "brier_avg_target": 0.00688628058802103,
+  "brier_map_target": 0.0,
+  "beam_spread_bits": 1.977016168631252,
+  "beam_n": 8
+ }
+]
