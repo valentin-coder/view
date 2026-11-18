@@ -15,7 +15,11 @@ VARIANTS = {
     "v4.2 + keverék-prior": {**V4.V42_OVERRIDES, "theory_mix": V4.MIX},
     "v4.2 + q-csoportok": {**V4.V42_OVERRIDES, "q_groups": True},
     "v4.2 + szigorú specifikusság": {**V4.V42_OVERRIDES, "strict_specificity": True},
-    "v5 jelölt (mind a négy)": dict(V4.V5_OVERRIDES),
+    "v5 jelölt (mind a négy, nem kalibrált keverék)": {**V4.V5_OVERRIDES, "theory_mix": V4.MIX},
+    "v4.2 + kalibrált keverék": {**V4.V42_OVERRIDES, "theory_mix": V4.MIX_CAL},
+    "v5 jelölt (kalibrált keverék)": dict(V4.V5_OVERRIDES),
+    "v4.3 + keverék π=0,99": {**V4.V43_OVERRIDES, "theory_mix": V4.MIX_CAL99},
+    "v4.3 + keverék π=0,999": {**V4.V43_OVERRIDES, "theory_mix": V4.MIX_CAL999},
     "v5 − keverék-prior": {k: v for k, v in V4.V5_OVERRIDES.items() if k != "theory_mix"},
 }
 

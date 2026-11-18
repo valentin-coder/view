@@ -29,9 +29,14 @@ V4 = {
 
 V41_OVERRIDES = {"corroboration": True}   # v4.1: a 43. kör diagnózisa után, feltáró jelleggel
 V42_OVERRIDES = {"ind_exc_cost": True}    # v4.2: a 45. körben talált 3. hiba javítása (nem a befagyasztott v4)
-MIX = (0.9, 30.0, 0.5, 2.0)               # 48. kör: π, κ1, q0, κ0
-V5_OVERRIDES = {"ind_exc_cost": True, "theory_mix": MIX, "q_groups": True,   # 48. kör jelöltje
+MIX = (0.9, 30.0, 0.5, 2.0)               # 48. kör: π, κ1, q0, κ0 (nem kalibrált; első javaslat)
+MIX_CAL = (0.95, 30.0, 0.5, 2.0, "cal")   # 48. kör: kalibrált keverék (magányos állításra P(helyes) = q)
+MIX_CAL99 = (0.99, 30.0, 0.5, 2.0, "cal")  # 49. kör: a „szemét elmélet” prioresélye 1%
+MIX_CAL999 = (0.999, 30.0, 0.5, 2.0, "cal")  # 49. kör: 0,1%
+V5_OVERRIDES = {"ind_exc_cost": True, "theory_mix": MIX_CAL, "q_groups": True,   # 48. kör: keverékes jelölt (ELVETVE)
                 "strict_specificity": True}
+V43_OVERRIDES = {"ind_exc_cost": True, "q_groups": True, "strict_specificity": True}  # 48. kör: a túlélő javítások
+V44_OVERRIDES = {**V43_OVERRIDES, "auto_specificity": True}   # 49. kör: + specifikus öröklés
 
 ABLATIONS = {
     "v4": {},
@@ -65,6 +70,7 @@ def configured(overrides: dict):
             self.theory_mix = cfg.get("theory_mix", None)
             self.q_groups = cfg.get("q_groups", False)
             self.strict_specificity = cfg.get("strict_specificity", False)
+            self.auto_specificity = cfg.get("auto_specificity", False)
     core.Memory.__init__ = init
     try:
         yield cfg

@@ -129,6 +129,7 @@ class Memory:
         self.theory_mix: Optional[tuple] = None  # 48. kör: (π, κ1, q0, κ0) keverék-prior az elmélet-megbízhatóságra
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
         self.strict_specificity = False        # 48. kör: osztályszintű kivétel csak a szabály törzsének szigorú alosztályára
+        self.auto_specificity = False          # 49. kör: a specifikusabb ellentétes szabály ingyen felülírja az általánosabbat
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -198,7 +199,32 @@ class Memory:
                     f = has.get(e, {}).get(ro.rule.cond)
                     if b is not None and f is not None and (ro.id, e) not in H.exc:
                         isa[e].setdefault((ro.rule.obj, ro.rule.pos), b | f | {("obs", ro.id), ("inst", ro.id, e)})
+            auto = self.auto_specificity
+            if auto:
+                up = defaultdict(set)
+                for ro in rules:
+                    r = ro.rule
+                    if r.pred == "isa" and r.pos:
+                        if r.cond is None:
+                            up[r.body].add(r.obj)
+                        else:
+                            up[r.obj].add(r.body)
+                anc_memo: dict = {}
+
+                def anc(c):
+                    a = anc_memo.get(c)
+                    if a is None:
+                        a, st = set(), [c]
+                        while st:
+                            x = st.pop()
+                            for y in up.get(x, ()):
+                                if y not in a and y != c:
+                                    a.add(y)
+                                    st.append(y)
+                        anc_memo[c] = a
+                    return a
             for e in list(isa.keys()):
+                pending = [] if auto else None
                 queue = [c for (c, pos) in isa[e] if pos]
                 seen = set(queue)
                 while queue:
@@ -217,9 +243,20 @@ class Memory:
                             if r.pos and r.obj not in seen:
                                 seen.add(r.obj)
                                 queue.append(r.obj)
+                        elif auto:
+                            pending.append((r.body, k, sup))
                         else:
                             has[e].setdefault(k, sup)
                             ruled[e].add(k)
+                if auto and pending:
+                    # 49. kör: specifikus öröklés (Touretzky). Egy alkalmazás kiesik, ha egy ellentétes
+                    # előjelű alkalmazás törzse az ő törzsének szigorú alosztálya. Ingyenes, nem kivétel.
+                    for body, k, sup in pending:
+                        opp = (k[0], not k[1])
+                        if any(k2 == opp and body in anc(b2) for b2, k2, _ in pending):
+                            continue
+                        has[e].setdefault(k, sup)
+                        ruled[e].add(k)
         cl = Closure(isa, has, ruled)
         cl.conflict = self._rule_conflict(rules) or self._conflict(cl)
         self._ccache[key] = cl
@@ -368,8 +405,11 @@ class Memory:
             theory = isinstance(src, tuple) and src[1] == "elmélet"
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
-                pi, k1, q0m, k0 = self.theory_mix
-                c1, c0 = bb(n, k, k1, q), bb(n, k, k0, q0m)
+                pi, k1, q0m, k0 = self.theory_mix[:4]
+                # kalibrált változat: a magányos állítás helyességének valószínűsége a deklarált q marad,
+                # π·q1 + (1−π)·q0 = q (ehhez π ≥ (q − q0)/(1 − q0) kell)
+                q1 = min(1 - 1e-9, max(1e-9, (q - (1 - pi) * q0m) / pi)) if len(self.theory_mix) > 4 else q
+                c1, c0 = bb(n, k, k1, q1), bb(n, k, k0, q0m)
                 m = min(c1, c0)
                 bits += m - math.log2(pi * 2 ** (m - c1) + (1 - pi) * 2 ** (m - c0))
                 continue
