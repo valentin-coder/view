@@ -1,0 +1,17 @@
+{
+ "pop": "C",
+ "seed": 7000,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "avg_post_acc": 0.6918918918918919,
+ "brier_avg": 0.15539528518663145,
+ "brier_map": 0.1554054054054054,
+ "avg_target_acc": NaN,
+ "brier_avg_target": NaN,
+ "brier_map_target": NaN,
+ "beam_spread_bits": 40.113128024344576,
+ "beam_n": 8,
+ "post_map": 0.4594594594594595,
+ "target_map": NaN,
+ "target_frac_uncertain": NaN,
+ "target_mean_abs_from_half": NaN
+}
