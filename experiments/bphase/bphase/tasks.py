@@ -53,6 +53,57 @@ CTX_FACT = ['In the encyclopedia,', 'According to the biology textbook,', 'In th
 N_TRAIN_CTX = 12
 
 
+# 61. kör: forrástípus (SRC). Négy típus, típusonként 20 bevezető kifejezés; az utolsó 8 kitartott, és
+# tartalmi szavuk nem szerepel a tanítókban (a modul betöltésekor ellenőrizve). A típusból jön a
+# keverék-prior területi π-je (60. kör): gondozott 0,999; rivális iskola 0,5; szakértő 0,95; pletyka 0,7.
+SRC_TYPES = {
+    # minden típusban a páros indexű kifejezés „The”, a páratlan „A/An” névelővel kezdődik, azonos
+    # „<névelő> <jelző> <főnév> <ige> that” szerkezettel: a felszíni szerkezet nem szivárogtat (35. kör)
+    "gondozott": ['The standard textbook states that', 'A reference handbook says that', 'The official curriculum teaches that',
+                  'A peer-reviewed review concludes that', 'The national encyclopedia records that', 'An approved syllabus explains that',
+                  'The accredited manual specifies that', 'A canonical treatise affirms that', 'The authoritative compendium lists that',
+                  'An established reference notes that', 'The certified guidebook describes that', 'A vetted glossary defines that',
+                  'The archival registry documents that', 'A ministry publication reports that', 'The consensus statement declares that',
+                  'A standards bulletin confirms that', 'The library catalogue indicates that', 'An endorsed atlas shows that',
+                  'The institutional yearbook registers that', 'A sanctioned digest summarizes that'],
+    "rivális iskola": ['The rival school claims that', 'A dissenting faction insists that', 'The opposing tradition holds that',
+                       'A competing paradigm asserts that', 'The breakaway movement argues that', 'A heterodox circle maintains that',
+                       'The contrarian camp contends that', 'An alternative doctrine teaches that', 'The splinter group proclaims that',
+                       'A revisionist sect believes that', 'The unorthodox lineage preaches that', 'A schismatic order alleges that',
+                       'The fringe academy promotes that', 'A countercultural guild posits that', 'The minority creed espouses that',
+                       'A renegade society advocates that', 'The nonconformist clique propounds that', 'A separatist fellowship avows that',
+                       'The rebel conclave professes that', 'A maverick brotherhood touts that'],
+    "szakértő": ['The consulted specialist said that', 'A senior researcher explained that', 'The practicing veterinarian noted that',
+                 'A field biologist observed that', 'The museum curator mentioned that', 'A laboratory technician measured that',
+                 'The trained ecologist reported that', 'A professional zoologist confirmed that', 'The qualified botanist remarked that',
+                 'A university professor stated that', 'The experienced ranger told that', 'A licensed inspector found that',
+                 'The chartered engineer verified that', 'A forensic analyst determined that', 'The marine scientist recorded that',
+                 'A herpetology fellow described that', 'The entomology lecturer showed that', 'A geology consultant estimated that',
+                 'The ornithology warden counted that', 'A taxonomy auditor classified that'],
+    "pletyka": ['The market gossip whispered that', 'A nosy neighbour heard that', 'The town rumour has that',
+                'A friend swears that', 'The online crowd keeps saying that', 'An anonymous post suggested that',
+                'The party gossip was that', 'A random stranger muttered that', 'The street word is that',
+                'A chain letter warned that', 'The forum braggart bragged that', 'A cousin vaguely recalls that',
+                'The tabloid headline screamed that', 'A barber casually joked that', 'The unverified tweet alleged that',
+                'A passerby shouted that', 'The pub regular rambled that', 'A viral meme implied that',
+                'The taxi driver speculated that', 'A village hearsay goes that'],
+}
+SRC_PI = {"gondozott": 0.999, "rivális iskola": 0.5, "szakértő": 0.95, "pletyka": 0.7}
+N_TRAIN_SRC = 12
+_STOP = {"a", "an", "the", "that", "of", "at", "on", "in", "i", "me", "my", "is", "was", "has", "it", "some", "from", "around"}
+
+
+def _content_words(phrases):
+    return {w.strip(",.").lower() for p in phrases for w in p.split()} - _STOP
+
+
+def _check_src_overlap():
+    tr = [p for v in SRC_TYPES.values() for p in v[:N_TRAIN_SRC]]
+    te = [p for v in SRC_TYPES.values() for p in v[N_TRAIN_SRC:]]
+    common = _content_words(tr) & _content_words(te)
+    return sorted(common)
+
+
 @dataclass
 class Stmt:
     text: str
@@ -64,6 +115,23 @@ class Stmt:
     template: int
     ctx: str = ""          # "fiction" | "fact" | ""
     ctx_idx: int = -1
+    src: str = ""          # 61. kör: forrástípus
+    src_idx: int = -1
+
+
+def src_statements(seed=0):
+    """61. kör: kijelentések forrástípus-bevezetővel (a kijelentés maga az E0-sablonok első alakja)."""
+    rng = random.Random(seed + 61)
+    out = []
+    for st in statements(seed):
+        if st.template != 0:
+            continue
+        kind = rng.choice(sorted(SRC_TYPES))
+        ci = rng.randrange(len(SRC_TYPES[kind]))
+        txt = SRC_TYPES[kind][ci] + " " + st.text[0].lower() + st.text[1:]
+        out.append(Stmt(txt, st.entity, st.category, st.prop, st.polarity, st.true_in_world, 0, src=kind, src_idx=ci))
+    rng.shuffle(out)
+    return out
 
 
 def statements(seed=0, with_ctx=False):
@@ -259,3 +327,48 @@ def hysteresis(model, tok, entity="robin", old="bird", new="fish", prop="breathe
     m_up = margins(model, tok, up, None, batch_size).tolist()
     m_down = margins(model, tok, down, None, batch_size).tolist()
     return {"up": m_up, "down": m_down, "kmax": kmax}
+
+
+# ------------------------------------------------------------------ SRC (61. kör)
+def src_task(model, tok, n_max=3000, seed=0, batch_size=16):
+    """Forrástípus kitartott bevezető kifejezéseken: 4 osztály és a „gondozott vs. nem” bináris jel,
+    kifejezésszintű AUC-val és permutációs p-vel (a hatásos mintaméret a kitartott kifejezések száma, 32)."""
+    S = src_statements(seed)[:n_max]
+    kinds = sorted(SRC_TYPES)
+    tr = [s for s in S if s.src_idx < N_TRAIN_SRC]
+    te = [s for s in S if s.src_idx >= N_TRAIN_SRC]
+    A_tr, St_tr = last_token_states(model, tok, [s.text for s in tr], batch_size)
+    A_te, St_te = last_token_states(model, tok, [s.text for s in te], batch_size)
+    B_tr, vocab = bow([s.text for s in tr])
+    B_te, _ = bow([s.text for s in te], vocab)
+    y4_tr = np.array([kinds.index(s.src) for s in tr]); y4_te = np.array([kinds.index(s.src) for s in te])
+    y2_tr = np.array([int(s.src == "gondozott") for s in tr]); y2_te = np.array([int(s.src == "gondozott") for s in te])
+    rng = np.random.default_rng(seed)
+    idx = rng.permutation(len(tr)); fit, val = idx[: int(0.8 * len(idx))], idx[int(0.8 * len(idx)):]
+    best_l, best = 0, -1.0
+    for l in range(A_tr.shape[0]):
+        p = logreg(A_tr[l][fit], y4_tr[fit], A_tr[l][val], 4)
+        a = float((p.argmax(1) == y4_tr[val]).mean())
+        if a > best:
+            best_l, best = l, a
+    out = {"best_layer": best_l, "átfedő tartalmi szavak (tanító ∩ kitartott)": _check_src_overlap()}
+    for feat, Xtr, Xte in (("aktiváció", A_tr[best_l], A_te[best_l]), ("statikus", St_tr, St_te), ("BoW", B_tr, B_te)):
+        p4 = logreg(Xtr, y4_tr, Xte, 4)
+        p2 = logreg(Xtr, y2_tr, Xte, 2)[:, 1]
+        groups = {}
+        for s_, sc, pr in zip(te, p2, p4):
+            groups.setdefault((s_.src, s_.src_idx), []).append((sc, pr))
+        keys = sorted(groups)
+        g_sc = np.array([np.mean([x[0] for x in groups[g]]) for g in keys])
+        g_y = np.array([int(g[0] == "gondozott") for g in keys])
+        g_pred = [kinds[int(np.mean([x[1] for x in groups[g]], axis=0).argmax())] for g in keys]
+        obs = auc(g_sc, g_y)
+        rp = np.random.default_rng(1)
+        null = [auc(g_sc, rp.permutation(g_y)) for _ in range(2000)]
+        out[feat] = {"mondatszintű_4_osztály_acc": float((p4.argmax(1) == y4_te).mean()),
+                     "kifejezésszintű_4_osztály_acc": float(np.mean([gp == g[0] for gp, g in zip(g_pred, keys)])),
+                     "gondozott_kifejezésszintű_auc": obs, "permutációs_p": float(np.mean([x >= obs for x in null])),
+                     "kifejezések_száma": len(keys),
+                     # a 60. kör v4.8-ához: a becsült típusból jövő π kifejezésenként
+                     "π_hozzárendelés": {f"{g[0]}#{g[1]}": SRC_PI[gp] for gp, g in zip(g_pred, keys)}}
+    return out

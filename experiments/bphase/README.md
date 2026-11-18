@@ -21,5 +21,11 @@ cd ../ktp && python -m ktp.run all --model Qwen/Qwen2.5-0.5B --out runs/qwen05  
    kitartott kifejezések száma (16), nem a mondatoké.
 
 Feladatok: E0 (literálkinyerés), CTX (kontextus-jel kitartott, lexikailag át nem fedő
-forráskifejezésekkel; küszöb 0,95), ISZB (interventív szabálybányászat vs. promptolás), B4
-(LLM-oldali hiszterézis). Részletek: `docs/korok/35-b-fazis-csomag.md`.
+forráskifejezésekkel; küszöb 0,95), **SRC (61. kör: forrástípus – gondozott, rivális iskola, szakértő,
+pletyka – kitartott, át nem fedő bevezető kifejezésekkel; kiegyensúlyozott névelőkkel)**, ISZB
+(interventív szabálybányászat vs. promptolás), B4 (LLM-oldali hiszterézis). Részletek:
+`docs/korok/35-b-fazis-csomag.md`, `docs/korok/61-b-fazis-ket-feladat.md`.
+
+**A 60–61. kör szerint az LLM két legfontosabb feladata a szimbolikus mag számára** a CTX (a kontextus-
+izolálás jelhez kötése) és az SRC (a keverék-prior területi π-je). A futtatás után a kifejezésszintű
+pontosságot kell a 60. kör v4.8-ába bemenetként adni (a jel pontossága a, illetve a π-hozzárendelés).

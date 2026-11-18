@@ -73,6 +73,8 @@ def main(argv=None):
     t0 = time.time()
     res["E0_CTX"] = T.e0_and_ctx(model, tok, n_max=600 if a.smoke else a.n_max)
     print("E0/CTX kész", round(time.time() - t0), "s", flush=True)
+    res["SRC"] = T.src_task(model, tok, n_max=600 if a.smoke else a.n_max)   # 61. kör: forrástípus
+    print("SRC kész", round(time.time() - t0), "s", flush=True)
     res["ISZB"] = T.iszb(model, tok, layer)
     print("ISZB kész", round(time.time() - t0), "s", flush=True)
     res["B4"] = T.hysteresis(model, tok)
@@ -84,6 +86,10 @@ def main(argv=None):
         print(f"kontextus-jel [{f}]: mondatszintű AUC {ctx[f].get('auc'):.3f}; kifejezésszintű AUC "
               f"{ctx[f].get('kifejezésszintű_auc'):.3f} ({ctx[f].get('kifejezések_száma')} kifejezés, "
               f"p = {ctx[f].get('permutációs_p'):.3f}); a 21. kör küszöbe 0.95")
+    src = res["SRC"]
+    for f in ("aktiváció", "statikus", "BoW"):
+        print(f"forrástípus [{f}]: 4 osztály (kifejezésszintű) {src[f]['kifejezésszintű_4_osztály_acc']:.3f}; "
+              f"gondozott AUC {src[f]['gondozott_kifejezésszintű_auc']:.3f} (p = {src[f]['permutációs_p']:.3f})")
     iia = [r["iia"] for r in res["ISZB"]]
     pc = [r["prompt_correct"] for r in res["ISZB"]]
     print(f"ISZB: átlagos IIA {sum(iia) / len(iia):.3f}; promptolás helyes {sum(pc) / len(pc):.3f}")
