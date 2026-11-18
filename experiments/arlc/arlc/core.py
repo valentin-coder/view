@@ -133,6 +133,7 @@ class Memory:
         self.auto_specificity = False          # 49. kör: a specifikusabb ellentétes szabály ingyen felülírja az általánosabbat
         self.ctx_override = False              # 53. kör: az izolált forrás a saját kontextusában felülír (lex specialis)
         self.latent_truth = False              # 53. kör: közös látens igazság az egyező jelentésekre
+        self.theory_pi: dict = {}              # 60. kör: forrásonkénti π a keverék-priorhoz (metaadat)
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -444,6 +445,7 @@ class Memory:
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
                 pi, k1, q0m, k0 = self.theory_mix[:4]
+                pi = self.theory_pi.get(src[0], pi)   # 60. kör: forrás-metaadatból jövő területi π
                 # kalibrált változat: a magányos állítás helyességének valószínűsége a deklarált q marad,
                 # π·q1 + (1−π)·q0 = q (ehhez π ≥ (q − q0)/(1 − q0) kell)
                 q1 = min(1 - 1e-9, max(1e-9, (q - (1 - pi) * q0m) / pi)) if len(self.theory_mix) > 4 else q
