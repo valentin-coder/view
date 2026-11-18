@@ -43,4 +43,42 @@ célzott képességét egyszerre, és ezt jelentem.
 
 ## 2. rész: eredmények
 
-*(a futtatás után)*
+Nyers adat: [`results/kor-55/`](../../experiments/arlc/results/kor-55/) (A, B: esetenként); elemzés:
+[`analyze_r55.py`](../../experiments/arlc/arlc/analyze_r55.py) → `analysis.json`.
+
+| | A post | A target | B post | B target | B szemét post | B jó post |
+|---|---|---|---|---|---|---|
+| v3 | 0,762 | 0,617 | 0,606 | 0,482 | 0,414 | 0,798 |
+| v4.4e | **0,802** | 0,691 | **0,634** | 0,557 | 0,410 | **0,858** |
+| H1 (kúp) | 0,772 | 0,691 | 0,616 | 0,558 | 0,420 | 0,812 |
+| H2 (kúp + visszaesés) | 0,774 | **0,694** | 0,614 | 0,524 | 0,416 | 0,812 |
+
+| hipotézis | különbség | 95% CI | eredmény |
+|---|---|---|---|
+| **H55a:** H2 − v3 (A, post) > 0 | +0,012 | [+0,008; +0,018] | **teljesül** |
+| **H55b:** H2 − v4.4e (A, post) ≥ 0 | **−0,028** | [−0,063; +0,012] | **nem teljesül** |
+| **H55c:** H2 target ≥ v4.4e target − 0,02 (A) | +0,003 | [−0,014; +0,024] | **teljesül** |
+| **H55d:** H1 − v3 (B, post) > 0 | +0,010 | [+0,005; +0,015] | **teljesül** |
+| **H55e:** H2 − H1 (B, post) < 0 | −0,002 | [−0,005; +0,001] | irányában igen, **nem szignifikáns** |
+
+A visszaesési szabály az A-ban az esetek 9%-ában lépett életbe, a B jó tankönyves világaiban egyszer sem, a
+B szemét tankönyves világaiban 88%-ban.
+
+### Értelmezés
+
+1. **Az alapfeltevés ezeken a seedeken nem állt:** a v4.4e itt *általánosan* is jobb a v3-nál (0,802 vs.
+   0,762; az 50. kör 3000-es seedjein +0,024 volt, itt +0,04). A kúpon kívül a v3 válasza így rontja az
+   eredményt (H55b). **A kétsebességű rendszer abban a formában, ahogy terveztem, a gyengébb rendszert
+   tartja meg alapnak.**
+2. **Feltáró (nem előregisztrált), fordított felállás:** H3 = a v4.4e válasza mindenhol, kivéve ha a v4.4e
+   félretette a tankönyvet; akkor a v3-é. Az A-ban **0,819**: +0,058 a v3-hoz [+0,032; +0,086], +0,018 a
+   v4.4e-hez képest [−0,000; +0,047]. A 14 visszaesett esetben a v3 0,586-ot, a v4.4e 0,395-öt ad. Ezt az 57.
+   körben, annak adatai előtt, előregisztrált hipotézisként vettem fel (H57e, H57f).
+3. **A B populáció ebben a formában nem diszkriminatív.** A szemét tankönyves világokban mindegyik módszer
+   0,41–0,42 körül áll, pedig a tankönyvet a v4.4e 75-ből 66-szor, a v3 71-szer félreteszi (a v3 is, mert a
+   véletlen előjelű szabályok tömegesen ütköznek). Félretevés után nincs más tudásforrás, amely a meg nem
+   figyelt tényeket megjósolná, ezért a helyes félretevés nem javít a pontosságon. **A gestalt-váltás
+   értékét csak akkor lehet mérni, ha van rivális, helyes elmélet** (TFB-9). Ezt az 57. kör C populációja
+   pótolja (kiegészítés az adatai előtt).
+4. **A B jó tankönyves világaiban a v4.4e egyszer sem tette félre a tankönyvet**, az A-ban 150-ből 14-szer.
+   A különbség a seedek véletlenjéből adódik (más világok), nem a populációból.
