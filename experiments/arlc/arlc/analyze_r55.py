@@ -79,6 +79,17 @@ def r57():
     if B:
         p = {m: per_seed(B, f"post_{m}") for m in M}
         res["H57c v4.7 − v3 (B, post)"] = boot_diff(p["v4.7"], p["v3"], rng)
+    for r in A + B:   # H3: v4.7, katasztrófánál v3 (57. kör kiegészítés)
+        r["post_H3"] = r["post_v3"] if r["dismissed_v4.7"] else r["post_v4.7"]
+        r["target_H3"] = r["target_v3"] if r["dismissed_v4.7"] else r["target_v4.7"]
+    if A:
+        p = {m: per_seed(A, f"post_{m}") for m in ("v3", "v4.7", "H3")}
+        res["H57e H3 − v4.7 (A, post)"] = boot_diff(p["H3"], p["v4.7"], rng)
+        res["H57e H3 − v3 (A, post)"] = boot_diff(p["H3"], p["v3"], rng)
+    if B:
+        bad = [r for r in B if r["garbage"]]
+        p = {m: per_seed(bad, f"post_{m}") for m in ("v4.7", "H3")}
+        res["H57f H3 − v4.7 (B szemét, post)"] = boot_diff(p["H3"], p["v4.7"], rng)
     good = [r for r in A + B if not r["garbage"]]
     bad = [r for r in B if r["garbage"]]
     res["H57d félretevés"] = {

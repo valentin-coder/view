@@ -34,6 +34,13 @@ méri.
   teszi félre a tankönyvet, mint a v4.4e. A *szemét* tankönyves világokban a v4.7 az esetek legalább felében
   félreteszi.
 
+**Kiegészítés (az 55. kör A-része után, az 57. kör adatai előtt commitolva):** az 55. kör feltáró eredménye
+szerint a fordított kétsebességű szabály a legjobb: **H3(v4.7) = a v4.7 válasza, kivéve ha a v4.7 félretette
+a tankönyvet; akkor a v3-é.** Ez a tárolt mezőkből esetenként számolható.
+- **H57e (A):** H3 − v4.7 (post-acc) ≥ 0 pontbecslésben, és H3 − v3 > 0, a CI nem tartalmazza a nullát.
+- **H57f (B, kudarc-jóslat):** a szemét tankönyves B-világokban H3 − v4.7 < 0, mert a visszaesés a *helyes*
+  félretevést is visszacsinálja.
+
 **Kudarc-feltétel:** ha H57b nem teljesül, a gondozott-forrás prior a 3024-es seedre illesztett hatás volt.
 Ha H57c nem teljesül, a v4.7 a szemét tankönyvet sem tudja jobban kezelni, mint a v3.
 
