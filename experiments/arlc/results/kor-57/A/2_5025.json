@@ -1,0 +1,20 @@
+{
+ "pop": "A",
+ "seed": 5025,
+ "kind": "kiv\u00e9teles alfaj",
+ "garbage": false,
+ "post_v3": 0.9005524861878453,
+ "target_v3": 1.0,
+ "dismissed_v3": false,
+ "t_v3": 6.778309879000517,
+ "post_v4.4e": 0.9226519337016574,
+ "target_v4.4e": 0.5,
+ "dismissed_v4.4e": false,
+ "t_v4.4e": 18.226529871999446,
+ "post_v4.7": 0.9226519337016574,
+ "target_v4.7": 0.5,
+ "dismissed_v4.7": false,
+ "t_v4.7": 19.312615811000796,
+ "post_H2(v3+v4.7)": 0.8784530386740331,
+ "target_H2(v3+v4.7)": 0.5
+}
