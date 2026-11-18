@@ -90,6 +90,19 @@ def r57():
         bad = [r for r in B if r["garbage"]]
         p = {m: per_seed(bad, f"post_{m}") for m in ("v4.7", "H3")}
         res["H57f H3 − v4.7 (B szemét, post)"] = boot_diff(p["H3"], p["v4.7"], rng)
+    C = load(57, "C")
+    if C:
+        M3 = ("v3", "v4.4e", "v4.7")
+        for r in C:
+            fb = r["dismissed_book_v4.7"] or r["dismissed_book2_v4.7"]
+            r["post_H3"] = r["post_v3"] if fb else r["post_v4.7"]
+        res["C"] = summary(C, M3)
+        p = {m: per_seed(C, f"post_{m}") for m in M3 + ("H3",)}
+        res["H57g v4.7 − v3 (C, post)"] = boot_diff(p["v4.7"], p["v3"], rng)
+        res["H57i H3 − v4.7 (C, post)"] = boot_diff(p["H3"], p["v4.7"], rng)
+        res["H57h helyes gestalt-váltás (a szemét félretéve, a jó nem)"] = {
+            m: sum(r[f"dismissed_{r['garbage']}_{m}"] and not r[f"dismissed_{'book2' if r['garbage'] == 'book' else 'book'}_{m}"]
+                   for r in C) for m in M3} | {"n": len(C)}
     good = [r for r in A + B if not r["garbage"]]
     bad = [r for r in B if r["garbage"]]
     res["H57d félretevés"] = {

@@ -29,12 +29,18 @@ def job(args):
     row = {"pop": pop, "seed": seed, "kind": KINDS[ki], "garbage": garbage}
     mems = {}
     for name, cfg in CFGS.items():
+        if pop == "C" and name == "v4.7":
+            cfg = {**cfg, "ctx_cost": {"book": 10.0, "book2": 10.0, "census": 10.0}}
         m, t = run_mem(sch, obs, new, cfg)
         mems[name] = m
         a = {k: m.answer(*k, record_use=False) for k in keys}
         row[f"post_{name}"] = score(a, q)
         row[f"target_{name}"] = score(a, tq)
         row[f"dismissed_{name}"] = dismissed(m)
+        if pop == "C":   # melyik tankönyvet tette félre (≥ 90% elvetve vagy izolálva)
+            for b in ("book", "book2"):
+                ids = [o.id for o in m.obs if o.source == b]
+                row[f"dismissed_{b}_{name}"] = (b in m.best.iso) or sum(i in m.best.rej for i in ids) >= 0.9 * len(ids)
         row[f"t_{name}"] = t
         row[f"_a_{name}"] = a
     C = cone(mems["v4.7"], new)

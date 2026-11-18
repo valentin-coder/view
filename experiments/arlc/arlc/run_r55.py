@@ -35,6 +35,21 @@ def is_garbage(seed):
 def make_case(seed, kind, pop):
     """A procedural.make_case, B populációban egészében téves tankönyvvel (a szabályok előjele véletlen)."""
     sch, obs, new, pre, post, tq = P.make_case(seed, kind)
+    if pop == "C":
+        # 57. kör: két rivális tankönyv; seedenként véletlenül az egyik egészében téves (TFB-9-szerű)
+        bad = "book" if random.Random(seed * 11 + 5).random() < 0.5 else "book2"
+        grng = random.Random(seed + 7919)
+        out, nid = [], 900000
+        for o in obs:
+            if o.rule is not None and o.rule.pred == "has" and o.source == "book":
+                good_r = o.rule
+                bad_r = Rule(good_r.body, good_r.pred, good_r.obj, grng.random() < 0.5)
+                out.append(Obs(o.id, "book", o.time, o.q, rule=bad_r if bad == "book" else good_r))
+                out.append(Obs(nid, "book2", o.time, o.q, rule=bad_r if bad == "book2" else good_r))
+                nid += 1
+            else:
+                out.append(o)
+        return sch, out, new, pre, post, tq, bad
     garbage = pop == "B" and is_garbage(seed)
     if garbage:
         grng = random.Random(seed + 7919)

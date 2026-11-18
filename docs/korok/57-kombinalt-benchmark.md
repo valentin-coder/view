@@ -41,6 +41,17 @@ a tankönyvet; akkor a v3-é.** Ez a tárolt mezőkből esetenként számolható
 - **H57f (B, kudarc-jóslat):** a szemét tankönyves B-világokban H3 − v4.7 < 0, mert a visszaesés a *helyes*
   félretevést is visszacsinálja.
 
+**Második kiegészítés (az 55. kör B-része után, a C populáció adatai előtt commitolva):** az 55. kör B
+populációja nem diszkriminatív: helyes félretevés után nincs más tudásforrás, ezért minden módszer kb. 0,41.
+A gestalt-váltás értéke csak rivális, helyes elmélet mellett mérhető. **C populáció:** két tankönyv („book”,
+„book2”, mindkettő q = 0,95, mindkettő gondozott); seedenként véletlenül az egyik egészében téves (véletlen
+előjelek), a másik a szokásos (10% hibás). Seedek 5000–5029, 150 eset. A v4.7-ben mindkét tankönyv
+kontextusára 10 bit. A H3 visszaesése C-ben akkor lép életbe, ha a v4.7 *bármelyik* tankönyvet félreteszi.
+- **H57g (C):** v4.7 − v3 (post-acc) > 0, a CI nem tartalmazza a nullát.
+- **H57h (C):** a v4.7 az esetek legalább felében a szemét tankönyvet teszi félre, és a jót nem; a v3 ritkábban.
+- **H57i (C, kudarc-jóslat):** H3 − v4.7 (post-acc) < 0, mert a visszaesés a helyes gestalt-váltást
+  visszacsinálja.
+
 **Kudarc-feltétel:** ha H57b nem teljesül, a gondozott-forrás prior a 3024-es seedre illesztett hatás volt.
 Ha H57c nem teljesül, a v4.7 a szemét tankönyvet sem tudja jobban kezelni, mint a v3.
 
