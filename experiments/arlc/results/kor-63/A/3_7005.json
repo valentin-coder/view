@@ -1,0 +1,17 @@
+{
+ "pop": "A",
+ "seed": 7005,
+ "kind": "hazug forr\u00e1s",
+ "avg_post_acc": 0.8172043010752689,
+ "brier_avg": 0.14617675241442626,
+ "brier_map": 0.15994623655913978,
+ "avg_target_acc": 0.5,
+ "brier_avg_target": 0.4308424137268935,
+ "brier_map_target": 0.375,
+ "beam_spread_bits": 0.7502426841857357,
+ "beam_n": 8,
+ "post_map": 0.7634408602150538,
+ "target_map": 0.625,
+ "target_frac_uncertain": 0.125,
+ "target_mean_abs_from_half": 0.45854819995584406
+}

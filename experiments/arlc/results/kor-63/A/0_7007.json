@@ -1,0 +1,17 @@
+{
+ "pop": "A",
+ "seed": 7007,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "avg_post_acc": 0.8375,
+ "brier_avg": 0.06975099769020307,
+ "brier_map": 0.0703125,
+ "avg_target_acc": 0.8333333333333334,
+ "brier_avg_target": 0.16933040604320626,
+ "brier_map_target": 0.16666666666666666,
+ "beam_spread_bits": 3.225627304504428,
+ "beam_n": 8,
+ "post_map": 0.8125,
+ "target_map": 0.8333333333333334,
+ "target_frac_uncertain": 0.0,
+ "target_mean_abs_from_half": 0.47338512768349833
+}

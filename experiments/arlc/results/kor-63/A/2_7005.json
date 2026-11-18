@@ -1,0 +1,17 @@
+{
+ "pop": "A",
+ "seed": 7005,
+ "kind": "kiv\u00e9teles alfaj",
+ "avg_post_acc": 0.8364485981308412,
+ "brier_avg": 0.13059734178517024,
+ "brier_map": 0.1413551401869159,
+ "avg_target_acc": 1.0,
+ "brier_avg_target": 0.0,
+ "brier_map_target": 0.0,
+ "beam_spread_bits": 2.1758764898711718,
+ "beam_n": 8,
+ "post_map": 0.7710280373831776,
+ "target_map": 1.0,
+ "target_frac_uncertain": 0.0,
+ "target_mean_abs_from_half": 0.5
+}
