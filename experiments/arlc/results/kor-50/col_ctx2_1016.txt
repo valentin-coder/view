@@ -1,0 +1,7 @@
+pre 0.7901234567901234 rej 9 iso [] exc 2
+post 0.5432098765432098 rej 51 iso [] exc 0 cut 0 ind 0 beam 8
+rejected by source {'book': 46, 'liar': 5}
+conflict in best: None
+sample answers e0 [('p0', None, True), ('p1', None, False), ('p2', True, True), ('p4', False, False)]
+n entities with isa 30 with has 30
+new obs sources ['liar'] times [32] now 32

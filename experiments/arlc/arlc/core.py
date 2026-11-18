@@ -131,6 +131,7 @@ class Memory:
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
         self.strict_specificity = False        # 48. kör: osztályszintű kivétel csak a szabály törzsének szigorú alosztályára
         self.auto_specificity = False          # 49. kör: a specifikusabb ellentétes szabály ingyen felülírja az általánosabbat
+        self.ctx_override = False              # 53. kör: az izolált forrás a saját kontextusában felülír (lex specialis)
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -178,6 +179,18 @@ class Memory:
             if o.source in H.iso and o.source != ctx:
                 continue
             (rules if o.rule else facts).append(o)
+        ctx_lits = None
+        if self.ctx_override and ctx is not None and ctx in H.iso:
+            # 53. kör: kontextuson belüli elsőbbség (lex specialis). Az izolált forrás saját szabályai és
+            # tényei a saját kontextusában felülírják az örökölt, ellentétes állításokat, ütközés helyett.
+            own_r = {(o.rule.body, o.rule.pred, o.rule.obj, o.rule.pos) for o in rules if o.source == ctx}
+            n0 = len(rules) + len(facts)
+            rules = [o for o in rules if o.source == ctx or
+                     (o.rule.body, o.rule.pred, o.rule.obj, not o.rule.pos) not in own_r]
+            ctx_lits = {(o.lit.pred, o.lit.subj, o.lit.obj, o.lit.pos) for o in facts if o.source == ctx}
+            facts = [o for o in facts if o.source == ctx or
+                     (o.lit.pred, o.lit.subj, o.lit.obj, not o.lit.pos) not in ctx_lits]
+            n_override = n0 - len(rules) - len(facts)
         isa: dict = defaultdict(dict)
         has: dict = defaultdict(dict)
         ruled: dict = defaultdict(set)
@@ -239,6 +252,9 @@ class Memory:
                         sup = base | {("obs", ro.id), ("inst", ro.id, e)}
                         r = ro.rule
                         k = (r.obj, r.pos)
+                        if ctx_lits is not None and (r.pred, e, r.obj, not r.pos) in ctx_lits:
+                            n_override += 1
+                            continue
                         if r.pred == "isa":
                             isa[e].setdefault(k, sup)
                             if r.pos and r.obj not in seen:
@@ -259,6 +275,7 @@ class Memory:
                         has[e].setdefault(k, sup)
                         ruled[e].add(k)
         cl = Closure(isa, has, ruled)
+        cl.n_override = n_override if ctx_lits is not None else 0
         cl.conflict = self._rule_conflict(rules) or self._conflict(cl)
         if len(self._ccache) >= CLOSURE_CACHE_MAX:
             # 44. kör (memória): egy nehéz megfigyelésen belül a gyorsítótár 12 GB fölé nőtt. A zárás
@@ -374,6 +391,12 @@ class Memory:
                         bits += math.log2((1 - eps) / eps)
         bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
+        if self.ctx_override:
+            # 53. kör: a kontextus a fő világ + kódolt eltérések; minden felülírás egy eltérés,
+            # ára egy kivételé (ε nélkül a régi log2|E|-es kivételár)
+            dev = math.log2((1 - self.exc_prior) / self.exc_prior) if self.exc_prior else math.log2(max(2, self.s.n_entities))
+            for src in H.iso:
+                bits += cl_for(src, self.now).n_override * dev
         if self.summary:
             for (rid, e, q), cnt in self.summary.items():
                 active = rid not in H.rej and (rid, e) not in H.exc

@@ -1,0 +1,7 @@
+pre 0.8525641025641025 rej 0 iso ['field'] exc 5
+post 0.8525641025641025 rej 0 iso ['field', 'region2'] exc 5 cut 0 ind 0 beam 8
+rejected by source {}
+conflict in best: None
+sample answers e0 [('p0', False, False), ('p2', False, False), ('p4', False, True), ('p8', False, False)]
+n entities with isa 30 with has 30
+new obs sources ['region2'] times [32] now 32
