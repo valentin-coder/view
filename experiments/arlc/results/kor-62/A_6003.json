@@ -1,0 +1,18 @@
+{
+ "pop": "A",
+ "seed": 6003,
+ "post_v4.8-\u03c0": 0.6341463414634146,
+ "target_v4.8-\u03c0": 0.0,
+ "iso_v4.8-\u03c0": [
+  "field",
+  "region2"
+ ],
+ "region2_rejected_v4.8-\u03c0": 0,
+ "post_v4.8-a0.99": 0.6341463414634146,
+ "target_v4.8-a0.99": 0.0,
+ "iso_v4.8-a0.99": [
+  "field",
+  "region2"
+ ],
+ "region2_rejected_v4.8-a0.99": 0
+}

@@ -59,10 +59,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 57 | [57-kombinalt-benchmark.md](57-kombinalt-benchmark.md) | Kombinált benchmark (A, B, C): a javított változat jobb a v3-nál (+0,048); rivális elméleteknél (C) egyik egyszintű sem vált helyesen (0/150), a kétszintű κ_T = 1 igen (122/150, +0,22). |
 | 58 | [58-hierarchikus-j3.md](58-hierarchikus-j3.md) | A hierarchikus π-becslés nem kiindulásfüggő, de a fixpont a becslő felbontása miatt rossz. |
 | 59 | [59-divergens-7.md](59-divergens-7.md) | Kritikai kör: a gestalt-váltás és a stabilitás egy területi paraméter két végpontja (Kuhn mérhető modellje); a kontextust külső jelhez kell kötni – ez az LLM konkrét feladata. |
+| 60 | [60-teruleti-prior-es-jel.md](60-teruleti-prior-es-jel.md) | Metaadatból jövő π (előregisztrált): a C-ben +0,247 (67/100 helyes gestalt-váltás), az A-ban nincs veszteség – a gestalt–stabilitás feszültség egy kóddal feloldva; a 0,9-es kontextusjel árt. |
+| 61 | [61-b-fazis-ket-feladat.md](61-b-fazis-ket-feladat.md) | A B fázis csomagja a két LLM-feladatra (forrástípus, kontextusjel); a smoke teszt egy névelő-szivárgást fogott meg. |
+| 62 | [62-kontextus-szetbontas.md](62-kontextus-szetbontas.md) | A H60d-kudarc oka egy kényes holtverseny (0,04–0,43 bit): a „más régió” target-acc nem alkalmas rangsorolásra. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **60. kör:** metaadatból jövő területi π és külső jelhez kötött kontextus, előregisztrálva A, B és C populáción, tartózkodás-érzékeny mérőszámokkal.
-2. **61. kör:** a 60. kör eredménye; a B fázis csomagjának átírása a két LLM-feladatra (forrástípus, kontextusjel).
-3. **64. kör:** divergens és kritikai kör.
+1. **63. kör:** nyaláb-átlagolt (bizonytalanság-jelző) válasz a v4.8-ban, előregisztrált Brier-összevetés a holtversenyes típusokon.
+2. **64. kör:** divergens és kritikai kör (az 55–63. kör mérlege; a target-acc érvényessége).
+3. **65. kör:** kontextuson belüli elsőbbség újra, jó jellel (a 62. kör nyitott kérdése).
