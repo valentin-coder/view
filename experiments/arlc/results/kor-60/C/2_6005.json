@@ -1,0 +1,51 @@
+{
+ "pop": "C",
+ "seed": 6005,
+ "kind": "kiv\u00e9teles alfaj",
+ "garbage": "book",
+ "ctx_cost": {
+  "book": 9.149747119504683,
+  "book2": 9.149747119504683,
+  "census": 9.149747119504683,
+  "field": 9.149747119504683,
+  "lab0": 9.149747119504683,
+  "lab1": 9.149747119504683,
+  "lab2": 9.149747119504683,
+  "lab3": 9.149747119504683
+ },
+ "post_v3": 0.5816993464052288,
+ "brier_v3": 0.12908496732026145,
+ "cov_v3": 0.6143790849673203,
+ "sel_v3": 0.9468085106382979,
+ "target_v3": 0.75,
+ "tbrier_v3": 0.0625,
+ "dismissed_book_v3": true,
+ "dismissed_book2_v3": true,
+ "iso_v3": [
+  "book",
+  "book2",
+  "census"
+ ],
+ "post_v4.4e": 0.5816993464052288,
+ "brier_v4.4e": 0.12908496732026145,
+ "cov_v4.4e": 0.6143790849673203,
+ "sel_v4.4e": 0.9468085106382979,
+ "target_v4.4e": 0.75,
+ "tbrier_v4.4e": 0.0625,
+ "dismissed_book_v4.4e": true,
+ "dismissed_book2_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "book2",
+  "census"
+ ],
+ "post_v4.8": 0.7843137254901961,
+ "brier_v4.8": 0.08823529411764706,
+ "cov_v4.8": 0.8300653594771242,
+ "sel_v4.8": 0.9448818897637795,
+ "target_v4.8": 0.75,
+ "tbrier_v4.8": 0.0625,
+ "dismissed_book_v4.8": true,
+ "dismissed_book2_v4.8": false,
+ "iso_v4.8": []
+}
