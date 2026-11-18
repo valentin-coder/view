@@ -1,0 +1,52 @@
+{
+ "pop": "C",
+ "seed": 6019,
+ "kind": "hazug forr\u00e1s",
+ "garbage": "book",
+ "ctx_cost": {
+  "book": 9.149747119504683,
+  "book2": 9.149747119504683,
+  "census": 9.149747119504683,
+  "field": 9.149747119504683,
+  "liar": 9.149747119504683
+ },
+ "post_v3": 0.0,
+ "brier_v3": 0.25,
+ "cov_v3": 0.0,
+ "sel_v3": NaN,
+ "target_v3": 0.0,
+ "tbrier_v3": 0.25,
+ "dismissed_book_v3": true,
+ "dismissed_book2_v3": true,
+ "iso_v3": [
+  "book",
+  "book2",
+  "census",
+  "field",
+  "liar"
+ ],
+ "post_v4.4e": 0.0,
+ "brier_v4.4e": 0.25,
+ "cov_v4.4e": 0.0,
+ "sel_v4.4e": NaN,
+ "target_v4.4e": 0.0,
+ "tbrier_v4.4e": 0.25,
+ "dismissed_book_v4.4e": true,
+ "dismissed_book2_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "book2",
+  "census",
+  "field",
+  "liar"
+ ],
+ "post_v4.8": 0.6179775280898876,
+ "brier_v4.8": 0.14606741573033707,
+ "cov_v4.8": 0.6853932584269663,
+ "sel_v4.8": 0.9016393442622951,
+ "target_v4.8": 0.5,
+ "tbrier_v4.8": 0.5,
+ "dismissed_book_v4.8": true,
+ "dismissed_book2_v4.8": false,
+ "iso_v4.8": []
+}
