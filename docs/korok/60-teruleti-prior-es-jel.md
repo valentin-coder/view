@@ -65,4 +65,44 @@ nem abban van, hogy a megválaszolt kérdésekre mennyire jól felel a rendszer,
 felel egyáltalán (lefedettség 0,44 → 0,71). A v3 és a v4.4e a rivális tankönyveket egyaránt félreteszi, ezért
 a kérdések felére nincs válasza.
 
-*(Az A és B populáció eredménye a futás befejezése után.)*
+### A és B populáció (100–100 eset)
+
+| | A post | A target | A Brier | B post | B target | B Brier |
+|---|---|---|---|---|---|---|
+| v3 | 0,778 | 0,561 | 0,104 | 0,665 | 0,478 | 0,124 |
+| v4.4e | **0,783** | **0,655** | **0,102** | 0,668 | **0,575** | 0,123 |
+| v4.8 | 0,781 | 0,606 | 0,104 | **0,689** | 0,557 | **0,119** |
+
+### A hipotézisek
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H60a (A):** v4.8 − v4.4e ≥ −0,01; v4.8 − v3 > 0 | −0,003 [−0,012; +0,008]; +0,003 [−0,032; +0,031] | **első fele teljesül** (nincs veszteség); **második nem** (ezeken a seedeken a v4.4e − v3 is csak +0,005) |
+| **H60b (C):** v4.8 − v4.4e > 0; ≥ 50% helyes váltás | **+0,247** [+0,174; +0,320]; **67/100** | **teljesül** |
+| **H60c (B):** v4.8 − v3 > 0 | +0,025 [−0,015; +0,058] | **nem teljesül** (irányában igen) |
+| **H60d (más régió):** v4.8 target ≥ v4.4e target − 0,02 | **−0,276** [−0,380; −0,172] | **nem teljesül, súlyosan** |
+| **H60e:** Brier v4.8 < v4.4e (összes) | +0,016 [+0,009; +0,023] | **teljesül** |
+
+### Értelmezés
+
+1. **A fő cél teljesült: a metaadatból jövő π a C-ben gestalt-váltást ad, az A-ban nem árt.** A 44–57. kör
+   feszültségét (κ_T = 1 a C-ben +0,21, az A-ban −0,05) a forrásonkénti π **egyetlen kóddal** feloldja: a C-ben
+   +0,247, az A-ban −0,003. **Ez a sorozat első olyan eredménye, ahol ugyanaz a rendszer mindkét végponton jól
+   viselkedik**, mert a területi tudás (π) kívülről jön, nem a saját döntéseiből.
+2. **A jelhez kötött kontextus (a = 0,9) a „más régió” típusban súlyosan árt.** Két mechanizmust láttam:
+   - **téves riasztás kihasználása:** a jel forrásonként 10% eséllyel tévesen „más kontextust” jelez, például a
+     terepforrásra. Ekkor a rendszer 3 bitért a 90 terepi tényt is izolálja (6007, 6015). Ez a modell szerint
+     koherens, mert a jel pontosságát helyesen árazza. **A 21. kör követelménye (kb. 0,95-ös jel) itt
+     igazolódik: 0,9-es jellel a kontextus-mechanizmus több kárt okoz, mint hasznot;**
+   - **a régióforrás elfogadása:** több esetben (6005, 6012, 6019) a v4.8 izolálás nélkül elfogadja a
+     régióforrás állításait, és helyettük tankönyvi szabályokat vet el. A v4.4e a régióforrást veti el. Az árak
+     itt 1–2 biten belül vannak. Valószínű ok a kétszintű csoportosítás (a régióforrás szabálya és tényei külön
+     csoportban), de egyetlen tagra nem tudtam visszavezetni. **Nyitott.**
+3. **A Brier-pontszám összességében javul** (H60e), főleg a C-beli nagyobb lefedettség miatt.
+
+### Következmény
+
+- A π metaadatból: **megtartandó** (v4.8 π-része).
+- A jelhez kötött kontextus a = 0,9-cel: **elvetendő** ebben a formában. Megvizsgálandó a = 0,99-cel, illetve a
+  forrás méretével skálázott árral (egy téves riasztás ne tehessen félre 90 tényt egy jel alapján).
+- A 62. kör ezt bontja szét: v4.8 jel nélkül (csak π), és v4.8 a = 0,99-cel, a „más régió” eseteken.

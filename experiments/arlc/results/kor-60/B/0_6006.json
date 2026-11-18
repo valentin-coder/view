@@ -1,0 +1,44 @@
+{
+ "pop": "B",
+ "seed": 6006,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": true,
+ "ctx_cost": {
+  "book": 2.9999999999999996,
+  "census": 9.149747119504683,
+  "expert": 9.149747119504683,
+  "field": 9.149747119504683
+ },
+ "post_v3": 0.4635416666666667,
+ "brier_v3": 0.13802083333333334,
+ "cov_v3": 0.46875,
+ "sel_v3": 0.9888888888888889,
+ "target_v3": 0.375,
+ "tbrier_v3": 0.15625,
+ "dismissed_book_v3": true,
+ "iso_v3": [
+  "book",
+  "census",
+  "expert"
+ ],
+ "post_v4.4e": 0.4635416666666667,
+ "brier_v4.4e": 0.13802083333333334,
+ "cov_v4.4e": 0.46875,
+ "sel_v4.4e": 0.9888888888888889,
+ "target_v4.4e": 0.375,
+ "tbrier_v4.4e": 0.15625,
+ "dismissed_book_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "census",
+  "expert"
+ ],
+ "post_v4.8": 0.4635416666666667,
+ "brier_v4.8": 0.13802083333333334,
+ "cov_v4.8": 0.46875,
+ "sel_v4.8": 0.9888888888888889,
+ "target_v4.8": 0.375,
+ "tbrier_v4.8": 0.15625,
+ "dismissed_book_v4.8": true,
+ "iso_v4.8": []
+}

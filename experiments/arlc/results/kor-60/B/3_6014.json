@@ -1,0 +1,46 @@
+{
+ "pop": "B",
+ "seed": 6014,
+ "kind": "hazug forr\u00e1s",
+ "garbage": true,
+ "ctx_cost": {
+  "book": 9.149747119504683,
+  "census": 9.149747119504683,
+  "field": 9.149747119504683,
+  "liar": 9.149747119504683
+ },
+ "post_v3": 0.0,
+ "brier_v3": 0.25,
+ "cov_v3": 0.0,
+ "sel_v3": NaN,
+ "target_v3": 0.0,
+ "tbrier_v3": 0.25,
+ "dismissed_book_v3": true,
+ "iso_v3": [
+  "book",
+  "census",
+  "field",
+  "liar"
+ ],
+ "post_v4.4e": 0.0,
+ "brier_v4.4e": 0.25,
+ "cov_v4.4e": 0.0,
+ "sel_v4.4e": NaN,
+ "target_v4.4e": 0.0,
+ "tbrier_v4.4e": 0.25,
+ "dismissed_book_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "census",
+  "field",
+  "liar"
+ ],
+ "post_v4.8": 0.5345911949685535,
+ "brier_v4.8": 0.14937106918238993,
+ "cov_v4.8": 0.5786163522012578,
+ "sel_v4.8": 0.9239130434782609,
+ "target_v4.8": 0.625,
+ "tbrier_v4.8": 0.375,
+ "dismissed_book_v4.8": true,
+ "iso_v4.8": []
+}

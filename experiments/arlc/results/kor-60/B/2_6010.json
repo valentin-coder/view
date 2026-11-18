@@ -1,0 +1,42 @@
+{
+ "pop": "B",
+ "seed": 6010,
+ "kind": "kiv\u00e9teles alfaj",
+ "garbage": false,
+ "ctx_cost": {
+  "book": 9.149747119504683,
+  "census": 9.149747119504683,
+  "field": 9.149747119504683,
+  "lab0": 9.149747119504683,
+  "lab1": 9.149747119504683,
+  "lab2": 9.149747119504683,
+  "lab3": 9.149747119504683
+ },
+ "post_v3": 0.73,
+ "brier_v3": 0.13875,
+ "cov_v3": 0.825,
+ "sel_v3": 0.8848484848484849,
+ "target_v3": 0.625,
+ "tbrier_v3": 0.1875,
+ "dismissed_book_v3": false,
+ "iso_v3": [],
+ "post_v4.4e": 0.425,
+ "brier_v4.4e": 0.1775,
+ "cov_v4.4e": 0.47,
+ "sel_v4.4e": 0.9042553191489362,
+ "target_v4.4e": 0.625,
+ "tbrier_v4.4e": 0.1875,
+ "dismissed_book_v4.4e": true,
+ "iso_v4.4e": [
+  "book",
+  "census"
+ ],
+ "post_v4.8": 0.425,
+ "brier_v4.8": 0.1775,
+ "cov_v4.8": 0.47,
+ "sel_v4.8": 0.9042553191489362,
+ "target_v4.8": 0.625,
+ "tbrier_v4.8": 0.1875,
+ "dismissed_book_v4.8": true,
+ "iso_v4.8": []
+}
