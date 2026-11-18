@@ -12,9 +12,12 @@ from problog import get_evaluatable
 from .core import Hyp, Memory
 
 
-def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
+def to_problog(mem: Memory, H: Hyp, delta: float, latent: bool = False) -> str:
+    """latent=True (53. kör): tényenként (e, p) egy közös látens igazság; a megbízható jelentés értéke
+    ezzel egyezik, a megbízhatatlané véletlen."""
     L = []
     eps = mem.exc_prior
+    lits = set()
     for o in mem.obs:
         L.append(f"{o.q}::rel({o.id}).")
         L.append(f"evidence(rel({o.id}), {'false' if o.id in H.rej else 'true'}).")
@@ -33,11 +36,24 @@ def to_problog(mem: Memory, H: Hyp, delta: float) -> str:
         else:
             l = o.lit
             L.append(f"fact_has({l.subj}, {l.obj}, {int(l.pos)}) :- rel({o.id}).")
+            if latent:
+                lits.add((l.subj, l.obj))
+                L.append(f"0.5::lr({o.id}).")
+                L.append(f"ok({o.id}) :- rel({o.id}), tval({l.subj}, {l.obj}, {int(l.pos)}).")
+                L.append(f"ok({o.id}) :- \\+ rel({o.id}), lr({o.id}).")
+                L.append(f"evidence(ok({o.id}), true).")
+                continue
             L.append(f"{1 - delta}::lp({o.id}).  0.5::lu({o.id}).  0.5::lr({o.id}).")
             L.append(f"ok({o.id}) :- rel({o.id}), rule_has({l.subj}, {l.obj}, {int(l.pos)}), lp({o.id}).")
             L.append(f"ok({o.id}) :- rel({o.id}), \\+ rule_has({l.subj}, {l.obj}, {int(l.pos)}), lu({o.id}).")
             L.append(f"ok({o.id}) :- \\+ rel({o.id}), lr({o.id}).")
             L.append(f"evidence(ok({o.id}), true).")
+    for e, p in sorted(lits):
+        L.append(f"{1 - delta}::agree({e}, {p}).  0.5::coin({e}, {p}).")
+        L.append(f"tval({e}, {p}, 1) :- rule_has({e}, {p}, 1), agree({e}, {p}).")
+        L.append(f"tval({e}, {p}, 1) :- rule_has({e}, {p}, 0), \\+ agree({e}, {p}).")
+        L.append(f"tval({e}, {p}, 1) :- \\+ rule_has({e}, {p}, 1), \\+ rule_has({e}, {p}, 0), coin({e}, {p}).")
+        L.append(f"tval({e}, {p}, 0) :- \\+ tval({e}, {p}, 1).")
     if eps is not None:
         for rid, e in mem._candidate_applications():
             L.append(f"{eps}::ab({rid}, {e}).")
@@ -66,12 +82,13 @@ def logp_evidence(program: str) -> float:
     return math.log2(e.evaluate_evidence())
 
 
-def check(problems, n_assign=20, seed=0, delta=0.05, exc_prior=None):
+def check(problems, n_assign=20, seed=0, delta=0.05, exc_prior=None, latent=False):
     rng = random.Random(seed)
     rows = []
     for pid, (sch, obs) in enumerate(problems):
         mem = Memory(sch, mode="arlc-noctx", induce=False)
         mem.exc_prior = exc_prior
+        mem.latent_truth = latent
         for o in obs:
             mem.observe(o)
         ids = [o.id for o in obs]
@@ -85,7 +102,7 @@ def check(problems, n_assign=20, seed=0, delta=0.05, exc_prior=None):
                 continue
             tried += 1
             arlc = mem.score(H)
-            pl = -logp_evidence(to_problog(mem, H, delta))
+            pl = -logp_evidence(to_problog(mem, H, delta, latent=latent))
             rows.append({"problem": pid, "rej": sorted(rej), "arlc_bits": arlc, "problog_bits": pl,
                          "diff": arlc - pl})
     return rows
@@ -110,5 +127,22 @@ def problems_with_isa(n, seed=0):
         for i in range(3):
             obs.append(Obs(next(c), "f", i + 5, rng.choice([0.8, 0.9]),
                            lit=Lit("has", f"e{rng.randrange(3)}", "p", rng.random() < 0.5)))
+        out.append((sch, obs))
+    return out
+
+
+def problems_dup(n, seed=0):
+    """53. kör: feladatok ismétlődő jelentésekkel (két forrás ugyanarról a tényről, egyezően vagy nem)."""
+    import itertools
+    from .core import Lit, Obs, Rule, Schema
+    rng = random.Random(seed)
+    out = []
+    for k in range(n):
+        sch, obs = problems_with_isa(1, seed=seed * 1000 + k)[0]
+        c = itertools.count(100)
+        e = f"e{rng.randrange(3)}"
+        v = rng.random() < 0.5
+        obs = obs + [Obs(next(c), "f1", 20, rng.choice([0.8, 0.9]), lit=Lit("has", e, "p", v)),
+                     Obs(next(c), "f2", 21, rng.choice([0.8, 0.9]), lit=Lit("has", e, "p", v if rng.random() < 0.8 else not v))]
         out.append((sch, obs))
     return out

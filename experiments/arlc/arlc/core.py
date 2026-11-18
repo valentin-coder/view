@@ -132,6 +132,7 @@ class Memory:
         self.strict_specificity = False        # 48. kör: osztályszintű kivétel csak a szabály törzsének szigorú alosztályára
         self.auto_specificity = False          # 49. kör: a specifikusabb ellentétes szabály ingyen felülírja az általánosabbat
         self.ctx_override = False              # 53. kör: az izolált forrás a saját kontextusában felülír (lex specialis)
+        self.latent_truth = False              # 53. kör: közös látens igazság az egyező jelentésekre
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -346,6 +347,7 @@ class Memory:
         if self.reliability == "beta":
             bits += self._beta_bits(H)
         cl_cache: dict = {}
+        seen_truth: set = set()
 
         def cl_for(ctx, t):
             k = (ctx, t)
@@ -366,7 +368,15 @@ class Memory:
                 bits += -math.log2(q_o)
             if o.lit is not None and o.lit.pred == "has":
                 ctx = o.source if o.source in H.iso else None
-                cl = cl_for(ctx, o.time if has_cut else self.now)
+                tt = o.time if has_cut else self.now
+                if self.latent_truth:
+                    # 53. kör: közös látens igazság. Az igazság-tag literálonként egyszer fizetendő; egy további
+                    # elfogadott, egyező jelentés a látens értékből determinisztikus (csak a megbízhatósága kerül).
+                    lk = (ctx, tt, o.lit.subj, o.lit.obj, o.lit.pos)
+                    if lk in seen_truth:
+                        continue
+                    seen_truth.add(lk)
+                cl = cl_for(ctx, tt)
                 pred = (o.lit.obj, o.lit.pos) in cl.ruled.get(o.lit.subj, ())
                 bits += -math.log2(1 - self.delta) if pred else 1.0
         n_cls = sum(1 for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:"))

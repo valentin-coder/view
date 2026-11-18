@@ -37,7 +37,9 @@ V5_OVERRIDES = {"ind_exc_cost": True, "theory_mix": MIX_CAL, "q_groups": True,  
                 "strict_specificity": True}
 V43_OVERRIDES = {"ind_exc_cost": True, "q_groups": True, "strict_specificity": True}  # 48. kör: a túlélő javítások
 V44_OVERRIDES = {**V43_OVERRIDES, "auto_specificity": True}   # 49. kör: + specifikus öröklés
-V45_OVERRIDES = {**V44_OVERRIDES, "ctx_override": True}        # 53. kör: + kontextuson belüli elsőbbség
+V45_OVERRIDES = {**V44_OVERRIDES, "ctx_override": True}        # 50. kör: + kontextuson belüli elsőbbség (ELVETVE)
+V44E_OVERRIDES = {**V44_OVERRIDES, "theory_kappa": None}       # 50. kör: v4.4-egyszintű
+V46_OVERRIDES = {**V44E_OVERRIDES, "latent_truth": True}       # 53. kör: + közös látens igazság
 
 ABLATIONS = {
     "v4": {},
@@ -73,6 +75,7 @@ def configured(overrides: dict):
             self.strict_specificity = cfg.get("strict_specificity", False)
             self.auto_specificity = cfg.get("auto_specificity", False)
             self.ctx_override = cfg.get("ctx_override", False)
+            self.latent_truth = cfg.get("latent_truth", False)
     core.Memory.__init__ = init
     try:
         yield cfg
