@@ -1,0 +1,20 @@
+{
+ "pop": "B",
+ "seed": 5000,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": true,
+ "post_v3": 0.5734265734265734,
+ "target_v3": 0.2,
+ "dismissed_v3": true,
+ "t_v3": 8.894333356000061,
+ "post_v4.4e": 0.0,
+ "target_v4.4e": 0.0,
+ "dismissed_v4.4e": true,
+ "t_v4.4e": 16.042328396999437,
+ "post_v4.7": 0.006993006993006993,
+ "target_v4.7": 0.2,
+ "dismissed_v4.7": false,
+ "t_v4.7": 21.32751642599942,
+ "post_H2(v3+v4.7)": 0.5734265734265734,
+ "target_H2(v3+v4.7)": 0.2
+}

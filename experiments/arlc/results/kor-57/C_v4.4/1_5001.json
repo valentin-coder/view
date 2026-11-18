@@ -1,0 +1,12 @@
+{
+ "seed": 5001,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": "book2",
+ "post_v4.4": 0.9037037037037037,
+ "target_v4.4": 1.0,
+ "t": 5.002798366000206,
+ "dismissed_book": false,
+ "iso_book": false,
+ "dismissed_book2": true,
+ "iso_book2": false
+}

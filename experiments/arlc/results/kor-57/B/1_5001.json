@@ -1,0 +1,20 @@
+{
+ "pop": "B",
+ "seed": 5001,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": false,
+ "post_v3": 0.8444444444444444,
+ "target_v3": 1.0,
+ "dismissed_v3": false,
+ "t_v3": 33.78541582899925,
+ "post_v4.4e": 0.9407407407407408,
+ "target_v4.4e": 1.0,
+ "dismissed_v4.4e": false,
+ "t_v4.4e": 0.16635564100033662,
+ "post_v4.7": 0.9407407407407408,
+ "target_v4.7": 1.0,
+ "dismissed_v4.7": false,
+ "t_v4.7": 0.10656439000013052,
+ "post_H2(v3+v4.7)": 0.8814814814814815,
+ "target_H2(v3+v4.7)": 1.0
+}
