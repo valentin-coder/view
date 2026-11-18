@@ -57,4 +57,47 @@ Ha H57c nem teljesül, a v4.7 a szemét tankönyvet sem tudja jobban kezelni, mi
 
 ## 2. rész: eredmények
 
-*(a futtatás után)*
+Nyers adat: [`results/kor-57/`](../../experiments/arlc/results/kor-57/) (A, B, C, C_v4.4); elemzés:
+[`analyze_r55.py`](../../experiments/arlc/arlc/analyze_r55.py) (`57`). Eltérés: a C és a B futás sorrendje
+(először C) a kiegészítés után; a várakozó szkript első változata saját magát várta, ezért az A futás később
+indult. Egyik sem érinti az eredményeket.
+
+### A populáció (seed 5000–5029, 150 eset)
+
+| | post-acc | target-acc | tankönyv félretéve |
+|---|---|---|---|
+| v3 | 0,791 | 0,581 | 6 |
+| v4.4e | **0,848** | **0,678** | 0 |
+| v4.7 | **0,848** | 0,677 | 0 |
+| H2 (v3 + v4.7, kúp) | 0,803 | 0,674 | – |
+
+- **H57b nem teljesül:** v4.7 − v4.4e = 0,000 [0; 0]. Ezeken a seedeken a v4.4e sosem tette félre a tankönyvet,
+  így a gondozott-forrás priornak nem volt alkalma hatni. A hipotézis nem cáfolódott, hanem **nem
+  tesztelődött**.
+- **H57e:** H3 = v4.7 (nem volt visszaesés); H3 − v3 = +0,057 [+0,036; +0,081]. Teljesül, de triviálisan.
+- v4.7 − v3 = **+0,057** [+0,036; +0,081]: a harmadik független seed-halmazon is (44.: −0,084 a v4-re; 50.:
+  +0,024 n.s.; 55.: +0,040; 57.: +0,057) a javított változat jobb, mint a v3. Az 50. kör H50a-ja tehát a
+  seed-halmaz véletlenje is lehetett.
+
+### C populáció (két rivális tankönyv, az egyik egészében téves; 150 eset)
+
+| | post-acc | target-acc | helyes gestalt-váltás (szemét félretéve, jó megtartva) |
+|---|---|---|---|
+| v3 | 0,440 | 0,329 | **0/150** |
+| v4.4e | 0,454 | 0,449 | **0/150** |
+| v4.7 | 0,377 | 0,397 | **0/150** |
+
+- **H57g nem teljesül, sőt fordítva:** v4.7 − v3 = **−0,064** [−0,119; −0,010].
+- **H57h nem teljesül:** egyik előregisztrált módszer sem hajt végre helyes gestalt-váltást egyetlen esetben sem.
+- **H57i nem teljesül:** H3 − v4.7 = +0,064 (a visszaesés itt *javít*, mert a v4.7 rosszabb a v3-nál).
+
+**A mechanizmus** (seed 5001, átkategorizálás): a 32 tankönyvi szabálypárból 19 ellentmond egymásnak. Mindhárom
+módszer **mindkét tankönyvet és a népszámlálást is kontextusba izolálja**, egyik szabályt sem veti el. Így a
+fő kontextusban egyetlen szabály sem érvényes. Egyszintű megbízhatóság mellett a szemét tankönyv 19 szabályának
+elvetése kb. 19 × 5 bit, a „két elmélet két külön világról szól” magyarázat 2–3 × 6–10 bit. **A kontextus-
+mechanizmus a rivális elméletek általános menekülőútja**, és a jó elméletet is eldobja. A 17. kör „kontextus
+vagy hazug” azonosíthatatlansága ez, elméletszinten.
+
+### Feltáró: a kétszintű v4.4 (κ_T = 1) a C populáción
+
+*(a futás befejezése után; az első 14 esetben mind a 14 helyes gestalt-váltás, post-acc 0,66–0,91)*
