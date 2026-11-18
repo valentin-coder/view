@@ -1,0 +1,57 @@
+[
+ {
+  "seed": 1017,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "lookup",
+  "pre_acc": 0.5793103448275863,
+  "post_acc": 0.5753424657534246,
+  "target_acc": 0.4,
+  "n_target": 5,
+  "seconds": 0.002390483000453969,
+  "surprise_seconds": 1.1399997674743645e-06
+ },
+ {
+  "seed": 1017,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "recency",
+  "pre_acc": 0.7379310344827587,
+  "post_acc": 0.7397260273972602,
+  "target_acc": 0.6,
+  "n_target": 5,
+  "seconds": 0.013229244999820367,
+  "surprise_seconds": 0.00014876300065225223
+ },
+ {
+  "seed": 1017,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "wms",
+  "pre_acc": 0.7931034482758621,
+  "post_acc": 0.7945205479452054,
+  "target_acc": 0.6,
+  "n_target": 5,
+  "seconds": 2.0339684220007257,
+  "surprise_seconds": 0.027016370999263017
+ },
+ {
+  "seed": 1017,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "arlc",
+  "pre_acc": 0.8413793103448276,
+  "post_acc": 0.8561643835616438,
+  "target_acc": 1.0,
+  "n_target": 5,
+  "seconds": 21.33842438800002,
+  "surprise_seconds": 0.13629818099980184
+ },
+ {
+  "seed": 1017,
+  "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+  "method": "v4",
+  "pre_acc": 0.7931034482758621,
+  "post_acc": 0.8082191780821918,
+  "target_acc": 1.0,
+  "n_target": 5,
+  "seconds": 86.32163995300016,
+  "surprise_seconds": 0.20106046799992328
+ }
+]

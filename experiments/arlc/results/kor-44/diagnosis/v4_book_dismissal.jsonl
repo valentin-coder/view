@@ -1,0 +1,8 @@
+{"seed": 1003, "pre_acc": 0.5763888888888888, "book_rejected_frac": 0.0, "iso": ["book", "census"], "n_rej": 0, "n_exc": 0}
+{"seed": 1004, "pre_acc": 0.47093023255813954, "book_rejected_frac": 1.0, "iso": [], "n_rej": 49, "n_exc": 0}
+{"seed": 1007, "pre_acc": 0.5149700598802395, "book_rejected_frac": 1.0, "iso": [], "n_rej": 50, "n_exc": 0}
+{"seed": 1009, "pre_acc": 0.5030674846625767, "book_rejected_frac": 1.0, "iso": [], "n_rej": 50, "n_exc": 0}
+{"seed": 1010, "pre_acc": 0.6126760563380281, "book_rejected_frac": 1.0, "iso": [], "n_rej": 47, "n_exc": 0}
+{"seed": 1018, "pre_acc": 0.4797687861271676, "book_rejected_frac": 1.0, "iso": [], "n_rej": 49, "n_exc": 0}
+{"seed": 1027, "pre_acc": 0.5057471264367817, "book_rejected_frac": 1.0, "iso": [], "n_rej": 48, "n_exc": 0}
+{"seed": 1020, "pre_acc": 0.42783505154639173, "book_rejected_frac": 1.0, "iso": [], "n_rej": 52, "n_exc": 0}

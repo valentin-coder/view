@@ -13,6 +13,7 @@ from itertools import combinations
 from typing import Iterable, Optional
 
 IND_BASE = 10 ** 6
+CLOSURE_CACHE_MAX = 15000   # 30 entitásnál bejegyzésenként kb. 50–150 kB
 
 
 @dataclass(frozen=True)
@@ -259,6 +260,10 @@ class Memory:
                         ruled[e].add(k)
         cl = Closure(isa, has, ruled)
         cl.conflict = self._rule_conflict(rules) or self._conflict(cl)
+        if len(self._ccache) >= CLOSURE_CACHE_MAX:
+            # 44. kör (memória): egy nehéz megfigyelésen belül a gyorsítótár 12 GB fölé nőtt. A zárás
+            # tiszta függvény, ezért az ürítés a viselkedést nem változtatja, csak az időt.
+            self._ccache.clear()
         self._ccache[key] = cl
         return cl
 

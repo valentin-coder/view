@@ -1,0 +1,57 @@
+[
+ {
+  "seed": 1019,
+  "kind": "hazug forr\u00e1s",
+  "method": "lookup",
+  "pre_acc": 0.5533333333333333,
+  "post_acc": 0.5266666666666666,
+  "target_acc": 0.0,
+  "n_target": 8,
+  "seconds": 0.002901999999266991,
+  "surprise_seconds": 5.914999746892136e-06
+ },
+ {
+  "seed": 1019,
+  "kind": "hazug forr\u00e1s",
+  "method": "recency",
+  "pre_acc": 0.72,
+  "post_acc": 0.6666666666666666,
+  "target_acc": 0.0,
+  "n_target": 8,
+  "seconds": 0.02076763100012613,
+  "surprise_seconds": 0.003115151999736554
+ },
+ {
+  "seed": 1019,
+  "kind": "hazug forr\u00e1s",
+  "method": "wms",
+  "pre_acc": 0.7533333333333333,
+  "post_acc": 0.7466666666666667,
+  "target_acc": 0.5,
+  "n_target": 8,
+  "seconds": 2.132893796000644,
+  "surprise_seconds": 0.5151074770001287
+ },
+ {
+  "seed": 1019,
+  "kind": "hazug forr\u00e1s",
+  "method": "arlc",
+  "pre_acc": 0.7733333333333333,
+  "post_acc": 0.7733333333333333,
+  "target_acc": 0.625,
+  "n_target": 8,
+  "seconds": 59.624715357999776,
+  "surprise_seconds": 42.30085996100024
+ },
+ {
+  "seed": 1019,
+  "kind": "hazug forr\u00e1s",
+  "method": "v4",
+  "pre_acc": 0.8133333333333334,
+  "post_acc": 0.8066666666666666,
+  "target_acc": 0.75,
+  "n_target": 8,
+  "seconds": 116.24211267999999,
+  "surprise_seconds": 40.17456633799975
+ }
+]

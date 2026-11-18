@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1004,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "v4.4",
+  "pre_acc": 0.8372093023255814,
+  "post_acc": 0.425,
+  "target_acc": 0.7777777777777778,
+  "n_target": 9,
+  "seconds": 48.96247453500109,
+  "surprise_seconds": 1.982664160999775,
+  "avg_post_acc": 0.84,
+  "brier_avg": 0.08140716530234687,
+  "brier_map": 0.1775,
+  "avg_target_acc": 0.7777777777777778,
+  "brier_avg_target": 0.1388888888888889,
+  "brier_map_target": 0.1388888888888889,
+  "beam_spread_bits": 2.7082480862393368,
+  "beam_n": 8
+ }
+]

@@ -1,0 +1,21 @@
+[
+ {
+  "seed": 1001,
+  "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+  "method": "v4.4-egyszint\u0171",
+  "pre_acc": 0.7852760736196319,
+  "post_acc": 0.7914110429447853,
+  "target_acc": 0.8,
+  "n_target": 5,
+  "seconds": 18.426246484999865,
+  "surprise_seconds": 0.48333270700095454,
+  "avg_post_acc": 0.8834355828220859,
+  "brier_avg": 0.06813387951657908,
+  "brier_map": 0.06595092024539877,
+  "avg_target_acc": 0.8,
+  "brier_avg_target": 0.19999945816839199,
+  "brier_map_target": 0.2,
+  "beam_spread_bits": 20.098854340598535,
+  "beam_n": 8
+ }
+]

@@ -94,7 +94,7 @@ def analyze(rows):
         if m in ("v4",):
             continue
         extra[f"v4 - {m} (post)"] = boot_diff(post["v4"], post[m], rng)
-    for vx in ("v4.3", "v4.4"):
+    for vx in ("v4.3", "v4.4", "v4.4-egyszintű"):
         if vx in methods:
             for other in ("v4", "wms", "arlc"):
                 extra[f"{vx} - {other} (post)"] = boot_diff(post[vx], post[other], rng)
@@ -107,7 +107,7 @@ def analyze(rows):
 
 if __name__ == "__main__":
     rows = load()
-    for vx in ("v4.3", "v4.4"):
+    for vx in ("v4.3", "v4.4", "v4.4-egyszintű"):
         rows += load(PARTS + "_" + vx) if os.path.isdir(PARTS + "_" + vx) else []
     res = analyze(rows)
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(PARTS), "analysis.json")
