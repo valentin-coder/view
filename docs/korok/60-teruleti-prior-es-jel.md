@@ -45,4 +45,24 @@ nem teljesül, a keverék-prior π = 0,5-tel sem ad gestalt-váltást, és a 57.
 
 ## 2. rész: eredmények
 
-*(a futtatás után)*
+Nyers adat: [`results/kor-60/`](../../experiments/arlc/results/kor-60/); elemzés:
+[`analyze_r60.py`](../../experiments/arlc/arlc/analyze_r60.py) → `analysis.json`. Eltérés: a konténer kétszer
+újraindult a C futás alatt, a futtató mindkétszer folytatta. Az esetek determinisztikusak.
+
+### C populáció (két rivális tankönyv, 100 eset)
+
+| | post-acc | target-acc | Brier | lefedettség | szelektív pontosság | helyes gestalt-váltás |
+|---|---|---|---|---|---|---|
+| v3 | 0,434 | 0,336 | 0,163 | 0,462 | 0,939 | 0/100 |
+| v4.4e | 0,410 | 0,429 | 0,166 | 0,435 | 0,943 | 0/100 |
+| **v4.8** | **0,657** | **0,566** | **0,122** | **0,705** | 0,933 | **67/100** |
+
+**H60b teljesül:** v4.8 − v4.4e = **+0,247** [+0,173; +0,323], és a helyes gestalt-váltás aránya 67% (≥ 50%).
+
+A v4.8 ugyanazzal a kóddal, csak a metaadatból jövő π = 0,5-tel, nagyjából ugyanazt hozza, amit az 57. körben
+a kétszintű κ_T = 1 (0,660, 122/150). **A szelektív pontosság mindhárom módszernél 0,93–0,94:** a különbség
+nem abban van, hogy a megválaszolt kérdésekre mennyire jól felel a rendszer, hanem abban, hogy mennyi kérdésre
+felel egyáltalán (lefedettség 0,44 → 0,71). A v3 és a v4.4e a rivális tankönyveket egyaránt félreteszi, ezért
+a kérdések felére nincs válasza.
+
+*(Az A és B populáció eredménye a futás befejezése után.)*
