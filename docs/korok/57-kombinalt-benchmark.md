@@ -98,6 +98,51 @@ elvetése kb. 19 × 5 bit, a „két elmélet két külön világról szól” m
 mechanizmus a rivális elméletek általános menekülőútja**, és a jó elméletet is eldobja. A 17. kör „kontextus
 vagy hazug” azonosíthatatlansága ez, elméletszinten.
 
+### B populáció (8 szemét seed, 150 eset)
+
+| | post-acc (összes) | szemét tankönyv (40 eset) | jó tankönyv (110 eset) | félretéve: szemét / jó |
+|---|---|---|---|---|
+| v3 | 0,702 | 0,469 | 0,787 | 40/40 / 5/110 |
+| v4.4e | **0,746** | 0,465 | **0,849** | 38/40 / 0/110 |
+| v4.7 | 0,741 | 0,447 | **0,849** | 34/40 / 0/110 |
+
+### A hipotézisek összesítve
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H57a:** v4.7 − v3 (A ∪ B) > 0 | **+0,048** [+0,028; +0,068] | **teljesül** |
+| **H57b:** v4.7 − v4.4e (A) > 0 | 0,000 | **nem tesztelődött** (nem volt félretevés) |
+| **H57c:** v4.7 − v3 (B) > 0 | **+0,039** [+0,002; +0,071] | **teljesül** (alig) |
+| **H57d:** jó tankönyv: v4.7 < v4.4e félretevés; szemét: v4.7 ≥ 50% | jó: 0 = 0 (v3: 11); szemét: 34/40 | **részben** (a második fele teljesül) |
+| **H57e:** H3 ≥ v4.7 és H3 > v3 (A) | 0,000; +0,057 [+0,036; +0,080] | teljesül (triviálisan, nem volt visszaesés) |
+| **H57f:** H3 − v4.7 < 0 (B szemét) | +0,026 [−0,032; +0,098] | **nem teljesül** |
+| **H57g:** v4.7 − v3 (C) > 0 | **−0,064** [−0,120; −0,011] | **nem teljesül, fordítva** |
+| **H57h:** helyes gestalt-váltás ≥ 50% (C) | **0/150** mindhárom módszerrel | **nem teljesül** |
+| **H57i:** H3 − v4.7 < 0 (C) | +0,064 | **nem teljesül** |
+
 ### Feltáró: a kétszintű v4.4 (κ_T = 1) a C populáción
 
-*(a futás befejezése után; az első 14 esetben mind a 14 helyes gestalt-váltás, post-acc 0,66–0,91)*
+Kód: [`r57_c_v44.py`](../../experiments/arlc/arlc/r57_c_v44.py). Ugyanaz a 150 C-eset:
+
+| | post-acc | helyes gestalt-váltás | mindkét tankönyv félretéve |
+|---|---|---|---|
+| v3 | 0,440 | 0/150 | 150/150 |
+| v4.4e (egyszintű) | 0,454 | 0/150 | 150/150 |
+| **v4.4 (kétszintű, κ_T = 1)** | **0,660** | **122/150** | 25/150 |
+
+v4.4 − v3 = **+0,220** [+0,154; +0,284]; v4.4 − v4.4e = +0,206 [+0,144; +0,267].
+
+### Értelmezés
+
+1. **A 44–57. kör legtisztább eredménye.** Ugyanazon a generátoron, ugyanazokon a seedeken a κ_T = 1 a rivális
+   elméletek populációjában (C) **+0,21-et ad**, a „mindig nagyjából helyes tankönyv” populációjában (A, 44.
+   kör) **−0,08-at**. Az 50. kör sejtése, hogy a κ_T = 1 egy 50%-os szemét-arányú terület priorja, ezzel közvetlenül
+   igazolódott. **Egyik beállítás sem helyes önmagában; a helyes érték területi tény.**
+2. **Az előregisztrált v4.7 a C-ben a legrosszabb.** A gondozott-forrás prior (kontextus 10 bit) a kontextus-utat
+   drágítja, a szemét elmélet elvetését viszont nem könnyíti. Így a rendszer egyik jó utat sem találja meg.
+3. **A kétsebességű ötlet (H2, H3)** a vizsgált formában nem hozott áttörést: az A-ban a v4.4e/v4.7 maga is a
+   legjobb, a B-ben és a C-ben a visszaesés a helyes és a téves félretevést nem tudja megkülönböztetni.
+4. **Mi következik:** a „szemét elmélet” arány (π) a területen tanulandó paraméter. Az 52. kör szerint ez sok
+   világból tanulható, ha a tanítójel független a modell döntéseitől. A természetes következő lépés egy
+   **területi π-vel paraméterezett keverék-prior**, a C-ben kis π (gestalt), az A-ban nagy π (stabilitás),
+   ugyanazzal a kóddal. A 48. kör keverék-priorja ezt már tudja; ami hiányzik, az a π megbízható becslése.

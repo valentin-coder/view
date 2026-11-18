@@ -1,0 +1,20 @@
+{
+ "pop": "B",
+ "seed": 5022,
+ "kind": "hazug forr\u00e1s",
+ "garbage": false,
+ "post_v3": 0.7516339869281046,
+ "target_v3": 0.625,
+ "dismissed_v3": false,
+ "t_v3": 165.1072729280022,
+ "post_v4.4e": 0.8104575163398693,
+ "target_v4.4e": 0.875,
+ "dismissed_v4.4e": false,
+ "t_v4.4e": 91.01102385899867,
+ "post_v4.7": 0.8104575163398693,
+ "target_v4.7": 0.875,
+ "dismissed_v4.7": false,
+ "t_v4.7": 88.64532744799726,
+ "post_H2(v3+v4.7)": 0.7712418300653595,
+ "target_H2(v3+v4.7)": 0.875
+}
