@@ -49,14 +49,17 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 47 | [47-kolcsonhatasok.md](47-kolcsonhatasok.md) | A két kölcsönhatás oka: homogén forrásmodell × állításonkénti hitelesség; az elhagyó lépés helyesbíti a 30. kört (a feltalált szabály 7 anomáliától éri meg, alatta kizárás). |
 | 48 | [48-elmelet-prior.md](48-elmelet-prior.md) | Keverék-prior az elméletekre: elbukik (hibaküszöb, gestalt-vesztés). Túlél: q-csoportok (A7: 1,00) és szigorú specifikusság (a felső osztályos osztálykivétel álcázott elutasítás volt; E1: 0,845) → v4.3. |
 | 49 | [49-divergens-5.md](49-divergens-5.md) | Kritikai kör: a hibák mintázata (minden új lépés olcsóbb utat nyitott); megfigyelési ekvivalencia-audit; kis világokban a teljes tankönyv elvetése valódi MDL-optimum; **a specifikus öröklés hiánya** → v4.4 (feltalálás: 1,00). |
-| 50 | [50-v4x-ertekeles.md](50-v4x-ertekeles.md) | A 44. kör bukásának gyökéroka a κ_T = 1 (egy 50%-os szemét-arányú terület priorja egy 0%-os területen). Másodlagosan a v4.4-egyszintű a legjobb (+0,037 a v3-hoz képest), de nem független; előregisztrált ismétlés friss seedeken. |
+| 50 | [50-v4x-ertekeles.md](50-v4x-ertekeles.md) | A 44. kör bukásának gyökéroka a κ_T = 1 (egy 50%-os szemét-arányú terület priorja egy 0%-os területen). Előregisztrált ismétlés friss seedeken: a v4.4-egyszintű jobb a wms-nél (+0,052), de a v3-nál nem biztosan (+0,024, n.s.); a célzott képesség nagy. |
 | 51 | [51-generativ-v5-terv.md](51-generativ-v5-terv.md) | Terv: a v5 pontszáma egyetlen generatív modell; minden lépés egy látens változó; a kiskapuk szerkezetileg kizártak; az LLM új szerepe a forrástípus becslése. |
-| 52 | [52-hierarchikus-prior.md](52-hierarchikus-prior.md) | A „szemét elmélet” aránya sok világ együtteséből (kemény EM); jóslatok a futtatás előtt, egy saját tervhiba (Laplace-korlát) javítva. |
+| 52 | [52-hierarchikus-prior.md](52-hierarchikus-prior.md) | A „szemét elmélet” aránya sok világ együtteséből (kemény EM): ahol vannak szemét elméletek, jól becsül (0,58 vs. 0,63); ahol nincsenek, a saját hibáiból rossz fixpontra tanul (0,885). |
+| 53 | [53-latens-igazsag.md](53-latens-igazsag.md) | Közös látens igazság az egyező jelentésekre (ProbLog-pontos). Hiba a saját EB-becslőben (N_rel) – javítva a 45. kör J3-ja teljesül; a régi szemantika kétszer számolta a tankönyv támogatottságát. |
+| 54 | [54-divergens-6.md](54-divergens-6.md) | Kritikai kör a független mérés után: a célzott képesség megvan, az általános pontosság a v3-é; a kézzel árazott félretevő lépések és a saját feladatra illesztett priorok a fő hibaforrások; kétsebességű rendszer mint irány. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **50. kör, 7. rész:** az előregisztrált ismétlés eredménye (fut, seed 3000–3029).
-2. **52. kör, 2. rész:** a hierarchikus prior eredménye (fut: A populáció; utána B).
-3. **53. kör:** a generatív v5 első, szűk megvalósítása az 51. kör terve szerint (két egyező jelentés közös látens igazsággal; ProbLog-ellenőrzés minden látens típusra).
-4. **54. kör:** divergens és kritikai kör.
+1. **55. kör:** kétsebességű rendszer (a v3 általános pontossága + a v4.4e célzott képessége), előregisztrálva.
+2. **56. kör:** a félretevés árának jóslatvesztést tartalmazó kódolása, ProbLog-ellenőrzéssel.
+3. **57. kör:** kombinált benchmark (A + B populáció) előregisztrációja.
+4. **58. kör:** a nyitott J3 (52. kör): függ-e a hierarchikus becslés a kiindulástól.
+5. **59. kör:** divergens és kritikai kör.
