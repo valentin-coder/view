@@ -1,0 +1,71 @@
+{
+ "seed": 2002,
+ "exc_rate": 0.03,
+ "noise": 0.02,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.05,
+ "noise_vis": 0.03333333333333333,
+ "n_true_exc": 7,
+ "n_cands": 22,
+ "n_all": 960,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.853448275862069,
+   "key": [
+    "frozenset({1, 17, 50, 39, 120, 9})",
+    "frozenset({(29, 'e16')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L5', pred='has', obj='p8', pos=False, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.8793103448275862,
+   "key": [
+    "frozenset({120, 1, 50, 39})",
+    "frozenset({(17, 'e3'), (5, 'e8'), (29, 'e16')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L5', pred='has', obj='p8', pos=False, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.8879310344827587,
+   "key": [
+    "frozenset({120, 50})",
+    "frozenset({(1, 'cat:L2'), (39, 'e19'), (17, 'e3'), (2, 'e8'), (29, 'e16'), (39, 'e6')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L5', pred='has', obj='p8', pos=False, cond=None)"
+    ]
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 3.0,
+  "k": 0,
+  "n_rel": 52,
+  "n_rej_field": 2,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.1,
+  "kappa": 1.0,
+  "k": 5,
+  "n_rel": 54,
+  "n_rej_field": 2,
+  "eps_at_kappa0": 0.05
+ },
+ "acc_frozen": 0.8793103448275862,
+ "acc_eb_marg": 0.8793103448275862
+}

@@ -82,15 +82,18 @@ def ab_naive(mem, H, eps):
 
 
 def n_rel(mem, H):
+    """A megfigyelt következményű alkalmazások száma. 53. kör javítás: *különböző* (e, p) literálonként
+    egy, nem jelentésenként: az abnormalitás-változó (szabály, entitás) páronként egy, ezért két jelentés
+    ugyanarról a tényről nem duplázhatja a −log2(1−ε) tagot (a 45. kör ismételt mérésű J3-ját ez torzította)."""
     cl = mem.closure(H, None, mem.now)
-    n = 0
+    seen = set()
     for o in mem.obs:
         if o.lit is None or o.lit.pred != "has" or o.id in H.rej or o.source in H.iso:
             continue
         r = cl.ruled.get(o.lit.subj, ())
         if (o.lit.obj, True) in r or (o.lit.obj, False) in r:
-            n += 1
-    return n
+            seen.add((o.lit.subj, o.lit.obj))
+    return len(seen)
 
 
 def ab_marg(mem, H, eps):

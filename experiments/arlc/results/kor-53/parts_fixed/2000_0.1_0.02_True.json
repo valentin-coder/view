@@ -1,0 +1,65 @@
+{
+ "seed": 2000,
+ "exc_rate": 0.1,
+ "noise": 0.02,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.26666666666666666,
+ "noise_vis": 0.016666666666666666,
+ "n_true_exc": 20,
+ "n_cands": 16,
+ "n_all": 980,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.5566037735849056,
+   "key": [
+    "frozenset({160})",
+    "frozenset()",
+    "frozenset({'book', 'census'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.5566037735849056,
+   "key": [
+    "frozenset({160})",
+    "frozenset()",
+    "frozenset({'book', 'census'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.5660377358490566,
+   "key": [
+    "frozenset({91})",
+    "frozenset()",
+    "frozenset({'book', 'census'})",
+    [],
+    []
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 0,
+  "n_rej_field": 1,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 0,
+  "n_rej_field": 1,
+  "eps_at_kappa0": 0.002
+ },
+ "acc_frozen": 0.5566037735849056,
+ "acc_eb_marg": 0.5566037735849056
+}

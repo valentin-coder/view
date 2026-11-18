@@ -34,8 +34,35 @@ időpontonként). Kapcsoló: `latent_truth`; a v4.6 = v4.4-egyszintű + látens 
 
 ## 4. A J3 újrafuttatása
 
-*(az ismételt mérésű 18 világ a v4.6-tal; a futtatás után)*
-
 **Jóslat (a futtatás előtt):** a látens igazsággal ismételt méréssel a marginális ε̂ a látható kivételaránnyal
-nő (corr > 0,5), és nem a zajjal; az illesztett k-ban több a nem nulla érték, mint a v4.4-egyszintűvel
-(ott a medián 0).
+nő (corr > 0,5), és nem a zajjal; az illesztett k-ban több a nem nulla érték, mint a v4.4-egyszintűvel.
+
+**Első futás: a jóslat nem teljesült, és egy hibát találtam a becslőben.** Látens igazsággal ε̂ szinte mindig
+0,002 lett. Egy mikroteszt (egy entitás, két egyező, a szabálynak ellentmondó jelentés) szerint a látens
+igazság a terv szerint működik: a kivételt preferálja, 1,5 bittel olcsóbban, mint a régi szemantika. A hiba
+az EB-kódban volt: **a marginális tag N_rel-je jelentéseket számolt, nem különböző (e, p) literálokat.** Az
+abnormalitás-változó (szabály, entitás) páronként egy, ezért ismételt mérésnél a −log₂(1 − ε) tag duplázódott,
+és ε̂ lefelé torzult. Ez a 45. kör ismételt mérésű J3-ját is érintette.
+
+**A javított becslővel** (ugyanaz a 18 ismételt mérésű világ):
+
+| | n_rel > 0 | corr(ε̂, kivételarány) | corr(ε̂, zaj) | k > 0 | EB − befagyasztott pontosság |
+|---|---|---|---|---|---|
+| v4.4-egyszintű (45. kör, hibás N_rel) | 13/18 | 0,32 | −0,28 | 6 | – |
+| **v4.4-egyszintű, javított N_rel** | 13/18 | **0,96** | −0,08 | 9 | **+0,048** |
+| v4.6 (látens igazság), javított N_rel | 14/18 | 0,81 | +0,03 | 4 | −0,009 |
+
+Eredmény: [`results/kor-53/`](../../experiments/arlc/results/kor-53/) (`parts_v44e_fixed`, `parts_fixed`).
+
+**Ítélet:**
+1. **A 45. kör J3-ja a javított becslővel teljesül**, mindkét szemantikával: ismételt méréssel ε̂ a kivételarányt
+   követi, nem a zajt. A 2.3. pont elmélete tehát helyes volt, a mérés volt hibás.
+2. **Az 53. kör saját jóslata (több k ≠ 0 a látens igazsággal) nem teljesül:** 4 vs. 9. A magas kivételarányú
+   világok közül háromban a v4.6-tal a tankönyv félretéve (n_rel = 0).
+3. **Értelmezés:** a régi szemantika a két egyező jelentést a tankönyv mellett *kétszer* számolta. Ez ugyanaz
+   a visszhanghatás, mint a 31. kör kettős számolása, itt egyetlen ágensen belül. A látens igazság ezt
+   megszünteti: egy tény ennyit ér, akárhányan jelentik. Így a tankönyv támogatottsága ismételt mérésnél a
+   felére esik, és a magas kivételarányú világokban előjön a félretevés (45., 49., 50. kör). **A régi
+   szemantika jobb viselkedése részben kétszer számolt evidencián állt.** A helyes modell nem ad jobb
+   pontosságot, csak őszintébbet. A félretevés ellen a félretevés árát kell helyesen modellezni (51. kör),
+   nem az evidenciát kétszer számolni.

@@ -1,5 +1,11 @@
 # 45. kör – Empirikus Bayes az ε és κ paraméterekre, és egy harmadik programhiba
 
+> **Helyesbítés (53. kör):** a J3 (ismételt mérés) itt közölt kudarcát a *saját becslőm* hibája okozta: a
+> marginális tagban az N_rel jelentéseket számolt, nem különböző (e, p) literálokat, így ismételt mérésnél
+> duplázta a −log₂(1 − ε) tagot. Javítva a J3 **teljesül**: corr(ε̂, látható kivételarány) = 0,96,
+> corr(ε̂, zaj) = −0,08 (18 világ, v4.4-egyszintű), és az EB pontossága +0,048. Az egyszeri mérésű
+> eredményeket a hiba nem érinti. Lásd [53-latens-igazsag.md](53-latens-igazsag.md).
+
 A 34. kör kritikája szerint a v4 paraméterei (ε = 0,05, κ_S = 30, κ_T = 1) kézzel vannak beállítva.
 Ha a célfüggvény egy generatív modell MAP-célja (36. kör), a paraméterek elvben az adatból
 becsülhetők: ez az empirikus Bayes (II. típusú maximum-likelihood). Ez a kör megvizsgálja, mit
