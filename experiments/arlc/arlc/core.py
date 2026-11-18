@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import math
 from collections import Counter, defaultdict
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field, fields, replace as _dc_replace
 from itertools import combinations
 from typing import Iterable, Optional
 
@@ -68,6 +68,22 @@ class Hyp:
         return k
 
 
+_HYP_FIELDS = ("rej", "exc", "iso", "cut", "ind")
+
+
+def replace(obj, **kw):
+    """Gyors dataclasses.replace a Hyp-re (46. kör): ugyanazokat a mezőket állítja be, __init__ és
+    mezőellenőrzés nélkül. A gyorsítótárazott kulcsot (_key) nem másolja."""
+    if type(obj) is not Hyp:
+        return _dc_replace(obj, **kw)
+    n = object.__new__(Hyp)
+    d = n.__dict__
+    src = obj.__dict__
+    for f in _HYP_FIELDS:
+        d[f] = kw[f] if f in kw else src[f]
+    return n
+
+
 @dataclass
 class Closure:
     isa: dict      # e -> {(c, pos): support}
@@ -109,6 +125,10 @@ class Memory:
         self.exc_prior: Optional[float] = None # 41. kör: ha meg van adva, a kivétel egy ε valószínűségű abnormalitás
         self.cheap_greedy = False              # 42. kör: a mohó befejezés helyi költségbecsléssel választ
         self.corroboration = False             # 43. kör (v4.1): csak a megerősített állítás épít múltat
+        self.ind_exc_cost = False              # 45. kör (3. hiba): indukált/feltalált szabály kivétele is -log2 ε-ba kerül
+        self.theory_mix: Optional[tuple] = None  # 48. kör: (π, κ1, q0, κ0) keverék-prior az elmélet-megbízhatóságra
+        self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
+        self.strict_specificity = False        # 48. kör: osztályszintű kivétel csak a szabály törzsének szigorú alosztályára
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -298,6 +318,18 @@ class Memory:
             eps = self.exc_prior
             for rid, e in self._candidate_applications():
                 bits += -math.log2(eps) if (rid, e) in H.exc else -math.log2(1 - eps)
+            if self.ind_exc_cost:
+                # 45. kör: a jelöltlistán kívüli (indukált, feltalált, kétfeltételes) szabályok kivétele
+                # ugyanazt a határköltséget kapja, mint egy tankönyvi szabályé: log2((1-ε)/ε).
+                # A normál alkalmazásaik nem kapnak tagot (nem megfigyelt abnormalitás-változók
+                # kimarginalizálva), így nem tér vissza a világméret-műtermék.
+                cand = getattr(self, "_capp_set", None)
+                if cand is None or getattr(self, "_capp_set_key", None) != self._capp_key:
+                    cand = set(self._candidate_applications())
+                    self._capp_set, self._capp_set_key = cand, self._capp_key
+                for x in H.exc:
+                    if not (isinstance(x[1], str) and x[1].startswith("cat:")) and x not in cand:
+                        bits += math.log2((1 - eps) / eps)
         bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
         if self.summary:
@@ -321,6 +353,8 @@ class Memory:
             q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
             q0 = self.source_q.get(o.source, q0)
             key = (o.source, "elmélet") if (self.theory_kappa is not None and o.rule is not None) else o.source
+            if self.q_groups:
+                key = (key if isinstance(key, tuple) else (key, "adat")) + (round(q0, 6),)
             n, k, q = stats.get(key, (0, 0, q0))
             rej = o.id in H.rej
             if corr is not None and not rej and o.id not in corr:
@@ -328,11 +362,19 @@ class Memory:
                 continue
             stats[key] = (n + 1, k + rej, q)
         bits = 0.0
+        lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
+        bb = lambda n, k, kap, q: (lb(kap * q, kap * (1 - q)) - lb(kap * q + n - k, kap * (1 - q) + k)) / math.log(2)
         for src, (n, k, q) in stats.items():
-            kap = self.theory_kappa if isinstance(src, tuple) else self.kappa
-            a0, b0 = kap * q, kap * (1 - q)
-            lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
-            bits += (lb(a0, b0) - lb(a0 + n - k, b0 + k)) / math.log(2)
+            theory = isinstance(src, tuple) and src[1] == "elmélet"
+            if theory and self.theory_mix is not None:
+                # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
+                pi, k1, q0m, k0 = self.theory_mix
+                c1, c0 = bb(n, k, k1, q), bb(n, k, k0, q0m)
+                m = min(c1, c0)
+                bits += m - math.log2(pi * 2 ** (m - c1) + (1 - pi) * 2 ** (m - c0))
+                continue
+            kap = self.theory_kappa if theory else self.kappa
+            bits += bb(n, k, kap, q)
         return bits
 
     def _candidate_applications(self) -> list:
@@ -413,8 +455,31 @@ class Memory:
                     body = self._get(tok[1], H).rule.body
                     cl = self.closure(H, None, self.now)
                     for (c2, p2) in cl.isa.get(tok[2], {}):
-                        if p2 and c2 != body:
+                        if p2 and c2 != body and (not self.strict_specificity or self._proper_sub(H, c2, body)):
                             yield replace(H, exc=H.exc | {(tok[1], "cat:" + c2)})
+
+    def _proper_sub(self, H: Hyp, c2: str, body: str) -> bool:
+        """48. kör: c2 a body szigorú alosztálya-e az elfogadott alosztály-szabályok
+        szerint. A feltalált c′ = b ∧ F kategória definíció szerint b alosztálya."""
+        up = defaultdict(set)
+        for o in list(self.obs) + list(H.ind):
+            r = o.rule
+            if r is None or o.id in H.rej or r.pred != "isa" or not r.pos:
+                continue
+            if r.cond is None:
+                up[r.body].add(r.obj)
+            else:
+                up[r.obj].add(r.body)
+        seen, stack = {c2}, [c2]
+        while stack:
+            x = stack.pop()
+            for y in up.get(x, ()):
+                if y == body:
+                    return True
+                if y not in seen:
+                    seen.add(y)
+                    stack.append(y)
+        return False
 
     def _repair(self, H: Hyp, depth: int, seen: set) -> list[Hyp]:
         k = H.key()
@@ -458,7 +523,12 @@ class Memory:
             if not opts:
                 return None
             if self.cheap_greedy:
-                H = min(opts, key=lambda h: (self._local_cost(H, h), str(h.key())))
+                # azonos a min(opts, key=(költség, str(kulcs)))-csal, de a drága str(kulcs) csak a
+                # legolcsóbb holtversenyesekre számolódik (46. kör, viselkedésmegőrző gyorsítás)
+                costs = [self._local_cost(H, h) for h in opts]
+                cmin = min(costs)
+                ties = [h for h, cv in zip(opts, costs) if cv == cmin]
+                H = ties[0] if len(ties) == 1 else min(ties, key=lambda h: str(h.key()))
             else:
                 H = min(opts, key=self.score)
         return None

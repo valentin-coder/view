@@ -1,0 +1,57 @@
+[
+ {
+  "seed": 1000,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "lookup",
+  "pre_acc": 0.5789473684210527,
+  "post_acc": 0.5111111111111111,
+  "target_acc": 0.5555555555555556,
+  "n_target": 9,
+  "seconds": 0.00738023500161944,
+  "surprise_seconds": 6.226000550668687e-06
+ },
+ {
+  "seed": 1000,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "recency",
+  "pre_acc": 0.8026315789473685,
+  "post_acc": 0.7888888888888889,
+  "target_acc": 0.5555555555555556,
+  "n_target": 9,
+  "seconds": 0.04811980299928109,
+  "surprise_seconds": 0.007185767000919441
+ },
+ {
+  "seed": 1000,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "wms",
+  "pre_acc": 0.7960526315789473,
+  "post_acc": 0.8055555555555556,
+  "target_acc": 0.5555555555555556,
+  "n_target": 9,
+  "seconds": 2.626473910997447,
+  "surprise_seconds": 0.40450040900032036
+ },
+ {
+  "seed": 1000,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "arlc",
+  "pre_acc": 0.7828947368421053,
+  "post_acc": 0.7944444444444444,
+  "target_acc": 0.5555555555555556,
+  "n_target": 9,
+  "seconds": 35.650185241000145,
+  "surprise_seconds": 1.2445679839984223
+ },
+ {
+  "seed": 1000,
+  "kind": "kiv\u00e9teles alfaj",
+  "method": "v4",
+  "pre_acc": 0.8421052631578947,
+  "post_acc": 0.8444444444444444,
+  "target_acc": 0.5555555555555556,
+  "n_target": 9,
+  "seconds": 122.50576062300024,
+  "surprise_seconds": 1.1559156729999813
+ }
+]
