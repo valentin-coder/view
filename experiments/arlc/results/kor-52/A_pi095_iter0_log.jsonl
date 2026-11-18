@@ -1,0 +1,53 @@
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 300, "true_garbage": false, "acc": 0.5279503105590062, "book_rejected_frac": 0.0, "book_iso": true, "judged_garbage": true}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 301, "true_garbage": false, "acc": 0.7315789473684211, "book_rejected_frac": 0.16666666666666666, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 302, "true_garbage": false, "acc": 0.85625, "book_rejected_frac": 0.0625, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 303, "true_garbage": false, "acc": 0.7591623036649214, "book_rejected_frac": 0.0425531914893617, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 304, "true_garbage": false, "acc": 0.8852459016393442, "book_rejected_frac": 0.16, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 305, "true_garbage": false, "acc": 0.5902777777777778, "book_rejected_frac": 1.0, "book_iso": false, "judged_garbage": true}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 306, "true_garbage": false, "acc": 0.7692307692307693, "book_rejected_frac": 0.09803921568627451, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 307, "true_garbage": false, "acc": 0.8741721854304636, "book_rejected_frac": 0.1276595744680851, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 308, "true_garbage": false, "acc": 0.867816091954023, "book_rejected_frac": 0.08, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 309, "true_garbage": false, "acc": 0.8589743589743589, "book_rejected_frac": 0.09803921568627451, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 310, "true_garbage": false, "acc": 0.9119496855345912, "book_rejected_frac": 0.02127659574468085, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 311, "true_garbage": false, "acc": 0.8721804511278195, "book_rejected_frac": 0.08695652173913043, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 312, "true_garbage": false, "acc": 0.875, "book_rejected_frac": 0.06, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 313, "true_garbage": false, "acc": 0.8414634146341463, "book_rejected_frac": 0.08, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 314, "true_garbage": false, "acc": 0.6341463414634146, "book_rejected_frac": 0.16326530612244897, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 315, "true_garbage": false, "acc": 0.7616580310880829, "book_rejected_frac": 0.061224489795918366, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 316, "true_garbage": false, "acc": 0.8895705521472392, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 317, "true_garbage": false, "acc": 0.8218390804597702, "book_rejected_frac": 0.16, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 318, "true_garbage": false, "acc": 0.8385093167701864, "book_rejected_frac": 0.10416666666666667, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 319, "true_garbage": false, "acc": 0.8012422360248447, "book_rejected_frac": 0.10638297872340426, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 320, "true_garbage": false, "acc": 0.7955801104972375, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 321, "true_garbage": false, "acc": 0.8543046357615894, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 322, "true_garbage": false, "acc": 0.764367816091954, "book_rejected_frac": 0.16666666666666666, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 0, "pi": 0.95, "seed": 323, "true_garbage": false, "acc": 0.7692307692307693, "book_rejected_frac": 0.16326530612244897, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 300, "true_garbage": false, "acc": 0.5279503105590062, "book_rejected_frac": 1.0, "book_iso": false, "judged_garbage": true}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 301, "true_garbage": false, "acc": 0.7315789473684211, "book_rejected_frac": 0.16666666666666666, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 302, "true_garbage": false, "acc": 0.85625, "book_rejected_frac": 0.0625, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 303, "true_garbage": false, "acc": 0.7643979057591623, "book_rejected_frac": 0.1276595744680851, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 304, "true_garbage": false, "acc": 0.8852459016393442, "book_rejected_frac": 0.16, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 305, "true_garbage": false, "acc": 0.5902777777777778, "book_rejected_frac": 1.0, "book_iso": false, "judged_garbage": true}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 306, "true_garbage": false, "acc": 0.7692307692307693, "book_rejected_frac": 0.09803921568627451, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 307, "true_garbage": false, "acc": 0.8741721854304636, "book_rejected_frac": 0.1276595744680851, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 308, "true_garbage": false, "acc": 0.867816091954023, "book_rejected_frac": 0.08, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 309, "true_garbage": false, "acc": 0.8589743589743589, "book_rejected_frac": 0.09803921568627451, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 310, "true_garbage": false, "acc": 0.8364779874213837, "book_rejected_frac": 0.0425531914893617, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 311, "true_garbage": false, "acc": 0.8721804511278195, "book_rejected_frac": 0.08695652173913043, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 312, "true_garbage": false, "acc": 0.875, "book_rejected_frac": 0.06, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 313, "true_garbage": false, "acc": 0.8414634146341463, "book_rejected_frac": 0.08, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 314, "true_garbage": false, "acc": 0.6341463414634146, "book_rejected_frac": 0.16326530612244897, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 315, "true_garbage": false, "acc": 0.7875647668393783, "book_rejected_frac": 0.08163265306122448, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 316, "true_garbage": false, "acc": 0.8895705521472392, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 317, "true_garbage": false, "acc": 0.8218390804597702, "book_rejected_frac": 0.16, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 318, "true_garbage": false, "acc": 0.8385093167701864, "book_rejected_frac": 0.10416666666666667, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 319, "true_garbage": false, "acc": 0.8012422360248447, "book_rejected_frac": 0.10638297872340426, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 320, "true_garbage": false, "acc": 0.7955801104972375, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 321, "true_garbage": false, "acc": 0.8543046357615894, "book_rejected_frac": 0.06382978723404255, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 322, "true_garbage": false, "acc": 0.764367816091954, "book_rejected_frac": 0.16666666666666666, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "iter": 1, "pi": 0.8846153846153846, "seed": 323, "true_garbage": false, "acc": 0.7692307692307693, "book_rejected_frac": 0.16326530612244897, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "test_pi": 0.8846153846153846, "seed": 21, "true_garbage": false, "acc": 0.8709677419354839, "book_rejected_frac": 0.041666666666666664, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "test_pi": 0.8846153846153846, "seed": 22, "true_garbage": false, "acc": 0.5689655172413793, "book_rejected_frac": 1.0, "book_iso": false, "judged_garbage": true}
+{"pop": "A", "test_pi": 0.8846153846153846, "seed": 23, "true_garbage": false, "acc": 0.8955223880597015, "book_rejected_frac": 0.04081632653061224, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "test_pi": 0.8846153846153846, "seed": 24, "true_garbage": false, "acc": 0.8307692307692308, "book_rejected_frac": 0.041666666666666664, "book_iso": false, "judged_garbage": false}
+{"pop": "A", "test_pi": 0.8846153846153846, "seed": 25, "true_garbage": false, "acc": 0.9074074074074074, "book_rejected_frac": 0.0, "book_iso": false, "judged_garbage": false}
