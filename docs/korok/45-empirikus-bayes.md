@@ -158,9 +158,9 @@ Rács: 16 ε-érték × 8 κ-érték. Eredmény: [`results/kor-45/results.json`]
    ellentmondások *számán* múlik. A magas kivételarányú világokban több az ellentmondás (a látható
    kivételarány 0,19, a zaj legfeljebb 0,1), ezért ott billen át a döntés a kivételek felé. A korreláció
    ebből a nagyságrendi különbségből jön, nem abból, hogy a modell szét tudná választani a kettőt.
-4. **J3: az ismételt mérés nem segített, sőt rontott.** A kétszeres adatmennyiség mellett több világban
-   tűnik el a tankönyv (n_rel = 0), és a kivételek helyett a második terepforrás állításait utasítja el a
-   rendszer. A 2.3. pont érvelése (ismételt méréssel azonosítható) elvben igaz, de feltételezte, hogy a
+4. **J3: az ismételt mérés nem segített.** A tankönyv eltűnése (n_rel = 0) itt nem gyakoribb (5/18, egyszeri
+   méréssel 7/18). Az ellentmondásokat viszont a rendszer inkább terepi jelentések elutasításával oldja fel
+   (elutasított terepi állítás medián 2, egyszeri méréssel 0), nem kivétellel (k medián mindkettőben 0). A 2.3. pont érvelése (ismételt méréssel azonosítható) elvben igaz, de feltételezte, hogy a
    modell kihasználja a két jelentés egyezését. A pontszám ezt nem teszi meg: két egyező jelentés nem
    kap közös magyarázatot, csak külön-külön kódolódik.
 5. **Új, fontos megfigyelés: az EB önerősítő félretevés felé.** 12/36 világban a legjobb illesztett
