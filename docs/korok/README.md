@@ -54,12 +54,15 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 52 | [52-hierarchikus-prior.md](52-hierarchikus-prior.md) | A „szemét elmélet” aránya sok világ együtteséből (kemény EM): ahol vannak szemét elméletek, jól becsül (0,58 vs. 0,63); ahol nincsenek, a saját hibáiból rossz fixpontra tanul (0,885). |
 | 53 | [53-latens-igazsag.md](53-latens-igazsag.md) | Közös látens igazság az egyező jelentésekre (ProbLog-pontos). Hiba a saját EB-becslőben (N_rel) – javítva a 45. kör J3-ja teljesül; a régi szemantika kétszer számolta a tankönyv támogatottságát. |
 | 54 | [54-divergens-6.md](54-divergens-6.md) | Kritikai kör a független mérés után: a célzott képesség megvan, az általános pontosság a v3-é; a kézzel árazott félretevő lépések és a saját feladatra illesztett priorok a fő hibaforrások; kétsebességű rendszer mint irány. |
+| 55 | [55-ketsebessegu.md](55-ketsebessegu.md) | Kétsebességű rendszer (előregisztrált): jobb a v3-nál, de rosszabb, mint a v4.4e önmagában; a B populáció (szemét tankönyv) nem diszkriminatív. |
+| 56 | [56-felreteves-ara.md](56-felreteves-ara.md) | A „hiányzó jóslatvesztés” premisszája téves; egy félretevés 2 biten dőlt el, a fix kontextusár miatt. |
+| 57 | [57-kombinalt-benchmark.md](57-kombinalt-benchmark.md) | Kombinált benchmark (A, B, C): a javított változat jobb a v3-nál (+0,048); rivális elméleteknél (C) egyik egyszintű sem vált helyesen (0/150), a kétszintű κ_T = 1 igen (122/150, +0,22). |
+| 58 | [58-hierarchikus-j3.md](58-hierarchikus-j3.md) | A hierarchikus π-becslés nem kiindulásfüggő, de a fixpont a becslő felbontása miatt rossz. |
+| 59 | [59-divergens-7.md](59-divergens-7.md) | Kritikai kör: a gestalt-váltás és a stabilitás egy területi paraméter két végpontja (Kuhn mérhető modellje); a kontextust külső jelhez kell kötni – ez az LLM konkrét feladata. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **55. kör:** kétsebességű rendszer (a v3 általános pontossága + a v4.4e célzott képessége), előregisztrálva.
-2. **56. kör:** a félretevés árának jóslatvesztést tartalmazó kódolása, ProbLog-ellenőrzéssel.
-3. **57. kör:** kombinált benchmark (A + B populáció) előregisztrációja.
-4. **58. kör:** a nyitott J3 (52. kör): függ-e a hierarchikus becslés a kiindulástól.
-5. **59. kör:** divergens és kritikai kör.
+1. **60. kör:** metaadatból jövő területi π és külső jelhez kötött kontextus, előregisztrálva A, B és C populáción, tartózkodás-érzékeny mérőszámokkal.
+2. **61. kör:** a 60. kör eredménye; a B fázis csomagjának átírása a két LLM-feladatra (forrástípus, kontextusjel).
+3. **64. kör:** divergens és kritikai kör.
