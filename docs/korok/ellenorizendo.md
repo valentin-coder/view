@@ -78,3 +78,13 @@ irodalomkutatás első lépései. Minden sorban: mit kell ellenőrizni, és hol 
 | Fountas et al. 2024 (EM-LLM); Das et al. 2024 (Larimar) | epizodikus memória LLM-hez | 3. fázis |
 | Kassner et al. 2021 (BeliefBank); Mitchell et al. 2022 (ConCoRD) | konzisztencia LLM-hiedelmekben | 3. fázis, 5 |
 | Paulo–Belrose 2025 | SAE-k különböző seedekkel különböző jellemzőket tanulnak | 1. fázis |
+
+## 45–51. kör
+
+| hivatkozás | állítás | kör |
+|---|---|---|
+| Celeux–Govaert 1992 (osztályozó EM) | a kemény hozzárendelésű EM torzítja a keverékparamétereket | 45 |
+| Raykar et al. 2010 | „jó munkás vs. spammer” keverék-prior a címkézők megbízhatóságára | 48 |
+| Touretzky 1986; Horty–Thomason–Touretzky 1990 | specifikusság (inferential distance) az öröklési hálókban | 49 |
+| Lakatos 1970 | védőöv: a kemény mag védelme ad hoc kiegészítésekkel | 49 |
+| De Raedt et al. 2007 (ProbLog); Milch et al. 2005 (BLOG) | valószínűségi logikai programozás mint generatív specifikáció | 51 |
