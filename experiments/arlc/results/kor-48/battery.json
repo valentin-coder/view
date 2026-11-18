@@ -202,5 +202,22 @@
   "Quine: G sosem esik": true,
   "Feltalálás: általánosítás": 0.5,
   "_seconds": 50.42744755744934
+ },
+ "v4.4 (+ automatikus specifikusság)": {
+  "E1 RR (átkat.+alosztály)": 0.845,
+  "E1 kollaterális": 0.002173913043478261,
+  "E2a átfordulás N=2/8/16": "2/4/6",
+  "E2a monoton": true,
+  "E3 helyes döntés": 0.75,
+  "E4 pontosság (ε=0,05)": 0.9375,
+  "E4 hamis átrendezés/50": 0.0,
+  "A7 (frissítés/revízió) pontosság": 1.0,
+  "TFB-9 pontosság (zaj 0,15)": 0.9770114942528736,
+  "TFB-9 vesztes fa aktív": 0.0,
+  "TFB-2 pontosság": 0.8,
+  "TFB-8 pontosság": 1.0,
+  "Quine: G sosem esik": true,
+  "Feltalálás: általánosítás": 1.0,
+  "_seconds": 45.716105461120605
  }
 }

@@ -94,10 +94,10 @@ def analyze(rows):
         if m in ("v4",):
             continue
         extra[f"v4 - {m} (post)"] = boot_diff(post["v4"], post[m], rng)
-    if "v4.3" in methods:
-        extra["v4.3 - v4 (post)"] = boot_diff(post["v4.3"], post["v4"], rng)
-        extra["v4.3 - wms (post)"] = boot_diff(post["v4.3"], post["wms"], rng)
-        extra["v4.3 - arlc (post)"] = boot_diff(post["v4.3"], post["arlc"], rng)
+    for vx in ("v4.3", "v4.4"):
+        if vx in methods:
+            for other in ("v4", "wms", "arlc"):
+                extra[f"{vx} - {other} (post)"] = boot_diff(post[vx], post[other], rng)
     pre = {m: per_seed(T, m, "pre_acc", seeds) for m in methods}
     extra["v4 - wms (pre)"] = boot_diff(pre["v4"], pre["wms"], rng)
     extra["v4 - arlc (pre)"] = boot_diff(pre["v4"], pre["arlc"], rng)
@@ -106,8 +106,9 @@ def analyze(rows):
 
 
 if __name__ == "__main__":
-    extra = PARTS + "_v4.3"
-    rows = load(extra=extra)
+    rows = load()
+    for vx in ("v4.3", "v4.4"):
+        rows += load(PARTS + "_" + vx) if os.path.isdir(PARTS + "_" + vx) else []
     res = analyze(rows)
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(PARTS), "analysis.json")
     json.dump(res, open(out, "w"), ensure_ascii=False, indent=1)

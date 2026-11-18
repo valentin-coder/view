@@ -34,7 +34,7 @@ def run_variant(seed, kind, name):
     from .core import Memory
     from . import procedural as PR
     from . import v4 as V4
-    ov = {"v4.3": V4.V43_OVERRIDES}[name]
+    ov = {"v4.3": V4.V43_OVERRIDES, "v4.4": V4.V44_OVERRIDES}[name]
     sch, obs, new, pre, post, tq = PR.make_case(seed, kind)
     t0 = time.perf_counter()
     with V4.configured(ov):

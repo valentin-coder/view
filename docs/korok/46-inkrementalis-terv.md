@@ -58,3 +58,35 @@ a végeredmény is eltérhet, még ha a keresés helyes is.
   reprodukálható rendszerhez kanonikus holtverseny-feloldás kell. Az ideális megoldás az, ha a
   rendszer *jelzi* a holtversenyt (több, egyformán jó magyarázat), és nem választ csendben.
   Ez a 13. kör aktív kérdezésének természetes indítóeseménye.
+
+## Megvalósítás (a 45–49. kör közben): mérés előbb, optimalizálás utána
+
+**A terv rossz pontot célzott.** Egy 12 entitásos procedurális világ v4-futásának profilja (cProfile):
+
+| tétel | idő (az összes 63 s-ból) |
+|---|---|
+| `_score` (a pontozás, amelyet a terv inkrementálissá tett volna) | **kb. 5,8 s (9%)** |
+| zárás (`closure`, kb. 86 ezer új zárás + 825 ezer gyorsítótár-találat) | kb. 19 s |
+| mohó befejezés: jelöltenként helyi költség + `str(kulcs)` holtverseny-feloldás | kb. 20 s |
+| `dataclasses.replace` (2,7 millió hipotézis-másolat) | kb. 12 s |
+
+**Viselkedésmegőrző gyorsítások** (alapértelmezés, kapcsoló nélkül):
+1. a mohó lépés `str(kulcs)` holtverseny-feloldása csak a legolcsóbb holtversenyesekre számolódik (a
+   `min` eredménye változatlan);
+2. gyors `replace` a hipotézisre (ugyanazok a mezők, `__init__` nélkül).
+
+**Ellenőrzés:** 4 kis világ teljes nyalábja (kanonikus kulcs, pontszám 10⁻⁹-re) és minden válasza
+**bitre egyezik** rögzített hash-seed mellett ([`equiv_check.py`](../../experiments/arlc/arlc/equiv_check.py)).
+Idő 91 s → 50 s (**1,8×**). A kimerítő ellenőrzés minden konfigurációra 25/25.
+
+**Kipróbált és elvetett:** a mohó befejezés pontos memoizálása köztes állapotonként (a lépéskeret
+figyelembevételével). Egyezik, de csak 3% nyereség, mert a mohó utak ritkán futnak össze.
+
+**Mellékes, de fontos megfigyelés:** az eredeti ujjlenyomat két folyamat között **eltért**, mert a
+`repr(frozenset)` sorrendje a hash-seedtől függ, és a mohó holtverseny-feloldás ugyanezt a `str`-t
+használja. A kanonikus ujjlenyomattal a 4 világon az eredmény hash-seedtől független volt, de egy
+holtversenyes esetben a végeredmény elvben folyamatonként eltérhet. **A kanonikus konfliktus- és
+holtverseny-sorrend tehát nem csak az inkrementális változathoz, hanem már a reprodukálhatósághoz is kell.**
+
+**Ami valóban inkrementálissá teendő:** a zárás (entitásonként) és a jelöltenkénti konfliktuskeresés,
+nem a pontszám. Ez a 46. kör eredeti tervének 1–2. pontja. A 3. pont (pontszám-különbség) másodlagos.

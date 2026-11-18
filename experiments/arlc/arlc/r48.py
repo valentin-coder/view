@@ -20,6 +20,7 @@ VARIANTS = {
     "v5 jelölt (kalibrált keverék)": dict(V4.V5_OVERRIDES),
     "v4.3 + keverék π=0,99": {**V4.V43_OVERRIDES, "theory_mix": V4.MIX_CAL99},
     "v4.3 + keverék π=0,999": {**V4.V43_OVERRIDES, "theory_mix": V4.MIX_CAL999},
+    "v4.4 (+ automatikus specifikusság)": dict(V4.V44_OVERRIDES),
     "v5 − keverék-prior": {k: v for k, v in V4.V5_OVERRIDES.items() if k != "theory_mix"},
 }
 

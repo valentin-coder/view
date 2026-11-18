@@ -160,7 +160,7 @@ def acc_of(sch, obs, overrides, truth, eps, kappa):
 
 
 def run_world(seed, exc_rate, noise, repeated, overrides=None, refit_acc=True):
-    overrides = dict(V4.V42_OVERRIDES if overrides is None else overrides)
+    overrides = dict(V4.V44_OVERRIDES if overrides is None else overrides)
     sch, obs, truth, stats = world_case(seed, exc_rate, noise, repeated)
     mem, cands, runs = collect(sch, obs, overrides, truth)
     prof = profile(mem, cands)

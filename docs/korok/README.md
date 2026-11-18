@@ -43,15 +43,20 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 41 | [41-elvi-kivetel.md](41-elvi-kivetel.md) | Abnormalitás-prior a log₂|E| helyett: a világméret-műtermék eltűnik; ProbLoggal igazolva; ε mint a terület kivétel-gazdagsága. (Egy hibáját a 43. kör találta meg és javította.) |
 | 42 | [42-azonnalisag.md](42-azonnalisag.md) | Az átrendezés a lassú út (0,15–24 s vs. 0,1–0,7 ms); mélység 2 + helyi becslésű mohó lépés kb. 25× gyorsít, optimalitásvesztés nélkül a tesztelt méreten. |
 | 43 | [43-arlc-v4.md](43-arlc-v4.md) | ARLC v4 befagyasztva; az abláció szerint együtt rosszabb, mint a komponensek külön. Két hiba (ingyenes kivételek – javítva; elméleti hírnév-farmolás κ_T = 1-nél – nyitott); a v4.1 (megerősítés-alapú múlt) nem javít. |
-| 44 | [44-procedurialis-benchmark.md](44-procedurialis-benchmark.md) | Előre rögzített procedurális benchmark (1. rész: előregisztráció; 2. rész: folyamatban). |
-| 46 | [46-inkrementalis-terv.md](46-inkrementalis-terv.md) | Inkrementális zárás és pontozás terve; rejtett akadály: a konfliktus kiválasztásának sorrendje. |
+| 44 | [44-procedurialis-benchmark.md](44-procedurialis-benchmark.md) | Előre rögzített procedurális benchmark (1. rész: előregisztráció; 2. rész: folyamatban, folytatható futtatóval). |
+| 45 | [45-empirikus-bayes.md](45-empirikus-bayes.md) | Empirikus Bayes: a naiv becslés elfajul (minden pár abnormalitás-változó), marginális változat; ε és a forráshiba egyszeri méréssel azonosíthatatlan. **3. programhiba:** az indukált/feltalált szabályok kivétele ingyenes volt (javítva, v4.2). |
+| 46 | [46-inkrementalis-terv.md](46-inkrementalis-terv.md) | Inkrementális zárás és pontozás terve; rejtett akadály: a konfliktus kiválasztásának sorrendje. (Megvalósítás: a profil szerint a pontozás csak kb. 10%; viselkedésmegőrző 1,8× gyorsítás.) |
 | 47 | [47-kolcsonhatasok.md](47-kolcsonhatasok.md) | A két kölcsönhatás oka: homogén forrásmodell × állításonkénti hitelesség; az elhagyó lépés helyesbíti a 30. kört (a feltalált szabály 7 anomáliától éri meg, alatta kizárás). |
+| 48 | [48-elmelet-prior.md](48-elmelet-prior.md) | Keverék-prior az elméletekre: elbukik (hibaküszöb, gestalt-vesztés). Túlél: q-csoportok (A7: 1,00) és szigorú specifikusság (a felső osztályos osztálykivétel álcázott elutasítás volt; E1: 0,845) → v4.3. |
+| 49 | [49-divergens-5.md](49-divergens-5.md) | Kritikai kör: a hibák mintázata (minden új lépés olcsóbb utat nyitott); megfigyelési ekvivalencia-audit; kis világokban a teljes tankönyv elvetése valódi MDL-optimum; **a specifikus öröklés hiánya** → v4.4 (feltalálás: 1,00). |
+| 51 | [51-generativ-v5-terv.md](51-generativ-v5-terv.md) | Terv: a v5 pontszáma egyetlen generatív modell; minden lépés egy látens változó; a kiskapuk szerkezetileg kizártak; az LLM új szerepe a forrástípus becslése. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **44. kör, 2. rész:** a procedurális benchmark eredményei (fut; az előregisztrációtól való eltérés: a kód javítva, a konfiguráció változatlan).
-2. **45. kör:** empirikus Bayes az ε, κ paraméterekre (kód kész: `empirical_bayes.py`).
-3. **48. kör:** állításonkénti hitelesség a tanult forrásmodellben (47. kör, 1. kölcsönhatás); az elméleti hírnév-farmolás elvi javítása (43. kör, 2. hiba).
-4. **46. kör (megvalósítás):** inkrementális pontozás kanonikus konfliktussorrenddel, kapcsolóként.
-5. **49. kör:** divergens és kritikai kör.
+1. **44. kör, 2. rész:** a procedurális benchmark eredményei (fut; eltérés az előregisztrációtól: a kód javítva, a konfiguráció változatlan); másodlagos, címkézett futás a v4.3-ra és a v4.4-re, nyaláb-átlagolt válasszal (feltáró).
+2. **45. kör, 5. rész:** az empirikus Bayes-futás (kód kész; a jóslatok J1–J5 a futtatás előtt rögzítve).
+3. **50. kör:** a v4.4 értékelése (ellenőrző csomag kész; kimerítő ellenőrzés; benchmark).
+4. **52. kör:** hierarchikus prior sok világon át (π, ρ, ε forrástípusonként), a 45. és 49. kör azonosíthatatlansági eredményei után.
+5. **53. kör:** a generatív v5 első, szűk megvalósítása a 51. kör terve szerint, ProbLog-ellenőrzéssel minden látens típusra.
+6. **54. kör:** divergens és kritikai kör.
