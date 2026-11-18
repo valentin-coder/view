@@ -66,4 +66,54 @@ Ha a forrás *típusa* (tankönyv, szakértő, pletyka) a szövegből felismerhe
 
 ## 2. rész: eredmények
 
-*(a futtatás után)*
+Kód: [`hier.py`](../../experiments/arlc/arlc/hier.py); eredmény:
+[`results/kor-52/`](../../experiments/arlc/results/kor-52/) (`A_pi095.json`, `B_pi095.json`, esetenkénti gyorsítótár).
+Eltérés: a konténer az A populáció 1. iterációja közben újraindult. A 0. iteráció eredményeit a naplóból
+töltöttem vissza, a futás folytatható gyorsítótárral folytatódott. Az esetek determinisztikusak.
+
+### A kemény EM
+
+| populáció | iteráció | π | szemétnek ítélt (24-ből) | valódi szemét | új π̂ |
+|---|---|---|---|---|---|
+| A | 0 | 0,95 | 2 (mindkettő hamis pozitív) | 0 | 0,885 |
+| A | 1 | 0,885 | 2 (ugyanaz a két világ) | 0 | **0,885** (fixpont) |
+| B | 0 | 0,95 | 9 (8 találat, 1 hamis pozitív, 1 tévesztés) | 9 | 0,615 |
+| B | 1 | 0,615 | 10 (8 találat, 2 hamis pozitív) | 9 | 0,577 |
+| B | 2 | 0,577 | 10 | 9 | **0,577** (fixpont) |
+
+### Teszt: 8 kis (12 entitásos) világ a becsült π̂-val
+
+| seed | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | átlag |
+|---|---|---|---|---|---|---|---|---|---|
+| v4.4 (49. kör, π nélkül) | 0,87 | 0,57\* | 0,90 | 0,79 | 0,91 | 0,52\* | 0,91 | 0,52\* | 0,747 |
+| A, π̂ = 0,885 | 0,87 | 0,57\* | 0,90 | 0,83 | 0,91 | **0,72** | 0,91 | 0,51\* | **0,777** |
+| B, π̂ = 0,577 (21 és 28 szemét) | 0,58\*ˢ | 0,57\* | 0,90 | 0,83 | 0,91 | 0,52\* | 0,91 | 0,51\*ˢ | 0,716 |
+
+(\*: tankönyv félretéve; ˢ: a tankönyv valóban szemét)
+
+### Ítélet a jóslatokról
+
+| jóslat | eredmény | ítélet |
+|---|---|---|
+| **J1 (A):** π̂ ∈ [0,92; 0,96], érdemi javulás nélkül | π̂ = **0,885**; félretevés 3 → 2, átlag +0,03 | **π̂ nem teljesül** (lefelé sodródik); a javulás kicsi, de nem nulla |
+| **J2 (B):** π̂ ≈ 0,7 (0,5–0,85) | π̂ = **0,577** (valódi arány 0,625) | **teljesül** |
+| **J3:** a kiindulástól függ-e | nem futtattam (idő) | **nyitott** |
+| **J4 (B):** a szemét tankönyvet elveti, a jót ritkábban | szemét 2/2 félretéve; jó 2/6 félretéve | **részben**; a jó tankönyvek félretevése nem ritkább, mint az A-ban |
+
+### Értelmezés
+
+1. **A populáció-szintű becslés működik, ha a populációban valóban vannak szemét elméletek** (B: 0,577 vs.
+   0,625). Ott, ahol nincsenek (A), a becslés a rendszer saját hibáit (2 hamis félretevés) a populáció
+   tulajdonságának tekinti, és **rossz fixponton áll meg** (0,885 a valódi 1,0 helyett). Ez a kemény EM
+   önmegerősítő torzítása, ugyanaz a mintázat, mint a 45. kör κ̂ = 1-e: **a módszer a modell hibás módusát
+   tanulja meg, mint a világ tényét.**
+2. **Az A-ban mégis kicsi javulás van** (0,747 → 0,777). Ennek oka nem π̂, hanem a keverék másik
+   komponense (κ₁ = 30: a néhány hiba olcsóbb, kisebb a farmolás) és a π-hez kötött kontextusár. A 26-os
+   világ így tartja meg a tankönyvet.
+3. **A 22-es és 28-as világ félretevése minden változatban megmarad.** A 49. kör szerint ez valódi
+   MDL-optimum ezen a priorcsaládon. Ezt csak a félretevés *árának* helyes modellezése változtathatja meg,
+   ami a jóslatvesztést is magában foglalja (51. kör).
+4. **Gyakorlati tanulság:** a „szemét elmélet” prior sok világon át tanulható, de **a tanítójelnek
+   függetlennek kell lennie a modell saját döntéseitől** (pl. orákulum- vagy külső címkék a forrás
+   minőségéről, vagy a B fázisban az LLM-től származó forrástípus). A saját MAP-ítéletekből tanulva a hiba
+   rögzül.
