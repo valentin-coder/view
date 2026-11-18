@@ -1,0 +1,71 @@
+{
+ "seed": 2002,
+ "exc_rate": 0.005,
+ "noise": 0.02,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.016666666666666666,
+ "noise_vis": 0.05,
+ "n_true_exc": 1,
+ "n_cands": 17,
+ "n_all": 960,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.8362068965517241,
+   "key": [
+    "frozenset({97, 2, 39, 10, 142, 144, 113, 53, 22, 89, 124})",
+    "frozenset({(27, 'cat:L4')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='T2', pred='has', obj='p4', pos=True, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.8362068965517241,
+   "key": [
+    "frozenset({97, 2, 39, 10, 142, 144, 113, 53, 22, 89, 124})",
+    "frozenset({(27, 'cat:L4')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='T2', pred='has', obj='p4', pos=True, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.896551724137931,
+   "key": [
+    "frozenset({1, 142, 144, 27, 124})",
+    "frozenset({(20, 'e10'), (46, 'e16'), (30, 'e16'), (45, 'e12'), (46, 'e12'), (30, 'e12'), (28, 'e5'), (45, 'e16'), (42, 'e10'), (38, 'e1'), (39, 'e6'), (39, 'e19'), (2, 'e8')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L3', pred='has', obj='p4', pos=True, cond=None)"
+    ]
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 10.0,
+  "k": 0,
+  "n_rel": 81,
+  "n_rej_field": 3,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.002,
+  "kappa": 10.0,
+  "k": 0,
+  "n_rel": 81,
+  "n_rej_field": 3,
+  "eps_at_kappa0": 0.002
+ },
+ "acc_frozen": 0.8362068965517241,
+ "acc_eb_marg": 0.7844827586206896
+}

@@ -1,0 +1,67 @@
+{
+ "seed": 2002,
+ "exc_rate": 0.1,
+ "noise": 0.1,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.11666666666666667,
+ "noise_vis": 0.1,
+ "n_true_exc": 20,
+ "n_cands": 24,
+ "n_all": 960,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.6982758620689655,
+   "key": [
+    "frozenset({64, 1, 96, 5, 165, 172, 13, 14, 116, 53, 149, 181, 153, 188})",
+    "frozenset({(21, 'e19')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L3', pred='has', obj='p6', pos=True, cond=None)"
+    ]
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.5172413793103449,
+   "key": [
+    "frozenset({64, 96, 98, 2, 10, 14, 116, 53, 153, 125, 25})",
+    "frozenset({(13, 'e4')})",
+    "frozenset({'field2', 'field'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.5948275862068966,
+   "key": [
+    "frozenset({64, 96, 98, 2, 10, 116, 153})",
+    "frozenset({(31, 'e2'), (12, 'e19'), (18, 'e3'), (38, 'e1'), (13, 'e4'), (25, 'cat:L3')})",
+    "frozenset({'field2', 'field'})",
+    [],
+    []
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 30.0,
+  "k": 1,
+  "n_rel": 0,
+  "n_rej_field": 5,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.3,
+  "kappa": 30.0,
+  "k": 5,
+  "n_rel": 0,
+  "n_rej_field": 5,
+  "eps_at_kappa0": 0.3
+ },
+ "acc_frozen": 0.5172413793103449,
+ "acc_eb_marg": 0.6982758620689655
+}

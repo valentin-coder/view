@@ -1,0 +1,65 @@
+[
+ {
+  "seed": 3001,
+  "kind": "hazug forr\u00e1s",
+  "method": "lookup",
+  "pre_acc": 0.6470588235294118,
+  "post_acc": 0.5955882352941176,
+  "target_acc": 0.0,
+  "n_target": 8,
+  "seconds": 0.002141147000656929,
+  "surprise_seconds": 4.593999619828537e-06
+ },
+ {
+  "seed": 3001,
+  "kind": "hazug forr\u00e1s",
+  "method": "recency",
+  "pre_acc": 0.8014705882352942,
+  "post_acc": 0.7058823529411765,
+  "target_acc": 0.0,
+  "n_target": 8,
+  "seconds": 0.015352819000327145,
+  "surprise_seconds": 0.00304899599905184
+ },
+ {
+  "seed": 3001,
+  "kind": "hazug forr\u00e1s",
+  "method": "wms",
+  "pre_acc": 0.8382352941176471,
+  "post_acc": 0.8308823529411765,
+  "target_acc": 0.75,
+  "n_target": 8,
+  "seconds": 2.988414814999487,
+  "surprise_seconds": 1.2934056280009827
+ },
+ {
+  "seed": 3001,
+  "kind": "hazug forr\u00e1s",
+  "method": "arlc",
+  "pre_acc": 0.8676470588235294,
+  "post_acc": 0.8676470588235294,
+  "target_acc": 0.875,
+  "n_target": 8,
+  "seconds": 108.8343214359993,
+  "surprise_seconds": 93.07291522800006
+ },
+ {
+  "seed": 3001,
+  "kind": "hazug forr\u00e1s",
+  "method": "v4.4-egyszint\u0171",
+  "pre_acc": 0.9191176470588235,
+  "post_acc": 0.9191176470588235,
+  "target_acc": 1.0,
+  "n_target": 8,
+  "seconds": 36.87312288400062,
+  "surprise_seconds": 26.19311887799995,
+  "avg_post_acc": 0.9191176470588235,
+  "brier_avg": 0.06545579688048987,
+  "brier_map": 0.07536764705882353,
+  "avg_target_acc": 1.0,
+  "brier_avg_target": 1.8488927466117464e-32,
+  "brier_map_target": 0.0,
+  "beam_spread_bits": 0.4535116470934497,
+  "beam_n": 8
+ }
+]

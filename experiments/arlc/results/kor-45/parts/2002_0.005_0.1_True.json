@@ -1,0 +1,67 @@
+{
+ "seed": 2002,
+ "exc_rate": 0.005,
+ "noise": 0.1,
+ "repeated": true,
+ "n_fact": 60,
+ "eps_vis": 0.016666666666666666,
+ "noise_vis": 0.13333333333333333,
+ "n_true_exc": 1,
+ "n_cands": 24,
+ "n_all": 960,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.5775862068965517,
+   "key": [
+    "frozenset({65, 97, 2, 39, 10, 113, 51, 53, 22, 89, 124})",
+    "frozenset()",
+    "frozenset({'field2', 'field'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.5172413793103449,
+   "key": [
+    "frozenset({65, 97, 113, 53, 39, 89, 10, 124})",
+    "frozenset({(2, 'e8'), (1, 'cat:L2'), (3, 'cat:L3')})",
+    "frozenset({'field2', 'field'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.8706896551724138,
+   "key": [
+    "frozenset({66, 70, 106, 142, 51, 115, 54, 124, 159})",
+    "frozenset({(20, 'e10'), (46, 'e16'), (27, 'e1'), (30, 'e16'), (45, 'e12'), (46, 'e12'), (30, 'e12'), (1, 'cat:L2'), (28, 'e5'), (27, 'e4'), (42, 'e10'), (38, 'e1'), (39, 'e6'), (45, 'e16'), (39, 'e19'), (2, 'e8')})",
+    "frozenset()",
+    [],
+    [
+     "Rule(body='L3', pred='has', obj='p4', pos=True, cond=None)"
+    ]
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 3.0,
+  "k": 0,
+  "n_rel": 0,
+  "n_rej_field": 1,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.3,
+  "kappa": 3.0,
+  "k": 1,
+  "n_rel": 0,
+  "n_rej_field": 1,
+  "eps_at_kappa0": 0.3
+ },
+ "acc_frozen": 0.5172413793103449,
+ "acc_eb_marg": 0.75
+}

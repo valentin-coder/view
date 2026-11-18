@@ -1,0 +1,65 @@
+{
+ "seed": 2001,
+ "exc_rate": 0.1,
+ "noise": 0.02,
+ "repeated": false,
+ "n_fact": 60,
+ "eps_vis": 0.18333333333333332,
+ "noise_vis": 0.0,
+ "n_true_exc": 20,
+ "n_cands": 23,
+ "n_all": 1000,
+ "runs": [
+  {
+   "eps": 0.01,
+   "acc": 0.8,
+   "key": [
+    "frozenset({32, 2, 5, 70, 6, 11, 17, 49, 90, 124})",
+    "frozenset()",
+    "frozenset()",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.05,
+   "acc": 0.5454545454545454,
+   "key": [
+    "frozenset()",
+    "frozenset()",
+    "frozenset({'book', 'census'})",
+    [],
+    []
+   ]
+  },
+  {
+   "eps": 0.2,
+   "acc": 0.7818181818181819,
+   "key": [
+    "frozenset({5, 7})",
+    "frozenset({(11, 'e3'), (2, 'e17'), (49, 'e12'), (16, 'e18'), (38, 'e4'), (32, 'e11'), (1, 'e19'), (28, 'e16'), (6, 'e12'), (42, 'e9'), (49, 'e8'), (17, 'e8'), (32, 'e15'), (24, 'e7')})",
+    "frozenset()",
+    [],
+    []
+   ]
+  }
+ ],
+ "naive": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 0,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "marg": {
+  "eps": 0.002,
+  "kappa": 1.0,
+  "k": 0,
+  "n_rel": 0,
+  "n_rej_field": 0,
+  "eps_at_kappa0": 0.002
+ },
+ "acc_frozen": 0.5454545454545454,
+ "acc_eb_marg": 0.5454545454545454
+}

@@ -134,4 +134,48 @@ egységteszt igen.
 
 ## 5. Eredmények
 
-*(a futtatás után kerül ide)*
+**Elrendezés:** 3 seed (2000–2002) × kivételarány {0,005; 0,03; 0,1} × terepi zaj {0,02; 0,1} × egyszeri vagy
+ismételt mérés = 36 világ, 20 entitással. Alap: v4.4-egyszintű (a 50. kör szerint ez a robusztus
+változat; a futtatás előtt váltottam rá a v4.2-ről, mert a 44. kör diagnózisa a κ_T = 1-et azonosította
+fő hibaként). Jelöltek: 3 keresés (ε = 0,01; 0,05; 0,2) teljes nyalábja, világonként medián 23,5 jelölt.
+Rács: 16 ε-érték × 8 κ-érték. Eredmény: [`results/kor-45/results.json`](../../experiments/arlc/results/kor-45/results.json).
+
+| jóslat | eredmény | ítélet |
+|---|---|---|
+| **J1:** a naiv ε̂ a rács alján | **36/36: ε̂ = 0,002** (N_all medián 980) | **teljesül** |
+| **J2:** egyszeri méréssel ε̂ nem a valódi kivételarányt követi; kétcsúcsú | kétcsúcsú: **32/36** esetben k = 0 vagy k ≥ 5. Ahol a tankönyv megmarad (n = 11), corr(ε̂, látható kivételarány) = **0,88**, corr(ε̂, zaj) = 0,11 | **részben cáfolva** |
+| **J3:** ismételt méréssel ε̂ a kivételaránnyal nő | corr(ε̂, kivételarány) = 0,32, corr(ε̂, zaj) = −0,28 (n = 13) | **nem teljesül** (gyengébb, mint egyszeri méréssel) |
+| **J4:** κ̂ nem stabil | κ̂ ∈ {1, 3, 10, 30, 100, 10⁴}, szórtan | **teljesül** |
+| **J5:** az EB pontossága nem lényegesen jobb | átlag +0,035 (0,707 → 0,742), de 14 javul, 13 romlik, 9 azonos | **vegyes**: átlagban jobb, következetesen nem |
+
+### Értelmezés
+
+1. **A naiv becslés elfajulása (1. állítás) pontosan a jósolt módon jelentkezik.** A mag pontszáma
+   paraméterbecslésre alkalmatlan, a marginális változat kell hozzá.
+2. **A „minden vagy semmi” hozzárendelés (3. állítás) igazolódott** (32/36). Az ε̂ gyakorlatilag egy bináris
+   döntés jelzője: „a rendszer kivételekkel magyaráz-e, vagy elutasítással”.
+3. **A J2 cáfolata tanulságos.** Egyszeri méréssel is van jel, de nem azonosítás: a küszöbszerű döntés az
+   ellentmondások *számán* múlik. A magas kivételarányú világokban több az ellentmondás (a látható
+   kivételarány 0,19, a zaj legfeljebb 0,1), ezért ott billen át a döntés a kivételek felé. A korreláció
+   ebből a nagyságrendi különbségből jön, nem abból, hogy a modell szét tudná választani a kettőt.
+4. **J3: az ismételt mérés nem segített, sőt rontott.** A kétszeres adatmennyiség mellett több világban
+   tűnik el a tankönyv (n_rel = 0), és a kivételek helyett a második terepforrás állításait utasítja el a
+   rendszer. A 2.3. pont érvelése (ismételt méréssel azonosítható) elvben igaz, de feltételezte, hogy a
+   modell kihasználja a két jelentés egyezését. A pontszám ezt nem teszi meg: két egyező jelentés nem
+   kap közös magyarázatot, csak külön-külön kódolódik.
+5. **Új, fontos megfigyelés: az EB önerősítő félretevés felé.** 12/36 világban a legjobb illesztett
+   hipotézisben egyetlen elfogadott, szabály által jósolt tény sincs (n_rel = 0: a tankönyv félretéve). Ezek
+   közül **8-ban κ̂ = 1**, vagyis az illesztés a „vagy teljesen jó, vagy teljesen rossz” U alakú priort
+   választja, és ez a félretevést olcsóbbá teszi. **A típus-II maximum-likelihood itt a modell egy
+   hibás módusát erősíti.** A befagyasztott paraméterekkel is 13/36 világban < 0,6 a pontosság, ami a
+   félretevés jele: a 20 entitásos, magas kivételarányú világokban az egyszintű változat is félreteszi a
+   tankönyvet. Ez összhangban van a 49. kör kis világos eredményével: a félretevés nem csak a κ_T = 1 hibája,
+   hanem az adatszűkösség és a specifikus öröklés hiányának együttes hatása is.
+
+### Következmény
+
+- A paraméterek empirikus Bayes-becslése ebben a modellben **nem megbízható eszköz**: a naiv változat
+  elfajul, a marginális kétcsúcsú, a κ-ra nincs információ, és a módszer egy hibás módust is erősíthet.
+- Ami helyette kell (51–52. kör): egy valódi generatív modell, amelyben a két egyező jelentés közös látens
+  igazsághoz kötődik (ez adná meg a J3 azonosíthatóságát), és sok világ együtteséből becsült, nem egy
+  világból illesztett hiperparaméterek.

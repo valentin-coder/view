@@ -61,7 +61,7 @@ def _train_job(args):
     return {"seed": s, "true_garbage": garbage, **run_world(sch, obs, truth, pi, ctx_bits_for(pi))}
 
 
-def em(population, train_seeds, pi0, iters=3, log=print, workers=4):
+def em(population, train_seeds, pi0, iters=3, log=print, workers=int(__import__("os").environ.get("W", "2"))):
     from multiprocessing import Pool
     pi = pi0
     hist = []
