@@ -1,0 +1,17 @@
+{
+ "pop": "C",
+ "seed": 7009,
+ "kind": "m\u00e1s r\u00e9gi\u00f3",
+ "avg_post_acc": 0.8843537414965986,
+ "brier_avg": 0.10870995963995643,
+ "brier_map": 0.11564625850340136,
+ "avg_target_acc": 0.0,
+ "brier_avg_target": 0.9561503865198858,
+ "brier_map_target": 1.0,
+ "beam_spread_bits": 4.322940454203717,
+ "beam_n": 8,
+ "post_map": 0.8639455782312925,
+ "target_map": 0.0,
+ "target_frac_uncertain": 0.0,
+ "target_mean_abs_from_half": 0.47782942608610723
+}

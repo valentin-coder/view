@@ -1,0 +1,62 @@
+{
+ "n": 150,
+ "H63a target Brier MAP − átlag (más régió, hazug forrás)": {
+  "n_seeds": 30,
+  "mean_diff": 0.04898369916840589,
+  "ci95": [
+   0.02142138778160175,
+   0.07980221922991625
+  ]
+ },
+ "H63b post Brier MAP − átlag": {
+  "n_seeds": 30,
+  "mean_diff": 0.006421977761321532,
+  "ci95": [
+   0.003789796915458185,
+   0.009635878575496575
+  ]
+ },
+ "H63c más régió: bizonytalan célkérdések aránya": 0.23055555555555557,
+ "típusonként": {
+  "hazug forrás": {
+   "target MAP pont.": 0.7125,
+   "target átlag pont.": 0.7542,
+   "target Brier MAP": 0.2375,
+   "target Brier átlag": 0.2222,
+   "bizonytalan arány": 0.1208,
+   "nyaláb-szórás (bit)": 1.964
+  },
+  "kivételes alfaj": {
+   "target MAP pont.": 0.7627,
+   "target átlag pont.": 0.8388,
+   "target Brier MAP": 0.0732,
+   "target Brier átlag": 0.0715,
+   "bizonytalan arány": 0.2299,
+   "nyaláb-szórás (bit)": 4.8967
+  },
+  "más régió": {
+   "target MAP pont.": 0.4111,
+   "target átlag pont.": 0.4378,
+   "target Brier MAP": 0.5639,
+   "target Brier átlag": 0.4812,
+   "bizonytalan arány": 0.2306,
+   "nyaláb-szórás (bit)": 3.5434
+  },
+  "szabály-helyesbítés": {
+   "target MAP pont.": 0.8401,
+   "target átlag pont.": 0.8662,
+   "target Brier MAP": 0.1126,
+   "target Brier átlag": 0.1019,
+   "bizonytalan arány": 0.1186,
+   "nyaláb-szórás (bit)": 3.8848
+  },
+  "átkategorizálás": {
+   "target MAP pont.": 0.6055,
+   "target átlag pont.": 0.7178,
+   "target Brier MAP": 0.2522,
+   "target Brier átlag": 0.2346,
+   "bizonytalan arány": 0.1948,
+   "nyaláb-szórás (bit)": 3.1823
+  }
+ }
+}

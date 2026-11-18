@@ -26,7 +26,7 @@ volt**. A robusztus rész a hazug forrás felismerése (+0,15). A „más régi�
 | 60 | metaadat-π és jelhez kötött kontextus | **a π feloldja a gestalt–stabilitás feszültséget**; a 0,9-es jel árt |
 | 61 | a B fázis két LLM-feladata | kód kész; a smoke teszt egy szivárgást fogott meg |
 | 62 | a 60. kör régió-kudarca | holtverseny, nem mechanizmus |
-| 63 | bizonytalanság-jelzés | *(lásd a 63. kört)* |
+| 63 | bizonytalanság-jelzés | a nyaláb-átlag minden típusban javít (Brier), de a „más régió”-ban a rendszer az átlaggal is magabiztosan téved: **a nyaláb nem poszterior-minta** |
 
 ## 3. Kritika
 
@@ -54,6 +54,9 @@ volt**. A robusztus rész a hazug forrás felismerése (+0,15). A „más régi�
    (pl. 0,8; 0,9; 0,99) szimulálva mérhető, milyen pontosságú forrástípus-felismerés kell a 60. kör eredményéhez.
    Ez a 21. kör kontextusjel-követelményének párja a π-re.
 3. **Az inkrementális zárás megvalósítása** (46. kör), a C populáció futási idejének mérésével.
+4. **Diverz nyaláb:** a nyaláb mindig tartalmazza a két legjobb, egymásnak ellentmondó magyarázatot (63. kör). Ez a
+   bizonytalanság-jelzés előfeltétele, és a 13. kör „aktív kérdezés”-ének indítója: ha a két magyarázat
+   különbsége kicsi, a rendszer kérdezzen, ne válasszon.
 
 ## 5. A következő körökre
 

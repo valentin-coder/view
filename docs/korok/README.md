@@ -62,10 +62,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 60 | [60-teruleti-prior-es-jel.md](60-teruleti-prior-es-jel.md) | Metaadatból jövő π (előregisztrált): a C-ben +0,247 (67/100 helyes gestalt-váltás), az A-ban nincs veszteség – a gestalt–stabilitás feszültség egy kóddal feloldva; a 0,9-es kontextusjel árt. |
 | 61 | [61-b-fazis-ket-feladat.md](61-b-fazis-ket-feladat.md) | A B fázis csomagja a két LLM-feladatra (forrástípus, kontextusjel); a smoke teszt egy névelő-szivárgást fogott meg. |
 | 62 | [62-kontextus-szetbontas.md](62-kontextus-szetbontas.md) | A H60d-kudarc oka egy kényes holtverseny (0,04–0,43 bit): a „más régió” target-acc nem alkalmas rangsorolásra. |
+| 63 | [63-bizonytalansag.md](63-bizonytalansag.md) | Nyaláb-átlagolt válasz (előregisztrált): a Brier minden típusban javul, de a holtversenyes típusban a rendszer az átlaggal is magabiztosan téved – a nyaláb nem poszterior-minta. |
+| 64 | [64-divergens-8.md](64-divergens-8.md) | Kritikai kör: a célkérdés-előnyök a holtversenyes típus nélkül kisebbek, de szignifikánsak (hazug forrás +0,15); a 60. kör eredménye orákulum-metaadaton áll; azonosíthatósági előszűrés kell. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **63. kör:** nyaláb-átlagolt (bizonytalanság-jelző) válasz a v4.8-ban, előregisztrált Brier-összevetés a holtversenyes típusokon.
-2. **64. kör:** divergens és kritikai kör (az 55–63. kör mérlege; a target-acc érvényessége).
-3. **65. kör:** kontextuson belüli elsőbbség újra, jó jellel (a 62. kör nyitott kérdése).
+1. **65. kör:** kontextuson belüli elsőbbség jó jellel (a 62. kör nyitott kérdése).
+2. **66. kör:** szimulált forrástípus-pontosság (milyen pontos SRC kell a 60. kör eredményéhez), előregisztrálva.
+3. **67. kör:** azonosíthatósági előszűrés a benchmark-generátorhoz; diverz nyaláb.
+4. **69. kör:** divergens és kritikai kör.
