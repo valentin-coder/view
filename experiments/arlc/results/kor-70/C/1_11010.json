@@ -1,0 +1,48 @@
+{
+ "pop": "C",
+ "seed": 11010,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": "book2",
+ "post_v4.4e": 0.4576271186440678,
+ "target_v4.4e": 0.42857142857142855,
+ "types_a0.8": {
+  "book": "gondozott",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "pi_kem\u00e9ny_a0.8": {
+  "book": 0.999,
+  "book2": 0.5
+ },
+ "post_kem\u00e9ny_a0.8": 0.8926553672316384,
+ "target_kem\u00e9ny_a0.8": 1.0,
+ "dismissed_book_kem\u00e9ny_a0.8": false,
+ "dismissed_book2_kem\u00e9ny_a0.8": true,
+ "pi_l\u00e1gy_a0.8": {
+  "book": 0.9425333333333333,
+  "book2": 0.5766
+ },
+ "post_l\u00e1gy_a0.8": 0.8926553672316384,
+ "target_l\u00e1gy_a0.8": 1.0,
+ "dismissed_book_l\u00e1gy_a0.8": false,
+ "dismissed_book2_l\u00e1gy_a0.8": true,
+ "types_a0.9": {
+  "book": "gondozott",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "pi_kem\u00e9ny_a0.9": {
+  "book": 0.999,
+  "book2": 0.5
+ },
+ "post_kem\u00e9ny_a0.9": 0.8926553672316384,
+ "target_kem\u00e9ny_a0.9": 1.0,
+ "dismissed_book_kem\u00e9ny_a0.9": false,
+ "dismissed_book2_kem\u00e9ny_a0.9": true,
+ "pi_l\u00e1gy_a0.9": {
+  "book": 0.9707666666666667,
+  "book2": 0.5383
+ },
+ "post_l\u00e1gy_a0.9": 0.8926553672316384,
+ "target_l\u00e1gy_a0.9": 1.0,
+ "dismissed_book_l\u00e1gy_a0.9": false,
+ "dismissed_book2_l\u00e1gy_a0.9": true
+}
