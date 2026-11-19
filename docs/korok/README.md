@@ -69,12 +69,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 68 | [68-azonosithatosag-igaz.md](68-azonosithatosag-igaz.md) | Az igazhoz horgonyzott hipotézis rése felső korlát (az ellenőrző jóslat a mérőeszköz hibáját fogta meg); a „más régió”-ban a helyes kontextus-magyarázat drágább két hamisnál. |
 | 69 | [69-divergens-9.md](69-divergens-9.md) | Kritikai kör: a kontextus a legmélyebb nyitott probléma – a forrás-szintű izolálás túl durva; javaslat: kontextusfüggő szabály. |
 | 70 | [70-tipusbizonytalansag.md](70-tipusbizonytalansag.md) | Típusbizonytalanságot továbbító π (előregisztrált): kis, kétirányú csere, átlagban nem számít; a 60. kör C-hatása friss seedeken megismétlődik (0,61–0,64 vs. 0,38). |
+| 71 | [71-kontextus-elsobbseg.md](71-kontextus-elsobbseg.md) | Kontextuson belüli elsőbbség + jó jel együtt +0,20 a „más régió” célkérdésein (külön-külön egyik sem elég); jel nélkül az elsőbbség árt (E3) – csak jelzett forrásra érvényes. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **65. kör:** kontextuson belüli elsőbbség jó jellel (a 62. kör nyitott kérdése; a 69. kör szerint a 71. kör részeként).
-2. **70. kör:** típusbizonytalanságot továbbító π, előregisztrálva.
-3. **71. kör:** kontextusfüggő szabály forrás-szintű izolálás helyett, előregisztrálva.
-4. **72. kör:** inkrementális zárás, viselkedésmegőrzően.
-5. **74. kör:** divergens és kritikai kör.
+1. **72. kör:** inkrementális zárás, viselkedésmegőrzően (a futási idő ma a kísérleti kapacitás szűk keresztmetszete).
+2. **73. kör:** jelhez kötött elsőbbség (csak jelzett forrásra), előregisztrálva; ellenőrző csomag (E3).
+3. **74. kör:** divergens és kritikai kör.

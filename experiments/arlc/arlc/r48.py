@@ -24,6 +24,8 @@ VARIANTS = {
     "v4.4 egyszintű (κ_T nélkül)": {**V4.V44_OVERRIDES, "theory_kappa": None},
     "v4.5 egyszintű (+ kontextus-elsőbbség)": {**V4.V45_OVERRIDES, "theory_kappa": None},
     "v4.6 (egyszintű + látens igazság)": dict(V4.V46_OVERRIDES),
+    "v4.8-π (keverék, π = 0,9)": {**V4.V44E_OVERRIDES, "theory_kappa": 1.0, "theory_mix": (0.9, 30.0, 0.5, 2.0)},
+    "v4.8-π + elsőbbség": {**V4.V44E_OVERRIDES, "theory_kappa": 1.0, "theory_mix": (0.9, 30.0, 0.5, 2.0), "ctx_override": True},
     "v5 − keverék-prior": {k: v for k, v in V4.V5_OVERRIDES.items() if k != "theory_mix"},
 }
 

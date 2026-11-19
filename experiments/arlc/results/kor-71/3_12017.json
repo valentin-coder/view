@@ -1,0 +1,19 @@
+{
+ "seed": 12017,
+ "kind": "hazug forr\u00e1s",
+ "post_v4.8-\u03c0": 0.49444444444444446,
+ "target_v4.8-\u03c0": 0.25,
+ "iso_v4.8-\u03c0": [
+  "book",
+  "census"
+ ],
+ "post_+els\u0151bbs\u00e9g": 0.49444444444444446,
+ "target_+els\u0151bbs\u00e9g": 0.25,
+ "iso_+els\u0151bbs\u00e9g": [
+  "book",
+  "census"
+ ],
+ "post_+els\u0151bbs\u00e9g+jel": 0.75,
+ "target_+els\u0151bbs\u00e9g+jel": 0.75,
+ "iso_+els\u0151bbs\u00e9g+jel": []
+}
