@@ -1,0 +1,20 @@
+{
+ "seed": 13000,
+ "kind": "m\u00e1s r\u00e9gi\u00f3",
+ "flagged": [
+  "region2"
+ ],
+ "post_jel": 0.9074074074074074,
+ "target_jel": 1.0,
+ "iso_jel": [],
+ "post_jel+els\u0151bbs\u00e9g": 0.9074074074074074,
+ "target_jel+els\u0151bbs\u00e9g": 1.0,
+ "iso_jel+els\u0151bbs\u00e9g": [
+  "region2"
+ ],
+ "post_jel+jelzett els\u0151bbs\u00e9g": 0.9074074074074074,
+ "target_jel+jelzett els\u0151bbs\u00e9g": 1.0,
+ "iso_jel+jelzett els\u0151bbs\u00e9g": [
+  "region2"
+ ]
+}

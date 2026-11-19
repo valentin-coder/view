@@ -71,9 +71,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 70 | [70-tipusbizonytalansag.md](70-tipusbizonytalansag.md) | Típusbizonytalanságot továbbító π (előregisztrált): kis, kétirányú csere, átlagban nem számít; a 60. kör C-hatása friss seedeken megismétlődik (0,61–0,64 vs. 0,38). |
 | 71 | [71-kontextus-elsobbseg.md](71-kontextus-elsobbseg.md) | Kontextuson belüli elsőbbség + jó jel együtt +0,20 a „más régió” célkérdésein (külön-külön egyik sem elég); jel nélkül az elsőbbség árt (E3) – csak jelzett forrásra érvényes. |
 | 72 | [72-inkrementalis-zaras.md](72-inkrementalis-zaras.md) | Entitásonként memoizált zárás: bitre azonos (ekvivalencia, kimerítő, A fázis), 2,4× (A) és 1,6× (C) gyorsabb valódi eseteken. |
+| 73 | [73-jelhez-kotott-elsobbseg.md](73-jelhez-kotott-elsobbseg.md) | Jelhez kötött elsőbbség (előregisztrált): a 71. körbeli E3-kár megszűnik költség nélkül; a „más régió” hatás friss seedeken kisebb (+0,06, n.s.). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **73. kör:** jelhez kötött elsőbbség (csak jelzett forrásra), előregisztrálva; ellenőrző csomag (E3).
-2. **74. kör:** divergens és kritikai kör.
+1. **74. kör:** divergens és kritikai kör (a 65–73. kör mérlege; a jelenlegi legjobb konfiguráció összefoglalása: v4.8-π + jelzett elsőbbség + nyaláb-átlag).
+2. **75. kör:** a legjobb konfiguráció előregisztrált, nagy (≥ 30 seed, A + C) összevetése a v3-mal és a v4.4e-vel, a 72. kör gyorsításával.
+3. **76. kör:** szabályszintű, hatókör-érzékeny zárás-memó (a 72. kör folytatása).

@@ -78,6 +78,8 @@ def configured(overrides: dict):
             self.ctx_override = cfg.get("ctx_override", False)
             self.latent_truth = cfg.get("latent_truth", False)
             self.ctx_cost.update(cfg.get("ctx_cost", {}))
+            if "ctx_override_sources" in cfg:
+                self.ctx_override_sources = cfg["ctx_override_sources"]
     core.Memory.__init__ = init
     try:
         yield cfg
