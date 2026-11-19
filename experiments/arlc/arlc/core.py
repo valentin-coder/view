@@ -135,6 +135,7 @@ class Memory:
         self.latent_truth = False              # 53. kör: közös látens igazság az egyező jelentésekre
         self.theory_pi: dict = {}              # 60. kör: forrásonkénti π a keverék-priorhoz (metaadat)
         self.entity_memo = True                # 72. kör: entitásonként memoizált zárás (viselkedésmegőrző)
+        self.ctx_override_sources = None       # 73. kör: ha halmaz, az elsőbbség csak ezekre a (jelzett) forrásokra érvényes
         self._emc: dict = {}
         self._inv_counter = 0
         self.obs: list[Obs] = []
@@ -184,7 +185,8 @@ class Memory:
                 continue
             (rules if o.rule else facts).append(o)
         ctx_lits = None
-        if self.ctx_override and ctx is not None and ctx in H.iso:
+        if self.ctx_override and ctx is not None and ctx in H.iso and (self.ctx_override_sources is None
+                                                                     or ctx in self.ctx_override_sources):
             # 53. kör: kontextuson belüli elsőbbség (lex specialis). Az izolált forrás saját szabályai és
             # tényei a saját kontextusában felülírják az örökölt, ellentétes állításokat, ütközés helyett.
             own_r = {(o.rule.body, o.rule.pred, o.rule.obj, o.rule.pos) for o in rules if o.source == ctx}
