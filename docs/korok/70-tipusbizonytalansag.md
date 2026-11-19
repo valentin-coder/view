@@ -38,4 +38,29 @@ szabály-helyesbítés, hazug forrás; A és C populáció: 90 eset. Módszerek:
 
 ## 2. rész: eredmények
 
-*(a futtatás után)*
+90 eset (A és C, 45–45); nyers adat és elemzés: [`results/kor-70/`](../../experiments/arlc/results/kor-70/).
+
+| | A post | A tankönyv félretéve | C post | C helyes gestalt-váltás |
+|---|---|---|---|---|
+| v4.4e | 0,824 | – | 0,380 | – |
+| kemény, a = 0,8 | 0,824 | 0 | 0,608 | 26/45 |
+| **lágy**, a = 0,8 | 0,804 | **2** | **0,627** | 28/45 |
+| kemény, a = 0,9 | 0,824 | 0 | 0,636 | 27/45 |
+| **lágy**, a = 0,9 | 0,810 | **1** | 0,640 | 28/45 |
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H70a (C):** a tévesen osztályozott esetekben lágy > kemény | a = 0,8: 0,618 vs. 0,574 (20 eset); a = 0,9: 0,527 vs. 0,507 (8 eset) | **teljesül** |
+| **H70b (A):** a lágy π több félretevést ad | 2 és 1 vs. 0 és 0; post 0,804/0,810 vs. 0,824 | **teljesül** (az előzetes elemzés jóslata) |
+| **H70c:** \|lágy − kemény\| < 0,02 | +0,000 [−0,028; +0,023]; −0,005 [−0,023; +0,006] | **pontbecslésben teljesül**, a CI a = 0,8-nál szélesebb a ±0,02-nél |
+
+### Értelmezés
+
+1. **A lágyítás egy kicsi, kétirányú cserét hoz:** a C-ben a tévesen osztályozott esetek javulnak, az A-ban a helyesen
+   osztályozottak romlanak, mert a „gondozott” címke π_eff-je 0,971 lesz a 0,999 helyett. **Átlagban nem számít.** Ezt
+   az előzetes elemzés pontosan megjósolta.
+2. **A 60. kör fő eredménye friss seedeken (11000–11014) megismétlődik:** a C-ben a v4.8-π 0,61–0,64 a v4.4e 0,38-ával
+   szemben, 58–62%-os helyes gestalt-váltással, és 0,8–0,9-es típuspontosság mellett is.
+3. **Tanulság a B fázisra:** a típusbecslés bizonytalanságának továbbítása (π_eff) önmagában nem véd a téves típusok
+   ellen. Ehhez az kellene, hogy a *kalibrált* bizonytalanság a valóban nehéz esetekben legyen nagy, a könnyűekben
+   kicsi. Egy egyenletes a-val modellezett osztályozó ezt nem tudja, egy valódi LLM-osztályozó talán igen.

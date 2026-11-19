@@ -68,6 +68,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 67 | [67-azonosithatosag.md](67-azonosithatosag.md) | A nyaláb-alapú döntési margó nem azonosíthatósági mérték: a target-acc a margóval csökken (magabiztos tévedés). |
 | 68 | [68-azonosithatosag-igaz.md](68-azonosithatosag-igaz.md) | Az igazhoz horgonyzott hipotézis rése felső korlát (az ellenőrző jóslat a mérőeszköz hibáját fogta meg); a „más régió”-ban a helyes kontextus-magyarázat drágább két hamisnál. |
 | 69 | [69-divergens-9.md](69-divergens-9.md) | Kritikai kör: a kontextus a legmélyebb nyitott probléma – a forrás-szintű izolálás túl durva; javaslat: kontextusfüggő szabály. |
+| 70 | [70-tipusbizonytalansag.md](70-tipusbizonytalansag.md) | Típusbizonytalanságot továbbító π (előregisztrált): kis, kétirányú csere, átlagban nem számít; a 60. kör C-hatása friss seedeken megismétlődik (0,61–0,64 vs. 0,38). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
