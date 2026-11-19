@@ -93,7 +93,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **92. kör:** a FROZEN_91 biztonsági ellenőrzése a régi feladatokon (G1k-B szemét-tankönyv, G1k-C rivális elméletek, az A fázis és a kimerítő ellenőrzés), előregisztrálva.
+1. **92. kör (folyamatban):** a FROZEN_91 biztonsági ellenőrzése a régi feladatokon (G1k-B szemét-tankönyv, G1k-C rivális elméletek, az A fázis és a kimerítő ellenőrzés), előregisztrálva.
 2. **93. kör:** negyedik, a befagyasztás után épített generátor (pl. ok-okozati vagy numerikus attribútumok), előregisztrálva.
 3. **94. kör:** divergens és kritikai kör.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); az elavult forrás jobb felismerése; szabályszintű zárás-memó (76. kör).
