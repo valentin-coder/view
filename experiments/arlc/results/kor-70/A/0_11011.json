@@ -1,0 +1,38 @@
+{
+ "pop": "A",
+ "seed": 11011,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": false,
+ "post_v4.4e": 0.7241379310344828,
+ "target_v4.4e": 0.4444444444444444,
+ "types_a0.8": {
+  "book": "pletyka"
+ },
+ "pi_kem\u00e9ny_a0.8": {
+  "book": 0.7
+ },
+ "post_kem\u00e9ny_a0.8": 0.7241379310344828,
+ "target_kem\u00e9ny_a0.8": 0.4444444444444444,
+ "dismissed_book_kem\u00e9ny_a0.8": false,
+ "pi_l\u00e1gy_a0.8": {
+  "book": 0.7232666666666665
+ },
+ "post_l\u00e1gy_a0.8": 0.7241379310344828,
+ "target_l\u00e1gy_a0.8": 0.4444444444444444,
+ "dismissed_book_l\u00e1gy_a0.8": false,
+ "types_a0.9": {
+  "book": "pletyka"
+ },
+ "pi_kem\u00e9ny_a0.9": {
+  "book": 0.7
+ },
+ "post_kem\u00e9ny_a0.9": 0.7241379310344828,
+ "target_kem\u00e9ny_a0.9": 0.4444444444444444,
+ "dismissed_book_kem\u00e9ny_a0.9": false,
+ "pi_l\u00e1gy_a0.9": {
+  "book": 0.7116333333333333
+ },
+ "post_l\u00e1gy_a0.9": 0.7241379310344828,
+ "target_l\u00e1gy_a0.9": 0.4444444444444444,
+ "dismissed_book_l\u00e1gy_a0.9": false
+}

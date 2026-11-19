@@ -1,0 +1,38 @@
+{
+ "pop": "A",
+ "seed": 11000,
+ "kind": "hazug forr\u00e1s",
+ "garbage": false,
+ "post_v4.4e": 0.8850574712643678,
+ "target_v4.4e": 0.875,
+ "types_a0.8": {
+  "book": "gondozott"
+ },
+ "pi_kem\u00e9ny_a0.8": {
+  "book": 0.999
+ },
+ "post_kem\u00e9ny_a0.8": 0.8850574712643678,
+ "target_kem\u00e9ny_a0.8": 0.875,
+ "dismissed_book_kem\u00e9ny_a0.8": false,
+ "pi_l\u00e1gy_a0.8": {
+  "book": 0.9425333333333333
+ },
+ "post_l\u00e1gy_a0.8": 0.8850574712643678,
+ "target_l\u00e1gy_a0.8": 0.875,
+ "dismissed_book_l\u00e1gy_a0.8": false,
+ "types_a0.9": {
+  "book": "gondozott"
+ },
+ "pi_kem\u00e9ny_a0.9": {
+  "book": 0.999
+ },
+ "post_kem\u00e9ny_a0.9": 0.8850574712643678,
+ "target_kem\u00e9ny_a0.9": 0.875,
+ "dismissed_book_kem\u00e9ny_a0.9": false,
+ "pi_l\u00e1gy_a0.9": {
+  "book": 0.9707666666666667
+ },
+ "post_l\u00e1gy_a0.9": 0.8850574712643678,
+ "target_l\u00e1gy_a0.9": 0.875,
+ "dismissed_book_l\u00e1gy_a0.9": false
+}

@@ -1,0 +1,38 @@
+{
+ "pop": "A",
+ "seed": 11004,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": false,
+ "post_v4.4e": 0.8010471204188482,
+ "target_v4.4e": 1.0,
+ "types_a0.8": {
+  "book": "gondozott"
+ },
+ "pi_kem\u00e9ny_a0.8": {
+  "book": 0.999
+ },
+ "post_kem\u00e9ny_a0.8": 0.8010471204188482,
+ "target_kem\u00e9ny_a0.8": 1.0,
+ "dismissed_book_kem\u00e9ny_a0.8": false,
+ "pi_l\u00e1gy_a0.8": {
+  "book": 0.9425333333333333
+ },
+ "post_l\u00e1gy_a0.8": 0.8010471204188482,
+ "target_l\u00e1gy_a0.8": 1.0,
+ "dismissed_book_l\u00e1gy_a0.8": false,
+ "types_a0.9": {
+  "book": "gondozott"
+ },
+ "pi_kem\u00e9ny_a0.9": {
+  "book": 0.999
+ },
+ "post_kem\u00e9ny_a0.9": 0.8010471204188482,
+ "target_kem\u00e9ny_a0.9": 1.0,
+ "dismissed_book_kem\u00e9ny_a0.9": false,
+ "pi_l\u00e1gy_a0.9": {
+  "book": 0.9707666666666667
+ },
+ "post_l\u00e1gy_a0.9": 0.8010471204188482,
+ "target_l\u00e1gy_a0.9": 1.0,
+ "dismissed_book_l\u00e1gy_a0.9": false
+}
