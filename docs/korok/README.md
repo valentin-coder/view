@@ -89,11 +89,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 89 | [89-divergens-13.md](89-divergens-13.md) | Kritikai kör: három generátor után **egyetlen általános képesség a megbízhatatlan forrás felismerése**; a „v4 általában jobb” állítás nem tartható. Közös mechanizmus: az adaptív megbízhatósági kód félrespecifikált világban menekülőutat ad. Javaslat: temperált (SafeBayes) kód prequential η-val. |
 | 90 | [90-temperalt-kod.md](90-temperalt-kod.md) | Temperált megbízhatósági kód prequential η-val (előregisztrált): a forrás-célkérdéseken +0,18 a v3-hoz, a G3 pre-ban +0,05 az η = 1-hez, de a G3 post-ban rosszabb a jobbik végpontnál – a prequential veszteség rossz célt optimalizál. Feltáró: **az η = 0 (v4-szerkezet, rögzített megbízhatóság) mindhárom generátoron a v3 fölött van** (+0,03 – +0,06). |
 | 91 | [91-hibrid-kod.md](91-hibrid-kod.md) | Hibrid megbízhatósági kód (bevált forrás rögzített, új adaptív) + eseményenkénti vágásár (előregisztrált): **minden hipotézis teljesül – először van konfiguráció, amely mindhárom generátoron a v3 fölött van** (+0,05 – +0,10), és a forrás-felismerést is megtartja (+0,16). Új befagyasztott: FROZEN_91. |
+| 92 | [92-biztonsagi-ellenorzes.md](92-biztonsagi-ellenorzes.md) | A FROZEN_91 biztonsági ellenőrzése (előregisztrált): szemét-tankönyv és rivális elméletek rendben, hazug forrás +0,60 a v3-hoz; a feladatcsomagban a TFB-9 −0,06 (H92a nem teljesül; ok: rögzített kód a deklaráltnál zajosabb forrásnál). Kiderült: **a FROZEN_88 az E1 alapfeladatot teljesen elrontotta** – a régi csomag futtatása mostantól a befagyasztás feltétele. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **92. kör (folyamatban):** a FROZEN_91 biztonsági ellenőrzése a régi feladatokon (G1k-B szemét-tankönyv, G1k-C rivális elméletek, az A fázis és a kimerítő ellenőrzés), előregisztrálva.
-2. **93. kör:** negyedik, a befagyasztás után épített generátor (pl. ok-okozati vagy numerikus attribútumok), előregisztrálva.
-3. **94. kör:** divergens és kritikai kör.
+1. **93. kör (folyamatban):** negyedik, a befagyasztás után épített generátor (pl. ok-okozati vagy numerikus attribútumok), előregisztrálva.
+2. **94. kör:** divergens és kritikai kör.
+3. **95. kör:** lassan tanuló bevált forrás (κ = 300) a rögzített kód helyett.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); az elavult forrás jobb felismerése; szabályszintű zárás-memó (76. kör).

@@ -1,0 +1,143 @@
+{
+ "feladatcsomag": {
+  "v4.4e": {
+   "E1 RR (átkat.+alosztály)": 0.875,
+   "E1 kollaterális": 0.0,
+   "E2a átfordulás N=2/8/16": "2/4/6",
+   "E2a monoton": true,
+   "E3 helyes döntés": 0.75,
+   "E4 pontosság (ε=0,05)": 0.9375,
+   "E4 hamis átrendezés/50": 0.0,
+   "A7 (frissítés/revízió) pontosság": 1.0,
+   "TFB-9 pontosság (zaj 0,15)": 0.8074712643678161,
+   "TFB-9 vesztes fa aktív": 0.8333333333333334,
+   "TFB-2 pontosság": 0.8,
+   "TFB-8 pontosság": 1.0,
+   "Quine: G sosem esik": true,
+   "Feltalálás: általánosítás": 1.0,
+   "sec": 37.3
+  },
+  "FROZEN_88": {
+   "E1 RR (átkat.+alosztály)": 0.0,
+   "E1 kollaterális": 0.0,
+   "E2a átfordulás N=2/8/16": "2/4/6",
+   "E2a monoton": true,
+   "E3 helyes döntés": 0.5,
+   "E4 pontosság (ε=0,05)": 0.9375,
+   "E4 hamis átrendezés/50": 0.0,
+   "A7 (frissítés/revízió) pontosság": 1.0,
+   "TFB-9 pontosság (zaj 0,15)": 0.8425697865353038,
+   "TFB-9 vesztes fa aktív": 0.6666666666666666,
+   "TFB-2 pontosság": 0.8,
+   "TFB-8 pontosság": 1.0,
+   "Quine: G sosem esik": true,
+   "Feltalálás: általánosítás": 1.0,
+   "sec": 45.8
+  },
+  "FROZEN_91": {
+   "E1 RR (átkat.+alosztály)": 0.75,
+   "E1 kollaterális": 0.0,
+   "E2a átfordulás N=2/8/16": "2/4/6",
+   "E2a monoton": true,
+   "E3 helyes döntés": 0.75,
+   "E4 pontosság (ε=0,05)": 0.9722222222222222,
+   "E4 hamis átrendezés/50": 0.0,
+   "A7 (frissítés/revízió) pontosság": 1.0,
+   "TFB-9 pontosság (zaj 0,15)": 0.7830459770114943,
+   "TFB-9 vesztes fa aktív": 0.6666666666666666,
+   "TFB-2 pontosság": 1.0,
+   "TFB-8 pontosság": 1.0,
+   "Quine: G sosem esik": true,
+   "Feltalálás: általánosítás": 1.0,
+   "sec": 46.4
+  }
+ },
+ "táblázat": {
+  "B | v3": {
+   "pre": 0.7806,
+   "post": 0.6024,
+   "target": 0.4625,
+   "sec": 23.9,
+   "n": 20
+  },
+  "B | FROZEN_88": {
+   "pre": 0.8278,
+   "post": 0.8252,
+   "target": 0.8187,
+   "sec": 38.4,
+   "n": 20
+  },
+  "B | FROZEN_91": {
+   "pre": 0.8311,
+   "post": 0.8311,
+   "target": 0.8562,
+   "sec": 37.7,
+   "n": 20
+  },
+  "B-szemét | v3": {
+   "post": 0.0,
+   "target": 0.0
+  },
+  "B-szemét | FROZEN_88": {
+   "post": 0.5843,
+   "target": 0.6562
+  },
+  "B-szemét | FROZEN_91": {
+   "post": 0.5896,
+   "target": 0.6562
+  },
+  "C | v3": {
+   "pre": 0.5132,
+   "post": 0.0743,
+   "target": 0.0,
+   "sec": 8.7,
+   "n": 20
+  },
+  "C | FROZEN_88": {
+   "pre": 0.7885,
+   "post": 0.7879,
+   "target": 0.8063,
+   "sec": 154.4,
+   "n": 20
+  },
+  "C | FROZEN_91": {
+   "pre": 0.7841,
+   "post": 0.7841,
+   "target": 0.8125,
+   "sec": 155.7,
+   "n": 20
+  }
+ },
+ "H92b B post: F91 − F88": {
+  "n_seeds": 20,
+  "mean_diff": 0.005904027881809121,
+  "ci95": [
+   -0.006855817870060394,
+   0.0200002924698243
+  ]
+ },
+ "H92b B-szemét post: F91 − F88": {
+  "n_seeds": 4,
+  "mean_diff": 0.005319148936170193,
+  "ci95": [
+   0.0,
+   0.015957446808510578
+  ]
+ },
+ "H92c C post: F91 − F88": {
+  "n_seeds": 20,
+  "mean_diff": -0.0038249496731181942,
+  "ci95": [
+   -0.012207837311290048,
+   0.0037118921161424846
+  ]
+ },
+ "H92d hazug target B∪C: F91 − v3": {
+  "n_seeds": 40,
+  "mean_diff": 0.603125,
+  "ci95": [
+   0.50625,
+   0.69375
+  ]
+ }
+}
