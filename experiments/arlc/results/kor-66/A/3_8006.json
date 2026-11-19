@@ -1,0 +1,26 @@
+{
+ "pop": "A",
+ "seed": 8006,
+ "kind": "hazug forr\u00e1s",
+ "garbage": false,
+ "post_v4.4e": 0.525974025974026,
+ "target_v4.4e": 0.25,
+ "types_a0.8": {
+  "book": "gondozott"
+ },
+ "post_a0.8": 0.525974025974026,
+ "target_a0.8": 0.25,
+ "dismissed_book_a0.8": true,
+ "types_a0.9": {
+  "book": "gondozott"
+ },
+ "post_a0.9": 0.525974025974026,
+ "target_a0.9": 0.25,
+ "dismissed_book_a0.9": true,
+ "types_a1.0": {
+  "book": "gondozott"
+ },
+ "post_a1.0": 0.525974025974026,
+ "target_a1.0": 0.25,
+ "dismissed_book_a1.0": true
+}

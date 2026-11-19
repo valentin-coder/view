@@ -1,0 +1,26 @@
+{
+ "pop": "A",
+ "seed": 8000,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": false,
+ "post_v4.4e": 0.8412698412698413,
+ "target_v4.4e": 1.0,
+ "types_a0.8": {
+  "book": "gondozott"
+ },
+ "post_a0.8": 0.8412698412698413,
+ "target_a0.8": 1.0,
+ "dismissed_book_a0.8": false,
+ "types_a0.9": {
+  "book": "gondozott"
+ },
+ "post_a0.9": 0.8412698412698413,
+ "target_a0.9": 1.0,
+ "dismissed_book_a0.9": false,
+ "types_a1.0": {
+  "book": "gondozott"
+ },
+ "post_a1.0": 0.8412698412698413,
+ "target_a1.0": 1.0,
+ "dismissed_book_a1.0": false
+}

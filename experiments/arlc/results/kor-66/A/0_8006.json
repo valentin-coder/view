@@ -1,0 +1,26 @@
+{
+ "pop": "A",
+ "seed": 8006,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": false,
+ "post_v4.4e": 0.689873417721519,
+ "target_v4.4e": 0.875,
+ "types_a0.8": {
+  "book": "szak\u00e9rt\u0151"
+ },
+ "post_a0.8": 0.5126582278481012,
+ "target_a0.8": 0.25,
+ "dismissed_book_a0.8": true,
+ "types_a0.9": {
+  "book": "szak\u00e9rt\u0151"
+ },
+ "post_a0.9": 0.5126582278481012,
+ "target_a0.9": 0.25,
+ "dismissed_book_a0.9": true,
+ "types_a1.0": {
+  "book": "gondozott"
+ },
+ "post_a1.0": 0.689873417721519,
+ "target_a1.0": 0.875,
+ "dismissed_book_a1.0": false
+}

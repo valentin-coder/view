@@ -1,0 +1,26 @@
+{
+ "pop": "A",
+ "seed": 8004,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": false,
+ "post_v4.4e": 0.8242424242424242,
+ "target_v4.4e": 0.8,
+ "types_a0.8": {
+  "book": "gondozott"
+ },
+ "post_a0.8": 0.8242424242424242,
+ "target_a0.8": 0.8,
+ "dismissed_book_a0.8": false,
+ "types_a0.9": {
+  "book": "gondozott"
+ },
+ "post_a0.9": 0.8242424242424242,
+ "target_a0.9": 0.8,
+ "dismissed_book_a0.9": false,
+ "types_a1.0": {
+  "book": "gondozott"
+ },
+ "post_a1.0": 0.8242424242424242,
+ "target_a1.0": 0.8,
+ "dismissed_book_a1.0": false
+}
