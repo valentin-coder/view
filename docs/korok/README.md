@@ -74,10 +74,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 73 | [73-jelhez-kotott-elsobbseg.md](73-jelhez-kotott-elsobbseg.md) | Jelhez kötött elsőbbség (előregisztrált): a 71. körbeli E3-kár megszűnik költség nélkül; a „más régió” hatás friss seedeken kisebb (+0,06, n.s.). |
 | 74 | [74-divergens-10.md](74-divergens-10.md) | Kritikai kör: a jelenlegi legjobb konfiguráció (v4.8-π + jelzett elsőbbség + nyaláb-átlag), két orákulumra támaszkodik; javaslat: második, független generátor. |
 | 75 | [75-legjobb-konfiguracio.md](75-legjobb-konfiguracio.md) | A legjobb konfiguráció nagy, előregisztrált mérése: **minden hipotézis teljesül** – +0,170 a v3-hoz, +0,112 a v4.4e-hez képest (A ∪ C), az A-ban nincs veszteség, a Brier jobb. |
+| 77 | [77-masodik-generator.md](77-masodik-generator.md) | Második, független generátor (előregisztrált): a v4.x általános pontossága rosszabb a v3-énál (−0,033) – részben illesztett javulások; a forrás-tanulás átvihető (+0,07); a kontextusfüggő indukció a fő kár. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **74. kör:** divergens és kritikai kör (a 65–73. kör mérlege; a jelenlegi legjobb konfiguráció összefoglalása: v4.8-π + jelzett elsőbbség + nyaláb-átlag).
-2. **75. kör:** a legjobb konfiguráció előregisztrált, nagy (≥ 30 seed, A + C) összevetése a v3-mal és a v4.4e-vel, a 72. kör gyorsításával.
-3. **76. kör:** szabályszintű, hatókör-érzékeny zárás-memó (a 72. kör folytatása).
+1. **78. kör:** a kontextusfüggő indukció hibájának diagnózisa és javítása mindkét generátoron (előregisztrálva, a második generátor friss seedjein mérve).
+2. **79. kör:** divergens és kritikai kör (a 74–78. kör mérlege; mi marad a két generátor után).
+3. **80. kör:** a tanult megbízhatóság priorja rosszul kalibrált forrásokra (a 0,97-es forrás alulbecslése).
+4. **76. kör (halasztva):** szabályszintű zárás-memó.

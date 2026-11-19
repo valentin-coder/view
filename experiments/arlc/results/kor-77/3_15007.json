@@ -1,0 +1,20 @@
+{
+ "seed": 15007,
+ "kind": "torz\u00edtott forr\u00e1s",
+ "pre_wms": 0.8984375,
+ "post_wms": 0.8828125,
+ "target_wms": 0.8,
+ "brier_wms": 0.087890625,
+ "pre_v3": 0.9609375,
+ "post_v3": 0.953125,
+ "target_v3": 0.9,
+ "brier_v3": 0.046875,
+ "pre_v4.4e": 0.90625,
+ "post_v4.4e": 0.90625,
+ "target_v4.4e": 1.0,
+ "brier_v4.4e": 0.087890625,
+ "pre_v4.8-\u03c0": 0.8984375,
+ "post_v4.8-\u03c0": 0.8984375,
+ "target_v4.8-\u03c0": 1.0,
+ "brier_v4.8-\u03c0": 0.08984375
+}
