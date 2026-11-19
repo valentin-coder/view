@@ -134,6 +134,8 @@ class Memory:
         self.ctx_override = False              # 53. kör: az izolált forrás a saját kontextusában felülír (lex specialis)
         self.latent_truth = False              # 53. kör: közös látens igazság az egyező jelentésekre
         self.theory_pi: dict = {}              # 60. kör: forrásonkénti π a keverék-priorhoz (metaadat)
+        self.entity_memo = True                # 72. kör: entitásonként memoizált zárás (viselkedésmegőrző)
+        self._emc: dict = {}
         self._inv_counter = 0
         self.obs: list[Obs] = []
         self.by_id: dict[int, Obs] = {}
@@ -193,6 +195,29 @@ class Memory:
             facts = [o for o in facts if o.source == ctx or
                      (o.lit.pred, o.lit.subj, o.lit.obj, not o.lit.pos) not in ctx_lits]
             n_override = n0 - len(rules) - len(facts)
+        cls_exc = {(x[0], x[1][4:]) for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:")}
+        if self.entity_memo and use_rules:
+            isa, has, ruled, n_ent_over = self._closure_by_entity(H, rules, facts, cls_exc, ctx_lits)
+            if ctx_lits is not None:
+                n_override += n_ent_over
+        else:
+            isa, has, ruled, n_ent_over = self._closure_all(H, rules, facts, cls_exc, ctx_lits, use_rules)
+            if ctx_lits is not None:
+                n_override += n_ent_over
+        cl = Closure(isa, has, ruled)
+        cl.n_override = n_override if ctx_lits is not None else 0
+        cl.conflict = self._rule_conflict(rules) or self._conflict(cl)
+        if len(self._ccache) >= CLOSURE_CACHE_MAX:
+            # 44. kör (memória): egy nehéz megfigyelésen belül a gyorsítótár 12 GB fölé nőtt. A zárás
+            # tiszta függvény, ezért az ürítés a viselkedést nem változtatja, csak az időt.
+            self._ccache.clear()
+        self._ccache[key] = cl
+        return cl
+
+    def _closure_all(self, H, rules, facts, cls_exc, ctx_lits, use_rules=True, ents=None):
+        """A zárás magja (a 72. kör előtti kód változatlanul). ents: ha meg van adva, csak ezekre az entitásokra
+        fut a szabály-alkalmazás (a tényeket a hívó szűri)."""
+        n_over = 0
         isa: dict = defaultdict(dict)
         has: dict = defaultdict(dict)
         ruled: dict = defaultdict(set)
@@ -200,7 +225,6 @@ class Memory:
             l = o.lit
             tok = frozenset([("obs", o.id)])
             (isa if l.pred == "isa" else has)[l.subj].setdefault((l.obj, l.pos), tok)
-        cls_exc = {(x[0], x[1][4:]) for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:")}
         if use_rules:
             by_body = defaultdict(list)
             for r in rules:
@@ -255,7 +279,7 @@ class Memory:
                         r = ro.rule
                         k = (r.obj, r.pos)
                         if ctx_lits is not None and (r.pred, e, r.obj, not r.pos) in ctx_lits:
-                            n_override += 1
+                            n_over += 1
                             continue
                         if r.pred == "isa":
                             isa[e].setdefault(k, sup)
@@ -276,15 +300,75 @@ class Memory:
                             continue
                         has[e].setdefault(k, sup)
                         ruled[e].add(k)
-        cl = Closure(isa, has, ruled)
-        cl.n_override = n_override if ctx_lits is not None else 0
-        cl.conflict = self._rule_conflict(rules) or self._conflict(cl)
-        if len(self._ccache) >= CLOSURE_CACHE_MAX:
-            # 44. kör (memória): egy nehéz megfigyelésen belül a gyorsítótár 12 GB fölé nőtt. A zárás
-            # tiszta függvény, ezért az ürítés a viselkedést nem változtatja, csak az időt.
-            self._ccache.clear()
-        self._ccache[key] = cl
-        return cl
+        return isa, has, ruled, n_over
+
+    def _closure_by_entity(self, H, rules, facts, cls_exc, ctx_lits):
+        """72. kör: entitásonként memoizált zárás. Egy entitás eredménye csak a szabályhalmaztól, a saját
+        tényeitől, a saját kivételeitől, a globális osztálykivételektől és (elsőbbségnél) a saját kontextus-
+        literáljaitól függ. A szótárak beszúrási sorrendje azonos a _closure_all-éval, így a konfliktuskeresés
+        sorrendje sem változik."""
+        memo = self._emc
+        # a megfigyelések objektumai élnek (self.obs), az id-jük biztonságos; az indukált/feltalált szabályok
+        # objektumai eldobódhatnak, ezért azoknál tartalom-alapú kulcs
+        gkey = (tuple(id(o) if o.id < IND_BASE else (o.id, o.rule) for o in rules), frozenset(cls_exc),
+                self.auto_specificity)
+        gid = memo.get(("g", gkey))
+        if gid is None:
+            gid = len(memo)
+            memo[("g", gkey)] = gid
+        by_e: dict = {}
+        order_isa, order_has = [], []
+        for o in sorted(facts, key=lambda o: (-o.time, o.id)):
+            e = o.lit.subj
+            lst = by_e.get(e)
+            if lst is None:
+                lst = by_e[e] = []
+            lst.append(o)
+        seen_i, seen_h = set(), set()
+        for o in sorted(facts, key=lambda o: (-o.time, o.id)):
+            e = o.lit.subj
+            if o.lit.pred == "isa":
+                if e not in seen_i:
+                    seen_i.add(e)
+                    order_isa.append(e)
+            elif e not in seen_h:
+                seen_h.add(e)
+                order_has.append(e)
+        exc_by_e: dict = {}
+        for x in H.exc:
+            if not (isinstance(x[1], str) and x[1].startswith("cat:")):
+                exc_by_e.setdefault(x[1], []).append(x)
+        res = {}
+        n_over = 0
+        for e, fl in by_e.items():
+            ex = frozenset(exc_by_e.get(e, ()))
+            cl_e = None if ctx_lits is None else frozenset(l for l in ctx_lits if l[1] == e)
+            k = (gid, e, tuple(id(o) for o in fl), ex, cl_e)
+            r = memo.get(k)
+            if r is None:
+                Hs = replace(H, exc=frozenset(ex) | frozenset(x for x in H.exc if isinstance(x[1], str) and x[1].startswith("cat:")))
+                i_, h_, ru_, no_ = self._closure_all(Hs, rules, fl, cls_exc, cl_e if ctx_lits is not None else None)
+                r = (dict(i_).get(e, {}), dict(h_).get(e, {}), dict(ru_).get(e, set()), no_)
+                if len(memo) > 400000:
+                    memo.clear()
+                    memo[("g", gkey)] = gid
+                memo[k] = r
+            res[e] = r
+            n_over += r[3]
+        isa: dict = defaultdict(dict)
+        has: dict = defaultdict(dict)
+        ruled: dict = defaultdict(set)
+        for e in order_isa:
+            isa[e] = res[e][0]
+        for e in order_has:
+            has[e] = res[e][1]
+        for e in order_isa:
+            if e not in seen_h and res[e][1]:
+                has[e] = res[e][1]
+        for e, r in res.items():
+            if r[2]:
+                ruled[e] = r[2]
+        return isa, has, ruled, n_over
 
     def _rule_conflict(self, rules: list) -> Optional[frozenset]:
         """Azonos törzsű és fejű, ellentétes előjelű szabályok közvetlenül ütköznek."""
@@ -750,6 +834,7 @@ class Memory:
     # ------------------------------------------------------------ public API
     def observe(self, o: Obs) -> dict:
         self._ccache.clear()
+        self._emc.clear()
         self._scache.clear()
         if self.use_decay < 1.0:
             for k in list(self.uses):

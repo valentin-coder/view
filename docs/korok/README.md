@@ -70,10 +70,10 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 69 | [69-divergens-9.md](69-divergens-9.md) | Kritikai kör: a kontextus a legmélyebb nyitott probléma – a forrás-szintű izolálás túl durva; javaslat: kontextusfüggő szabály. |
 | 70 | [70-tipusbizonytalansag.md](70-tipusbizonytalansag.md) | Típusbizonytalanságot továbbító π (előregisztrált): kis, kétirányú csere, átlagban nem számít; a 60. kör C-hatása friss seedeken megismétlődik (0,61–0,64 vs. 0,38). |
 | 71 | [71-kontextus-elsobbseg.md](71-kontextus-elsobbseg.md) | Kontextuson belüli elsőbbség + jó jel együtt +0,20 a „más régió” célkérdésein (külön-külön egyik sem elég); jel nélkül az elsőbbség árt (E3) – csak jelzett forrásra érvényes. |
+| 72 | [72-inkrementalis-zaras.md](72-inkrementalis-zaras.md) | Entitásonként memoizált zárás: bitre azonos (ekvivalencia, kimerítő, A fázis), 2,4× (A) és 1,6× (C) gyorsabb valódi eseteken. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **72. kör:** inkrementális zárás, viselkedésmegőrzően (a futási idő ma a kísérleti kapacitás szűk keresztmetszete).
-2. **73. kör:** jelhez kötött elsőbbség (csak jelzett forrásra), előregisztrálva; ellenőrző csomag (E3).
-3. **74. kör:** divergens és kritikai kör.
+1. **73. kör:** jelhez kötött elsőbbség (csak jelzett forrásra), előregisztrálva; ellenőrző csomag (E3).
+2. **74. kör:** divergens és kritikai kör.
