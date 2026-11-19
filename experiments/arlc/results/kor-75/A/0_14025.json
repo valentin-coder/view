@@ -1,0 +1,20 @@
+{
+ "pop": "A",
+ "seed": 14025,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": false,
+ "post_v3": 0.8875,
+ "target_v3": 0.6666666666666666,
+ "brier_v3": 0.0515625,
+ "post_v4.4e": 0.93125,
+ "target_v4.4e": 0.6666666666666666,
+ "brier_v4.4e": 0.0359375,
+ "post_v4.8-\u03c0": 0.93125,
+ "target_v4.8-\u03c0": 0.6666666666666666,
+ "brier_v4.8-\u03c0": 0.0359375,
+ "post_v4.8-\u03c0+jel": 0.93125,
+ "target_v4.8-\u03c0+jel": 0.6666666666666666,
+ "brier_v4.8-\u03c0+jel": 0.0359375,
+ "brier_avg_v4.8-\u03c0+jel": 0.03561637855986335,
+ "post_avg_v4.8-\u03c0+jel": 0.95
+}
