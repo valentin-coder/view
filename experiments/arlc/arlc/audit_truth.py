@@ -53,7 +53,7 @@ def audit(m, w, gen, obs_ids=None):
         if t is None:
             continue
         rej = o.id in H.rej
-        kind = "R" if o.rule is not None else "F"
+        kind = ("I" if o.rule.pred == "isa" else "R") if o.rule is not None else "F"
         if rej and not t:
             out[f"{o.source}:{kind}:helyes_félretevés"] += 1
         elif rej and t:
