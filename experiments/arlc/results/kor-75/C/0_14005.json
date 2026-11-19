@@ -1,0 +1,20 @@
+{
+ "pop": "C",
+ "seed": 14005,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "garbage": "book2",
+ "post_v3": 0.4857142857142857,
+ "target_v3": 0.375,
+ "brier_v3": 0.15,
+ "post_v4.4e": 0.4857142857142857,
+ "target_v4.4e": 0.375,
+ "brier_v4.4e": 0.15,
+ "post_v4.8-\u03c0": 0.4857142857142857,
+ "target_v4.8-\u03c0": 0.375,
+ "brier_v4.8-\u03c0": 0.15,
+ "post_v4.8-\u03c0+jel": 0.4857142857142857,
+ "target_v4.8-\u03c0+jel": 0.375,
+ "brier_v4.8-\u03c0+jel": 0.15,
+ "brier_avg_v4.8-\u03c0+jel": 0.11376821061329102,
+ "post_avg_v4.8-\u03c0+jel": 0.7542857142857143
+}
