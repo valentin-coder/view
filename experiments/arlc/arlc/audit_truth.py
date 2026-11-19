@@ -26,6 +26,8 @@ def obs_true(o, w, gen):
     G3: időfüggő világ, a megfigyelés a saját időbélyegén igaz-e."""
     if gen == "G3":
         return obs_true_g3(o, w)
+    if gen == "G4":
+        return obs_true_g4(o, w)
     if o.rule is not None:
         r = o.rule
         if r.cond is not None:
@@ -88,4 +90,17 @@ def obs_true_g3(o, w):
     if l.obj.startswith("st"):
         return (w.state_at(l.subj, t) == l.obj) == l.pos
     v = w.static_truth(l.subj, t).get(l.obj)
+    return None if v is None else (v == l.pos)
+
+
+def obs_true_g4(o, w):
+    if o.rule is not None:
+        rs = w.rules.get(o.rule.body, {})
+        return o.rule.obj in rs and rs[o.rule.obj] == o.rule.pos
+    l = o.lit
+    if l.subj not in w.members:
+        return None
+    if l.pred == "isa":
+        return (w.members[l.subj] == l.obj) == l.pos
+    v = w.truth(l.subj).get(l.obj)
     return None if v is None else (v == l.pos)
