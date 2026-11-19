@@ -104,3 +104,27 @@ Nyers adat: [`results/kor-82/test/`](../../experiments/arlc/results/kor-82/test/
 - **A tanult megbízhatóság ára:** pontosabb felismerés az *új*, rossz forrásoknál (hazug: 1,00 vs. 0,4–0,7), pontatlanabb
   félretevés a *régi*, közepesen rossz forrásoknál (fieldB: 0,61 vs. 0,97). A kettő ugyanaz a mechanizmus. Egy jó
   megoldásnak a béta-kód rugalmasságát a hazug-szerű (szinte minden állítása hamis) esetre kellene korlátoznia.
+
+## 3. rész: javítás – az „alosztály-elvágás” nem menekülőút, hanem a G1 generátorhibája
+
+*(A 83. kör futása alatt, a 85. kör diagnózisának előkészítésekor derült ki.)*
+
+A G1-en összeraktam az igaz hipotézist (a hamis megfigyelések félretéve). Ez **nem ütközésmentes:** például a 19000-es
+seedben az M1 középkategóriának két szülője van, T0 és T1, és a séma szerint **minden csúcskategória-pár diszjunkt**.
+A generátor (44. kör, `procedural.generate_world`) a középkategóriáknak 25% eséllyel két csúcs-szülőt ad, a
+diszjunktságot viszont minden csúcspárra kimondja. **Az ilyen világ logikailag ellentmondásos:** egy M1-be tartozó
+entitás egyszerre tartozik T0-ba és T1-be, ami tilos. A rendszernek egy igaz alosztály-kapcsolatot (vagy egy igaz
+tagságot) kötelezően félre kell tennie.
+
+**Mérték:** 50 G1-világból (a 44. és a 82. kör seedjei) **35 ellentmondásos**, és az entitások **27%-át érinti.**
+
+**Következmények:**
+1. **A 2. rész 2. pontját visszavonom.** Az „alosztály-kapcsolat elvágása mint ötödik menekülőút” nem a modell hibája:
+   a világ ellentmondásos, és az elvágás a legolcsóbb (és logikailag kikényszerített) válasz. Az audit ezeket „téves
+   félretevésnek” számolta, mert az igazság-függvény a diszjunktságot nem veszi figyelembe.
+2. **A 44. óta minden G1-mérés ezt a hibát hordozza.** Az összehasonlítások egyenlő feltételek mellett zajlottak (minden
+   módszer ugyanazokat a világokat kapta). Az abszolút pontosságok viszont alacsonyabbak a kelleténél, és nem zárható ki,
+   hogy a módszerek az elvágás *módjában* (melyik kapcsolat esik ki) különböznek, és ez a különbségek egy részét adja.
+   Az előregisztrált eredményeket nem írom át. A javított generátoron (85. kör) újramérem a fő összevetést.
+3. **A javítás minimális:** két csúcskategória csak akkor diszjunkt, ha nincs közös középkategória-gyerekük. A 85. kör
+   ezt „G1k” néven használja, és a régi G1-et változatlanul hagyja.

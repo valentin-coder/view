@@ -79,13 +79,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 79 | [79-divergens-11.md](79-divergens-11.md) | Kritikai kör: két generátor után csak a megbízhatatlan forrás felismerése áll erősen; a „menekülőút” a félrespecifikált Bayes ismert jelensége (Grünwald–van Ommen); javaslatok: tanult szabályprioritás, SafeBayes, menekülőút-audit. |
 | 80 | [80-forrastipus-prior.md](80-forrastipus-prior.md) | Forrástípus-prior (gondozott/terepi/ismeretlen keverék, előregisztrált): a hazug forrás felismerése +0,08 – +0,10 mindkét generátoron, G1-A post +0,021; a G2-n semleges (a jósolt kár nem jött, mert a jóslatot rossz alapvonalból vezettem le). A G2-lemaradás oka a tankönyv bűnbakká tétele. |
 | 81 | [81-szabalyprioritas.md](81-szabalyprioritas.md) | Tanult szabályprioritás (osztálykivétel rivális szabályra + javított kódhossz; előregisztrált): **minden hipotézis teljesül** – a G2-n +0,062 a v4.9-hez és **+0,023 a v3-hoz** (a 77. kör kudarca megfordul), a G1-en +0,010. Új diagnosztikai eszköz: az igaz hipotézis pontozása. |
-| 82 | [82-menekulout-audit.md](82-menekulout-audit.md) | Menekülőút-audit (a félretevések helyessége a generátor igazsága alapján, előregisztrált): minden hipotézis teljesül, de az audit két rejtett hibát talál – a fieldB másodlagos bűnbak (pontosság 0,61 vs. a v3 0,97; a 81. kör egy állítása visszavonva), és az **alosztály-kapcsolat elvágása** mint ötödik menekülőút. |
+| 82 | [82-menekulout-audit.md](82-menekulout-audit.md) | Menekülőút-audit (a félretevések helyessége a generátor igazsága alapján, előregisztrált): minden hipotézis teljesül, de az audit két rejtett hibát talál – a fieldB másodlagos bűnbak (pontosság 0,61 vs. a v3 0,97; a 81. kör egy állítása visszavonva), az „alosztály-elvágás” viszont **a G1 generátorhibája** (3. rész: 50 világból 35 logikailag ellentmondásos, a 44. kör óta). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
 1. **83. kör (folyamatban):** orákulum-függőség a prioritás mellett (kell-e még a forrástípus-prior; a C populáció).
 2. **84. kör:** divergens és kritikai kör.
-3. **85. kör:** az alosztály-kapcsolat elvágása mint menekülőút (igaz-hipotézis-pontozás a G1-en).
+3. **85. kör:** javított G1-generátor (G1k: csak a közös gyerek nélküli csúcspárok diszjunktak) és a fő összevetés újramérése auditokkal.
 4. **86. kör:** a béta-kód rugalmasságának korlátozása hazug-szerű forrásokra (a fieldB másodlagos bűnbak).
 5. **76. kör (halasztva):** szabályszintű zárás-memó.
