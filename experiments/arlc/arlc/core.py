@@ -134,6 +134,7 @@ class Memory:
         self.rel_temper: Optional[float] = None  # 90. kör: η; a megbízhatósági kód η·adaptív + (1 − η)·rögzített
         self.rel_hybrid = False                  # 91. kör: bevált adatforrás rögzített kóddal, új forrás adaptívval
         self.cut_per_event = False               # 91. kör: a vágás ára változás-eseményenként, nem megfigyelésenként
+        self.rel_hybrid_kappa: Optional[float] = None  # 95. kör: a bevált adatforrás béta-kódjának κ-ja (None: rögzített)
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -456,7 +457,7 @@ class Memory:
         for o in self.obs:
             q_o = self.source_q.get(o.source, o.q)
             if hyb:
-                fixed_w = 1.0 if (self._established(o.source)
+                fixed_w = 1.0 if (self.rel_hybrid_kappa is None and self._established(o.source)
                                   and not (self.theory_kappa is not None and o.rule is not None)) else 0.0
             if self.age_discount < 1.0:
                 q_o = 0.5 + (q_o - 0.5) * self.age_discount ** max(0, self.now - o.time)
@@ -573,6 +574,9 @@ class Memory:
         for src, (n, k, q) in stats.items():
             theory = isinstance(src, tuple) and src[1] == "elmélet"
             if self.rel_hybrid and not theory and self._established(src[0] if isinstance(src, tuple) else src):
+                if self.rel_hybrid_kappa is not None:
+                    # 95. kör: bevált adatforrás lassan tanuló béta-kóddal (κ nagy), szemét-komponens nélkül
+                    bits += bb(n, k, self.rel_hybrid_kappa, q)
                 continue                              # 91. kör: bevált adatforrás -> rögzített kód (a _score-ban)
             sm = None
             if self.source_mix is not None:

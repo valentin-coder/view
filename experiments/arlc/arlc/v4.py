@@ -104,6 +104,7 @@ def configured(overrides: dict):
             self.rel_temper = cfg.get("rel_temper", None)
             self.rel_hybrid = cfg.get("rel_hybrid", False)
             self.cut_per_event = cfg.get("cut_per_event", False)
+            self.rel_hybrid_kappa = cfg.get("rel_hybrid_kappa", None)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -169,3 +170,6 @@ HYBRID_91 = {**FROZEN_88, "rel_hybrid": True}
 HYBRID_V_91 = {**HYBRID_91, "cut_per_event": True}
 # 91. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 91. kör alapján). A 93. kori negyedik generátor ezt méri.
 FROZEN_91 = HYBRID_V_91
+# 95. kör: lassan tanuló becsületes komponens (κ₁ = 300) az elmélet-keverékben (Tκ) és a bevált adatforrásokon (Dκ)
+F91_TK = {**FROZEN_91, "theory_mix": (0.9, 300.0, 0.5, 2.0)}
+F91_TDK = {**F91_TK, "rel_hybrid_kappa": 300.0}
