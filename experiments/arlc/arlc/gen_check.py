@@ -12,6 +12,7 @@ from .audit_truth import obs_true, world_g1, world_g2
 from .core import Hyp, Memory, replace
 from .g1k import make_case_k
 from .generator2 import make_case2
+from .generator3 import KINDS3, make_case3
 from .run_r55 import make_case
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results", "kor-87")
@@ -25,6 +26,19 @@ def admissible(m, w, gen, max_iter=400):
         if c is None:
             return True, len(H.exc), None
         insts = sorted((t for t in c if t[0] == "inst" and m._get(t[1], H).rule.pred == "has"), key=str)
+        # 88. kör (G3): két igaz, különböző idejű tény egy változó csoportban -> a régebbi vágása
+        facts = [m.by_id[t[1]] for t in c if t[0] == "obs" and m.by_id[t[1]].lit is not None
+                 and m._mutable(m.by_id[t[1]])]
+        if not insts and len(facts) >= 2:
+            cutd = dict(H.cut)
+            cand = [(a, min(b.time for b in facts if b.time > a.time)) for a in facts
+                    if any(b.time > a.time for b in facts)]
+            cand = [(a, tb) for a, tb in cand if cutd.get(a.id, float("inf")) > tb]
+            if cand:
+                a, tb = min(cand, key=lambda x: (x[0].time, x[0].id))
+                cutd[a.id] = tb               # a korábbi (későbbi végű) vágás helyett a korábbi vég
+                H = replace(H, cut=tuple(sorted(cutd.items())))
+                continue
         if not insts:
             kinds = sorted({("obs:" + m.by_id[t[1]].source) if t[0] == "obs" else ("inst:" + m._get(t[1], H).rule.pred)
                             for t in c})
@@ -32,7 +46,8 @@ def admissible(m, w, gen, max_iter=400):
         wrong = []
         for t in insts:
             r = m._get(t[1], H).rule
-            tv = w.truth(t[2]).get(r.obj) if t[2] in w.members else None
+            tv = ((w.truth(t[2], m.now) if gen == "G3" else w.truth(t[2])).get(r.obj)
+                  if t[2] in w.members else None)
             if tv is not None and tv != r.pos:
                 wrong.append(t)
         t = (wrong or insts)[0]            # rossz jóslat kivétele; ha az igazság nem definiált (Nixon), bármelyik
@@ -40,8 +55,11 @@ def admissible(m, w, gen, max_iter=400):
     return False, len(H.exc), ["iterációs korlát"]
 
 
-def check(gen, seed, pop="A"):
-    if gen == "G2":
+def check(gen, seed, pop="A", kind="hazug forrás", with_new=False):
+    if gen == "G3":
+        sch, obs, new, pre, post, tq, hq, tau, w = make_case3(seed, kind)
+        obs, g = obs + (new if with_new else []), "G3"
+    elif gen == "G2":
         sch, obs, *_ = make_case2(seed, "hazug forrás")
         w, g = world_g2(seed), "G2"
     else:
@@ -53,7 +71,8 @@ def check(gen, seed, pop="A"):
     m.by_id = {o.id: o for o in obs}
     m.now = max(o.time for o in obs)
     ok, n_exc, kinds = admissible(m, w, g)
-    return {"gen": gen, "pop": pop, "seed": seed, "ok": ok, "n_exc": n_exc, "conflict": kinds}
+    return {"gen": gen, "pop": pop, "seed": seed, "kind": kind, "with_new": with_new, "ok": ok, "n_exc": n_exc,
+            "conflict": kinds}
 
 
 if __name__ == "__main__":

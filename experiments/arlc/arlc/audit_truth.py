@@ -22,7 +22,10 @@ def world_g2(seed):
 
 
 def obs_true(o, w, gen):
-    """True/False: igaz-e a megfigyelés a meglepetés előtti világban; None: nem definiált."""
+    """True/False: igaz-e a megfigyelés a meglepetés előtti világban; None: nem definiált.
+    G3: időfüggő világ, a megfigyelés a saját időbélyegén igaz-e."""
+    if gen == "G3":
+        return obs_true_g3(o, w)
     if o.rule is not None:
         r = o.rule
         if r.cond is not None:
@@ -65,3 +68,24 @@ def audit(m, w, gen, obs_ids=None):
     out["egyedi_kivétel"] = sum(1 for x in H.exc if not (isinstance(x[1], str) and x[1].startswith("cat:")))
     out["indukált"] = len(H.ind)
     return dict(out)
+
+
+def obs_true_g3(o, w):
+    t = o.time
+    if o.rule is not None:
+        r = o.rule
+        if r.cond is not None:
+            return None
+        if r.pred == "isa":
+            return w.parent.get(r.body) == r.obj
+        v = w.rule_value(r.body, r.obj, t)
+        return v is not None and v == r.pos
+    l = o.lit
+    if l.subj not in w.members:
+        return None
+    if l.pred == "isa":
+        return (w.members[l.subj] == l.obj) == l.pos
+    if l.obj.startswith("st"):
+        return (w.state_at(l.subj, t) == l.obj) == l.pos
+    v = w.static_truth(l.subj, t).get(l.obj)
+    return None if v is None else (v == l.pos)
