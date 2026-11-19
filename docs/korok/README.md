@@ -84,11 +84,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 84 | [84-divergens-12.md](84-divergens-12.md) | Kritikai kör: a G1-hiba 40 körön át rejtve maradt – az előregisztráció nem véd a benchmark érvényességi hibái ellen; kell egy generátor-egységteszt (igaz hipotézis). Foltozás-veszély, az azonosíthatósági plafon, és a neurális oldal továbbra is hiányzik. |
 | 85 | [85-g1k.md](85-g1k.md) | G1 vs. javított G1k (előregisztrált): a hiba a v4-et jobban sújtotta (+0,033 vs. +0,009), ezért a korábbi G1-es v4-előnyök **konzervatívak** voltak; a G1k-n v4.9+PK − v3 = +0,073. A téves alosztály-félretevés csökken, de nem tűnik el (H85b nem teljesül). Mostantól a G1k az első generátor. |
 | 87 | [87-generator-egysegteszt.md](87-generator-egysegteszt.md) | Generátor-egységteszt: a régi G1 3/70, a G1k és a G2 70/70 világban megengedett. Az igaz hipotézis a G2-n (prioritással) a talált közelében van (egy seeden keresési hiba), a G1k-n 14–41 bittel drágább – azonosíthatósági határ, valószínűleg a terepi tények rossz deklarált hitelessége miatt. |
+| 86 | [86-tanulhato-forrastipus.md](86-tanulhato-forrastipus.md) | A forrástípus-prior metaadat nélkül (előregisztrált): az „új forrás gyanúsabb” prior a hatás nagyját visszaadja (+0,034; T − N = 0,010, n.s.) → **két orákulum marad**. De az egyforma keverék ugyanannyit ér: a hatóanyag a szemét-komponens. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **86. kör (folyamatban):** a forrástípus-prior tanulható változata a forrás múltjából (első megjelenés, megerősített állítások), metaadat nélkül.
-2. **88. kör:** a konfiguráció befagyasztása, utána a harmadik generátor (időben sodródó szabályok).
-3. **89. kör:** divergens és kritikai kör.
-4. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **88. kör (folyamatban):** a konfiguráció befagyasztása, utána a harmadik generátor (időben sodródó szabályok).
+2. **89. kör:** divergens és kritikai kör.
+3. **76. kör (halasztva):** szabályszintű zárás-memó.

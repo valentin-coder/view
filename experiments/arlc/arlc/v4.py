@@ -54,6 +54,10 @@ V49_SM = {"source_mix": SOURCE_TYPE_MIX, "source_mix_default": UNKNOWN}
 # megjelent) forrás szemét-esélye 10%, a bevált forrásé 0,1% (a forrás múltja megfigyelhető, nem orákulum).
 V49_U = {"source_mix": {}, "source_mix_default": (0.9, 30.0)}
 V49_N = {"source_newcomer": (0.9, 0.999, 30.0, 0)}
+# 88. kör: BEFAGYASZTOTT konfiguráció a harmadik generátor (G3) előtt. A G3-on mért eredmények nem módosíthatják.
+# v4.8-π (tankönyv-keverék, π a metaadatból; a G3-ban a tankönyv „normál”, π = 0,999) + PK (81. kör) + N (86. kör).
+FROZEN_88 = {**V44E_OVERRIDES, "theory_kappa": 1.0, "theory_mix": (0.9, 30.0, 0.5, 2.0),
+             "priority_exceptions": True, "priority_code": True, **V49_N}
 
 ABLATIONS = {
     "v4": {},

@@ -48,3 +48,45 @@ A „hazug-szerű célkérdések” a hazug forrás (G1k-A, G2) és a torzított
 
 **Ha H86a és H86b teljesül:** a T kiváltható, és az orákulumok száma háromról kettőre csökken (tankönyv-π és
 kontextusjel).
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-86/test/`](../../experiments/arlc/results/kor-86/test/); elemzés:
+[`analyze_r86.py`](../../experiments/arlc/arlc/analyze_r86.py) → `results/kor-86/analysis.json`. 380 futás, eltérés nincs.
+
+### Célkérdés-pontosság (az új forrás félretett aránya zárójelben)
+
+| | G1k-A hazug | G1k-C hazug | G2 hazug | G2 torzított | G1k-A átkat. |
+|---|---|---|---|---|---|
+| T nélkül | 0,850 (0,85) | 0,744 (0,74) | 0,919 (0,92) | 0,877 (0,89) | 0,719 |
+| T (metaadat) | **0,913** (1,00) | **0,819** (1,00) | **0,956** (1,00) | 0,910 (0,99) | 0,719 |
+| **N (új forrás)** | 0,906 (1,00) | 0,800 (1,00) | 0,931 (1,00) | 0,910 (0,99) | 0,688 |
+| U (egyforma) | 0,900 (1,00) | – | 0,950 (1,00) | 0,901 (0,99) | 0,688 |
+
+Általános pontosság (pre) és idő a G2-n: T nélkül 0,920 / 41 s; T 0,928 / 73 s; N 0,917 / 50 s; U 0,927 / 95 s.
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H86a:** N − (T nélkül), hazug-szerű target > 0 | **+0,034** [+0,017; +0,053] | **teljesül** |
+| **H86b:** T − N ≤ 0,02 | +0,010 [−0,015; +0,033] | **teljesül** |
+| **H86c (G1k-C, post):** N − (T nélkül) > 0 | +0,011 [+0,002; +0,025] | **teljesül** |
+| **H86d (pre):** N − (T nélkül) ≥ −0,01 | −0,002 [−0,005; 0,000] | **teljesül** |
+| **H86e:** N − U ≥ 0 | −0,001 [−0,019; +0,015] | **nem teljesül** (gyakorlatilag egyenlő) |
+
+### Értelmezés
+
+1. **A metaadat-orákulum (T) kiváltható.** A megfigyelhető „új forrás” jel a T hatásának kb. háromnegyedét visszaadja
+   (+0,034 a +0,045-ből), és a különbség nem szignifikáns. **Az orákulumok száma háromról kettőre csökken** (tankönyv-π
+   és kontextusjel).
+2. **De nem az „új” megkülönböztetés a hatóanyag.** Az egyforma keverék (U: minden forrás 10% eséllyel szemét) ugyanannyit
+   ér (H86e). **A hatás a szemét-komponens jelenlétéből jön:** a hazug forrás 8/8 félretevése a keverékkel olcsó. Ebben
+   a benchmarkban a bevált források elég nagyok ahhoz, hogy a 10%-os szemét-esély se tegye őket bűnbakká. Az N előnye az
+   U-val szemben a sebesség (G2: 50 s vs. 95 s), mert a bevált források keveréke kevesebb jelöltet tart életben.
+3. **Az átkategorizálás célkérdéseinél az N és az U kicsit rosszabb** (0,688 vs. 0,719). Ott az új forrás egy *helyes*
+   szakértő, akit az N 20%-ban félretesz (a T nélkül 5%). **Ez a „gyanús új forrás” ára:** a helyes új információt is
+   gyanúsnak kezeli. A T ezt metaadatból tudta (a szakértő „gondozott”). Kicsi, de valódi költség.
+
+### Döntés a befagyasztáshoz
+
+A 88. kör befagyasztott konfigurációja: **v4.8-π + PK + N** (metaadat nélküli forrás-prior). A T-hez képest a hazug
+forrásnál kb. 0,01-et, a helyes szakértőnél kb. 0,03-at veszít, viszont nem kér orákulumot, és gyorsabb.

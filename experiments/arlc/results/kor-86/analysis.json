@@ -1,0 +1,213 @@
+{
+ "n": 380,
+ "táblázat": {
+  "G1kA hazug forrás | T nélkül": {
+   "n": 20,
+   "pre": 0.8727,
+   "post": 0.866,
+   "target": 0.85,
+   "új forrás félretéve": 0.85,
+   "sec": 30.4
+  },
+  "G1kA hazug forrás | T (metaadat)": {
+   "n": 20,
+   "pre": 0.8717,
+   "post": 0.8721,
+   "target": 0.9125,
+   "új forrás félretéve": 1.0,
+   "sec": 37.2
+  },
+  "G1kA hazug forrás | N (új forrás)": {
+   "n": 20,
+   "pre": 0.8727,
+   "post": 0.8713,
+   "target": 0.9062,
+   "új forrás félretéve": 1.0,
+   "sec": 35.3
+  },
+  "G1kA hazug forrás | U (egyforma)": {
+   "n": 20,
+   "pre": 0.8722,
+   "post": 0.8698,
+   "target": 0.9,
+   "új forrás félretéve": 1.0,
+   "sec": 36.6
+  },
+  "G1kA átkategorizálás | T nélkül": {
+   "n": 20,
+   "pre": 0.8727,
+   "post": 0.8648,
+   "target": 0.719,
+   "új forrás félretéve": 0.05,
+   "sec": 17.9
+  },
+  "G1kA átkategorizálás | T (metaadat)": {
+   "n": 20,
+   "pre": 0.8717,
+   "post": 0.8628,
+   "target": 0.719,
+   "új forrás félretéve": 0.05,
+   "sec": 18.8
+  },
+  "G1kA átkategorizálás | N (új forrás)": {
+   "n": 20,
+   "pre": 0.8727,
+   "post": 0.8664,
+   "target": 0.6882,
+   "új forrás félretéve": 0.2,
+   "sec": 18.3
+  },
+  "G1kA átkategorizálás | U (egyforma)": {
+   "n": 20,
+   "pre": 0.8722,
+   "post": 0.8658,
+   "target": 0.6882,
+   "új forrás félretéve": 0.2,
+   "sec": 19.1
+  },
+  "G1kC hazug forrás | T nélkül": {
+   "n": 20,
+   "pre": 0.7764,
+   "post": 0.7611,
+   "target": 0.7438,
+   "új forrás félretéve": 0.744,
+   "sec": 153.9
+  },
+  "G1kC hazug forrás | T (metaadat)": {
+   "n": 20,
+   "pre": 0.7751,
+   "post": 0.7719,
+   "target": 0.8187,
+   "új forrás félretéve": 1.0,
+   "sec": 167.6
+  },
+  "G1kC hazug forrás | N (új forrás)": {
+   "n": 20,
+   "pre": 0.7764,
+   "post": 0.7717,
+   "target": 0.8,
+   "új forrás félretéve": 1.0,
+   "sec": 159.6
+  },
+  "G2 hazug forrás | T nélkül": {
+   "n": 20,
+   "pre": 0.9202,
+   "post": 0.9156,
+   "target": 0.9187,
+   "új forrás félretéve": 0.919,
+   "sec": 41.2
+  },
+  "G2 hazug forrás | T (metaadat)": {
+   "n": 20,
+   "pre": 0.9283,
+   "post": 0.9279,
+   "target": 0.9563,
+   "új forrás félretéve": 1.0,
+   "sec": 73.2
+  },
+  "G2 hazug forrás | N (új forrás)": {
+   "n": 20,
+   "pre": 0.9165,
+   "post": 0.9166,
+   "target": 0.9313,
+   "új forrás félretéve": 1.0,
+   "sec": 50.4
+  },
+  "G2 hazug forrás | U (egyforma)": {
+   "n": 20,
+   "pre": 0.9272,
+   "post": 0.9268,
+   "target": 0.95,
+   "új forrás félretéve": 1.0,
+   "sec": 95.4
+  },
+  "G2 torzított forrás | T nélkül": {
+   "n": 20,
+   "pre": 0.9202,
+   "post": 0.9134,
+   "target": 0.8765,
+   "új forrás félretéve": 0.894,
+   "sec": 42.7
+  },
+  "G2 torzított forrás | T (metaadat)": {
+   "n": 20,
+   "pre": 0.9283,
+   "post": 0.9283,
+   "target": 0.9101,
+   "új forrás félretéve": 0.994,
+   "sec": 75.0
+  },
+  "G2 torzított forrás | N (új forrás)": {
+   "n": 20,
+   "pre": 0.9165,
+   "post": 0.9158,
+   "target": 0.9101,
+   "új forrás félretéve": 0.994,
+   "sec": 52.9
+  },
+  "G2 torzított forrás | U (egyforma)": {
+   "n": 20,
+   "pre": 0.9272,
+   "post": 0.9268,
+   "target": 0.9014,
+   "új forrás félretéve": 0.994,
+   "sec": 99.9
+  }
+ },
+ "H86a hazug-szerű target: N − (T nélkül)": {
+  "n_seeds": 20,
+  "mean_diff": 0.03412037037037038,
+  "ci95": [
+   0.01666666666666667,
+   0.05291666666666667
+  ]
+ },
+ "H86b hazug-szerű target: T − N": {
+  "n_seeds": 20,
+  "mean_diff": 0.010416666666666668,
+  "ci95": [
+   -0.014583333333333327,
+   0.03333333333333334
+  ]
+ },
+ "H86c G1k-C post: N − (T nélkül)": {
+  "n_seeds": 20,
+  "mean_diff": 0.010577939147031229,
+  "ci95": [
+   0.0016342985954569012,
+   0.024812505877558705
+  ]
+ },
+ "H86d pre (G1k-A ∪ G2): N − (T nélkül)": {
+  "n_seeds": 20,
+  "mean_diff": -0.0018355855855855807,
+  "ci95": [
+   -0.0053378378378378276,
+   0.0
+  ]
+ },
+ "H86e hazug-szerű target: N − U": {
+  "n_seeds": 20,
+  "mean_diff": -0.0012500000000000011,
+  "ci95": [
+   -0.018750000000000006,
+   0.015000000000000008
+  ]
+ },
+ "G1k-C post: T − N": {
+  "n_seeds": 20,
+  "mean_diff": 0.0002523197803917576,
+  "ci95": [
+   -0.002860885252965739,
+   0.0036534952463862015
+  ]
+ },
+ "post (G1k-A ∪ G2): N − T": {
+  "n_seeds": 20,
+  "mean_diff": -0.00528308823690154,
+  "ci95": [
+   -0.01736387353265779,
+   0.004037966852895436
+  ]
+ }
+}
