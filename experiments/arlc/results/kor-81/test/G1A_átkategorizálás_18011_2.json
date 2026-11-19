@@ -1,0 +1,1 @@
+{"gen": "G1", "pop": "A", "kind": "\u00e1tkategoriz\u00e1l\u00e1s", "seed": 18011, "variant": "v4.9+PK", "pre": 0.8970588235294118, "post": 0.875, "target": 0.25, "rej_pre": {"field": 6, "census": 1, "book": 2}, "rej": {"field": 6, "expert": 1, "census": 1, "book": 2}, "book_errors": null, "sec": 22.4}

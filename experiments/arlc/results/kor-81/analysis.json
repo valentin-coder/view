@@ -1,0 +1,206 @@
+{
+ "n": 300,
+ "G1A": {
+  "v3": {
+   "pre": 0.7732,
+   "post": 0.7394,
+   "target": 0.5335,
+   "n": 40,
+   "sec": 22.4,
+   "rej_pre_book": 4.9,
+   "rej_pre_census": 0.85,
+   "rej_pre_fieldA": 0,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 4.75,
+   "post[hazug forrás]": 0.7108,
+   "target[hazug forrás]": 0.5062,
+   "post[átkategorizálás]": 0.7679,
+   "target[átkategorizálás]": 0.5608
+  },
+  "v4.9": {
+   "pre": 0.823,
+   "post": 0.817,
+   "target": 0.693,
+   "n": 40,
+   "sec": 25.4,
+   "rej_pre_book": 3.5,
+   "rej_pre_census": 0.5,
+   "rej_pre_fieldA": 0,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 4.45,
+   "post[hazug forrás]": 0.8215,
+   "target[hazug forrás]": 0.8313,
+   "post[átkategorizálás]": 0.8126,
+   "target[átkategorizálás]": 0.5548
+  },
+  "v4.9+PK": {
+   "pre": 0.8328,
+   "post": 0.8269,
+   "target": 0.7252,
+   "n": 40,
+   "sec": 26.3,
+   "rej_pre_book": 3.6,
+   "rej_pre_census": 0.65,
+   "rej_pre_fieldA": 0,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 4.5,
+   "post[hazug forrás]": 0.8319,
+   "target[hazug forrás]": 0.8438,
+   "post[átkategorizálás]": 0.822,
+   "target[átkategorizálás]": 0.6066
+  },
+  "v4.9+PK − v4.9 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.009817732047270784,
+   "ci95": [
+    -0.006444906444906445,
+    0.03744587128565029
+   ]
+  },
+  "v4.9+PK − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.05964871624827803,
+   "ci95": [
+    0.02844845736782247,
+    0.09889624169936495
+   ]
+  },
+  "v4.9 − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.04983098420100725,
+   "ci95": [
+    0.02358285378488275,
+    0.08413430190540233
+   ]
+  },
+  "v4.9+PK − v4.9 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.009900785037512506,
+   "ci95": [
+    -0.008078834802972723,
+    0.039607147375570924
+   ]
+  },
+  "v4.9+PK − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.08757407051804227,
+   "ci95": [
+    0.03120306888925985,
+    0.1639182729328729
+   ]
+  },
+  "v4.9 − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.07767328548052976,
+   "ci95": [
+    0.034643922534515786,
+    0.1401871797369025
+   ]
+  }
+ },
+ "G2": {
+  "v3": {
+   "pre": 0.9002,
+   "post": 0.8718,
+   "target": 0.7858,
+   "n": 60,
+   "sec": 25.9,
+   "rej_pre_book": 5.75,
+   "rej_pre_census": 0.8,
+   "rej_pre_fieldA": 1.7,
+   "rej_pre_fieldB": 6.05,
+   "rej_pre_field": 0,
+   "post[hazug forrás]": 0.8557,
+   "target[hazug forrás]": 0.6875,
+   "post[szabály-helyesbítés]": 0.9088,
+   "target[szabály-helyesbítés]": 0.9555,
+   "post[torzított forrás]": 0.851,
+   "target[torzított forrás]": 0.7143
+  },
+  "v4.9": {
+   "pre": 0.8609,
+   "post": 0.8595,
+   "target": 0.9005,
+   "n": 60,
+   "sec": 32.9,
+   "rej_pre_book": 8.1,
+   "rej_pre_census": 0.3,
+   "rej_pre_fieldA": 0.1,
+   "rej_pre_fieldB": 3.8,
+   "rej_pre_field": 0,
+   "post[hazug forrás]": 0.8606,
+   "target[hazug forrás]": 0.875,
+   "post[szabály-helyesbítés]": 0.8569,
+   "target[szabály-helyesbítés]": 0.9137,
+   "post[torzított forrás]": 0.8609,
+   "target[torzított forrás]": 0.9126
+  },
+  "v4.9+PK": {
+   "pre": 0.9229,
+   "post": 0.9242,
+   "target": 0.9303,
+   "n": 60,
+   "sec": 43.0,
+   "rej_pre_book": 3.25,
+   "rej_pre_census": 0.35,
+   "rej_pre_fieldA": 0.9,
+   "rej_pre_fieldB": 9.75,
+   "rej_pre_field": 0,
+   "post[hazug forrás]": 0.9215,
+   "target[hazug forrás]": 0.8875,
+   "post[szabály-helyesbítés]": 0.9279,
+   "target[szabály-helyesbítés]": 0.9447,
+   "post[torzított forrás]": 0.9232,
+   "target[torzított forrás]": 0.9589
+  },
+  "v4.9+PK − v4.9 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.061960461072735465,
+   "ci95": [
+    0.03969977210218508,
+    0.08525086380597748
+   ]
+  },
+  "v4.9+PK − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.022682292148592798,
+   "ci95": [
+    0.0059417125771602745,
+    0.04341213385187449
+   ]
+  },
+  "v4.9 − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": -0.03927816892414267,
+   "ci95": [
+    -0.05876500840932394,
+    -0.020960502447232778
+   ]
+  },
+  "v4.9+PK − v4.9 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.06474375096056734,
+   "ci95": [
+    0.04046113989247213,
+    0.09023147295844343
+   ]
+  },
+  "v4.9+PK − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.052377121497843564,
+   "ci95": [
+    0.01942613710432676,
+    0.10797995913618445
+   ]
+  },
+  "v4.9 − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": -0.012366629462723776,
+   "ci95": [
+    -0.04843492706174485,
+    0.03753487109665515
+   ]
+  },
+  "valódi tankönyvhiba (átlag/eset)": 1.8
+ }
+}

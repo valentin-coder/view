@@ -78,12 +78,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 78 | [78-kontextusindukcio.md](78-kontextusindukcio.md) | Kontextusfüggő indukció (előregisztrált): friss seedeken **semmi hatás** (H78a nem teljesül; a 77. kör attribúciója visszavonva). Feltáró: a G2-lemaradás teljes egészében a béta-megbízhatóságból jön – **bűnbak-forrás**, modellhiba (a Pólya-urna-tulajdonság). |
 | 79 | [79-divergens-11.md](79-divergens-11.md) | Kritikai kör: két generátor után csak a megbízhatatlan forrás felismerése áll erősen; a „menekülőút” a félrespecifikált Bayes ismert jelensége (Grünwald–van Ommen); javaslatok: tanult szabályprioritás, SafeBayes, menekülőút-audit. |
 | 80 | [80-forrastipus-prior.md](80-forrastipus-prior.md) | Forrástípus-prior (gondozott/terepi/ismeretlen keverék, előregisztrált): a hazug forrás felismerése +0,08 – +0,10 mindkét generátoron, G1-A post +0,021; a G2-n semleges (a jósolt kár nem jött, mert a jóslatot rossz alapvonalból vezettem le). A G2-lemaradás oka a tankönyv bűnbakká tétele. |
+| 81 | [81-szabalyprioritas.md](81-szabalyprioritas.md) | Tanult szabályprioritás (osztálykivétel rivális szabályra + javított kódhossz; előregisztrált): **minden hipotézis teljesül** – a G2-n +0,062 a v4.9-hez és **+0,023 a v3-hoz** (a 77. kör kudarca megfordul), a G1-en +0,010. Új diagnosztikai eszköz: az igaz hipotézis pontozása. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **81. kör (folyamatban):** tanult szabályprioritás (prioritásos alapértelmezés: osztálykivétel rivális szabályú osztályra, javított kódhosszal), előregisztrálva mindkét generátoron.
-2. **82. kör:** menekülőút-audit (hamis használati arány) mindkét generátoron.
-3. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
-4. **84. kör:** divergens és kritikai kör.
-5. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **82. kör (folyamatban):** menekülőút-audit (a félretevések minősége a generátor igazsága alapján) mindkét generátoron.
+2. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
+3. **84. kör:** divergens és kritikai kör.
+4. **76. kör (halasztva):** szabályszintű zárás-memó.

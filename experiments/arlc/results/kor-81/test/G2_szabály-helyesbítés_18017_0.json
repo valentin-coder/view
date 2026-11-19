@@ -1,0 +1,1 @@
+{"gen": "G2", "pop": "", "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s", "seed": 18017, "variant": "v3", "pre": 0.9097222222222222, "post": 0.9166666666666666, "target": 1.0, "rej_pre": {"fieldB": 6, "book": 7, "census": 2, "fieldA": 2}, "rej": {"fieldB": 6, "book": 7, "census": 2, "fieldA": 2}, "book_errors": 1, "sec": 17.6}

@@ -1,0 +1,1 @@
+{"gen": "G1", "pop": "A", "kind": "hazug forr\u00e1s", "seed": 18018, "variant": "v4.9+PK", "pre": 0.903448275862069, "post": 0.903448275862069, "target": 0.875, "rej_pre": {"census": 2, "field": 5, "book": 1}, "rej": {"census": 2, "book": 1, "liar": 8, "field": 5}, "book_errors": null, "sec": 19.6}

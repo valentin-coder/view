@@ -1,0 +1,1 @@
+{"gen": "G2", "pop": "", "kind": "torz\u00edtott forr\u00e1s", "seed": 18000, "variant": "v3", "pre": 0.8609271523178808, "post": 0.8543046357615894, "target": 0.7, "rej_pre": {"fieldA": 1, "fieldB": 8, "book": 5, "census": 3}, "rej": {"fieldA": 2, "fieldB": 8, "book": 5, "optimist": 7, "census": 3}, "book_errors": 2, "sec": 34.8}
