@@ -1,0 +1,185 @@
+{
+ "n": 240,
+ "táblázat": {
+  "állapotváltozás | v3": {
+   "pre": 0.9258,
+   "post": 0.8979,
+   "target": 0.25,
+   "hist": 0.6833,
+   "új félretéve": 0.75,
+   "vágás/eset": 0,
+   "izolál": 0,
+   "sec": 12.38
+  },
+  "állapotváltozás | v4.4e": {
+   "pre": 0.8599,
+   "post": 0.8328,
+   "target": 0.225,
+   "hist": 0.6833,
+   "új félretéve": 0.75,
+   "vágás/eset": 0.95,
+   "izolál": 1,
+   "sec": 18.995
+  },
+  "állapotváltozás | befagyasztott": {
+   "pre": 0.8492,
+   "post": 0.7979,
+   "target": 0.1917,
+   "hist": 0.4167,
+   "új félretéve": 0.808,
+   "vágás/eset": 0.65,
+   "izolál": 0,
+   "sec": 22.145
+  },
+  "szabályváltozás | v3": {
+   "pre": 0.9258,
+   "post": 0.8911,
+   "target": 0.1771,
+   "hist": 0.7958,
+   "új félretéve": 0.792,
+   "vágás/eset": 0,
+   "izolál": 0,
+   "sec": 22.545
+  },
+  "szabályváltozás | v4.4e": {
+   "pre": 0.8599,
+   "post": 0.8328,
+   "target": 0.2676,
+   "hist": 0.6678,
+   "új félretéve": 0.656,
+   "vágás/eset": 0.6,
+   "izolál": 1,
+   "sec": 17.8
+  },
+  "szabályváltozás | befagyasztott": {
+   "pre": 0.8492,
+   "post": 0.7998,
+   "target": 0.1926,
+   "hist": 0.8011,
+   "új félretéve": 0.844,
+   "vágás/eset": 0.45,
+   "izolál": 0,
+   "sec": 25.105
+  },
+  "elavult forrás | v3": {
+   "pre": 0.9258,
+   "post": 0.8909,
+   "target": 0.2817,
+   "hist": 0.2817,
+   "új félretéve": 0.282,
+   "vágás/eset": 0,
+   "izolál": 1,
+   "sec": 11.455
+  },
+  "elavult forrás | v4.4e": {
+   "pre": 0.8599,
+   "post": 0.8181,
+   "target": 0.3417,
+   "hist": 0.3417,
+   "új félretéve": 0.342,
+   "vágás/eset": 0.6,
+   "izolál": 3,
+   "sec": 17.975
+  },
+  "elavult forrás | befagyasztott": {
+   "pre": 0.8492,
+   "post": 0.8441,
+   "target": 0.42,
+   "hist": 0.42,
+   "új félretéve": 0.769,
+   "vágás/eset": 0.6,
+   "izolál": 0,
+   "sec": 20.83
+  },
+  "hazug forrás | v3": {
+   "pre": 0.9258,
+   "post": 0.8749,
+   "target": 0.7312,
+   "hist": 0.7312,
+   "új félretéve": 0.731,
+   "vágás/eset": 0,
+   "izolál": 2,
+   "sec": 26.9
+  },
+  "hazug forrás | v4.4e": {
+   "pre": 0.8599,
+   "post": 0.832,
+   "target": 0.8063,
+   "hist": 0.8063,
+   "új félretéve": 0.806,
+   "vágás/eset": 0.85,
+   "izolál": 2,
+   "sec": 22.715
+  },
+  "hazug forrás | befagyasztott": {
+   "pre": 0.8492,
+   "post": 0.8477,
+   "target": 0.875,
+   "hist": 0.875,
+   "új félretéve": 1.0,
+   "vágás/eset": 0.6,
+   "izolál": 0,
+   "sec": 39.1
+  },
+  "összes | v3": {
+   "pre": 0.9258,
+   "post": 0.8887
+  },
+  "összes | v4.4e": {
+   "pre": 0.8599,
+   "post": 0.8289
+  },
+  "összes | befagyasztott": {
+   "pre": 0.8492,
+   "post": 0.8224
+  }
+ },
+ "H88a post: befagyasztott − v3": {
+  "n_seeds": 20,
+  "mean_diff": -0.06629714417351974,
+  "ci95": [
+   -0.11804082941862262,
+   -0.020426571034971717
+  ]
+ },
+ "H88b hazug target: befagyasztott − v3": {
+  "n_seeds": 20,
+  "mean_diff": 0.14375,
+  "ci95": [
+   0.08125,
+   0.2125
+  ]
+ },
+ "H88e elavult target: befagyasztott − v3": {
+  "n_seeds": 20,
+  "mean_diff": 0.13833333333333334,
+  "ci95": [
+   0.006666666666666672,
+   0.27
+  ]
+ },
+ "post: befagyasztott − v4.4e": {
+  "n_seeds": 20,
+  "mean_diff": -0.006556418720521706,
+  "ci95": [
+   -0.0678929236411816,
+   0.07324815899374915
+  ]
+ },
+ "post: v4.4e − v3": {
+  "n_seeds": 20,
+  "mean_diff": -0.059740725452998036,
+  "ci95": [
+   -0.15878236480864008,
+   0.0016577324620818512
+  ]
+ },
+ "pre: befagyasztott − v3": {
+  "n_seeds": 20,
+  "mean_diff": -0.07655518122305532,
+  "ci95": [
+   -0.13647617907956994,
+   -0.027619264860813397
+  ]
+ }
+}
