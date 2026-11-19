@@ -1,0 +1,154 @@
+{
+ "n": 240,
+ "G1A": {
+  "v3": {
+   "pre": 0.7846,
+   "post": 0.7227,
+   "target": 0.5407,
+   "n": 40,
+   "rej_pre_book": 5.2,
+   "rej_pre_census": 0.75,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 3.75,
+   "rej_pre_liar": 0
+  },
+  "v4.8-π": {
+   "pre": 0.8134,
+   "post": 0.7837,
+   "target": 0.6699,
+   "n": 40,
+   "rej_pre_book": 3.15,
+   "rej_pre_census": 0.85,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 2.9,
+   "rej_pre_liar": 0
+  },
+  "v4.8-π+T": {
+   "pre": 0.8114,
+   "post": 0.8044,
+   "target": 0.7099,
+   "n": 40,
+   "rej_pre_book": 3.15,
+   "rej_pre_census": 0.7,
+   "rej_pre_fieldB": 0,
+   "rej_pre_field": 3.05,
+   "rej_pre_liar": 0
+  },
+  "+T − v4.8-π (pre)": {
+   "n_seeds": 20,
+   "mean_diff": -0.00202441194199926,
+   "ci95": [
+    -0.009012605154091895,
+    0.003783687935341812
+   ]
+  },
+  "+T − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": 0.026774787114790265,
+   "ci95": [
+    0.011624296323289146,
+    0.04190964008071546
+   ]
+  },
+  "+T − v4.8-π (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.020697210882005566,
+   "ci95": [
+    0.00011071516401779946,
+    0.048859848242115526
+   ]
+  },
+  "+T − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.0816502128102003,
+   "ci95": [
+    0.04505235707621376,
+    0.12419146302486427
+   ]
+  },
+  "hazug target: +T − v4.8-π": {
+   "n_seeds": 20,
+   "mean_diff": 0.1,
+   "ci95": [
+    0.04375,
+    0.175
+   ]
+  }
+ },
+ "G2": {
+  "v3": {
+   "pre": 0.9015,
+   "post": 0.8695,
+   "target": 0.7939,
+   "n": 40,
+   "rej_pre_book": 5.9,
+   "rej_pre_census": 1.15,
+   "rej_pre_fieldB": 6.45,
+   "rej_pre_field": 0,
+   "rej_pre_liar": 0
+  },
+  "v4.8-π": {
+   "pre": 0.8696,
+   "post": 0.8595,
+   "target": 0.8525,
+   "n": 40,
+   "rej_pre_book": 8.8,
+   "rej_pre_census": 0.1,
+   "rej_pre_fieldB": 4.35,
+   "rej_pre_field": 0,
+   "rej_pre_liar": 0
+  },
+  "v4.8-π+T": {
+   "pre": 0.8683,
+   "post": 0.8722,
+   "target": 0.8939,
+   "n": 40,
+   "rej_pre_book": 8.35,
+   "rej_pre_census": 0.3,
+   "rej_pre_fieldB": 13.3,
+   "rej_pre_field": 0,
+   "rej_pre_liar": 0
+  },
+  "+T − v4.8-π (pre)": {
+   "n_seeds": 20,
+   "mean_diff": -0.0012901523811364613,
+   "ci95": [
+    -0.01720212295240147,
+    0.014015731636784262
+   ]
+  },
+  "+T − v3 (pre)": {
+   "n_seeds": 20,
+   "mean_diff": -0.03317573789329195,
+   "ci95": [
+    -0.058408187561476504,
+    -0.009492931333162907
+   ]
+  },
+  "+T − v4.8-π (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.01270858618629544,
+   "ci95": [
+    -0.01197669120368815,
+    0.04388406818448278
+   ]
+  },
+  "+T − v3 (post)": {
+   "n_seeds": 20,
+   "mean_diff": 0.002712319853657208,
+   "ci95": [
+    -0.030722645116416602,
+    0.0424238140209957
+   ]
+  },
+  "hazug target: +T − v4.8-π": {
+   "n_seeds": 20,
+   "mean_diff": 0.08125,
+   "ci95": [
+    0.00625,
+    0.19375
+   ]
+  },
+  "valódi tankönyvhiba (átlag/eset)": 1.45
+ }
+}

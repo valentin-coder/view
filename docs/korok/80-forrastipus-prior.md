@@ -77,3 +77,52 @@ Kód: [`dev_r80.py`](../../experiments/arlc/arlc/dev_r80.py); hazug forrás. „
 (G1), segít, ahol nem (G2), a bűnbakot csak áthelyezi. Ekkor a valódi javítás a hiányzó primitív (82. kör: tanult
 szabályprioritás), és a +T csak utána értékelhető újra. Ha H80b nem teljesül, a fejlesztési kár seedfüggő volt, és a +T
 alapértelmezésnek jelölt.
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-80/test/`](../../experiments/arlc/results/kor-80/test/); elemzés:
+[`analyze_r80.py`](../../experiments/arlc/arlc/analyze_r80.py) → `results/kor-80/analysis.json`. 240 eset, eltérés nincs.
+
+| | G1-A pre | G1-A post | G1-A target | G2 pre | G2 post | G2 target |
+|---|---|---|---|---|---|---|
+| v3 | 0,785 | 0,723 | 0,541 | **0,902** | 0,870 | 0,794 |
+| v4.8-π | **0,813** | 0,784 | 0,670 | 0,870 | 0,860 | 0,853 |
+| v4.8-π+T | 0,811 | **0,804** | **0,710** | 0,868 | **0,872** | **0,894** |
+
+Félretevés a meglepetés előtt (átlag esetenként, G2; a valódi tankönyvhiba átlagosan 1,45):
+
+| | tankönyv | népszámlálás | fieldB (valódi hibaarány 0,2) |
+|---|---|---|---|
+| v3 | 5,9 | 1,15 | 6,45 |
+| v4.8-π | 8,8 | 0,10 | 4,35 |
+| v4.8-π+T | 8,35 | 0,30 | **13,3** |
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H80a (G1-A, post):** +T − v4.8-π > 0 | +0,021 [+0,000; +0,049] | **teljesül** (épphogy) |
+| **H80b (G2, pre):** +T − v4.8-π < 0 | −0,001 [−0,017; +0,014] | **nem teljesül:** nincs kár |
+| **H80c (G2, mechanizmus):** +T több tankönyvi és kevesebb népszámlálási félretevés; tankönyv > 2 × valódi hiba | tankönyv 8,35 < 8,8; népszámlálás 0,30 > 0,10; 8,35 > 2,9 | **nem teljesül** (csak a harmadik része) |
+| **H80d (hazug forrás target):** +T − v4.8-π ≥ 0 | G1: **+0,100** [+0,044; +0,175]; G2: **+0,081** [+0,006; +0,194] | **teljesül** |
+
+### Értelmezés
+
+1. **A fejlesztési adat megtévesztett, mert rossz alapvonalhoz mértem.** A fejlesztési táblában a népszámlálás
+   bűnbakká tételét a v4.4e-n láttam (1,8), de a v4.8-π-ben a tankönyv-keverék miatt már eleve a tankönyv a bűnbak (8,8),
+   és a népszámlálás alig (0,1). A H80b-t és a H80c-t a v4.8-π-re fogalmaztam meg, a jóslatot viszont a v4.4e-ből
+   vezettem le. **Ez a jóslat megfogalmazásának hibája, nem a mérésé.** A teszt szerint a +T a v4.8-π-hez képest a G2-n
+   semleges.
+2. **A forrástípus-prior hasznos és nem árt:** a hazug forrás felismerése mindkét generátoron +0,08 – +0,10 a célkérdéseken,
+   a G1-ben a post-acc is javul. A G2-n a valóban 0,8-as fieldB-t helyesen teszi félre (13,3 félretevés; a várható hibaszám
+   kb. 12). Az előregisztrált szabály szerint **a +T alapértelmezésnek jelölt** (v4.9 = v4.8-π + forrástípus-prior).
+3. **A G2-lemaradás a v3-hoz képest megmarad** (pre −0,033). Oka minden v4.8-változatban a **tankönyv bűnbakká tétele**
+   (8–9 félretett szabály 1,45 valódi hibára). A v3 is túl sokat tesz félre (5,9). A gyökérok a G2 rejtett
+   családprioritása, amelyet a hipotézistér nem fejez ki. A típus-prior ezen nem segít, és ezt a 79. kör előre
+   megmondta.
+
+### Következmény
+
+A 81. kör a hiányzó primitívet vizsgálja. A fejlesztés közben kiderült, hogy **a meglévő osztálykivétel pontosan egy
+páronkénti szabályprioritás**: (r_b, cat:a) jelentése „a b szabálya nem vonatkozik az a tagjaira”. A G2-n csak azért
+inaktív, mert a 48. kör szigorú specifikussága alosztályt követel (a G2-ben nincs hierarchia). A 81. kör ezt
+oldja fel: az osztálykivétel akkor is megengedett, ha az a-nak saját, ellentétes előjelű szabálya van ugyanarra a
+tulajdonságra (prioritásos alapértelmezés).

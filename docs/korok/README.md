@@ -77,13 +77,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 77 | [77-masodik-generator.md](77-masodik-generator.md) | Második, független generátor (előregisztrált): a v4.x általános pontossága rosszabb a v3-énál (−0,033) – részben illesztett javulások; a forrás-tanulás átvihető (+0,07); a kontextusfüggő indukció a fő kár (a 78. kör visszavonja). |
 | 78 | [78-kontextusindukcio.md](78-kontextusindukcio.md) | Kontextusfüggő indukció (előregisztrált): friss seedeken **semmi hatás** (H78a nem teljesül; a 77. kör attribúciója visszavonva). Feltáró: a G2-lemaradás teljes egészében a béta-megbízhatóságból jön – **bűnbak-forrás**, modellhiba (a Pólya-urna-tulajdonság). |
 | 79 | [79-divergens-11.md](79-divergens-11.md) | Kritikai kör: két generátor után csak a megbízhatatlan forrás felismerése áll erősen; a „menekülőút” a félrespecifikált Bayes ismert jelensége (Grünwald–van Ommen); javaslatok: tanult szabályprioritás, SafeBayes, menekülőút-audit. |
+| 80 | [80-forrastipus-prior.md](80-forrastipus-prior.md) | Forrástípus-prior (gondozott/terepi/ismeretlen keverék, előregisztrált): a hazug forrás felismerése +0,08 – +0,10 mindkét generátoron, G1-A post +0,021; a G2-n semleges (a jósolt kár nem jött, mert a jóslatot rossz alapvonalból vezettem le). A G2-lemaradás oka a tankönyv bűnbakká tétele. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **80. kör:** forrástípus-prior a bűnbak-forrás ellen (előregisztrálva, mindkét generátor friss seedjein).
-2. **81. kör:** menekülőút-audit (hamis használati arány) mindkét generátoron.
-3. **82. kör:** tanult szabályprioritás (prioritásos alapértelmezett logika) a G2-n.
-4. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
-5. **84. kör:** divergens és kritikai kör.
-6. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **81. kör:** tanult szabályprioritás (prioritásos alapértelmezés: osztálykivétel rivális szabályú osztályra), előregisztrálva mindkét generátoron.
+2. **82. kör:** menekülőút-audit (hamis használati arány) mindkét generátoron.
+3. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
+4. **84. kör:** divergens és kritikai kör.
+5. **76. kör (halasztva):** szabályszintű zárás-memó.
