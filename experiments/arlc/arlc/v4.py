@@ -80,6 +80,8 @@ def configured(overrides: dict):
             self.ctx_cost.update(cfg.get("ctx_cost", {}))
             if "ctx_override_sources" in cfg:
                 self.ctx_override_sources = cfg["ctx_override_sources"]
+            if "ctx_induction_sources" in cfg:
+                self.ctx_induction_sources = cfg["ctx_induction_sources"]
     core.Memory.__init__ = init
     try:
         yield cfg

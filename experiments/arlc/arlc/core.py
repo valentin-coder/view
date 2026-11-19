@@ -136,6 +136,7 @@ class Memory:
         self.theory_pi: dict = {}              # 60. kör: forrásonkénti π a keverék-priorhoz (metaadat)
         self.entity_memo = True                # 72. kör: entitásonként memoizált zárás (viselkedésmegőrző)
         self.ctx_override_sources = None       # 73. kör: ha halmaz, az elsőbbség csak ezekre a (jelzett) forrásokra érvényes
+        self.ctx_induction_sources = None      # 78. kör: ha halmaz, kontextusfüggő indukció csak ezek (jelzett források) kontextusában
         self._emc: dict = {}
         self._inv_counter = 0
         self.obs: list[Obs] = []
@@ -801,7 +802,8 @@ class Memory:
     # ------------------------------------------------------------ induction
     def _induce(self, H: Hyp, subj: str) -> list[Hyp]:
         out = []
-        ctxs = [None] + (sorted(H.iso) if self.ctx_induction else [])
+        ctxs = [None] + (sorted(s for s in H.iso if self.ctx_induction_sources is None
+                                or s in self.ctx_induction_sources) if self.ctx_induction else [])
         for ctx in ctxs:
             out.extend(self._induce_in(H, subj, ctx))
         return out
