@@ -1,0 +1,15 @@
+{
+ "seed": 10009,
+ "kind": "kiv\u00e9teles alfaj",
+ "n_true_rej": 9,
+ "L_map": 216.2466075213681,
+ "target_map": 0.6666666666666666,
+ "post_map": 0.8679245283018868,
+ "L_true": 229.67348453050096,
+ "gap": 13.426877009132852,
+ "target_true": 0.5555555555555556,
+ "post_true": 0.8742138364779874,
+ "extra_rej_true": 12,
+ "anchor_rej_dropped": 4,
+ "L_true_greedy_only": 249.41011552109737
+}

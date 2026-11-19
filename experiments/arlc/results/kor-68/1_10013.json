@@ -1,0 +1,15 @@
+{
+ "seed": 10013,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "n_true_rej": 13,
+ "L_map": 202.71027343902992,
+ "target_map": 1.0,
+ "post_map": 0.7847222222222222,
+ "L_true": 214.35108583811905,
+ "gap": 11.640812399089128,
+ "target_true": 1.0,
+ "post_true": 0.8680555555555556,
+ "extra_rej_true": 11,
+ "anchor_rej_dropped": 3,
+ "L_true_greedy_only": 224.7574828581663
+}

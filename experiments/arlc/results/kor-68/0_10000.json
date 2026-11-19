@@ -1,0 +1,15 @@
+{
+ "seed": 10000,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "n_true_rej": 14,
+ "L_map": 209.5689258535671,
+ "target_map": 0.8333333333333334,
+ "post_map": 0.7806451612903226,
+ "L_true": 227.11399987189586,
+ "gap": 17.545074018328762,
+ "target_true": 0.5,
+ "post_true": 0.7935483870967742,
+ "extra_rej_true": 13,
+ "anchor_rej_dropped": 7,
+ "L_true_greedy_only": 250.7273297532908
+}

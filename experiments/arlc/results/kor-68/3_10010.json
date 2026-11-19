@@ -1,0 +1,15 @@
+{
+ "seed": 10010,
+ "kind": "hazug forr\u00e1s",
+ "n_true_rej": 11,
+ "L_map": 204.20783149810404,
+ "target_map": 0.875,
+ "post_map": 0.8954248366013072,
+ "L_true": 244.49246938230874,
+ "gap": 40.2846378842047,
+ "target_true": 1.0,
+ "post_true": 0.7581699346405228,
+ "extra_rej_true": 13,
+ "anchor_rej_dropped": 2,
+ "L_true_greedy_only": 256.15618747667395
+}

@@ -1,0 +1,15 @@
+{
+ "seed": 10010,
+ "kind": "m\u00e1s r\u00e9gi\u00f3",
+ "n_true_rej": 3,
+ "L_map": 189.4071096190205,
+ "target_map": 0.0,
+ "post_map": 0.8758169934640523,
+ "L_true": 231.6683930959145,
+ "gap": 42.26128347689399,
+ "target_true": 0.6666666666666666,
+ "post_true": 0.7189542483660131,
+ "extra_rej_true": 17,
+ "anchor_rej_dropped": 3,
+ "L_true_greedy_only": 262.05248143449853
+}
