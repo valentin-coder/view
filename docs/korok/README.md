@@ -85,10 +85,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 85 | [85-g1k.md](85-g1k.md) | G1 vs. javított G1k (előregisztrált): a hiba a v4-et jobban sújtotta (+0,033 vs. +0,009), ezért a korábbi G1-es v4-előnyök **konzervatívak** voltak; a G1k-n v4.9+PK − v3 = +0,073. A téves alosztály-félretevés csökken, de nem tűnik el (H85b nem teljesül). Mostantól a G1k az első generátor. |
 | 87 | [87-generator-egysegteszt.md](87-generator-egysegteszt.md) | Generátor-egységteszt: a régi G1 3/70, a G1k és a G2 70/70 világban megengedett. Az igaz hipotézis a G2-n (prioritással) a talált közelében van (egy seeden keresési hiba), a G1k-n 14–41 bittel drágább – azonosíthatósági határ, valószínűleg a terepi tények rossz deklarált hitelessége miatt. |
 | 86 | [86-tanulhato-forrastipus.md](86-tanulhato-forrastipus.md) | A forrástípus-prior metaadat nélkül (előregisztrált): az „új forrás gyanúsabb” prior a hatás nagyját visszaadja (+0,034; T − N = 0,010, n.s.) → **két orákulum marad**. De az egyforma keverék ugyanannyit ér: a hatóanyag a szemét-komponens. |
+| 88 | [88-befagyasztas-es-g3.md](88-befagyasztas-es-g3.md) | Befagyasztott konfiguráció egy harmadik, időben változó generátoron (előregisztrált): az általános pontosságban **a v3 alatt** (post −0,066); a forrás-felismerés itt is felette (+0,14). A G3 változási priorja rosszul kalibrált volt (saját hibám); az N szemét-komponense ott menekülőút (29 téves terepi félretevés). Kalibrálva is pre −0,029. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **88. kör (folyamatban):** a konfiguráció befagyasztása, utána a harmadik generátor (időben sodródó szabályok).
-2. **89. kör:** divergens és kritikai kör.
-3. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **89. kör:** divergens és kritikai kör (három generátor mérlege; mi általános és mi illesztett).
+2. **90. kör:** a G3 meglepetés előtti lemaradásának diagnózisa (kalibrált priorral, igaz-hipotézis-pontozással).
+3. **91. kör:** a szemét-komponens korlátozása: tömeges „szemét” mód csak a meglepetés-szerű (új, kicsi) forrásokra.
+4. **76. kör (halasztva):** szabályszintű zárás-memó; a szabályok időbeli vágása (G3 szabályváltozás).

@@ -147,8 +147,9 @@ def surprise3(kind, w: World3, rng, c, tau):
     return new, target, htarget
 
 
-def make_case3(seed, kind):
-    """(séma, megfigyelések, meglepetés, pre-igazság, post-igazság, célkérdések, történeti kérdések, τ)"""
+def make_case3(seed, kind, upd=0.05):
+    """(séma, megfigyelések, meglepetés, pre-igazság, post-igazság, célkérdések, történeti kérdések, τ, világ)
+    upd: a séma állapotváltozási priorja (az előregisztrált G3-ban 0,05; a 88. kör feltáró része 0,3-at is mér)."""
     rng = random.Random(seed)
     w = World3(rng)
     obs, c, tau = stream3(w, rng)
@@ -156,7 +157,7 @@ def make_case3(seed, kind):
     new, target, htarget = surprise3(kind, w, rng, c, tau)
     post = {e: w.truth(e, tau) for e in w.members}
     hist = {e: w.truth(e, tau - 1) for e in w.members}
-    sch = Schema(disjoint=set(), groups={s: "status" for s in STATES}, update_prior={"status": 0.05},
+    sch = Schema(disjoint=set(), groups={s: "status" for s in STATES}, update_prior={"status": upd},
                  n_entities=len(w.members) + 2, n_categories=len(w.cats), n_props=len(w.props) + len(STATES))
     tq = [(e, p, post[e][p]) for e, p in target if p in post.get(e, {})]
     hq = [(e, p, hist[e][p]) for e, p in htarget if p in hist.get(e, {})]

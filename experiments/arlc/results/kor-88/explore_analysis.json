@@ -1,0 +1,188 @@
+{
+ "befagyasztott | upd=0.05": {
+  "n": 80,
+  "pre": 0.849,
+  "post": 0.822,
+  "field téves félretevés/eset": 29.3,
+  "állapotváltozás: target / hist": [
+   0.192,
+   0.417
+  ],
+  "szabályváltozás: target / hist": [
+   0.193,
+   0.801
+  ],
+  "elavult forrás: target / hist": [
+   0.42,
+   0.42
+  ],
+  "hazug forrás: target / hist": [
+   0.875,
+   0.875
+  ]
+ },
+ "befagyasztott | upd=0.3": {
+  "n": 80,
+  "pre": 0.899,
+  "post": 0.882,
+  "field téves félretevés/eset": 1,
+  "állapotváltozás: target / hist": [
+   0.875,
+   0.792
+  ],
+  "szabályváltozás: target / hist": [
+   0.382,
+   0.603
+  ],
+  "elavult forrás: target / hist": [
+   0.545,
+   0.653
+  ],
+  "hazug forrás: target / hist": [
+   0.894,
+   0.894
+  ]
+ },
+ "befagyasztott − N | upd=0.05": {
+  "n": 80,
+  "pre": 0.862,
+  "post": 0.836,
+  "field téves félretevés/eset": 3.1,
+  "állapotváltozás: target / hist": [
+   0.225,
+   0.683
+  ],
+  "szabályváltozás: target / hist": [
+   0.176,
+   0.759
+  ],
+  "elavult forrás: target / hist": [
+   0.342,
+   0.342
+  ],
+  "hazug forrás: target / hist": [
+   0.844,
+   0.844
+  ]
+ },
+ "befagyasztott − N | upd=0.3": {
+  "n": 80,
+  "pre": 0.899,
+  "post": 0.859,
+  "field téves félretevés/eset": 1,
+  "állapotváltozás: target / hist": [
+   0.875,
+   0.792
+  ],
+  "szabályváltozás: target / hist": [
+   0.357,
+   0.616
+  ],
+  "elavult forrás: target / hist": [
+   0.282,
+   0.653
+  ],
+  "hazug forrás: target / hist": [
+   0.831,
+   0.831
+  ]
+ },
+ "v3 | upd=0.05": {
+  "n": 80,
+  "pre": 0.926,
+  "post": 0.889,
+  "field téves félretevés/eset": 4.8,
+  "állapotváltozás: target / hist": [
+   0.25,
+   0.683
+  ],
+  "szabályváltozás: target / hist": [
+   0.177,
+   0.796
+  ],
+  "elavult forrás: target / hist": [
+   0.282,
+   0.282
+  ],
+  "hazug forrás: target / hist": [
+   0.731,
+   0.731
+  ]
+ },
+ "v3 | upd=0.3": {
+  "n": 80,
+  "pre": 0.929,
+  "post": 0.9,
+  "field téves félretevés/eset": 2.2,
+  "állapotváltozás: target / hist": [
+   0.292,
+   0.833
+  ],
+  "szabályváltozás: target / hist": [
+   0.177,
+   0.796
+  ],
+  "elavult forrás: target / hist": [
+   0.298,
+   0.567
+  ],
+  "hazug forrás: target / hist": [
+   0.756,
+   0.756
+  ]
+ },
+ "v4.4e | upd=0.05": {
+  "n": 80,
+  "pre": 0.86,
+  "post": 0.829,
+  "field téves félretevés/eset": 3.0,
+  "állapotváltozás: target / hist": [
+   0.225,
+   0.683
+  ],
+  "szabályváltozás: target / hist": [
+   0.268,
+   0.668
+  ],
+  "elavult forrás: target / hist": [
+   0.342,
+   0.342
+  ],
+  "hazug forrás: target / hist": [
+   0.806,
+   0.806
+  ]
+ },
+ "upd=0,3: befagyasztott − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": -0.017499049226820725,
+  "ci95": [
+   -0.056281792474143055,
+   0.01169702533846666
+  ]
+ },
+ "upd=0,3: befagyasztott − v3 (pre)": {
+  "n_seeds": 20,
+  "mean_diff": -0.02912921076293885,
+  "ci95": [
+   -0.047133963485943314,
+   -0.01390488774553129
+  ]
+ },
+ "upd=0,05: (befagyasztott − N) − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": -0.05274489182792294,
+  "ci95": [
+   -0.15443314441523226,
+   0.011512750848273435
+  ]
+ },
+ "upd=0,3: (befagyasztott − N) − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": -0.04031882610862505,
+  "ci95": [
+   -0.11563702107731122,
+   0.006984500230963064
+  ]
+ }
+}
