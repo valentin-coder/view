@@ -90,11 +90,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 90 | [90-temperalt-kod.md](90-temperalt-kod.md) | Temperált megbízhatósági kód prequential η-val (előregisztrált): a forrás-célkérdéseken +0,18 a v3-hoz, a G3 pre-ban +0,05 az η = 1-hez, de a G3 post-ban rosszabb a jobbik végpontnál – a prequential veszteség rossz célt optimalizál. Feltáró: **az η = 0 (v4-szerkezet, rögzített megbízhatóság) mindhárom generátoron a v3 fölött van** (+0,03 – +0,06). |
 | 91 | [91-hibrid-kod.md](91-hibrid-kod.md) | Hibrid megbízhatósági kód (bevált forrás rögzített, új adaptív) + eseményenkénti vágásár (előregisztrált): **minden hipotézis teljesül – először van konfiguráció, amely mindhárom generátoron a v3 fölött van** (+0,05 – +0,10), és a forrás-felismerést is megtartja (+0,16). Új befagyasztott: FROZEN_91. |
 | 92 | [92-biztonsagi-ellenorzes.md](92-biztonsagi-ellenorzes.md) | A FROZEN_91 biztonsági ellenőrzése (előregisztrált): szemét-tankönyv és rivális elméletek rendben, hazug forrás +0,60 a v3-hoz; a feladatcsomagban a TFB-9 −0,06 (H92a nem teljesül; ok: rögzített kód a deklaráltnál zajosabb forrásnál). Kiderült: **a FROZEN_88 az E1 alapfeladatot teljesen elrontotta** – a régi csomag futtatása mostantól a befagyasztás feltétele. |
+| 93 | [93-g4.md](93-g4.md) | Negyedik generátor (G4: forrásfüggőség és -változás, előregisztrált): a forrás-felismerés itt is erős (+0,26), a visszhang nem árt; az általános előny nem jelenik meg (+0,010, n.s.). Jósolt gyengeségek: romló bevált forrás (0,000), jó új specialista (−0,092). A pre-lemaradás oka: a tankönyv elmélet-keverékének adaptív komponense. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **93. kör (folyamatban):** negyedik, a befagyasztás után épített generátor (G4: forrásfüggőség és forrásváltozás), előregisztrálva.
-2. **94. kör:** divergens és kritikai kör.
-3. **95. kör:** lassan tanuló bevált forrás (κ = 300) a rögzített kód helyett.
-4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); az elavult forrás jobb felismerése; szabályszintű zárás-memó (76. kör).
+1. **94. kör:** divergens és kritikai kör.
+2. **95. kör:** lassan tanuló becsületes komponens (κ₁ = 300) az elmélet-keverékben és a bevált forrásokra, előregisztrálva négy generátoron és a feladatcsomagon.
+3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); az elavult forrás jobb felismerése; szabályszintű zárás-memó (76. kör).

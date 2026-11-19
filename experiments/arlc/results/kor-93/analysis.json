@@ -1,0 +1,160 @@
+{
+ "n": 240,
+ "táblázat": {
+  "visszhang | v3": {
+   "pre": 0.9133,
+   "post": 0.8589,
+   "target": 0.545,
+   "új félretéve": {
+    "liar": 0.506,
+    "echo": 0.545
+   }
+  },
+  "visszhang | FROZEN_88": {
+   "pre": 0.8978,
+   "post": 0.8978,
+   "target": 0.93,
+   "új félretéve": {
+    "liar": 1.0,
+    "echo": 1.0
+   }
+  },
+  "visszhang | FROZEN_91": {
+   "pre": 0.8983,
+   "post": 0.8978,
+   "target": 0.92,
+   "új félretéve": {
+    "liar": 1.0,
+    "echo": 1.0
+   }
+  },
+  "romló forrás | v3": {
+   "pre": 0.9133,
+   "post": 0.8872,
+   "target": 0.79,
+   "új félretéve": {
+    "f1": 0.455
+   }
+  },
+  "romló forrás | FROZEN_88": {
+   "pre": 0.8978,
+   "post": 0.8683,
+   "target": 0.82,
+   "új félretéve": {
+    "f1": 0.585
+   }
+  },
+  "romló forrás | FROZEN_91": {
+   "pre": 0.8983,
+   "post": 0.8844,
+   "target": 0.79,
+   "új félretéve": {
+    "f1": 0.45
+   }
+  },
+  "jó új specialista | v3": {
+   "pre": 0.9133,
+   "post": 0.93,
+   "target": 0.9356,
+   "új félretéve": {
+    "spec": 0.026
+   }
+  },
+  "jó új specialista | FROZEN_88": {
+   "pre": 0.8978,
+   "post": 0.9178,
+   "target": 0.7994,
+   "új félretéve": {
+    "spec": 0.333
+   }
+  },
+  "jó új specialista | FROZEN_91": {
+   "pre": 0.8983,
+   "post": 0.9217,
+   "target": 0.8439,
+   "új félretéve": {
+    "spec": 0.302
+   }
+  },
+  "hazug forrás | v3": {
+   "pre": 0.9133,
+   "post": 0.8861,
+   "target": 0.6625,
+   "új félretéve": {
+    "liar": 0.662
+   }
+  },
+  "hazug forrás | FROZEN_88": {
+   "pre": 0.8978,
+   "post": 0.8978,
+   "target": 0.925,
+   "új félretéve": {
+    "liar": 1.0
+   }
+  },
+  "hazug forrás | FROZEN_91": {
+   "pre": 0.8983,
+   "post": 0.8978,
+   "target": 0.9187,
+   "új félretéve": {
+    "liar": 1.0
+   }
+  },
+  "összes | v3": {
+   "pre": 0.9133,
+   "post": 0.8906,
+   "target": 0.7333
+  },
+  "összes | FROZEN_88": {
+   "pre": 0.8978,
+   "post": 0.8954,
+   "target": 0.8686
+  },
+  "összes | FROZEN_91": {
+   "pre": 0.8983,
+   "post": 0.9004,
+   "target": 0.8682
+  }
+ },
+ "H93a post: F91 − v3": {
+  "n_seeds": 20,
+  "mean_diff": 0.00986111111111112,
+  "ci95": [
+   -0.005555555555555547,
+   0.033055555555555574
+  ]
+ },
+ "H93b hazug target: F91 − v3": {
+  "n_seeds": 20,
+  "mean_diff": 0.25625,
+  "ci95": [
+   0.15,
+   0.38125
+  ]
+ },
+ "H93c F91 target: visszhang − hazug": 0.0013,
+ "H93d romló target: F91 − v3": {
+  "n_seeds": 20,
+  "mean_diff": -1.1102230246251566e-17,
+  "ci95": [
+   -0.06000000000000001,
+   0.06999999999999999
+  ]
+ },
+ "H93e specialista target: F91 − v3": {
+  "n_seeds": 20,
+  "mean_diff": -0.09166666666666667,
+  "ci95": [
+   -0.18611111111111112,
+   -0.009444444444444446
+  ]
+ },
+ "post: F91 − F88": {
+  "n_seeds": 20,
+  "mean_diff": 0.004999999999999988,
+  "ci95": [
+   -0.009583333333333343,
+   0.018194444444444423
+  ]
+ }
+}
