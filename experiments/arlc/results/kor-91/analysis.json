@@ -1,0 +1,286 @@
+{
+ "n": 560,
+ "táblázat": {
+  "G1k | v3": {
+   "pre": 0.8331,
+   "post": 0.7933,
+   "target": 0.6382,
+   "sec": 17.8
+  },
+  "G1k | η=0": {
+   "pre": 0.8966,
+   "post": 0.8851,
+   "target": 0.7226,
+   "sec": 16.1
+  },
+  "G1k | η=1": {
+   "pre": 0.8859,
+   "post": 0.8803,
+   "target": 0.7409,
+   "sec": 18.1
+  },
+  "G1k | hibrid+V": {
+   "pre": 0.8969,
+   "post": 0.8927,
+   "target": 0.7632,
+   "sec": 17.5
+  },
+  "G1k hazug forrás | v3": {
+   "post": 0.7574,
+   "target": 0.5312
+  },
+  "G1k hazug forrás | η=0": {
+   "post": 0.8797,
+   "target": 0.6687
+  },
+  "G1k hazug forrás | η=1": {
+   "post": 0.8859,
+   "target": 0.8562
+  },
+  "G1k hazug forrás | hibrid+V": {
+   "post": 0.8969,
+   "target": 0.8562
+  },
+  "G1k átkategorizálás | v3": {
+   "post": 0.8293,
+   "target": 0.7452
+  },
+  "G1k átkategorizálás | η=0": {
+   "post": 0.8906,
+   "target": 0.7765
+  },
+  "G1k átkategorizálás | η=1": {
+   "post": 0.8748,
+   "target": 0.6256
+  },
+  "G1k átkategorizálás | hibrid+V": {
+   "post": 0.8886,
+   "target": 0.6702
+  },
+  "G2 | v3": {
+   "pre": 0.8947,
+   "post": 0.8659,
+   "target": 0.6622,
+   "sec": 32.9
+  },
+  "G2 | η=0": {
+   "pre": 0.934,
+   "post": 0.9203,
+   "target": 0.7597,
+   "sec": 40.5
+  },
+  "G2 | η=1": {
+   "pre": 0.9203,
+   "post": 0.9178,
+   "target": 0.9219,
+   "sec": 55.4
+  },
+  "G2 | hibrid+V": {
+   "pre": 0.924,
+   "post": 0.9223,
+   "target": 0.8916,
+   "sec": 43.9
+  },
+  "G2 hazug forrás | v3": {
+   "post": 0.8573,
+   "target": 0.6937
+  },
+  "G2 hazug forrás | η=0": {
+   "post": 0.9211,
+   "target": 0.7812
+  },
+  "G2 hazug forrás | η=1": {
+   "post": 0.9204,
+   "target": 0.95
+  },
+  "G2 hazug forrás | hibrid+V": {
+   "post": 0.9223,
+   "target": 0.925
+  },
+  "G2 torzított forrás | v3": {
+   "post": 0.8745,
+   "target": 0.6306
+  },
+  "G2 torzított forrás | η=0": {
+   "post": 0.9195,
+   "target": 0.7381
+  },
+  "G2 torzított forrás | η=1": {
+   "post": 0.9152,
+   "target": 0.8938
+  },
+  "G2 torzított forrás | hibrid+V": {
+   "post": 0.9222,
+   "target": 0.8582
+  },
+  "G3 | v3": {
+   "pre": 0.9179,
+   "post": 0.8788,
+   "target": 0.4228,
+   "sec": 38.0
+  },
+  "G3 | η=0": {
+   "pre": 0.9293,
+   "post": 0.9064,
+   "target": 0.4499,
+   "sec": 36.5
+  },
+  "G3 | η=1": {
+   "pre": 0.8609,
+   "post": 0.8943,
+   "target": 0.8276,
+   "sec": 37.4
+  },
+  "G3 | hibrid+V": {
+   "pre": 0.9286,
+   "post": 0.927,
+   "target": 0.8181,
+   "sec": 39.5
+  },
+  "G3 elavult forrás | v3": {
+   "post": 0.8892,
+   "target": 0.31
+  },
+  "G3 elavult forrás | η=0": {
+   "post": 0.903,
+   "target": 0.31
+  },
+  "G3 elavult forrás | η=1": {
+   "post": 0.8932,
+   "target": 0.6517
+  },
+  "G3 elavult forrás | hibrid+V": {
+   "post": 0.9192,
+   "target": 0.4917
+  },
+  "G3 hazug forrás | v3": {
+   "post": 0.8595,
+   "target": 0.725
+  },
+  "G3 hazug forrás | η=0": {
+   "post": 0.9171,
+   "target": 0.8063
+  },
+  "G3 hazug forrás | η=1": {
+   "post": 0.8911,
+   "target": 0.8812
+  },
+  "G3 hazug forrás | hibrid+V": {
+   "post": 0.9282,
+   "target": 0.9625
+  },
+  "G3 állapotváltozás | v3": {
+   "post": 0.8876,
+   "target": 0.2333
+  },
+  "G3 állapotváltozás | η=0": {
+   "post": 0.899,
+   "target": 0.2333
+  },
+  "G3 állapotváltozás | η=1": {
+   "post": 0.8985,
+   "target": 0.95
+  },
+  "G3 állapotváltozás | hibrid+V": {
+   "post": 0.9336,
+   "target": 1.0
+  }
+ },
+ "H91a G1k: η=0 − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.09180362671931626,
+  "ci95": [
+   0.034242364067866,
+   0.16919558158978776
+  ]
+ },
+ "H91b G1k: hibrid+V − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.09940201395581715,
+  "ci95": [
+   0.0438176284664417,
+   0.17521675369021605
+  ]
+ },
+ "G1k: hibrid+V − η=1 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.012428795319645285,
+  "ci95": [
+   -0.0024599271817577094,
+   0.03329360667198039
+  ]
+ },
+ "H91a G2: η=0 − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.054404584506523974,
+  "ci95": [
+   0.021862448859817973,
+   0.09551129593618585
+  ]
+ },
+ "H91b G2: hibrid+V − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.056382811561147765,
+  "ci95": [
+   0.02128018034493174,
+   0.10225634013011592
+  ]
+ },
+ "G2: hibrid+V − η=1 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.004483544405005435,
+  "ci95": [
+   -0.004686078554049794,
+   0.01485104801369816
+  ]
+ },
+ "H91a G3: η=0 − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.027593140965083595,
+  "ci95": [
+   0.008866221460975881,
+   0.05913067841419912
+  ]
+ },
+ "H91b G3: hibrid+V − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.04825457801886858,
+  "ci95": [
+   0.0285994162668149,
+   0.0781950306223414
+  ]
+ },
+ "G3: hibrid+V − η=1 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.032754961500843734,
+  "ci95": [
+   0.016540610372354304,
+   0.05619819426595106
+  ]
+ },
+ "H91c forrás-célkérdések: hibrid+V − η=0": {
+  "n_seeds": 60,
+  "mean_diff": 0.1627876984126984,
+  "ci95": [
+   0.1223015873015873,
+   0.20501984126984127
+  ]
+ },
+ "forrás-célkérdések: hibrid+V − η=1": {
+  "n_seeds": 60,
+  "mean_diff": -0.02321759259259259,
+  "ci95": [
+   -0.055208333333333325,
+   0.008032407407407403
+  ]
+ },
+ "H91d G3 pre: hibrid+V − η=1": {
+  "n_seeds": 20,
+  "mean_diff": 0.06773007400407441,
+  "ci95": [
+   0.019615923598569784,
+   0.15688824666783457
+  ]
+ },
+ "H91e G3 állapotváltozás target (hibrid+V)": 1.0
+}

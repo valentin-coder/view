@@ -167,3 +167,5 @@ def run_ablation():
 # 91. kör: hibrid megbízhatósági kód a befagyasztott szerkezettel
 HYBRID_91 = {**FROZEN_88, "rel_hybrid": True}
 HYBRID_V_91 = {**HYBRID_91, "cut_per_event": True}
+# 91. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 91. kör alapján). A 93. kori negyedik generátor ezt méri.
+FROZEN_91 = HYBRID_V_91
