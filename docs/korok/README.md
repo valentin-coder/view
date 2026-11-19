@@ -66,11 +66,14 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 64 | [64-divergens-8.md](64-divergens-8.md) | Kritikai kör: a célkérdés-előnyök a holtversenyes típus nélkül kisebbek, de szignifikánsak (hazug forrás +0,15); a 60. kör eredménye orákulum-metaadaton áll; azonosíthatósági előszűrés kell. |
 | 66 | [66-forrastipus-pontossag.md](66-forrastipus-pontossag.md) | Szimulált forrástípus-pontosság (előregisztrált): 0,9-es pontosság átlagban nagyjából elég, de egy téves, magabiztos típus esetenként összeomlást okoz; a bizonytalanságot is továbbítani kell. |
 | 67 | [67-azonosithatosag.md](67-azonosithatosag.md) | A nyaláb-alapú döntési margó nem azonosíthatósági mérték: a target-acc a margóval csökken (magabiztos tévedés). |
+| 68 | [68-azonosithatosag-igaz.md](68-azonosithatosag-igaz.md) | Az igazhoz horgonyzott hipotézis rése felső korlát (az ellenőrző jóslat a mérőeszköz hibáját fogta meg); a „más régió”-ban a helyes kontextus-magyarázat drágább két hamisnál. |
+| 69 | [69-divergens-9.md](69-divergens-9.md) | Kritikai kör: a kontextus a legmélyebb nyitott probléma – a forrás-szintű izolálás túl durva; javaslat: kontextusfüggő szabály. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **65. kör:** kontextuson belüli elsőbbség jó jellel (a 62. kör nyitott kérdése).
-2. **68. kör:** azonosíthatóság az igaz hipotézisből: a generátor megadja az igaz magyarázatot, és mérjük a MAP-tól való bit-különbséget meglepetéstípusonként.
-3. **69. kör:** divergens és kritikai kör.
-4. **70. kör:** típusbizonytalanságot továbbító π (a 66. kör követelménye).
+1. **65. kör:** kontextuson belüli elsőbbség jó jellel (a 62. kör nyitott kérdése; a 69. kör szerint a 71. kör részeként).
+2. **70. kör:** típusbizonytalanságot továbbító π, előregisztrálva.
+3. **71. kör:** kontextusfüggő szabály forrás-szintű izolálás helyett, előregisztrálva.
+4. **72. kör:** inkrementális zárás, viselkedésmegőrzően.
+5. **74. kör:** divergens és kritikai kör.
