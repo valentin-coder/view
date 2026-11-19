@@ -88,3 +88,6 @@ irodalomkutatás első lépései. Minden sorban: mit kell ellenőrizni, és hol 
 | Touretzky 1986; Horty–Thomason–Touretzky 1990 | specifikusság (inferential distance) az öröklési hálókban | 49 |
 | Lakatos 1970 | védőöv: a kemény mag védelme ad hoc kiegészítésekkel | 49 |
 | De Raedt et al. 2007 (ProbLog); Milch et al. 2005 (BLOG) | valószínűségi logikai programozás mint generatív specifikáció | 51 |
+| Grünwald–van Ommen 2017 („Inconsistency of Bayesian inference for misspecified linear models, and a proposal for repairing it”) | félrespecifikált modellben a poszterior rossz komplex magyarázatra koncentrálhat; SafeBayes: temperált likelihood, η az adatból | 79 |
+| Brewka 1989 („Preferred subtheories”) | prioritásos alapértelmezett logika: a szabályok rendezése dönti el az ütközést | 79 |
+| Pólya-urna / Dirichlet-folyamat „gazdag gazdagabb” tulajdonsága | a béta-binomiális marginális a hibák egy forrásba koncentrálását jutalmazza | 78 |

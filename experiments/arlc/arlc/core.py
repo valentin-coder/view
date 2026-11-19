@@ -128,6 +128,8 @@ class Memory:
         self.corroboration = False             # 43. kör (v4.1): csak a megerősített állítás épít múltat
         self.ind_exc_cost = False              # 45. kör (3. hiba): indukált/feltalált szabály kivétele is -log2 ε-ba kerül
         self.theory_mix: Optional[tuple] = None  # 48. kör: (π, κ1, q0, κ0) keverék-prior az elmélet-megbízhatóságra
+        self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
+        self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
         self.strict_specificity = False        # 48. kör: osztályszintű kivétel csak a szabály törzsének szigorú alosztályára
         self.auto_specificity = False          # 49. kör: a specifikusabb ellentétes szabály ingyen felülírja az általánosabbat
@@ -529,14 +531,27 @@ class Memory:
         bb = lambda n, k, kap, q: (lb(kap * q, kap * (1 - q)) - lb(kap * q + n - k, kap * (1 - q) + k)) / math.log(2)
         for src, (n, k, q) in stats.items():
             theory = isinstance(src, tuple) and src[1] == "elmélet"
+            sm = None
+            if self.source_mix is not None:
+                sname = src[0] if isinstance(src, tuple) else src
+                sm = self.source_mix.get(sname, self.source_mix_default)
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
                 pi, k1, q0m, k0 = self.theory_mix[:4]
                 pi = self.theory_pi.get(src[0], pi)   # 60. kör: forrás-metaadatból jövő területi π
+                if sm is not None:
+                    k1 = sm[1]                        # 80. kör: a becsületes komponens szélessége a forrástípusból
                 # kalibrált változat: a magányos állítás helyességének valószínűsége a deklarált q marad,
                 # π·q1 + (1−π)·q0 = q (ehhez π ≥ (q − q0)/(1 − q0) kell)
                 q1 = min(1 - 1e-9, max(1e-9, (q - (1 - pi) * q0m) / pi)) if len(self.theory_mix) > 4 else q
                 c1, c0 = bb(n, k, k1, q1), bb(n, k, k0, q0m)
+                m = min(c1, c0)
+                bits += m - math.log2(pi * 2 ** (m - c1) + (1 - pi) * 2 ** (m - c0))
+                continue
+            if sm is not None:
+                # 80. kör: „becsületes, legfeljebb kissé kalibrálatlan” (κ1 a deklarált q körül) vagy „szemét” (Beta(1,1))
+                pi, k1 = sm
+                c1, c0 = bb(n, k, k1, q), bb(n, k, 2.0, 0.5)
                 m = min(c1, c0)
                 bits += m - math.log2(pi * 2 ** (m - c1) + (1 - pi) * 2 ** (m - c0))
                 continue

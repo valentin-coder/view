@@ -41,6 +41,15 @@ V45_OVERRIDES = {**V44_OVERRIDES, "ctx_override": True}        # 50. kör: + kon
 V44E_OVERRIDES = {**V44_OVERRIDES, "theory_kappa": None}       # 50. kör: v4.4-egyszintű
 V46_OVERRIDES = {**V44E_OVERRIDES, "latent_truth": True}       # 53. kör: + közös látens igazság
 V47_OVERRIDES = {**V44E_OVERRIDES, "ctx_cost": {"book": 10.0, "census": 10.0}}  # 56. kör: gondozott forrás kontextusa 10 bit
+# 80. kör: forrástípus-prior (a 78. kör bűnbak-forrás diagnózisára). A típus metaadat, a paraméterek a priori:
+# gondozott forrás megbízhatósága kb. ±0,01 pontossággal ismert (κ1 = 300), szemét-esélye 0,1%; terepi forrás
+# kalibrálatlan lehet (κ1 = 30), szemét-esélye 1%; ismeretlen (új, ellenőrizetlen) forrás: κ1 = 30, szemét-esélye 10%.
+CURATED = (0.999, 300.0)
+FIELD = (0.99, 30.0)
+UNKNOWN = (0.9, 30.0)
+SOURCE_TYPE_MIX = {"book": CURATED, "book2": CURATED, "census": CURATED, "review": CURATED, "expert": CURATED,
+                   "field": FIELD, "fieldA": FIELD, "fieldB": FIELD}
+V49_SM = {"source_mix": SOURCE_TYPE_MIX, "source_mix_default": UNKNOWN}
 
 ABLATIONS = {
     "v4": {},
@@ -80,6 +89,9 @@ def configured(overrides: dict):
             self.ctx_cost.update(cfg.get("ctx_cost", {}))
             if "ctx_override_sources" in cfg:
                 self.ctx_override_sources = cfg["ctx_override_sources"]
+            if "source_mix" in cfg:
+                self.source_mix = cfg["source_mix"]
+                self.source_mix_default = cfg.get("source_mix_default")
             if "ctx_induction_sources" in cfg:
                 self.ctx_induction_sources = cfg["ctx_induction_sources"]
     core.Memory.__init__ = init
