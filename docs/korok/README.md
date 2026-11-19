@@ -87,12 +87,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 86 | [86-tanulhato-forrastipus.md](86-tanulhato-forrastipus.md) | A forrástípus-prior metaadat nélkül (előregisztrált): az „új forrás gyanúsabb” prior a hatás nagyját visszaadja (+0,034; T − N = 0,010, n.s.) → **két orákulum marad**. De az egyforma keverék ugyanannyit ér: a hatóanyag a szemét-komponens. |
 | 88 | [88-befagyasztas-es-g3.md](88-befagyasztas-es-g3.md) | Befagyasztott konfiguráció egy harmadik, időben változó generátoron (előregisztrált): az általános pontosságban **a v3 alatt** (post −0,066); a forrás-felismerés itt is felette (+0,14). A G3 változási priorja rosszul kalibrált volt (saját hibám); az N szemét-komponense ott menekülőút (29 téves terepi félretevés). Kalibrálva is pre −0,029. |
 | 89 | [89-divergens-13.md](89-divergens-13.md) | Kritikai kör: három generátor után **egyetlen általános képesség a megbízhatatlan forrás felismerése**; a „v4 általában jobb” állítás nem tartható. Közös mechanizmus: az adaptív megbízhatósági kód félrespecifikált világban menekülőutat ad. Javaslat: temperált (SafeBayes) kód prequential η-val. |
+| 90 | [90-temperalt-kod.md](90-temperalt-kod.md) | Temperált megbízhatósági kód prequential η-val (előregisztrált): a forrás-célkérdéseken +0,18 a v3-hoz, a G3 pre-ban +0,05 az η = 1-hez, de a G3 post-ban rosszabb a jobbik végpontnál – a prequential veszteség rossz célt optimalizál. Feltáró: **az η = 0 (v4-szerkezet, rögzített megbízhatóság) mindhárom generátoron a v3 fölött van** (+0,03 – +0,06). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **90. kör (folyamatban):** temperált megbízhatósági kód (SafeBayes), prequential η-val – előregisztrálva G1k, G2 és kalibrált G3 friss seedjein.
-2. **91. kör:** a G3 meglepetés előtti lemaradásának diagnózisa.
-3. **92. kör:** a szemét-komponens korlátozása megerősítetlen forrásokra.
+1. **91. kör:** hibrid megbízhatósági kód (bevált forrás: rögzített; új forrás: adaptív keverék) és az η = 0 megerősítése, előregisztrálva három generátoron.
+2. **92. kör:** a G3 meglepetés előtti lemaradásának maradéka (ha a hibrid után is van).
+3. **93. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
 4. **94. kör:** divergens és kritikai kör.
 5. **Halasztva:** szabályszintű zárás-memó (76. kör); a szabályok időbeli vágása.

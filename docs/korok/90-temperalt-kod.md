@@ -52,3 +52,45 @@ meglepetés előtti képen alig változtat.
 **Értelmezés előre:** ha H90a és H90b teljesül, a temperált kód feloldja a 89. kör ellentétét, és metaadat nélkül adja a
 két végpont jobbikát. Ha H90e nem teljesül (a prequential veszteség nem választja szét a generátorokat), a módszer
 mechanizmusa nem működik, még ha a pontosság véletlenül jó is.
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-90/test/`](../../experiments/arlc/results/kor-90/test/); elemzés:
+[`analyze_r90.py`](../../experiments/arlc/arlc/analyze_r90.py) → `results/kor-90/analysis.json`. 560 futás, eltérés nincs.
+
+### Post-acc (célkérdés-acc zárójelben)
+
+| | G1k | G2 | G3 (upd = 0,3) |
+|---|---|---|---|
+| v3 | 0,829 (0,670) | 0,882 (0,735) | 0,856 (0,433) |
+| η = 0 | 0,862 (0,732) | 0,937 (0,798) | 0,895 (0,458) |
+| η = 0,5 | 0,873 (**0,784**) | **0,948** (0,946) | 0,865 (0,608) |
+| η = 1 (befagyasztott) | 0,870 (0,766) | 0,945 (**0,946**) | **0,899** (**0,831**) |
+| SB | **0,877** (0,769) | 0,943 (0,871) | 0,868 (0,659) |
+
+Pre-acc a G3-on: v3 0,912; η = 0: **0,926**; η = 0,5: 0,920; η = 1: 0,866; SB: 0,916.
+
+η-választás (esetszám): G1k: 0 → 4, 0,5 → 16, 1 → 20; G2: 0 → 16, 0,5 → 8, 1 → 16; G3: 0 → 15, 0,5 → 15, 1 → 30.
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H90a:** SB − max(v3, η = 1) ≥ −0,01 (post) | G1k +0,003; G2 −0,003; **G3 −0,039** [−0,108; −0,002] | **nem teljesül** (a G3-on) |
+| **H90b:** forrás-célkérdések SB − v3 > 0 | **+0,183** [+0,141; +0,229] | **teljesül** |
+| **H90c (G3, pre):** SB − (η = 1) > 0 | **+0,050** [+0,005; +0,133] | **teljesül** |
+| **H90d (G1k ∪ G2, post):** SB − (η = 1) ≥ −0,01 | +0,003 [−0,002; +0,008] | **teljesül** |
+| **H90e:** G3-on ≥ 50% η < 1; G1k, G2-n ≥ 50% η = 1 | G3: 50%; G1k: 50%; **G2: 40%** | **nem teljesül** (a G2-n) |
+
+### Értelmezés
+
+1. **A prequential η-választás rossz célt optimalizál.** A meglepetés előtti folyam előrejelzése a *háttérvilág*
+   leírását méri. Ott a kis η jó (G3 pre: SB +0,050 az η = 1-hez). A meglepetés kezelése viszont, különösen egy új
+   megbízhatatlan forrásé, a nagy η-tól függ (G3 target: η = 1 0,831, SB 0,659). **A két feladat különböző η-t kíván,
+   és egyetlen globális η nem tudja mindkettőt.** A G2-n a választás közel véletlenszerű (H90e).
+2. **Nem előregisztrált, de fontos megfigyelés:** az **η = 0** (a v4 szerkezete, *rögzített* megbízhatósági kóddal) a post-acc-ban
+   **mindhárom generátoron a v3 fölött van:** G1k +0,033 [+0,016; +0,051], G2 +0,055 [+0,017; +0,120], G3 +0,039 [+0,007;
+   +0,085]. **A v4 szerkezeti újításai (specifikusság, kivétel-prior, prioritás, tankönyv-keverék) tehát általánosak.** A
+   harmadik generátoron mért kudarc (88. kör) az *adaptív megbízhatósági kódból* jött. Ez egybevág a 89. kör diagnózisával,
+   de friss seedeken is meg kell erősíteni, mert nem ez volt a hipotézis.
+3. **A két feladat szétválasztható:** a háttérforrásokra rögzített kód (az η = 0 erőssége), az új forrásokra adaptív kód (az
+   η = 1 erőssége a hazug forrásnál). Ez a 86. kör „új forrás” gondolatának a megbízhatósági kódra kiterjesztett
+   változata. A 91. kör ezt méri előregisztráltan.
