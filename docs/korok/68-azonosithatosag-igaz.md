@@ -6,7 +6,10 @@ A 67. kör szerint a nyaláb-alapú margó nem mér azonosíthatóságot. Itt az
 felépítem az **igazhoz horgonyzott hipotézist**:
 - elvetve: a tankönyv hibásan közölt szabályai, a zajos terepi tények, a hazug forrás tényei;
 - kontextusba izolálva: a „más régió” forrás;
-- a maradék ütközéseket (valódi kivételek, felülírások, átkategorizálás) mohó befejezés oldja fel.
+- a maradék ütközéseket (valódi kivételek, felülírások, átkategorizálás) mohó befejezés oldja fel, utána a
+  visszahelyező lépés (36. kör) kidobja a felesleges elutasításokat. (Az első futásban a visszahelyezés nélkül a mohó
+  lépés 14 felesleges elutasítást adott, és a horgonyzott hipotézis target-acc-ja 0,5 lett. A J3 ezt fogta meg; a
+  futást 43 eset után leállítottam, és ezzel a javítással újraindítottam.)
 
 A **rés** = L(H_igaz) − L(MAP) bitben:
 - > 0: a modell egy hamis magyarázatot tart olcsóbbnak (**modellhiba**);

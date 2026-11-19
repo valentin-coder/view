@@ -50,7 +50,10 @@ def job(a):
             and pre.get(o.lit.subj, {}).get(o.lit.obj) is not None and pre[o.lit.subj][o.lit.obj] != o.lit.pos}
     rej |= {o.id for o in new if o.lit is not None and o.lit.pred == "has" and o.source == "liar"}
     iso = frozenset({"region2"}) if kind == "más régió" else frozenset()
-    Hg = m._greedy(Hyp(rej=frozenset(rej), iso=iso))
+    Hg0 = m._greedy(Hyp(rej=frozenset(rej), iso=iso))
+    # a mohó befejezés felesleges elutasításokat is ad; a visszahelyezés (36. kör) ezeket kidobja, a valódi hibák
+    # elutasítása megmarad (visszavéve ütköznének)
+    Hg = m._reinstate(Hg0) if Hg0 is not None else None
     row = {"seed": seed, "kind": kind, "n_true_rej": len(rej), "L_map": m.score(Hmap)}
     m.beam = [Hmap]
     row["target_map"] = P.accuracy(m, tq)
@@ -62,6 +65,8 @@ def job(a):
         row["target_true"] = P.accuracy(m, tq)
         row["post_true"] = P.evaluate(m, post)
         row["extra_rej_true"] = len(Hg.rej - frozenset(rej))
+        row["anchor_rej_dropped"] = len(frozenset(rej) - Hg.rej)
+        row["L_true_greedy_only"] = m.score(Hg0)
     json.dump(row, open(path + ".tmp", "w"), indent=1)
     os.replace(path + ".tmp", path)
     return a
