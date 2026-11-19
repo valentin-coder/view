@@ -94,7 +94,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **93. kör (folyamatban):** negyedik, a befagyasztás után épített generátor (pl. ok-okozati vagy numerikus attribútumok), előregisztrálva.
+1. **93. kör (folyamatban):** negyedik, a befagyasztás után épített generátor (G4: forrásfüggőség és forrásváltozás), előregisztrálva.
 2. **94. kör:** divergens és kritikai kör.
 3. **95. kör:** lassan tanuló bevált forrás (κ = 300) a rögzített kód helyett.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); az elavult forrás jobb felismerése; szabályszintű zárás-memó (76. kör).
