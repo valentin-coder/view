@@ -56,6 +56,7 @@ V49_U = {"source_mix": {}, "source_mix_default": (0.9, 30.0)}
 V49_N = {"source_newcomer": (0.9, 0.999, 30.0, 0)}
 # 88. kör: BEFAGYASZTOTT konfiguráció a harmadik generátor (G3) előtt. A G3-on mért eredmények nem módosíthatják.
 # v4.8-π (tankönyv-keverék, π a metaadatból; a G3-ban a tankönyv „normál”, π = 0,999) + PK (81. kör) + N (86. kör).
+HYBRID_91 = None  # lent definiálva
 FROZEN_88 = {**V44E_OVERRIDES, "theory_kappa": 1.0, "theory_mix": (0.9, 30.0, 0.5, 2.0),
              "priority_exceptions": True, "priority_code": True, **V49_N}
 
@@ -101,6 +102,8 @@ def configured(overrides: dict):
             self.priority_code = cfg.get("priority_code", False)
             self.source_newcomer = cfg.get("source_newcomer", None)
             self.rel_temper = cfg.get("rel_temper", None)
+            self.rel_hybrid = cfg.get("rel_hybrid", False)
+            self.cut_per_event = cfg.get("cut_per_event", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -160,3 +163,7 @@ def run_ablation():
             rows[name] = battery(cfg)
         print(name, json.dumps(rows[name], ensure_ascii=False, default=float), flush=True)
     return rows
+
+# 91. kör: hibrid megbízhatósági kód a befagyasztott szerkezettel
+HYBRID_91 = {**FROZEN_88, "rel_hybrid": True}
+HYBRID_V_91 = {**HYBRID_91, "cut_per_event": True}

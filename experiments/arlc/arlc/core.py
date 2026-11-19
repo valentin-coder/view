@@ -132,6 +132,8 @@ class Memory:
         self.priority_code = False               # 81. kör: a prioritás-kivétel ára a riválisok közüli választás
         self.source_newcomer: Optional[tuple] = None  # 86. kör: (π_új, π_bevált, κ1, Δ) a forrás első megjelenése szerint
         self.rel_temper: Optional[float] = None  # 90. kör: η; a megbízhatósági kód η·adaptív + (1 − η)·rögzített
+        self.rel_hybrid = False                  # 91. kör: bevált adatforrás rögzített kóddal, új forrás adaptívval
+        self.cut_per_event = False               # 91. kör: a vágás ára változás-eseményenként, nem megfigyelésenként
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -450,8 +452,12 @@ class Memory:
             if k not in cl_cache:
                 cl_cache[k] = self.closure(H, ctx, t)
             return cl_cache[k]
+        hyb = self.rel_hybrid and self.reliability == "beta"
         for o in self.obs:
             q_o = self.source_q.get(o.source, o.q)
+            if hyb:
+                fixed_w = 1.0 if (self._established(o.source)
+                                  and not (self.theory_kappa is not None and o.rule is not None)) else 0.0
             if self.age_discount < 1.0:
                 q_o = 0.5 + (q_o - 0.5) * self.age_discount ** max(0, self.now - o.time)
             if o.id in H.rej:
@@ -513,13 +519,35 @@ class Memory:
             for (rid, e, q), cnt in self.summary.items():
                 active = rid not in H.rej and (rid, e) not in H.exc
                 bits += cnt * (-math.log2(q) + (-math.log2(1 - self.delta) if active else 1.0))
-        for oid, _ in H.cut:
-            g = self._group(self.by_id[oid].lit)
-            bits += -math.log2(self.s.update_prior.get(g, 1e-3))
+        if self.cut_per_event:
+            # 91. kör: egy változás egy esemény (entitás, csoport, vég-időpont); az ugyanott végződő további régi
+            # megfigyelések vágása ingyenes (különben a régi jelentések száma szorozná a változás árát)
+            for (subj, g, end) in {(self.by_id[oid].lit.subj, self._group(self.by_id[oid].lit), end) for oid, end in H.cut}:
+                bits += -math.log2(self.s.update_prior.get(g, 1e-3))
+        else:
+            for oid, _ in H.cut:
+                g = self._group(self.by_id[oid].lit)
+                bits += -math.log2(self.s.update_prior.get(g, 1e-3))
         bits += len(H.ind) * math.log2(max(2, 2 * self.s.n_categories * self.s.n_props))
         if self.eta:
             bits += self.eta * sum(n for tok, n in self.uses.items() if self._lost(tok, H))
         return bits
+
+    def _first_seen(self) -> dict:
+        """86. kör: forrásonként az első megfigyelés ideje (a megfigyelések számához gyorsítótárazva)."""
+        fk = len(self.obs)
+        if getattr(self, "_fs_key", None) != fk:
+            fs: dict = {}
+            for o in self.obs:
+                if o.time < fs.get(o.source, float("inf")):
+                    fs[o.source] = o.time
+            self._fs, self._fs_key = fs, fk
+        return self._fs
+
+    def _established(self, src: str) -> bool:
+        """91. kör: bevált forrás = nem az aktuális (Δ-n belüli) időpontban jelent meg először."""
+        dlt = self.source_newcomer[3] if self.source_newcomer is not None else 0
+        return self._first_seen()[src] < self.now - dlt
 
     def _beta_bits(self, H: Hyp) -> float:
         """Forrásonként béta-binomiális kód az elfogadás/elutasítás sorozatra.
@@ -538,21 +566,14 @@ class Memory:
                 stats.setdefault(key, (n, k, q))        # semleges: nem épít múltat
                 continue
             stats[key] = (n + 1, k + rej, q)
-        first_seen = None
-        if self.source_newcomer is not None:
-            fk = len(self.obs)
-            if getattr(self, "_fs_key", None) != fk:
-                fs: dict = {}
-                for o in self.obs:
-                    if o.time < fs.get(o.source, float("inf")):
-                        fs[o.source] = o.time
-                self._fs, self._fs_key = fs, fk
-            first_seen = self._fs
+        first_seen = self._first_seen() if self.source_newcomer is not None else None
         bits = 0.0
         lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
         bb = lambda n, k, kap, q: (lb(kap * q, kap * (1 - q)) - lb(kap * q + n - k, kap * (1 - q) + k)) / math.log(2)
         for src, (n, k, q) in stats.items():
             theory = isinstance(src, tuple) and src[1] == "elmélet"
+            if self.rel_hybrid and not theory and self._established(src[0] if isinstance(src, tuple) else src):
+                continue                              # 91. kör: bevált adatforrás -> rögzített kód (a _score-ban)
             sm = None
             if self.source_mix is not None:
                 sname = src[0] if isinstance(src, tuple) else src
@@ -755,8 +776,12 @@ class Memory:
                   else None)
             c += unit if pb is None else pb
         c += sum(self.ctx_cost.get(src, self.c_ctx) for src in H2.iso - H.iso)
-        c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
-                 for i, _ in set(H2.cut) - set(H.cut))
+        if self.cut_per_event:
+            ev = lambda cuts: {(self.by_id[i].lit.subj, self._group(self.by_id[i].lit), end) for i, end in cuts}
+            c += sum(-math.log2(self.s.update_prior.get(g, 1e-3)) for (_, g, _) in ev(H2.cut) - ev(H.cut))
+        else:
+            c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
+                     for i, _ in set(H2.cut) - set(H.cut))
         c -= 4.0 * (len(H.ind) - len(H2.ind))
         return c
 

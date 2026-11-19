@@ -92,8 +92,8 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **91. kör:** hibrid megbízhatósági kód (bevált forrás: rögzített; új forrás: adaptív keverék) és az η = 0 megerősítése, előregisztrálva három generátoron.
+1. **91. kör (folyamatban):** hibrid megbízhatósági kód (+ eseményenkénti vágásár) (bevált forrás: rögzített; új forrás: adaptív keverék) és az η = 0 megerősítése, előregisztrálva három generátoron.
 2. **92. kör:** a G3 meglepetés előtti lemaradásának maradéka (ha a hibrid után is van).
 3. **93. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
 4. **94. kör:** divergens és kritikai kör.
-5. **Halasztva:** szabályszintű zárás-memó (76. kör); a szabályok időbeli vágása.
+5. **Halasztva:** szabályszintű zárás-memó (76. kör).
