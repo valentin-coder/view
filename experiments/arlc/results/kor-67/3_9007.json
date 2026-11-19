@@ -1,0 +1,9 @@
+{
+ "seed": 9007,
+ "kind": "hazug forr\u00e1s",
+ "target_acc": 0.875,
+ "n_target": 8,
+ "margin": 0.25693723246885725,
+ "margin_lower_bound": 1.5428947825826356,
+ "beam_n": 8
+}

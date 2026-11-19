@@ -1,0 +1,9 @@
+{
+ "seed": 9011,
+ "kind": "kiv\u00e9teles alfaj",
+ "target_acc": 1.0,
+ "n_target": 4,
+ "margin": null,
+ "margin_lower_bound": 0.45351164709339287,
+ "beam_n": 8
+}

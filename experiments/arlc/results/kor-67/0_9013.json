@@ -1,0 +1,9 @@
+{
+ "seed": 9013,
+ "kind": "\u00e1tkategoriz\u00e1l\u00e1s",
+ "target_acc": 0.8,
+ "n_target": 5,
+ "margin": null,
+ "margin_lower_bound": 1.8809779040842898,
+ "beam_n": 8
+}

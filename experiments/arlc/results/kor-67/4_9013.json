@@ -1,0 +1,9 @@
+{
+ "seed": 9013,
+ "kind": "m\u00e1s r\u00e9gi\u00f3",
+ "target_acc": 0.0,
+ "n_target": 2,
+ "margin": 1.9008715208028377,
+ "margin_lower_bound": 1.9008715208028377,
+ "beam_n": 8
+}

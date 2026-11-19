@@ -1,0 +1,9 @@
+{
+ "seed": 9006,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "target_acc": 1.0,
+ "n_target": 5,
+ "margin": null,
+ "margin_lower_bound": 0.4699292577750782,
+ "beam_n": 8
+}
