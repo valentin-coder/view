@@ -100,6 +100,7 @@ def configured(overrides: dict):
             self.priority_exceptions = cfg.get("priority_exceptions", False)
             self.priority_code = cfg.get("priority_code", False)
             self.source_newcomer = cfg.get("source_newcomer", None)
+            self.rel_temper = cfg.get("rel_temper", None)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")

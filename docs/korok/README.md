@@ -91,7 +91,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **90. kör:** temperált megbízhatósági kód (SafeBayes), prequential η-val – előregisztrálva G1k, G2 és kalibrált G3 friss seedjein.
+1. **90. kör (folyamatban):** temperált megbízhatósági kód (SafeBayes), prequential η-val – előregisztrálva G1k, G2 és kalibrált G3 friss seedjein.
 2. **91. kör:** a G3 meglepetés előtti lemaradásának diagnózisa.
 3. **92. kör:** a szemét-komponens korlátozása megerősítetlen forrásokra.
 4. **94. kör:** divergens és kritikai kör.

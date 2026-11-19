@@ -18,13 +18,18 @@ from .run_r55 import make_case
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results", "kor-87")
 
 
-def admissible(m, w, gen, max_iter=400):
-    """(megengedett-e, felhasznált kivételek száma, az első nem feloldható ütközés fajtái)"""
+def admissible(m, w, gen, max_iter=400, return_h=False):
+    """(megengedett-e, felhasznált kivételek száma, az első nem feloldható ütközés fajtái[, a hipotézis])"""
+    r = _admissible(m, w, gen, max_iter)
+    return r if return_h else r[:3]
+
+
+def _admissible(m, w, gen, max_iter):
     H = Hyp(rej=frozenset(o.id for o in m.obs if obs_true(o, w, gen) is False))
     for _ in range(max_iter):
         c = m.find_conflict(H)
         if c is None:
-            return True, len(H.exc), None
+            return True, len(H.exc), None, H
         insts = sorted((t for t in c if t[0] == "inst" and m._get(t[1], H).rule.pred == "has"), key=str)
         # 88. kör (G3): két igaz, különböző idejű tény egy változó csoportban -> a régebbi vágása
         facts = [m.by_id[t[1]] for t in c if t[0] == "obs" and m.by_id[t[1]].lit is not None
@@ -42,7 +47,7 @@ def admissible(m, w, gen, max_iter=400):
         if not insts:
             kinds = sorted({("obs:" + m.by_id[t[1]].source) if t[0] == "obs" else ("inst:" + m._get(t[1], H).rule.pred)
                             for t in c})
-            return False, len(H.exc), kinds
+            return False, len(H.exc), kinds, H
         wrong = []
         for t in insts:
             r = m._get(t[1], H).rule
@@ -52,7 +57,7 @@ def admissible(m, w, gen, max_iter=400):
                 wrong.append(t)
         t = (wrong or insts)[0]            # rossz jóslat kivétele; ha az igazság nem definiált (Nixon), bármelyik
         H = replace(H, exc=H.exc | {(t[1], t[2])})
-    return False, len(H.exc), ["iterációs korlát"]
+    return False, len(H.exc), ["iterációs korlát"], H
 
 
 def check(gen, seed, pop="A", kind="hazug forrás", with_new=False):

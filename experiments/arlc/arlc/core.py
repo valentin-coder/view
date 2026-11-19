@@ -131,6 +131,7 @@ class Memory:
         self.priority_exceptions = False         # 82. kör: osztálykivétel rivális (ellentétes) szabályú osztályra is
         self.priority_code = False               # 81. kör: a prioritás-kivétel ára a riválisok közüli választás
         self.source_newcomer: Optional[tuple] = None  # 86. kör: (π_új, π_bevált, κ1, Δ) a forrás első megjelenése szerint
+        self.rel_temper: Optional[float] = None  # 90. kör: η; a megbízhatósági kód η·adaptív + (1 − η)·rögzített
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -437,8 +438,10 @@ class Memory:
             return sum(math.log2(self.by_id[i].q / (1 - self.by_id[i].q)) for i in H.rej)
         bits = 0.0
         has_cut = bool(H.cut)
+        eta = self.rel_temper
         if self.reliability == "beta":
-            bits += self._beta_bits(H)
+            bits += (1.0 if eta is None else eta) * self._beta_bits(H)
+        fixed_w = 1.0 if self.reliability != "beta" else (0.0 if eta is None else 1.0 - eta)
         cl_cache: dict = {}
         seen_truth: set = set()
 
@@ -452,13 +455,13 @@ class Memory:
             if self.age_discount < 1.0:
                 q_o = 0.5 + (q_o - 0.5) * self.age_discount ** max(0, self.now - o.time)
             if o.id in H.rej:
-                if self.reliability != "beta":
-                    bits += -math.log2(1 - q_o)
+                if fixed_w:
+                    bits += fixed_w * -math.log2(1 - q_o)
                 if o.lit is not None and o.lit.pred == "has":
                     bits += 1.0
                 continue
-            if self.reliability != "beta":
-                bits += -math.log2(q_o)
+            if fixed_w:
+                bits += fixed_w * -math.log2(q_o)
             if o.lit is not None and o.lit.pred == "has":
                 ctx = o.source if o.source in H.iso else None
                 tt = o.time if has_cut else self.now
