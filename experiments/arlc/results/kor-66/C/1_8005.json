@@ -1,0 +1,32 @@
+{
+ "pop": "C",
+ "seed": 8005,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "garbage": "book2",
+ "post_v4.4e": 0.543046357615894,
+ "target_v4.4e": 1.0,
+ "types_a0.8": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a0.8": 0.543046357615894,
+ "target_a0.8": 1.0,
+ "dismissed_book_a0.8": true,
+ "dismissed_book2_a0.8": true,
+ "types_a0.9": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a0.9": 0.543046357615894,
+ "target_a0.9": 1.0,
+ "dismissed_book_a0.9": true,
+ "dismissed_book2_a0.9": true,
+ "types_a1.0": {
+  "book": "riv\u00e1lis iskola",
+  "book2": "riv\u00e1lis iskola"
+ },
+ "post_a1.0": 0.543046357615894,
+ "target_a1.0": 1.0,
+ "dismissed_book_a1.0": true,
+ "dismissed_book2_a1.0": true
+}
