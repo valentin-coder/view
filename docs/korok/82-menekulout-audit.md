@@ -78,7 +78,7 @@ Nyers adat: [`results/kor-82/test/`](../../experiments/arlc/results/kor-82/test/
 ### Amit az audit megmutatott, és amit a pontosság elrejtett
 
 1. **A 81. kör egyik állítását visszavonom.** Ott azt írtam, hogy a v4.9+PK „a valóban rossz fieldB-t teszi félre
-   (9,75; a várható hibaszám kb. 11)”. Az audit szerint ennek csak 61%-a helyes. Eseteként 4,9 *igaz* fieldB-jelentést
+   (9,75; a várható hibaszám kb. 11)”. Az audit szerint ennek csak 61%-a helyes. Esetenként 4,9 *igaz* fieldB-jelentést
    is félretesz, a v3 viszont 0,2-t (pontosság 0,97). **A tanult megbízhatóság a fieldB-t másodlagos bűnbakká
    teszi:** ha egy forrás megbízhatósága lecsökken, az igaz jelentéseinek félretevése is olcsóbb lesz. Ez ugyanaz a
    Pólya-urna-tulajdonság (78. kör), csak kisebb mértékben. A rögzített megbízhatóságú v3 ebben pontosabb.
