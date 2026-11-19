@@ -120,7 +120,7 @@ Nyers adat: [`results/kor-81/test/`](../../experiments/arlc/results/kor-81/test/
    v4.9-hez, +0,088 a v3-hoz). **A sorozatban ez az első konfiguráció, amely mindkét generátoron előregisztráltan,
    friss seedeken a v3 fölött van.**
 2. **A mechanizmus az, amit a diagnózis jósolt:** a tankönyv bűnbakká tétele megszűnik (8,1 → 3,25 félretett szabály,
-   1,8 valódi hibára), és a valóban rossz fieldB-t teszi félre a rendszer (3,8 → 9,75; a várható hibaszám kb. 11).
+   1,8 valódi hibára), és a valóban rossz fieldB-t teszi félre a rendszer (3,8 → 9,75; a várható hibaszám kb. 11). **[Javítva a 82. körben:** az audit szerint a fieldB-félretevések csak 61%-a helyes; a rendszer esetenként 4,9 igaz fieldB-jelentést is félretesz, a v3 0,2-t.**]**
 3. **A javulás két része külön is tanulságos:** a hiányzó primitív (prioritás) már megvolt, csak egy korábbi
    biztonsági korlát (szigorú specifikusság) letiltotta. A második rész pedig egy **kódhossz-hiba** volt, amelyet csak
    az igaz hipotézis pontozásával lehetett megtalálni. **Az „igaz hipotézis pontozása” (orákulum-hipotézis a

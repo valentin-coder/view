@@ -1,0 +1,306 @@
+{
+ "n": 180,
+ "G2": {
+  "v3": {
+   "n": 20,
+   "pre": 0.9214,
+   "post": 0.907,
+   "hazug félretett arány": 0.744,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:helyes_félretevés": 1.45,
+    "book:R:téves_félretevés": 4.3,
+    "census:F:téves_félretevés": 1.35,
+    "egyedi_kivétel": 0.25,
+    "fieldA:F:elmulasztott": 0.4,
+    "fieldA:F:helyes_félretevés": 1.55,
+    "fieldA:F:téves_félretevés": 0.25,
+    "fieldB:F:elmulasztott": 5,
+    "fieldB:F:helyes_félretevés": 6.95,
+    "fieldB:F:téves_félretevés": 0.2,
+    "indukált": 0.1,
+    "izolált_források": 0,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.252,
+    "census:F": 0.0,
+    "fieldA:F": 0.861,
+    "fieldB:F": 0.972
+   }
+  },
+  "v4.9": {
+   "n": 20,
+   "pre": 0.8712,
+   "post": 0.8708,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 0.1,
+    "book:R:helyes_félretevés": 1.35,
+    "book:R:téves_félretevés": 6.35,
+    "census:F:téves_félretevés": 0.25,
+    "egyedi_kivétel": 0.95,
+    "fieldA:F:elmulasztott": 1.35,
+    "fieldA:F:helyes_félretevés": 0.6,
+    "fieldA:F:téves_félretevés": 0.2,
+    "fieldB:F:elmulasztott": 6.05,
+    "fieldB:F:helyes_félretevés": 5.9,
+    "fieldB:F:téves_félretevés": 9.65,
+    "indukált": 0.25,
+    "izolált_források": 0,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.175,
+    "census:F": 0.0,
+    "fieldA:F": 0.75,
+    "fieldB:F": 0.379
+   }
+  },
+  "v4.9+PK": {
+   "n": 20,
+   "pre": 0.92,
+   "post": 0.92,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 0.1,
+    "book:R:helyes_félretevés": 1.35,
+    "book:R:téves_félretevés": 2.1,
+    "census:F:téves_félretevés": 0.45,
+    "egyedi_kivétel": 0.5,
+    "fieldA:F:elmulasztott": 1.2,
+    "fieldA:F:helyes_félretevés": 0.75,
+    "fieldA:F:téves_félretevés": 0.2,
+    "fieldB:F:elmulasztott": 4.45,
+    "fieldB:F:helyes_félretevés": 7.5,
+    "fieldB:F:téves_félretevés": 4.9,
+    "indukált": 0.2,
+    "izolált_források": 0,
+    "osztálykivétel": 4.5
+   },
+   "félretevés pontossága": {
+    "book:R": 0.391,
+    "census:F": 0.0,
+    "fieldA:F": 0.789,
+    "fieldB:F": 0.605
+   }
+  }
+ },
+ "G1A": {
+  "v3": {
+   "n": 20,
+   "pre": 0.8242,
+   "post": 0.7259,
+   "hazug félretett arány": 0.537,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 1.75,
+    "book:R:helyes_félretevés": 1.15,
+    "book:R:téves_félretevés": 4.95,
+    "census:F:téves_félretevés": 0.9,
+    "egyedi_kivétel": 0.1,
+    "field:F:elmulasztott": 2.95,
+    "field:F:helyes_félretevés": 1.95,
+    "field:F:téves_félretevés": 3.2,
+    "indukált": 0.05,
+    "izolált_források": 0,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.189,
+    "census:F": 0.0,
+    "field:F": 0.379
+   }
+  },
+  "v4.9": {
+   "n": 20,
+   "pre": 0.8326,
+   "post": 0.8337,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.05,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 1.95,
+    "book:R:helyes_félretevés": 0.95,
+    "book:R:téves_félretevés": 3.2,
+    "census:F:téves_félretevés": 0.6,
+    "egyedi_kivétel": 1.8,
+    "field:F:elmulasztott": 4.05,
+    "field:F:helyes_félretevés": 0.85,
+    "field:F:téves_félretevés": 1.7,
+    "indukált": 0.2,
+    "izolált_források": 0.1,
+    "osztálykivétel": 0.2
+   },
+   "félretevés pontossága": {
+    "book:R": 0.229,
+    "census:F": 0.0,
+    "field:F": 0.333
+   }
+  },
+  "v4.9+PK": {
+   "n": 20,
+   "pre": 0.8302,
+   "post": 0.8313,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.05,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 2,
+    "book:R:helyes_félretevés": 0.9,
+    "book:R:téves_félretevés": 3.1,
+    "census:F:téves_félretevés": 0.65,
+    "egyedi_kivétel": 1.65,
+    "field:F:elmulasztott": 4,
+    "field:F:helyes_félretevés": 0.9,
+    "field:F:téves_félretevés": 1.8,
+    "indukált": 0.2,
+    "izolált_források": 0.1,
+    "osztálykivétel": 0.4
+   },
+   "félretevés pontossága": {
+    "book:R": 0.225,
+    "census:F": 0.0,
+    "field:F": 0.333
+   }
+  }
+ },
+ "G1B": {
+  "v3": {
+   "n": 20,
+   "pre": 0.7696,
+   "post": 0.6161,
+   "hazug félretett arány": 0.412,
+   "izolál (eset arány)": 0.2,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 4.05,
+    "book:R:helyes_félretevés": 1.15,
+    "book:R:téves_félretevés": 3.85,
+    "census:F:téves_félretevés": 0.7,
+    "egyedi_kivétel": 0.1,
+    "field:F:elmulasztott": 3.5,
+    "field:F:helyes_félretevés": 1.4,
+    "field:F:téves_félretevés": 2.5,
+    "indukált": 0.05,
+    "izolált_források": 0.4,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.23,
+    "census:F": 0.0,
+    "field:F": 0.359
+   }
+  },
+  "v4.9": {
+   "n": 20,
+   "pre": 0.751,
+   "post": 0.751,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 1,
+    "book:R:helyes_félretevés": 4.2,
+    "book:R:téves_félretevés": 15.35,
+    "census:F:téves_félretevés": 0.2,
+    "egyedi_kivétel": 1.15,
+    "field:F:elmulasztott": 4.2,
+    "field:F:helyes_félretevés": 0.7,
+    "field:F:téves_félretevés": 1.1,
+    "indukált": 0.05,
+    "izolált_források": 0,
+    "osztálykivétel": 0.15
+   },
+   "félretevés pontossága": {
+    "book:R": 0.215,
+    "census:F": 0.0,
+    "field:F": 0.389
+   }
+  },
+  "v4.9+PK": {
+   "n": 20,
+   "pre": 0.7481,
+   "post": 0.7481,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 1.05,
+    "book:R:helyes_félretevés": 4.15,
+    "book:R:téves_félretevés": 15.4,
+    "census:F:téves_félretevés": 0.25,
+    "egyedi_kivétel": 1.05,
+    "field:F:elmulasztott": 4.2,
+    "field:F:helyes_félretevés": 0.7,
+    "field:F:téves_félretevés": 1.2,
+    "indukált": 0.05,
+    "izolált_források": 0,
+    "osztálykivétel": 0.25
+   },
+   "félretevés pontossága": {
+    "book:R": 0.212,
+    "census:F": 0.0,
+    "field:F": 0.368
+   }
+  }
+ },
+ "G1B-szemét": {
+  "v3": {
+   "n": 4,
+   "pre": 0.5674,
+   "post": 0.2624,
+   "hazug félretett arány": 0.0,
+   "izolál (eset arány)": 1.0,
+   "audit (átlag/eset)": {
+    "book:R:elmulasztott": 13.5,
+    "egyedi_kivétel": 0,
+    "field:F:elmulasztott": 6.25,
+    "indukált": 0,
+    "izolált_források": 2,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": null,
+    "field:F": null
+   }
+  },
+  "v4.9": {
+   "n": 4,
+   "pre": 0.5674,
+   "post": 0.5674,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:helyes_félretevés": 13.5,
+    "book:R:téves_félretevés": 33.75,
+    "egyedi_kivétel": 0,
+    "field:F:elmulasztott": 6.25,
+    "indukált": 0,
+    "izolált_források": 0,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.286,
+    "field:F": null
+   }
+  },
+  "v4.9+PK": {
+   "n": 4,
+   "pre": 0.5674,
+   "post": 0.5674,
+   "hazug félretett arány": 1.0,
+   "izolál (eset arány)": 0.0,
+   "audit (átlag/eset)": {
+    "book:R:helyes_félretevés": 13.5,
+    "book:R:téves_félretevés": 33.75,
+    "egyedi_kivétel": 0,
+    "field:F:elmulasztott": 6.25,
+    "indukált": 0,
+    "izolált_források": 0,
+    "osztálykivétel": 0
+   },
+   "félretevés pontossága": {
+    "book:R": 0.286,
+    "field:F": null
+   }
+  }
+ }
+}
