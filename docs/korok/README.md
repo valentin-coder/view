@@ -80,12 +80,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 80 | [80-forrastipus-prior.md](80-forrastipus-prior.md) | Forrástípus-prior (gondozott/terepi/ismeretlen keverék, előregisztrált): a hazug forrás felismerése +0,08 – +0,10 mindkét generátoron, G1-A post +0,021; a G2-n semleges (a jósolt kár nem jött, mert a jóslatot rossz alapvonalból vezettem le). A G2-lemaradás oka a tankönyv bűnbakká tétele. |
 | 81 | [81-szabalyprioritas.md](81-szabalyprioritas.md) | Tanult szabályprioritás (osztálykivétel rivális szabályra + javított kódhossz; előregisztrált): **minden hipotézis teljesül** – a G2-n +0,062 a v4.9-hez és **+0,023 a v3-hoz** (a 77. kör kudarca megfordul), a G1-en +0,010. Új diagnosztikai eszköz: az igaz hipotézis pontozása. |
 | 82 | [82-menekulout-audit.md](82-menekulout-audit.md) | Menekülőút-audit (a félretevések helyessége a generátor igazsága alapján, előregisztrált): minden hipotézis teljesül, de az audit két rejtett hibát talál – a fieldB másodlagos bűnbak (pontosság 0,61 vs. a v3 0,97; a 81. kör egy állítása visszavonva), az „alosztály-elvágás” viszont **a G1 generátorhibája** (3. rész: 50 világból 47 logikailag ellentmondásos, a 44. kör óta). |
+| 83 | [83-orakulum-fuggoseg.md](83-orakulum-fuggoseg.md) | Orákulum-függőség (előregisztrált): a prioritás mellett a forrástípus-prior az általános pontossághoz **nem kell** (+0,004), a hazug forrás felismeréséhez **igen** (+0,056); a prioritás a rivális elméleteknél semleges. Következő lépés: a T tanulható változata a forrás múltjából. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **83. kör (folyamatban):** orákulum-függőség a prioritás mellett (kell-e még a forrástípus-prior; a C populáció).
-2. **84. kör:** divergens és kritikai kör.
-3. **85. kör:** javított G1-generátor (G1k: csak a közös leszármazott nélküli csúcspárok diszjunktak) és a fő összevetés újramérése auditokkal.
-4. **86. kör:** a béta-kód rugalmasságának korlátozása hazug-szerű forrásokra (a fieldB másodlagos bűnbak).
+1. **84. kör:** divergens és kritikai kör.
+2. **85. kör (folyamatban):** javított G1-generátor (G1k: csak a közös leszármazott nélküli csúcspárok diszjunktak) és a fő összevetés újramérése auditokkal.
+3. **86. kör:** a forrástípus-prior tanulható változata a forrás múltjából (első megjelenés, megerősített állítások), metaadat nélkül; a fieldB másodlagos bűnbakká tételének kezelése.
 5. **76. kör (halasztva):** szabályszintű zárás-memó.
