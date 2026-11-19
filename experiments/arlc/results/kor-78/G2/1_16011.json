@@ -1,0 +1,18 @@
+{
+ "gen": "G2",
+ "seed": 16011,
+ "kind": "szab\u00e1ly-helyesb\u00edt\u00e9s",
+ "flagged": [],
+ "pre_v4.4e": 0.9477611940298507,
+ "post_v4.4e": 0.9477611940298507,
+ "target_v4.4e": 0.8888888888888888,
+ "iso_v4.4e": [],
+ "pre_v4.4e\u2212ki": 0.9477611940298507,
+ "post_v4.4e\u2212ki": 0.9477611940298507,
+ "target_v4.4e\u2212ki": 0.8888888888888888,
+ "iso_v4.4e\u2212ki": [],
+ "pre_v4.4e jelzett ki": 0.9477611940298507,
+ "post_v4.4e jelzett ki": 0.9477611940298507,
+ "target_v4.4e jelzett ki": 0.8888888888888888,
+ "iso_v4.4e jelzett ki": []
+}

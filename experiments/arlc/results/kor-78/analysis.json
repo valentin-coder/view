@@ -1,0 +1,126 @@
+{
+ "G2": {
+  "v4.4e": {
+   "pre": 0.8938,
+   "post": 0.8929,
+   "target": 0.8873
+  },
+  "v4.4e−ki": {
+   "pre": 0.8938,
+   "post": 0.8929,
+   "target": 0.8873
+  },
+  "v4.4e jelzett ki": {
+   "pre": 0.8938,
+   "post": 0.8929,
+   "target": 0.8873
+  },
+  "izolált tankönyv": {
+   "v4.4e": 1,
+   "v4.4e−ki": 1,
+   "v4.4e jelzett ki": 1
+  },
+  "(−ki) − v4.4e": {
+   "n_seeds": 20,
+   "mean_diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "jelzett − (−ki)": {
+   "n_seeds": 20,
+   "mean_diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "n": 60
+ },
+ "G1": {
+  "v4.4e": {
+   "pre": 0.827,
+   "post": 0.8092,
+   "target": 0.7312
+  },
+  "v4.4e−ki": {
+   "pre": 0.827,
+   "post": 0.8092,
+   "target": 0.7312
+  },
+  "v4.4e jelzett ki": {
+   "pre": 0.827,
+   "post": 0.8092,
+   "target": 0.7312
+  },
+  "izolált tankönyv": {
+   "v4.4e": 2,
+   "v4.4e−ki": 2,
+   "v4.4e jelzett ki": 2
+  },
+  "(−ki) − v4.4e": {
+   "n_seeds": 20,
+   "mean_diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "jelzett − (−ki)": {
+   "n_seeds": 20,
+   "mean_diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "n": 60
+ },
+ "LOO (feltáró)": {
+  "− tanult megbízhatóság vs v4.4e": {
+   "n_seeds": 20,
+   "mean_diff": 0.021232837202945738,
+   "ci95": [
+    0.009454344060072017,
+    0.0331069009889621
+   ]
+  },
+  "− tanult megbízhatóság vs v3": {
+   "n_seeds": 20,
+   "mean_diff": 0.0015303702561315525,
+   "ci95": [
+    -0.0016399305865830772,
+    0.00448068188710285
+   ]
+  },
+  "v4.4e vs v3": {
+   "n_seeds": 20,
+   "mean_diff": -0.019702466946814184,
+   "ci95": [
+    -0.030368394053801713,
+    -0.008465349679830852
+   ]
+  },
+  "− kivétel-prior vs v4.4e": {
+   "n_seeds": 20,
+   "mean_diff": 0.004415687583261468,
+   "ci95": [
+    -0.0010386292455041523,
+    0.009512702590518623
+   ]
+  },
+  "átlagok": {
+   "− aut. specifikusság": 0.8938,
+   "− feltalálás": 0.8938,
+   "− kivétel-prior": 0.8983,
+   "v4.4e": 0.8938,
+   "− mohó/mélység2 (mélység 3)": 0.8938,
+   "− q-csoportok": 0.8938,
+   "− tanult megbízhatóság": 0.9151,
+   "− forráslépés": 0.8938,
+   "− osztálykivétel": 0.8938,
+   "v3": 0.9135
+  }
+ }
+}

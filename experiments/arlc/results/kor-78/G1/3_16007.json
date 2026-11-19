@@ -1,0 +1,20 @@
+{
+ "gen": "G1",
+ "seed": 16007,
+ "kind": "hazug forr\u00e1s",
+ "flagged": [
+  "liar"
+ ],
+ "pre_v4.4e": 0.7790055248618785,
+ "post_v4.4e": 0.7403314917127072,
+ "target_v4.4e": 0.375,
+ "iso_v4.4e": [],
+ "pre_v4.4e\u2212ki": 0.7790055248618785,
+ "post_v4.4e\u2212ki": 0.7403314917127072,
+ "target_v4.4e\u2212ki": 0.375,
+ "iso_v4.4e\u2212ki": [],
+ "pre_v4.4e jelzett ki": 0.7790055248618785,
+ "post_v4.4e jelzett ki": 0.7403314917127072,
+ "target_v4.4e jelzett ki": 0.375,
+ "iso_v4.4e jelzett ki": []
+}

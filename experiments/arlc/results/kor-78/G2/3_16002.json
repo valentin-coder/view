@@ -1,0 +1,27 @@
+{
+ "gen": "G2",
+ "seed": 16002,
+ "kind": "torz\u00edtott forr\u00e1s",
+ "flagged": [],
+ "pre_v4.4e": 0.8222222222222222,
+ "post_v4.4e": 0.7481481481481481,
+ "target_v4.4e": 0.7,
+ "iso_v4.4e": [
+  "book",
+  "census"
+ ],
+ "pre_v4.4e\u2212ki": 0.8222222222222222,
+ "post_v4.4e\u2212ki": 0.7481481481481481,
+ "target_v4.4e\u2212ki": 0.7,
+ "iso_v4.4e\u2212ki": [
+  "book",
+  "census"
+ ],
+ "pre_v4.4e jelzett ki": 0.8222222222222222,
+ "post_v4.4e jelzett ki": 0.7481481481481481,
+ "target_v4.4e jelzett ki": 0.7,
+ "iso_v4.4e jelzett ki": [
+  "book",
+  "census"
+ ]
+}
