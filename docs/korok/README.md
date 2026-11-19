@@ -72,6 +72,8 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 71 | [71-kontextus-elsobbseg.md](71-kontextus-elsobbseg.md) | Kontextuson belüli elsőbbség + jó jel együtt +0,20 a „más régió” célkérdésein (külön-külön egyik sem elég); jel nélkül az elsőbbség árt (E3) – csak jelzett forrásra érvényes. |
 | 72 | [72-inkrementalis-zaras.md](72-inkrementalis-zaras.md) | Entitásonként memoizált zárás: bitre azonos (ekvivalencia, kimerítő, A fázis), 2,4× (A) és 1,6× (C) gyorsabb valódi eseteken. |
 | 73 | [73-jelhez-kotott-elsobbseg.md](73-jelhez-kotott-elsobbseg.md) | Jelhez kötött elsőbbség (előregisztrált): a 71. körbeli E3-kár megszűnik költség nélkül; a „más régió” hatás friss seedeken kisebb (+0,06, n.s.). |
+| 74 | [74-divergens-10.md](74-divergens-10.md) | Kritikai kör: a jelenlegi legjobb konfiguráció (v4.8-π + jelzett elsőbbség + nyaláb-átlag), két orákulumra támaszkodik; javaslat: második, független generátor. |
+| 75 | [75-legjobb-konfiguracio.md](75-legjobb-konfiguracio.md) | A legjobb konfiguráció nagy, előregisztrált mérése: **minden hipotézis teljesül** – +0,170 a v3-hoz, +0,112 a v4.4e-hez képest (A ∪ C), az A-ban nincs veszteség, a Brier jobb. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
