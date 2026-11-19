@@ -130,6 +130,7 @@ class Memory:
         self.theory_mix: Optional[tuple] = None  # 48. kör: (π, κ1, q0, κ0) keverék-prior az elmélet-megbízhatóságra
         self.priority_exceptions = False         # 82. kör: osztálykivétel rivális (ellentétes) szabályú osztályra is
         self.priority_code = False               # 81. kör: a prioritás-kivétel ára a riválisok közüli választás
+        self.source_newcomer: Optional[tuple] = None  # 86. kör: (π_új, π_bevált, κ1, Δ) a forrás első megjelenése szerint
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -534,6 +535,16 @@ class Memory:
                 stats.setdefault(key, (n, k, q))        # semleges: nem épít múltat
                 continue
             stats[key] = (n + 1, k + rej, q)
+        first_seen = None
+        if self.source_newcomer is not None:
+            fk = len(self.obs)
+            if getattr(self, "_fs_key", None) != fk:
+                fs: dict = {}
+                for o in self.obs:
+                    if o.time < fs.get(o.source, float("inf")):
+                        fs[o.source] = o.time
+                self._fs, self._fs_key = fs, fk
+            first_seen = self._fs
         bits = 0.0
         lb = lambda a, b: math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
         bb = lambda n, k, kap, q: (lb(kap * q, kap * (1 - q)) - lb(kap * q + n - k, kap * (1 - q) + k)) / math.log(2)
@@ -543,6 +554,12 @@ class Memory:
             if self.source_mix is not None:
                 sname = src[0] if isinstance(src, tuple) else src
                 sm = self.source_mix.get(sname, self.source_mix_default)
+            elif self.source_newcomer is not None:
+                # 86. kör: a forrástípus helyett a forrás megfigyelhető múltja: az új (most megjelent) forrás
+                # szemét-esélye nagyobb, mint a bevált forrásé
+                sname = src[0] if isinstance(src, tuple) else src
+                pn, po, k1n, dlt = self.source_newcomer
+                sm = (pn, k1n) if first_seen[sname] >= self.now - dlt else (po, k1n)
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
                 pi, k1, q0m, k0 = self.theory_mix[:4]

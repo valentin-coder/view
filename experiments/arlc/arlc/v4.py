@@ -50,6 +50,10 @@ UNKNOWN = (0.9, 30.0)
 SOURCE_TYPE_MIX = {"book": CURATED, "book2": CURATED, "census": CURATED, "review": CURATED, "expert": CURATED,
                    "field": FIELD, "fieldA": FIELD, "fieldB": FIELD}
 V49_SM = {"source_mix": SOURCE_TYPE_MIX, "source_mix_default": UNKNOWN}
+# 86. kör: metaadat nélküli változatok. U: minden forrás egyforma keverék-priort kap; N: az új (az aktuális időpontban
+# megjelent) forrás szemét-esélye 10%, a bevált forrásé 0,1% (a forrás múltja megfigyelhető, nem orákulum).
+V49_U = {"source_mix": {}, "source_mix_default": (0.9, 30.0)}
+V49_N = {"source_newcomer": (0.9, 0.999, 30.0, 0)}
 
 ABLATIONS = {
     "v4": {},
@@ -91,6 +95,7 @@ def configured(overrides: dict):
                 self.ctx_override_sources = cfg["ctx_override_sources"]
             self.priority_exceptions = cfg.get("priority_exceptions", False)
             self.priority_code = cfg.get("priority_code", False)
+            self.source_newcomer = cfg.get("source_newcomer", None)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
