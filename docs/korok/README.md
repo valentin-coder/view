@@ -82,7 +82,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **81. kör:** tanult szabályprioritás (prioritásos alapértelmezés: osztálykivétel rivális szabályú osztályra), előregisztrálva mindkét generátoron.
+1. **81. kör (folyamatban):** tanult szabályprioritás (prioritásos alapértelmezés: osztálykivétel rivális szabályú osztályra, javított kódhosszal), előregisztrálva mindkét generátoron.
 2. **82. kör:** menekülőút-audit (hamis használati arány) mindkét generátoron.
 3. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
 4. **84. kör:** divergens és kritikai kör.

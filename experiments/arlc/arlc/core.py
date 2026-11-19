@@ -128,6 +128,8 @@ class Memory:
         self.corroboration = False             # 43. kör (v4.1): csak a megerősített állítás épít múltat
         self.ind_exc_cost = False              # 45. kör (3. hiba): indukált/feltalált szabály kivétele is -log2 ε-ba kerül
         self.theory_mix: Optional[tuple] = None  # 48. kör: (π, κ1, q0, κ0) keverék-prior az elmélet-megbízhatóságra
+        self.priority_exceptions = False         # 82. kör: osztálykivétel rivális (ellentétes) szabályú osztályra is
+        self.priority_code = False               # 81. kör: a prioritás-kivétel ára a riválisok közüli választás
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -489,7 +491,13 @@ class Memory:
                 for x in H.exc:
                     if not (isinstance(x[1], str) and x[1].startswith("cat:")) and x not in cand:
                         bits += math.log2((1 - eps) / eps)
-        bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
+        if self.priority_code and n_cls:
+            for x in H.exc:
+                if isinstance(x[1], str) and x[1].startswith("cat:"):
+                    pb = self._prio_bits(H, x)
+                    bits += (math.log2(max(2, self.s.n_categories)) + 1.0) if pb is None else pb
+        else:
+            bits += n_cls * (math.log2(max(2, self.s.n_categories)) + 1.0)
         bits += sum(self.ctx_cost.get(src, self.c_ctx) for src in H.iso)
         if self.ctx_override:
             # 53. kör: a kontextus a fő világ + kódolt eltérések; minden felülírás egy eltérés,
@@ -637,8 +645,41 @@ class Memory:
                     body = self._get(tok[1], H).rule.body
                     cl = self.closure(H, None, self.now)
                     for (c2, p2) in cl.isa.get(tok[2], {}):
-                        if p2 and c2 != body and (not self.strict_specificity or self._proper_sub(H, c2, body)):
+                        if p2 and c2 != body and (not self.strict_specificity or self._proper_sub(H, c2, body)
+                                                  or (self.priority_exceptions and self._rival_rule(H, c2, tok[1]))):
                             yield replace(H, exc=H.exc | {(tok[1], "cat:" + c2)})
+
+    def _rival_rule(self, H: Hyp, c2: str, rid: int) -> bool:
+        """82. kör: prioritásos alapértelmezés (Brewka, 1989). A (rid, cat:c2) osztálykivétel akkor is megengedett, ha
+        c2 nem alosztálya a szabály törzsének, de c2-nek van saját, elfogadott, ellentétes előjelű szabálya ugyanarra a
+        tulajdonságra: ekkor a kivétel azt jelenti, hogy „c2 szabálya elsőbbséget élvez rid-del szemben”."""
+        return c2 in self._rivals(H, rid)
+
+    def _rivals(self, H: Hyp, rid: int) -> set:
+        """82. kör: azok a kategóriák, amelyeknek elfogadott, ellentétes előjelű szabálya van rid tulajdonságára."""
+        o = next((y for y in H.ind if y.id == rid), None) if rid >= IND_BASE else self.by_id.get(rid)
+        if o is None or o.rule is None or o.rule.pred != "has":
+            return set()
+        r = o.rule
+        return {o.rule.body for o in list(self.obs) + list(H.ind)
+                if o.rule is not None and o.id not in H.rej and o.rule.cond is None and o.rule.pred == "has"
+                and o.rule.obj == r.obj and o.rule.pos != r.pos and o.rule.body != r.body}
+
+    def _prio_bits(self, H: Hyp, x) -> Optional[float]:
+        """81. kör (priority_code): egy prioritás-típusú osztálykivétel ára. A rivális kategóriát a riválisok
+        közül kell megnevezni (log2 |R|), nem az összes kategória közül, + 1 bit a kivétel létéért. None, ha x nem
+        prioritás-típusú (alosztály-kivétel vagy nincs rivális)."""
+        c2 = x[1][4:]
+        o = next((y for y in H.ind if y.id == x[0]), None) if x[0] >= IND_BASE else self.by_id.get(x[0])
+        if o is None or o.rule is None:
+            return None                      # elárvult kivétel (a szabálya már nincs a hipotézisben)
+        body = o.rule.body
+        if self.strict_specificity and self._proper_sub(H, c2, body):
+            return None
+        R = self._rivals(H, x[0])
+        if c2 not in R:
+            return None
+        return math.log2(max(2, len(R))) + 1.0
 
     def _proper_sub(self, H: Hyp, c2: str, body: str) -> bool:
         """48. kör: c2 a body szigorú alosztálya-e az elfogadott alosztály-szabályok
@@ -687,8 +728,12 @@ class Memory:
             if o is not None:
                 q = min(max(self.source_q.get(o.source, o.q), 1e-6), 1 - 1e-6)
                 c += math.log2(q / (1 - q))
-        c += len(H2.exc - H.exc) * (math.log2((1 - self.exc_prior) / self.exc_prior) if self.exc_prior
-                                    else math.log2(max(2, self.s.n_entities)))
+        unit = (math.log2((1 - self.exc_prior) / self.exc_prior) if self.exc_prior
+                else math.log2(max(2, self.s.n_entities)))
+        for x in H2.exc - H.exc:
+            pb = (self._prio_bits(H2, x) if (self.priority_code and isinstance(x[1], str) and x[1].startswith("cat:"))
+                  else None)
+            c += unit if pb is None else pb
         c += sum(self.ctx_cost.get(src, self.c_ctx) for src in H2.iso - H.iso)
         c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
                  for i, _ in set(H2.cut) - set(H.cut))

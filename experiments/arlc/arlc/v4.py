@@ -89,6 +89,8 @@ def configured(overrides: dict):
             self.ctx_cost.update(cfg.get("ctx_cost", {}))
             if "ctx_override_sources" in cfg:
                 self.ctx_override_sources = cfg["ctx_override_sources"]
+            self.priority_exceptions = cfg.get("priority_exceptions", False)
+            self.priority_code = cfg.get("priority_code", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
