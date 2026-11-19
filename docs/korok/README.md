@@ -82,13 +82,13 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 82 | [82-menekulout-audit.md](82-menekulout-audit.md) | Menekülőút-audit (a félretevések helyessége a generátor igazsága alapján, előregisztrált): minden hipotézis teljesül, de az audit két rejtett hibát talál – a fieldB másodlagos bűnbak (pontosság 0,61 vs. a v3 0,97; a 81. kör egy állítása visszavonva), az „alosztály-elvágás” viszont **a G1 generátorhibája** (3. rész: 50 világból 47 logikailag ellentmondásos, a 44. kör óta). |
 | 83 | [83-orakulum-fuggoseg.md](83-orakulum-fuggoseg.md) | Orákulum-függőség (előregisztrált): a prioritás mellett a forrástípus-prior az általános pontossághoz **nem kell** (+0,004), a hazug forrás felismeréséhez **igen** (+0,056); a prioritás a rivális elméleteknél semleges. Következő lépés: a T tanulható változata a forrás múltjából. |
 | 84 | [84-divergens-12.md](84-divergens-12.md) | Kritikai kör: a G1-hiba 40 körön át rejtve maradt – az előregisztráció nem véd a benchmark érvényességi hibái ellen; kell egy generátor-egységteszt (igaz hipotézis). Foltozás-veszély, az azonosíthatósági plafon, és a neurális oldal továbbra is hiányzik. |
+| 85 | [85-g1k.md](85-g1k.md) | G1 vs. javított G1k (előregisztrált): a hiba a v4-et jobban sújtotta (+0,033 vs. +0,009), ezért a korábbi G1-es v4-előnyök **konzervatívak** voltak; a G1k-n v4.9+PK − v3 = +0,073. A téves alosztály-félretevés csökken, de nem tűnik el (H85b nem teljesül). Mostantól a G1k az első generátor. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **85. kör (folyamatban):** G1 vs. javított G1k, a fő összevetés újramérése auditokkal.
-2. **86. kör:** a forrástípus-prior tanulható változata a forrás múltjából (első megjelenés, megerősített állítások), metaadat nélkül.
-3. **87. kör:** generátor-egységteszt (az igaz hipotézis megengedettsége és ára) mindkét generátorra.
-4. **88. kör:** a konfiguráció befagyasztása, utána a harmadik generátor (időben sodródó szabályok).
-5. **89. kör:** divergens és kritikai kör.
-6. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **86. kör (folyamatban):** a forrástípus-prior tanulható változata a forrás múltjából (első megjelenés, megerősített állítások), metaadat nélkül.
+2. **87. kör:** generátor-egységteszt (az igaz hipotézis megengedettsége és ára) mindkét generátorra.
+3. **88. kör:** a konfiguráció befagyasztása, utána a harmadik generátor (időben sodródó szabályok).
+4. **89. kör:** divergens és kritikai kör.
+5. **76. kör (halasztva):** szabályszintű zárás-memó.

@@ -1,0 +1,213 @@
+{
+ "n": 360,
+ "G1": {
+  "v3": {
+   "pre": 0.8104,
+   "post": 0.7961,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 3.4,
+   "audit": {
+    "book:I:téves_félretevés": 3.4,
+    "book:R:elmulasztott": 2.35,
+    "book:R:helyes_félretevés": 1.5,
+    "book:R:téves_félretevés": 1.1,
+    "census:F:téves_félretevés": 0.65,
+    "egyedi_kivétel": 0.1,
+    "field:F:elmulasztott": 2.75,
+    "field:F:helyes_félretevés": 1.6,
+    "field:F:téves_félretevés": 2.25,
+    "indukált": 0.05,
+    "izolált_források": 0.1,
+    "osztálykivétel": 0.0
+   }
+  },
+  "v4.9": {
+   "pre": 0.8309,
+   "post": 0.8306,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 2.4,
+   "audit": {
+    "book:I:téves_félretevés": 2.4,
+    "book:R:elmulasztott": 2.15,
+    "book:R:helyes_félretevés": 1.7,
+    "book:R:téves_félretevés": 0.55,
+    "census:F:téves_félretevés": 0.45,
+    "egyedi_kivétel": 1.6,
+    "field:F:elmulasztott": 3.1,
+    "field:F:helyes_félretevés": 1.25,
+    "field:F:téves_félretevés": 1.4,
+    "indukált": 0.05,
+    "izolált_források": 0.1,
+    "osztálykivétel": 0.0
+   }
+  },
+  "v4.9+PK": {
+   "pre": 0.8466,
+   "post": 0.8467,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 2.4,
+   "audit": {
+    "book:I:téves_félretevés": 2.4,
+    "book:R:elmulasztott": 2.4,
+    "book:R:helyes_félretevés": 1.45,
+    "book:R:téves_félretevés": 0.3,
+    "census:F:téves_félretevés": 0.65,
+    "egyedi_kivétel": 1.7,
+    "field:F:elmulasztott": 2.95,
+    "field:F:helyes_félretevés": 1.4,
+    "field:F:téves_félretevés": 1.75,
+    "indukált": 0.05,
+    "izolált_források": 0.0,
+    "osztálykivétel": 0.6
+   }
+  }
+ },
+ "G1k": {
+  "v3": {
+   "pre": 0.8199,
+   "post": 0.8059,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 2.75,
+   "audit": {
+    "book:I:téves_félretevés": 2.75,
+    "book:R:elmulasztott": 2.25,
+    "book:R:helyes_félretevés": 1.6,
+    "book:R:téves_félretevés": 1.35,
+    "census:F:téves_félretevés": 0.65,
+    "egyedi_kivétel": 0.1,
+    "field:F:elmulasztott": 2.75,
+    "field:F:helyes_félretevés": 1.6,
+    "field:F:téves_félretevés": 2.4,
+    "indukált": 0.05,
+    "izolált_források": 0.1,
+    "osztálykivétel": 0.0
+   }
+  },
+  "v4.9": {
+   "pre": 0.8651,
+   "post": 0.8649,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 0.95,
+   "audit": {
+    "book:I:téves_félretevés": 0.95,
+    "book:R:elmulasztott": 1.85,
+    "book:R:helyes_félretevés": 2.0,
+    "book:R:téves_félretevés": 0.65,
+    "census:F:téves_félretevés": 0.7,
+    "egyedi_kivétel": 1.8,
+    "field:F:elmulasztott": 3.15,
+    "field:F:helyes_félretevés": 1.2,
+    "field:F:téves_félretevés": 2.0,
+    "indukált": 0.15,
+    "izolált_források": 0.0,
+    "osztálykivétel": 0.15
+   }
+  },
+  "v4.9+PK": {
+   "pre": 0.8792,
+   "post": 0.8791,
+   "target": NaN,
+   "n": 60,
+   "isa téves félretevés/eset": 0.65,
+   "audit": {
+    "book:I:téves_félretevés": 0.65,
+    "book:R:elmulasztott": 2.15,
+    "book:R:helyes_félretevés": 1.7,
+    "book:R:téves_félretevés": 0.25,
+    "census:F:téves_félretevés": 0.6,
+    "egyedi_kivétel": 1.9,
+    "field:F:elmulasztott": 2.8,
+    "field:F:helyes_félretevés": 1.55,
+    "field:F:téves_félretevés": 1.8,
+    "indukált": 0.15,
+    "izolált_források": 0.0,
+    "osztálykivétel": 1.25
+   }
+  }
+ },
+ "H85a v3: G1k − G1 (pre)": {
+  "n_seeds": 20,
+  "mean_diff": 0.009451935698834074,
+  "ci95": [
+   0.0018181818181818188,
+   0.018170656419648268
+  ]
+ },
+ "H85a v4.9: G1k − G1 (pre)": {
+  "n_seeds": 20,
+  "mean_diff": 0.034169792962761195,
+  "ci95": [
+   0.011906941585012492,
+   0.06427311051302355
+  ]
+ },
+ "H85a v4.9+PK: G1k − G1 (pre)": {
+  "n_seeds": 20,
+  "mean_diff": 0.03259144066619983,
+  "ci95": [
+   0.017575967257428392,
+   0.04785447012331943
+  ]
+ },
+ "G1: v4.9+PK − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.050569077086482436,
+  "ci95": [
+   0.019517441401025924,
+   0.09804370091200224
+  ]
+ },
+ "G1: v4.9 − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.03442468163121838,
+  "ci95": [
+   0.016155904728454885,
+   0.05548474745014822
+  ]
+ },
+ "G1: v4.9+PK − v4.9 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.016144395455264055,
+  "ci95": [
+   -6.822221878475255e-05,
+   0.04481851912275993
+  ]
+ },
+ "G1k: v4.9+PK − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.07318812455142919,
+  "ci95": [
+   0.04188034840751228,
+   0.12037516707453703
+  ]
+ },
+ "G1k: v4.9 − v3 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.05894567254278907,
+  "ci95": [
+   0.02676361134412078,
+   0.10693303309282877
+  ]
+ },
+ "G1k: v4.9+PK − v4.9 (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.014242452008640123,
+  "ci95": [
+   0.005202022233304943,
+   0.023985597759103017
+  ]
+ },
+ "H85d: [(PK − v3)_G1k] − [(PK − v3)_G1] (post)": {
+  "n_seeds": 20,
+  "mean_diff": 0.022619047464946758,
+  "ci95": [
+   0.004593392478307706,
+   0.04077128481695468
+  ]
+ }
+}

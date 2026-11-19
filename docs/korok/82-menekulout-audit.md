@@ -119,7 +119,7 @@ tagságot) kötelezően félre kell tennie.
 **Mérték:** 50 G1-világból (a 44. és a 82. kör seedjei) **47 ellentmondásos**, és az entitások **39%-át érinti.** (Első számításom csak a két csúcs-szülős középkategóriákat nézte: 35/50, 27%. A többszülős levélkategóriák is összeköthetnek két csúcsot, két különböző csúcs alatti középkategórián át.)
 
 **Következmények:**
-1. **A 2. rész 2. pontját visszavonom.** Az „alosztály-kapcsolat elvágása mint ötödik menekülőút” nem a modell hibája:
+1. **A 2. rész 2. pontját visszavonom** (a 85. kör szerint csak részben: a G1-beli téves alosztály-félretevések kb. kétharmada a hibából jön, a többi a javított generátoron is megmarad). Az „alosztály-kapcsolat elvágása mint ötödik menekülőút” nem a modell hibája:
    a világ ellentmondásos, és az elvágás a legolcsóbb (és logikailag kikényszerített) válasz. Az audit ezeket „téves
    félretevésnek” számolta, mert az igazság-függvény a diszjunktságot nem veszi figyelembe.
 2. **A 44. óta minden G1-mérés ezt a hibát hordozza.** Az összehasonlítások egyenlő feltételek mellett zajlottak (minden
