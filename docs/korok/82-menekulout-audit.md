@@ -116,7 +116,7 @@ diszjunktságot viszont minden csúcspárra kimondja. **Az ilyen világ logikail
 entitás egyszerre tartozik T0-ba és T1-be, ami tilos. A rendszernek egy igaz alosztály-kapcsolatot (vagy egy igaz
 tagságot) kötelezően félre kell tennie.
 
-**Mérték:** 50 G1-világból (a 44. és a 82. kör seedjei) **35 ellentmondásos**, és az entitások **27%-át érinti.**
+**Mérték:** 50 G1-világból (a 44. és a 82. kör seedjei) **47 ellentmondásos**, és az entitások **39%-át érinti.** (Első számításom csak a két csúcs-szülős középkategóriákat nézte: 35/50, 27%. A többszülős levélkategóriák is összeköthetnek két csúcsot, két különböző csúcs alatti középkategórián át.)
 
 **Következmények:**
 1. **A 2. rész 2. pontját visszavonom.** Az „alosztály-kapcsolat elvágása mint ötödik menekülőút” nem a modell hibája:
@@ -126,5 +126,5 @@ tagságot) kötelezően félre kell tennie.
    módszer ugyanazokat a világokat kapta). Az abszolút pontosságok viszont alacsonyabbak a kelleténél, és nem zárható ki,
    hogy a módszerek az elvágás *módjában* (melyik kapcsolat esik ki) különböznek, és ez a különbségek egy részét adja.
    Az előregisztrált eredményeket nem írom át. A javított generátoron (85. kör) újramérem a fő összevetést.
-3. **A javítás minimális:** két csúcskategória csak akkor diszjunkt, ha nincs közös középkategória-gyerekük. A 85. kör
+3. **A javítás minimális:** két csúcskategória csak akkor diszjunkt, ha egyetlen kategóriának sem közös őse. A 85. kör
    ezt „G1k” néven használja, és a régi G1-et változatlanul hagyja.
