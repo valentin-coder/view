@@ -76,10 +76,14 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 75 | [75-legjobb-konfiguracio.md](75-legjobb-konfiguracio.md) | A legjobb konfiguráció nagy, előregisztrált mérése: **minden hipotézis teljesül** – +0,170 a v3-hoz, +0,112 a v4.4e-hez képest (A ∪ C), az A-ban nincs veszteség, a Brier jobb. |
 | 77 | [77-masodik-generator.md](77-masodik-generator.md) | Második, független generátor (előregisztrált): a v4.x általános pontossága rosszabb a v3-énál (−0,033) – részben illesztett javulások; a forrás-tanulás átvihető (+0,07); a kontextusfüggő indukció a fő kár (a 78. kör visszavonja). |
 | 78 | [78-kontextusindukcio.md](78-kontextusindukcio.md) | Kontextusfüggő indukció (előregisztrált): friss seedeken **semmi hatás** (H78a nem teljesül; a 77. kör attribúciója visszavonva). Feltáró: a G2-lemaradás teljes egészében a béta-megbízhatóságból jön – **bűnbak-forrás**, modellhiba (a Pólya-urna-tulajdonság). |
+| 79 | [79-divergens-11.md](79-divergens-11.md) | Kritikai kör: két generátor után csak a megbízhatatlan forrás felismerése áll erősen; a „menekülőút” a félrespecifikált Bayes ismert jelensége (Grünwald–van Ommen); javaslatok: tanult szabályprioritás, SafeBayes, menekülőút-audit. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **79. kör:** divergens és kritikai kör (a 74–78. kör mérlege; mi marad a két generátor után).
-2. **80. kör:** a bűnbak-forrás javítása: keverék-prior a forrásokra (becsületes/hazug) metaadatból jövő π-vel, előregisztrálva mindkét generátoron.
-3. **76. kör (halasztva):** szabályszintű zárás-memó.
+1. **80. kör:** forrástípus-prior a bűnbak-forrás ellen (előregisztrálva, mindkét generátor friss seedjein).
+2. **81. kör:** menekülőút-audit (hamis használati arány) mindkét generátoron.
+3. **82. kör:** tanult szabályprioritás (prioritásos alapértelmezett logika) a G2-n.
+4. **83. kör:** SafeBayes (temperált likelihood) a típus-prior metaadat nélküli alternatívájaként.
+5. **84. kör:** divergens és kritikai kör.
+6. **76. kör (halasztva):** szabályszintű zárás-memó.
