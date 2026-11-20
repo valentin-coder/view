@@ -1,0 +1,26 @@
+{
+ "v3": {
+  "esetek": 28,
+  "target előtte": 0.699,
+  "target utána": 0.8661,
+  "post": 0.8996,
+  "másolásnak minősítve": 0,
+  "tanú félretett állításai (átlag)": 0.25
+ },
+ "FROZEN_91": {
+  "esetek": 28,
+  "target előtte": 0.699,
+  "target utána": 0.8369,
+  "post": 0.8972,
+  "másolásnak minősítve": 0,
+  "tanú félretett állításai (átlag)": 0.46
+ },
+ "FROZEN_112": {
+  "esetek": 28,
+  "target előtte": 0.699,
+  "target utána": 0.8369,
+  "post": 0.8972,
+  "másolásnak minősítve": 0,
+  "tanú félretett állításai (átlag)": 0.46
+ }
+}

@@ -110,10 +110,10 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 110 | [110-osszefoglalo-jelentes.md](110-osszefoglalo-jelentes.md) | **Összefoglaló műszaki jelentés** az 1–109. körről: architektúra és ismert elemei, a jelenlegi konfiguráció, bizonyított és cáfolt állítások, a tárcsák, módszertan, ajánlás. |
 | 111 | [111-forrasmasolas.md](111-forrasmasolas.md) | Forrásmásolás bevált forrásról (előregisztrált): **a függetlenségi feltevés megsértése a legsúlyosabb mért sebezhetőség** – a v3 és a FROZEN_91 minden érintett kérdésben a hibás értékre vált (0,59 → 0,00); az óvatos változat részben ellenáll. Ismert ellenszer: másolásfelismerés (Dong és mtsai, 2009). |
 | 112 | [112-masolasfelismeres.md](112-masolasfelismeres.md) | Másolásfelismerés horgony-újraindítással (előregisztrált): **minden kritérium teljesül** – a másoló kára megszűnik (0,00 → 0,50, a meglepetés előtti szint fölött), máshol bitre azonos. **Új befagyasztott: FROZEN_112.** A szerkezeti bizonyíték (sok állítás egyezési mintázata) ott is dönt, ahol a tárcsák nem. |
+| 113 | [113-hamis-riasztas.md](113-hamis-riasztas.md) | A másolásfelismerés hamis riasztása (előregisztrált): független, szó szerint egyező tanúknál 0/28 hamis riasztás, bitre azonos a FROZEN_91-gyel – a másolás csak a hamis értékekben való egyezést magyarázva nyer. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **113. kör (folyamatban):** a FROZEN_112 a negyedik generátoron túli helyzetekben: két független forrás ugyanabban téved (a másolásfelismerés hamis riasztása), előregisztrálva.
-2. **114. kör:** divergens és kritikai kör.
-3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
+1. **114. kör:** divergens és kritikai kör.
+2. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
