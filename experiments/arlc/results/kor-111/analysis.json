@@ -1,0 +1,63 @@
+{
+ "n": 120,
+ "bevált másoló | v3": {
+  "hibás részhalmaz előtte": 0.62,
+  "hibás részhalmaz utána": 0.0,
+  "változás": -0.62,
+  "target előtte": 0.785,
+  "target utána": 0.53,
+  "post": 0.8683,
+  "új félretéve (átlag)": 0,
+  "esetek hibás részhalmazzal": 20
+ },
+ "bevált másoló | FROZEN_91": {
+  "hibás részhalmaz előtte": 0.59,
+  "hibás részhalmaz utána": 0.0,
+  "változás": -0.59,
+  "target előtte": 0.77,
+  "target utána": 0.53,
+  "post": 0.865,
+  "új félretéve (átlag)": 0,
+  "esetek hibás részhalmazzal": 20
+ },
+ "bevált másoló | F91_Q": {
+  "hibás részhalmaz előtte": 0.8,
+  "hibás részhalmaz utána": 0.41,
+  "változás": -0.39,
+  "target előtte": 0.875,
+  "target utána": 0.71,
+  "post": 0.9017,
+  "új félretéve (átlag)": 4.1,
+  "esetek hibás részhalmazzal": 20
+ },
+ "független megerősítő | v3": {
+  "hibás részhalmaz előtte": 0.62,
+  "hibás részhalmaz utána": 0.87,
+  "változás": 0.25,
+  "target előtte": 0.785,
+  "target utána": 0.925,
+  "post": 0.92,
+  "új félretéve (átlag)": 0.45,
+  "esetek hibás részhalmazzal": 20
+ },
+ "független megerősítő | FROZEN_91": {
+  "hibás részhalmaz előtte": 0.59,
+  "hibás részhalmaz utána": 0.77,
+  "változás": 0.18,
+  "target előtte": 0.77,
+  "target utána": 0.88,
+  "post": 0.9083,
+  "új félretéve (átlag)": 2.3,
+  "esetek hibás részhalmazzal": 20
+ },
+ "független megerősítő | F91_Q": {
+  "hibás részhalmaz előtte": 0.8,
+  "hibás részhalmaz utána": 0.97,
+  "változás": 0.17,
+  "target előtte": 0.875,
+  "target utána": 0.985,
+  "post": 0.9467,
+  "új félretéve (átlag)": 0.15,
+  "esetek hibás részhalmazzal": 20
+ }
+}

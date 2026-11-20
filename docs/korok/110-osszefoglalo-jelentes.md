@@ -65,6 +65,7 @@ Előregisztrált, friss seedes, világok szerinti klaszteres bootstrap; legaláb
 | állapotváltozás (eseményenkénti vágásár) | 1,00 vs. a v3 0,23 – 0,29 | 91 |
 | a nyaláb-átlag jobban kalibrál (Brier), mint a MAP vagy a tartózkodás | | 50, 63, 106 |
 | a hitelesség túlbecslése sokkal veszélyesebb, mint az alulbecslése | −0,09 vs. +0,03 | 101, 102 |
+| **a függetlenségi feltevés megsértése (bevált forrás másolója) a legsúlyosabb sebezhetőség** (a 110. kör után mérve) | 0,59 → 0,00 az érintett kérdéseken | 111 |
 
 ## 5. Cáfolt vagy visszavont állítások
 

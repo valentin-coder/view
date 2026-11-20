@@ -108,9 +108,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 108 | [108-reprodukalhatosag.md](108-reprodukalhatosag.md) | Reprodukálhatósági pillanatkép: a megnevezett konfigurációk (alapértelmezés: FROZEN_91; alternatíva: F91_Q), a generátorok, az érvényességi eszközök és az újrafuttatási parancsok. |
 | 109 | [109-divergens-17.md](109-divergens-17.md) | Kritikai kör: **plató** – nyolc jelöltből egy sem lett alapértelmezés; a maradék döntések (frissítés vs. revízió, jó vs. rossz új forrás, zaj vs. igaz meglepetés) a környezet alapgyakoriságain múlnak, amelyeket a szimbolikus réteg nem tud eldönteni – ez a neurális rész szerepének negatív úton kapott indoklása. |
 | 110 | [110-osszefoglalo-jelentes.md](110-osszefoglalo-jelentes.md) | **Összefoglaló műszaki jelentés** az 1–109. körről: architektúra és ismert elemei, a jelenlegi konfiguráció, bizonyított és cáfolt állítások, a tárcsák, módszertan, ajánlás. |
+| 111 | [111-forrasmasolas.md](111-forrasmasolas.md) | Forrásmásolás bevált forrásról (előregisztrált): **a függetlenségi feltevés megsértése a legsúlyosabb mért sebezhetőség** – a v3 és a FROZEN_91 minden érintett kérdésben a hibás értékre vált (0,59 → 0,00); az óvatos változat részben ellenáll. Ismert ellenszer: másolásfelismerés (Dong és mtsai, 2009). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **111. kör (folyamatban):** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
-2. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
+1. **112. kör:** másolásfelismerés mint hipotézis-komponens („s₂ az s₁ másolata”; a hamis értékekben való egyezés mint bizonyíték), előregisztrálva.
+2. **114. kör:** divergens és kritikai kör.
+3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

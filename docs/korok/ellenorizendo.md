@@ -93,3 +93,4 @@ irodalomkutatás első lépései. Minden sorban: mit kell ellenőrizni, és hol 
 | Pólya-urna / Dirichlet-folyamat „gazdag gazdagabb” tulajdonsága | a béta-binomiális marginális a hibák egy forrásba koncentrálását jutalmazza | 78 |
 | Li et al. 2016 („A survey on truth discovery”); Dawid–Skene 1979 | az adaptív forrás-megbízhatóság becslése kevés állításnál és korrelált hibáknál instabil | 89 |
 | Katsuno–Mendelzon 1991 („On the difference between updating a knowledge base and revising it”) | frissítés (a világ változott) és revízió (a tudás téves volt) eltérő posztulátumai | 107 |
+| Dong, Berti-Équille, Srivastava 2009 („Integrating conflicting data: the role of source dependence”) | a hamis értékekben való egyezés erős bizonyíték a forrásmásolásra | 111 |
