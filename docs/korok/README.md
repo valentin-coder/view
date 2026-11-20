@@ -100,10 +100,10 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 100 | [100-megerosites-fuggo-bizalom.md](100-megerosites-fuggo-bizalom.md) | Megerősítés-függő új-forrás bizalom: fejlesztési negatív. Elvi korlát: egyetlen állításból jó és rossz új forrás metaadat nélkül nem különböztethető meg; a π_új valódi tárcsa. |
 | 101 | [101-prior-erzekenyseg.md](101-prior-erzekenyseg.md) | Prior-érzékenység (előregisztrált): a π_új tárcsa monoton, de szűk; **a legérzékenyebb pont a deklarált hitelesség kalibrációja, aszimmetrikusan** – a túlzott magabiztosság árt (−0,09), az óvatos hitelesség mind a négy generátoron javít (+0,01 – +0,03; feltáró). |
 | 102 | [102-ovatos-hitelesseg.md](102-ovatos-hitelesseg.md) | Óvatos hitelesség (előregisztrált): a generatív világokon javít (a v3-on is; először a v3 fölött a G4-en), de a korai kézi feladatokon (TFB-2, feltalálás) ront → nem alapértelmezés. **A konzervativizmus tárcsája:** a „gyors átrendeződés” és a zajtűrés ellentéte. |
+| 103 | [103-egyszerusites.md](103-egyszerusites.md) | Egyszerűsítés (előregisztrált): a generátorokon semleges, de a feladatcsomagban az A7 összeomlik – **a q-csoport helyességi javítás**, amelyet a generátorok nem tesztelnek; a 95. kori „hatástalan” ítélet generátor-relatív volt. Nem alapértelmezés. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **103. kör (folyamatban):** egyszerűsítés (V5_CORE: q-csoportok, indukált kivétel-ár és forrásszintű lépés nélkül), előregisztrálva.
-2. **104. kör:** divergens és kritikai kör.
-3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **104. kör:** divergens és kritikai kör.
+2. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).

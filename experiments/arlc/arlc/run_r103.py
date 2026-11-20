@@ -1,5 +1,5 @@
 """103. kör: egyszerűsített mag (V5_CORE) vs. FROZEN_91 – előregisztrált, friss seedek 35000–35011.
-    python -m arlc.run_r102
+    python -m arlc.run_r103
 """
 import json
 import os

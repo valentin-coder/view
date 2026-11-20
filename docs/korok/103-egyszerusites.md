@@ -26,3 +26,30 @@ Seedek 35000–35011 (friss), a 96. kör 9 típusa a négy generátoron; 108 ese
 
 **Döntési szabály:** ha mindhárom teljesül, a V5_CORE lesz az alapértelmezés (FROZEN_103), és a három kapcsoló a kódban
 dokumentált, de kikapcsolt történeti elem lesz.
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-103/`](../../experiments/arlc/results/kor-103/); elemzés:
+[`analyze_r103.py`](../../experiments/arlc/arlc/analyze_r103.py) → `results/kor-103/analysis.json`. 216 futás + feladatcsomag.
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H103a:** V5_CORE − FROZEN_91 (post) ≥ −0,01 | G1k +0,002; G2 0,000; G3 −0,003; G4 −0,004 | **teljesül** |
+| **H103b:** forrás-célkérdések ≥ −0,02 | −0,006 [−0,020; +0,005] | **teljesül** |
+| **H103c:** feladatcsomag | **A7 (frissítés/revízió): 1,00 → 0,25**; TFB-9 0,78 → 0,82 | **nem teljesül** |
+
+**A döntési szabály szerint a V5_CORE nem lesz alapértelmezés.** A FROZEN_91 marad.
+
+### A kudarc oka
+
+Egyenként visszakapcsolva: az A7-kudarcot **a q-csoportok eltávolítása** okozza (nélkülük az A7 négy mérőszámából három 0).
+Az A7-ben egy forrás különböző deklarált hitelességű állításokat tesz. A q-csoportok nélkül a béta-kód egy forrás
+összes állítását az *első* állítás q-jával árazza. **A q-csoport tehát helyességi javítás (48. kör), nem fölösleg.** A
+generátorokban minden forrás egyforma q-val jelent, ezért ott soha nem számított. Az indukált kivétel-ár és a forrásszintű
+lépés eltávolítása az A7-en semleges.
+
+### Tanulság
+
+**A 95. kör „hatástalan” ítélete generátor-relatív volt:** amit a négy generátor nem tesztel, az nem feltétlenül fölösleg. A
+feladatcsomag (a korai körök kézi feladatai) éppen ezért kötelező része minden befagyasztásnak (92. kör szabálya), és most
+is megfogta a hibát. Az egyszerűsítésnek a generátorok *és* a feladatcsomag együttes LOO-ján kell alapulnia.
