@@ -44,3 +44,37 @@ Kód: [`dev_r107.py`](../../experiments/arlc/arlc/dev_r107.py):
 - **H107d (feladatcsomag):** egyetlen pontossági tétel sem rosszabb 0,05-nél többel.
 
 **Döntési szabály:** ha mind teljesül, az F91_R lesz az új befagyasztott konfiguráció (FROZEN_107).
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-107/`](../../experiments/arlc/results/kor-107/); elemzés:
+[`analyze_r107.py`](../../experiments/arlc/arlc/analyze_r107.py) → `results/kor-107/analysis.json`. 495 futás + feladatcsomag.
+
+| G3 szabályváltozás | target | hist | post |
+|---|---|---|---|
+| v3 | 0,350 | 0,651 | 0,884 |
+| FROZEN_91 | 0,273 | 0,713 | 0,899 |
+| F91_R | 0,369 | 0,713 | 0,902 |
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H107a (target):** F91_R − F91 > 0 | +0,095 [0,000; +0,257] | **nem teljesül** (a CI alsó határa 0) |
+| **H107b (hist):** F91_R − F91 > 0 | 0,000 | **nem teljesül** |
+| **H107c (a többi típus):** ≥ −0,01 | mind a négy generátoron bitre azonos | **teljesül** |
+| **H107d (feladatcsomag):** | **A7: 1,00 → 0,75**; E2a átfordulás 2/4/6 → 2/3/3 | **nem teljesül** |
+
+**A döntési szabály szerint az F91_R nem lesz alapértelmezés.**
+
+### Értelmezés
+
+1. **A szabályváltozás friss seedeken is nehéz marad.** A vágás lehetősége az esetek egy részében segít (+0,095, nem
+   szignifikáns), de a lektor, aki az új szabályt hozza, új forrás. Az N prior szerint gyanús, ezért a rendszer gyakran
+   inkább őt teszi félre, mint hogy a régi szabályt elvágja. A 98. kör „gyanús új forrás” költsége itt is megjelenik.
+2. **Az A7-kár elvi, nem programhiba.** Az A7 a **frissítés** (a világ változott) és a **revízió** (a régi tudás téves volt)
+   megkülönböztetését teszteli (Katsuno–Mendelzon, 1991). A szabály-vágás egy új olvasatot ad: „a szabály eddig igaz volt,
+   mostantól nem”. Ez egy revíziós helyzetben is olcsó lehet. Egy ellentmondó új szabály mindig értelmezhető
+   változásként és helyesbítésként is, és a kettőt csak háttértudás (a változás alapgyakorisága) különbözteti meg. **A
+   104. kör tárcsáinak egy újabb példája:** a ρ_r (a szabályváltozás prior-esélye) dönti el, melyik olvasat nyer.
+3. A G3-ban a szabályváltozás valódi változás, az A7-ben és a G1k szabály-helyesbítésében viszont helyesbítés. **A két
+   esetet ugyanaz a megfigyelés-minta írja le, csak a világ alapgyakoriságai különböznek.** A ρ_r helyes értéke tehát
+   környezetfüggő, és a 105. kör szerint ezt csak epizódokon átívelő tanulás tudná eldönteni.

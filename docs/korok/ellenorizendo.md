@@ -92,3 +92,4 @@ irodalomkutatás első lépései. Minden sorban: mit kell ellenőrizni, és hol 
 | Brewka 1989 („Preferred subtheories”) | prioritásos alapértelmezett logika: a szabályok rendezése dönti el az ütközést | 79 |
 | Pólya-urna / Dirichlet-folyamat „gazdag gazdagabb” tulajdonsága | a béta-binomiális marginális a hibák egy forrásba koncentrálását jutalmazza | 78 |
 | Li et al. 2016 („A survey on truth discovery”); Dawid–Skene 1979 | az adaptív forrás-megbízhatóság becslése kevés állításnál és korrelált hibáknál instabil | 89 |
+| Katsuno–Mendelzon 1991 („On the difference between updating a knowledge base and revising it”) | frissítés (a világ változott) és revízió (a tudás téves volt) eltérő posztulátumai | 107 |
