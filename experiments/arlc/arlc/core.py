@@ -60,16 +60,19 @@ class Hyp:
     iso: frozenset = frozenset()
     cut: tuple = ()           # ((obs_id, end_time), ...) rendezve
     ind: tuple = ()           # indukált Obs-ok
+    chg: frozenset = frozenset()  # 97. kör: forrás-változáspontok {(forrás, időpont)}
 
     def key(self):
         k = self.__dict__.get("_key")
         if k is None:
             k = (self.rej, self.exc, self.iso, self.cut, tuple(o.rule for o in self.ind))
+            if self.chg:
+                k = k + (self.chg,)
             object.__setattr__(self, "_key", k)
         return k
 
 
-_HYP_FIELDS = ("rej", "exc", "iso", "cut", "ind")
+_HYP_FIELDS = ("rej", "exc", "iso", "cut", "ind", "chg")
 
 
 def replace(obj, **kw):
@@ -135,6 +138,8 @@ class Memory:
         self.rel_hybrid = False                  # 91. kör: bevált adatforrás rögzített kóddal, új forrás adaptívval
         self.cut_per_event = False               # 91. kör: a vágás ára változás-eseményenként, nem megfigyelésenként
         self.rel_hybrid_kappa: Optional[float] = None  # 95. kör: a bevált adatforrás béta-kódjának κ-ja (None: rögzített)
+        self.source_changepoints = False         # 97. kör: forrás-változáspont mint hipotézis-komponens
+        self.chg_prior = 0.01                    # 97. kör: egy forrás egy időpontbeli változásának prior-esélye
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -457,7 +462,7 @@ class Memory:
         for o in self.obs:
             q_o = self.source_q.get(o.source, o.q)
             if hyb:
-                fixed_w = 1.0 if (self.rel_hybrid_kappa is None and self._established(o.source)
+                fixed_w = 1.0 if (self.rel_hybrid_kappa is None and self._established(self._seg(o, H))
                                   and not (self.theory_kappa is not None and o.rule is not None)) else 0.0
             if self.age_discount < 1.0:
                 q_o = 0.5 + (q_o - 0.5) * self.age_discount ** max(0, self.now - o.time)
@@ -520,6 +525,8 @@ class Memory:
             for (rid, e, q), cnt in self.summary.items():
                 active = rid not in H.rej and (rid, e) not in H.exc
                 bits += cnt * (-math.log2(q) + (-math.log2(1 - self.delta) if active else 1.0))
+        if H.chg:
+            bits += len(H.chg) * -math.log2(self.chg_prior)      # 97. kör: forrás-változáspont ára
         if self.cut_per_event:
             # 91. kör: egy változás egy esemény (entitás, csoport, vég-időpont); az ugyanott végződő további régi
             # megfigyelések vágása ingyenes (különben a régi jelentések száma szorozná a változás árát)
@@ -546,9 +553,20 @@ class Memory:
         return self._fs
 
     def _established(self, src: str) -> bool:
-        """91. kör: bevált forrás = nem az aktuális (Δ-n belüli) időpontban jelent meg először."""
+        """91. kör: bevált forrás = nem az aktuális (Δ-n belüli) időpontban jelent meg először.
+        97. kör: egy változáspont utáni szegmens („forrás@t”) mindig új forrásnak számít."""
+        if "@" in src:
+            return False
         dlt = self.source_newcomer[3] if self.source_newcomer is not None else 0
         return self._first_seen()[src] < self.now - dlt
+
+    def _seg(self, o: Obs, H: Hyp) -> str:
+        """97. kör: a megfigyelés forrás-szegmense: a forrás neve, vagy „forrás@t”, ha a hipotézis a forrásnak t-ben
+        változáspontot tulajdonít, és a megfigyelés t-ben vagy később történt."""
+        if not H.chg:
+            return o.source
+        ts = [t for (src, t) in H.chg if src == o.source and o.time >= t]
+        return f"{o.source}@{max(ts)}" if ts else o.source
 
     def _beta_bits(self, H: Hyp) -> float:
         """Forrásonként béta-binomiális kód az elfogadás/elutasítás sorozatra.
@@ -558,7 +576,8 @@ class Memory:
         for o in self.obs:
             q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
             q0 = self.source_q.get(o.source, q0)
-            key = (o.source, "elmélet") if (self.theory_kappa is not None and o.rule is not None) else o.source
+            seg = self._seg(o, H)
+            key = (seg, "elmélet") if (self.theory_kappa is not None and o.rule is not None) else seg
             if self.q_groups:
                 key = (key if isinstance(key, tuple) else (key, "adat")) + (round(q0, 6),)
             n, k, q = stats.get(key, (0, 0, q0))
@@ -587,7 +606,7 @@ class Memory:
                 # szemét-esélye nagyobb, mint a bevált forrásé
                 sname = src[0] if isinstance(src, tuple) else src
                 pn, po, k1n, dlt = self.source_newcomer
-                sm = (pn, k1n) if first_seen[sname] >= self.now - dlt else (po, k1n)
+                sm = (pn, k1n) if first_seen.get(sname, self.now) >= self.now - dlt else (po, k1n)
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
                 pi, k1, q0m, k0 = self.theory_mix[:4]
@@ -675,6 +694,10 @@ class Memory:
                     continue
                 if o.q < 1.0:
                     yield replace(H, rej=H.rej | {o.id})
+                if (self.source_changepoints and o.lit is not None and self._established(o.source)
+                        and o.time == self.now and (o.source, o.time) not in H.chg):
+                    # 97. kör: a bevált forrás most érkező jelentései egy új (gyanús) szegmenshez tartoznak
+                    yield replace(H, chg=H.chg | {(o.source, o.time)})
                 if full and self.mode != "arlc-noctx" and o.source not in H.iso:
                     yield replace(H, iso=H.iso | {o.source})
                 if full and self.mode != "arlc-nocut" and o.lit is not None:
@@ -786,6 +809,7 @@ class Memory:
         else:
             c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
                      for i, _ in set(H2.cut) - set(H.cut))
+        c += len(H2.chg - H.chg) * -math.log2(self.chg_prior)
         c -= 4.0 * (len(H.ind) - len(H2.ind))
         return c
 

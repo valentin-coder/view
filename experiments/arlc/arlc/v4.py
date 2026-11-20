@@ -105,6 +105,8 @@ def configured(overrides: dict):
             self.rel_hybrid = cfg.get("rel_hybrid", False)
             self.cut_per_event = cfg.get("cut_per_event", False)
             self.rel_hybrid_kappa = cfg.get("rel_hybrid_kappa", None)
+            self.source_changepoints = cfg.get("source_changepoints", False)
+            self.chg_prior = cfg.get("chg_prior", 0.01)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")

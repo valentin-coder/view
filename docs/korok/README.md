@@ -93,11 +93,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 93 | [93-g4.md](93-g4.md) | Negyedik generátor (G4: forrásfüggőség és -változás, előregisztrált): a forrás-felismerés itt is erős (+0,26), a visszhang nem árt; az általános előny nem jelenik meg (+0,010, n.s.). Jósolt gyengeségek: romló bevált forrás (0,000), jó új specialista (−0,092). A pre-lemaradás oka: a tankönyv elmélet-keverékének adaptív komponense. |
 | 94 | [94-divergens-14.md](94-divergens-14.md) | Kritikai kör: négy generátor után a forrás-felismerés általános, a szerkezeti újítások ott segítenek, ahol a világban megvan a szerkezet. A Pólya-koncentráció „vándorol” (vakond-ütögetés); elvi javítás: erős becsületes prior + külön szemét-komponens. Javaslat: konszolidáció. |
 | 95 | [95-konszolidacio.md](95-konszolidacio.md) | Konszolidáció (feltáró LOO, négy generátor): lényeges a prioritás (PK + osztálykivétel), az eseményenkénti vágás, az N és a hibrid; a feltalálás, a kontextusindukció és a q-csoportok a generátorokon hatástalan. A G4-lemaradás oka a hibrid rögzített kódja a rosszul kalibrált bevált forrásnál (a 93. kori diagnózis visszavonva). |
+| 96 | [96-lassan-tanulo-forras.md](96-lassan-tanulo-forras.md) | Lassan tanuló bevált forrás (κ = 300, előregisztrált): a G4-en nem segít, a TFB-2-n ront → **nem alapértelmezés**; a FROZEN_91 v3-előnye a G1k/G2/G3-on friss seedeken megismétlődik, a G4-en nincs előny. |
+| 97 | [97-forras-valtozaspont.md](97-forras-valtozaspont.md) | Forrás-változáspont mint hipotézis-komponens: a kereső megtalálja, de nem javít (fejlesztési negatív; nincs előregisztrált teszt). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **96. kör (folyamatban):** lassan tanuló bevált forrás (Dκ, κ = 300) a hibrid rögzített kódja helyett, előregisztrálva négy generátoron és a feladatcsomagon.
-2. **97. kör:** a forrás megbízhatóságának változáspontja (romló bevált forrás).
-3. **99. kör:** divergens és kritikai kör.
-4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **98. kör:** a korábbi körök fő állításainak újramérése a FROZEN_91-gyel a G1k-n (rivális elméletek, más régió jelzett kontextussal, átkategorizálás), auditokkal.
+2. **99. kör:** divergens és kritikai kör (a 94–98. kör mérlege, összegzés a sorozat egészéről).
+3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
