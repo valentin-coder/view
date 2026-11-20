@@ -23,6 +23,7 @@ from .core import Lit, Obs, Rule, Schema
 
 KINDS4 = ("visszhang", "romló forrás", "jó új specialista", "hazug forrás")
 KINDS4_EXTRA = ("bevált másoló", "független megerősítő")   # 111. kör: a függetlenségi feltevés próbája
+KINDS4_EXTRA2 = ("független tanúk",)   # 113. kör: a másolásfelismerés hamis riasztásának próbája
 FIELD_REL = {"f1": 0.97, "f2": 0.9, "f3": 0.8, "f4": 0.65}
 
 
@@ -114,6 +115,15 @@ def surprise4(kind, w: World4, rng, c, t):
             val = v if kind == "bevált másoló" else w.truth(e)[p]
             new.append(Obs(next(c), "mirror" if kind == "bevált másoló" else "indep", t, 0.9, lit=Lit("has", e, p, val)))
             target.append((e, p))
+    elif kind == "független tanúk":
+        # 113. kör: a tankönyv egy hibás szabályára egy új, független tanú a tagok valódi értékét közli; ahol egy bevált
+        # terepforrás már helyesen jelentett, a tanú állítása szó szerint egyezik vele (egyezés másolás nélkül)
+        errs = sorted(w.book_errors)
+        if errs:
+            cat, p = rng.choice(errs)
+            for e in sorted(x for x, c in w.members.items() if c == cat and p in w.truth(x)):
+                new.append(Obs(next(c), "witness", t, 0.9, lit=Lit("has", e, p, w.truth(e)[p])))
+                target.append((e, p))
     return new, target
 
 

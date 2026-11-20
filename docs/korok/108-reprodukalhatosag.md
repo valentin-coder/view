@@ -8,7 +8,7 @@ Ez a kör nem mér semmit. Összegyűjti, mi van a kódban, mi melyik körből j
 |---|---|---|---|
 | `V44E_OVERRIDES` | v4.4e: béta-megbízhatóság (κ = 30), kivétel-prior, specifikusság, osztálykivétel, q-csoportok, feltalálás | régi alap | 50 |
 | `FROZEN_88` | + tankönyv-keverék (π metaadatból) + PK + N | **elvetve** (G3-on a v3 alatt; az E1-et elrontja) | 88, 92 |
-| **`FROZEN_91`** | `FROZEN_88` + hibrid megbízhatóság + eseményenkénti vágásár | **alapértelmezés („bízó”)** | 91, 92 |
+| **`FROZEN_91`** | `FROZEN_88` + hibrid megbízhatóság + eseményenkénti vágásár | alapértelmezés a 91–111. körben („bízó”) | 91, 92 |
 | **`F91_Q`** | `FROZEN_91` + óvatos hitelesség ((1 − q) × 2) | **megnevezett alternatíva („óvatos”)** | 102, 105 |
 | `F91_DK` | + lassan tanuló bevált forrás (κ = 300) | elvetve | 96 |
 | `F91_C` | + megerősítés-függő új-forrás bizalom | elvetve (fejlesztési negatív) | 100 |

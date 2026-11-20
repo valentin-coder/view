@@ -114,6 +114,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **113. kör:** a FROZEN_112 a negyedik generátoron túli helyzetekben: két független forrás ugyanabban téved (a másolásfelismerés hamis riasztása), előregisztrálva.
+1. **113. kör (folyamatban):** a FROZEN_112 a negyedik generátoron túli helyzetekben: két független forrás ugyanabban téved (a másolásfelismerés hamis riasztása), előregisztrálva.
 2. **114. kör:** divergens és kritikai kör.
 3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
