@@ -184,3 +184,5 @@ F91_C = {**FROZEN_91, "newcomer_corrob": True}
 # 102. kör: óvatos hitelesség (jelölt)
 F91_Q = {**FROZEN_91, "q_temper": 2.0}
 V3_Q = {"q_temper": 2.0}   # csak a temperálás a v3-hoz (a configured() a v4-alapot is beállítja, ezért külön kezelendő)
+# 103. kör: egyszerűsített mag (a 95. kori LOO szerint a mért világokban hatástalan vagy enyhén káros kapcsolók nélkül)
+V5_CORE = {**FROZEN_91, "q_groups": False, "ind_exc_cost": False, "source_moves": False}

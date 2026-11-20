@@ -104,6 +104,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **103. kör:** egyszerűsítés (v5-mag), ekvivalencia-ellenőrzéssel.
+1. **103. kör (folyamatban):** egyszerűsítés (V5_CORE: q-csoportok, indukált kivétel-ár és forrásszintű lépés nélkül), előregisztrálva.
 2. **104. kör:** divergens és kritikai kör.
 3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
