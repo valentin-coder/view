@@ -173,3 +173,5 @@ FROZEN_91 = HYBRID_V_91
 # 95. kör: lassan tanuló becsületes komponens (κ₁ = 300) az elmélet-keverékben (Tκ) és a bevált adatforrásokon (Dκ)
 F91_TK = {**FROZEN_91, "theory_mix": (0.9, 300.0, 0.5, 2.0)}
 F91_TDK = {**F91_TK, "rel_hybrid_kappa": 300.0}
+# 96. kör: a hibrid bevált adatforrása lassan tanuló béta-kóddal (κ = 300) a rögzített helyett (jelölt)
+F91_DK = {**FROZEN_91, "rel_hybrid_kappa": 300.0}

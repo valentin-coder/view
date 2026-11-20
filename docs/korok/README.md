@@ -97,7 +97,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **96. kör:** lassan tanuló bevált forrás (Dκ, κ = 300) a hibrid rögzített kódja helyett, előregisztrálva négy generátoron és a feladatcsomagon.
+1. **96. kör (folyamatban):** lassan tanuló bevált forrás (Dκ, κ = 300) a hibrid rögzített kódja helyett, előregisztrálva négy generátoron és a feladatcsomagon.
 2. **97. kör:** a forrás megbízhatóságának változáspontja (romló bevált forrás).
 3. **99. kör:** divergens és kritikai kör.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
