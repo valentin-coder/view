@@ -103,11 +103,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 103 | [103-egyszerusites.md](103-egyszerusites.md) | Egyszerűsítés (előregisztrált): a generátorokon semleges, de a feladatcsomagban az A7 összeomlik – **a q-csoport helyességi javítás**, amelyet a generátorok nem tesztelnek; a 95. kori „hatástalan” ítélet generátor-relatív volt. Nem alapértelmezés. |
 | 104 | [104-divergens-16.md](104-divergens-16.md) | Kritikai kör: a maradék problémák **tárcsák**, amelyek helyes értéke a környezet alapgyakoriságaitól függ – ezért nincs mindenhol jobb rögzített konfiguráció. Javaslat: epizódokon átívelő meta-kalibráció; tartózkodás. |
 | 105 | [105-meta-kalibracio.md](105-meta-kalibracio.md) | Meta-kalibráció: a fejlesztési ellenőrzés szerint a generatív környezetek optimuma azonos (q × 2), a teszt nem volna informatív. **Két megnevezett konfiguráció:** FROZEN_91 („bízó”) és F91_Q („óvatos”, a B fázishoz a biztonságosabb). |
+| 106 | [106-tartozkodas.md](106-tartozkodas.md) | Tartózkodás a pontszám-különbség alapján (előregisztrált): a szelektív pontosság +0,008, 4%-os lefedettség-áron; a Brier nem javul, a nyaláb-átlag jobban kalibrál. A visszatartott válaszok 75%-ban helyesek lettek volna. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **106. kör (folyamatban):** tartózkodás a pontszám-különbség alapján (Brier, szelektív pontosság).
-2. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
-3. **109. kör:** divergens és kritikai kör.
-4. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
+2. **109. kör:** divergens és kritikai kör.
+3. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).

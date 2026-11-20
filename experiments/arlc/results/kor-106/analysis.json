@@ -1,0 +1,155 @@
+{
+ "n": 216,
+ "FROZEN_91": {
+  "post τ=0.0": {
+   "lefedettség": 0.9728,
+   "szelektív pontosság": 0.9344,
+   "pontosság": 0.909,
+   "Brier": 0.073
+  },
+  "post τ=1.0": {
+   "lefedettség": 0.9572,
+   "szelektív pontosság": 0.938,
+   "pontosság": 0.8978,
+   "Brier": 0.0723
+  },
+  "post τ=2.0": {
+   "lefedettség": 0.9327,
+   "szelektív pontosság": 0.9425,
+   "pontosság": 0.8791,
+   "Brier": 0.0725
+  },
+  "post τ=4.0": {
+   "lefedettség": 0.9273,
+   "szelektív pontosság": 0.945,
+   "pontosság": 0.8763,
+   "Brier": 0.0709
+  },
+  "target τ=0.0": {
+   "lefedettség": 0.9804,
+   "szelektív pontosság": 0.8716,
+   "pontosság": 0.8545,
+   "Brier": 0.1283
+  },
+  "target τ=1.0": {
+   "lefedettség": 0.9515,
+   "szelektív pontosság": 0.8786,
+   "pontosság": 0.836,
+   "Brier": 0.1258
+  },
+  "target τ=2.0": {
+   "lefedettség": 0.8995,
+   "szelektív pontosság": 0.8806,
+   "pontosság": 0.7921,
+   "Brier": 0.1313
+  },
+  "target τ=4.0": {
+   "lefedettség": 0.8857,
+   "szelektív pontosság": 0.8879,
+   "pontosság": 0.7864,
+   "Brier": 0.1274
+  },
+  "nyaláb-átlag Brier (post)": 0.0697,
+  "nyaláb-átlag Brier (target)": 0.1237,
+  "H106a szelektív(τ=2) − szelektív(τ=0)": {
+   "n_seeds": 48,
+   "mean_diff": 0.008453296061705579,
+   "ci95": [
+    0.006095213876355106,
+    0.010854850768262696
+   ]
+  },
+  "H106c Brier(τ=2) − Brier(τ=0)": {
+   "n_seeds": 48,
+   "mean_diff": -0.00037295639845616544,
+   "ci95": [
+    -0.0028766694312283157,
+    0.0020398144188018726
+   ]
+  },
+  "H106d Brier(τ=2) − nyaláb-átlag": {
+   "n_seeds": 48,
+   "mean_diff": 0.0027766227925134774,
+   "ci95": [
+    0.0011530557940098722,
+    0.004279444922749841
+   ]
+  }
+ },
+ "F91_Q": {
+  "post τ=0.0": {
+   "lefedettség": 0.9803,
+   "szelektív pontosság": 0.9438,
+   "pontosság": 0.9252,
+   "Brier": 0.06
+  },
+  "post τ=1.0": {
+   "lefedettség": 0.9514,
+   "szelektív pontosság": 0.9494,
+   "pontosság": 0.9033,
+   "Brier": 0.06
+  },
+  "post τ=2.0": {
+   "lefedettség": 0.9349,
+   "szelektív pontosság": 0.952,
+   "pontosság": 0.8901,
+   "Brier": 0.0607
+  },
+  "post τ=4.0": {
+   "lefedettség": 0.9237,
+   "szelektív pontosság": 0.9543,
+   "pontosság": 0.8814,
+   "Brier": 0.061
+  },
+  "target τ=0.0": {
+   "lefedettség": 0.9723,
+   "szelektív pontosság": 0.9109,
+   "pontosság": 0.8857,
+   "Brier": 0.0961
+  },
+  "target τ=1.0": {
+   "lefedettség": 0.8788,
+   "szelektív pontosság": 0.9146,
+   "pontosság": 0.8037,
+   "Brier": 0.113
+  },
+  "target τ=2.0": {
+   "lefedettség": 0.8603,
+   "szelektív pontosság": 0.9168,
+   "pontosság": 0.7887,
+   "Brier": 0.1142
+  },
+  "target τ=4.0": {
+   "lefedettség": 0.821,
+   "szelektív pontosság": 0.9269,
+   "pontosság": 0.761,
+   "Brier": 0.113
+  },
+  "nyaláb-átlag Brier (post)": 0.0568,
+  "nyaláb-átlag Brier (target)": 0.0927,
+  "H106a szelektív(τ=2) − szelektív(τ=0)": {
+   "n_seeds": 48,
+   "mean_diff": 0.007779677640662483,
+   "ci95": [
+    0.004890628816985573,
+    0.010942363129350331
+   ]
+  },
+  "H106c Brier(τ=2) − Brier(τ=0)": {
+   "n_seeds": 48,
+   "mean_diff": 0.0010113843181522382,
+   "ci95": [
+    -0.0018528656637438906,
+    0.0036785009542673074
+   ]
+  },
+  "H106d Brier(τ=2) − nyaláb-átlag": {
+   "n_seeds": 48,
+   "mean_diff": 0.0039406173494583915,
+   "ci95": [
+    0.002153629882380724,
+    0.005774550872134533
+   ]
+  }
+ }
+}
