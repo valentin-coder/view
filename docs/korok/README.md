@@ -98,11 +98,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 98 | [98-regi-tipusok.md](98-regi-tipusok.md) | A G1 ritkábban mért típusai a FROZEN_91-gyel (előregisztrált): post +0,077 a v3-hoz; a „más régió”-t az N jel nélkül kezeli (a jel fölösleges); de **a helyes szabály-helyesbítést gyakran elutasítja** (−0,128) – a „gyanús új forrás” eddigi legnagyobb ára. |
 | 99 | [99-divergens-15.md](99-divergens-15.md) | Kritikai kör és **a sorozat összegzése**: mi épült (forrástudatos MDL-revíziós motor ismert elemekből), mi bizonyított négy generátoron, mi nem működik; a hibakereső eszközök értékesebbek voltak a mechanizmusoknál. |
 | 100 | [100-megerosites-fuggo-bizalom.md](100-megerosites-fuggo-bizalom.md) | Megerősítés-függő új-forrás bizalom: fejlesztési negatív. Elvi korlát: egyetlen állításból jó és rossz új forrás metaadat nélkül nem különböztethető meg; a π_új valódi tárcsa. |
+| 101 | [101-prior-erzekenyseg.md](101-prior-erzekenyseg.md) | Prior-érzékenység (előregisztrált): a π_új tárcsa monoton, de szűk; **a legérzékenyebb pont a deklarált hitelesség kalibrációja, aszimmetrikusan** – a túlzott magabiztosság árt (−0,09), az óvatos hitelesség mind a négy generátoron javít (+0,01 – +0,03; feltáró). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **101. kör:** prior-érzékenységi protokoll a FROZEN_91-re (π_új, változási prior, ε, deklarált hitelesség).
-2. **102. kör:** egyszerűsítés (v5-mag), ekvivalencia-ellenőrzéssel.
+1. **102. kör:** óvatos hitelesség ((1 − q) × 2, rögzített temperálás) előregisztráltan, friss seedeken, négy generátoron és a feladatcsomagon.
+2. **103. kör:** egyszerűsítés (v5-mag), ekvivalencia-ellenőrzéssel.
 3. **104. kör:** divergens és kritikai kör.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).

@@ -1,0 +1,231 @@
+{
+ "n": 720,
+ "post (generátoronként)": {
+  "alap": {
+   "G1k": 0.8491,
+   "G2": 0.9278,
+   "G3": 0.9141,
+   "G4": 0.9139
+  },
+  "π_új=0,8": {
+   "G1k": 0.8491,
+   "G2": 0.9284,
+   "G3": 0.9141,
+   "G4": 0.912
+  },
+  "π_új=0,95": {
+   "G1k": 0.8491,
+   "G2": 0.9278,
+   "G3": 0.9141,
+   "G4": 0.9125
+  },
+  "π_új=0,99": {
+   "G1k": 0.8491,
+   "G2": 0.9272,
+   "G3": 0.9141,
+   "G4": 0.913
+  },
+  "ε×½": {
+   "G1k": 0.8488,
+   "G2": 0.9284,
+   "G3": 0.9135,
+   "G4": 0.9116
+  },
+  "ε×2": {
+   "G1k": 0.8449,
+   "G2": 0.8977,
+   "G3": 0.8966,
+   "G4": 0.8644
+  },
+  "(1−q)×½": {
+   "G1k": 0.8442,
+   "G2": 0.8665,
+   "G3": 0.8935,
+   "G4": 0.825
+  },
+  "(1−q)×2": {
+   "G1k": 0.8815,
+   "G2": 0.9431,
+   "G3": 0.9246,
+   "G4": 0.9449
+  },
+  "upd×½": {
+   "G1k": null,
+   "G2": null,
+   "G3": 0.9141,
+   "G4": null
+  },
+  "upd×2": {
+   "G1k": null,
+   "G2": null,
+   "G3": 0.9135,
+   "G4": null
+  }
+ },
+ "target (típusonként)": {
+  "alap": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9315,
+   "G2 hazug forrás": 0.8542,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9271,
+   "G4 jó új specialista": 0.8583
+  },
+  "π_új=0,8": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9315,
+   "G2 hazug forrás": 0.8646,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9271,
+   "G4 jó új specialista": 0.8333
+  },
+  "π_új=0,95": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9315,
+   "G2 hazug forrás": 0.8542,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9062,
+   "G4 jó új specialista": 0.8667
+  },
+  "π_új=0,99": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9315,
+   "G2 hazug forrás": 0.8438,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9062,
+   "G4 jó új specialista": 0.875
+  },
+  "ε×½": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9315,
+   "G2 hazug forrás": 0.875,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9062,
+   "G4 jó új specialista": 0.8417
+  },
+  "ε×2": {
+   "G1k hazug forrás": 0.8854,
+   "G1k szabály-helyesbítés": 0.9163,
+   "G2 hazug forrás": 0.8125,
+   "G3 hazug forrás": 0.8438,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.8542,
+   "G4 jó új specialista": 0.6954
+  },
+  "(1−q)×½": {
+   "G1k hazug forrás": 0.8438,
+   "G1k szabály-helyesbítés": 0.9103,
+   "G2 hazug forrás": 0.8021,
+   "G3 hazug forrás": 0.8333,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.8229,
+   "G4 jó új specialista": 0.587
+  },
+  "(1−q)×2": {
+   "G1k hazug forrás": 0.9271,
+   "G1k szabály-helyesbítés": 0.9731,
+   "G2 hazug forrás": 0.9167,
+   "G3 hazug forrás": 0.9375,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": 0.9583,
+   "G4 jó új specialista": 0.95
+  },
+  "upd×½": {
+   "G1k hazug forrás": null,
+   "G1k szabály-helyesbítés": null,
+   "G2 hazug forrás": null,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": null,
+   "G4 jó új specialista": null
+  },
+  "upd×2": {
+   "G1k hazug forrás": null,
+   "G1k szabály-helyesbítés": null,
+   "G2 hazug forrás": null,
+   "G3 hazug forrás": 0.9062,
+   "G3 állapotváltozás": 1.0,
+   "G4 hazug forrás": null,
+   "G4 jó új specialista": null
+  }
+ },
+ "Δpost az alaphoz": {
+  "alap": {
+   "G1k": 0.0,
+   "G2": 0.0,
+   "G3": 0.0,
+   "G4": 0.0
+  },
+  "π_új=0,8": {
+   "G1k": 0.0,
+   "G2": 0.0006,
+   "G3": 0.0,
+   "G4": -0.0019
+  },
+  "π_új=0,95": {
+   "G1k": 0.0,
+   "G2": 0.0,
+   "G3": 0.0,
+   "G4": -0.0014
+  },
+  "π_új=0,99": {
+   "G1k": 0.0,
+   "G2": -0.0006,
+   "G3": 0.0,
+   "G4": -0.0009
+  },
+  "ε×½": {
+   "G1k": -0.0003,
+   "G2": 0.0006,
+   "G3": -0.0006,
+   "G4": -0.0023
+  },
+  "ε×2": {
+   "G1k": -0.0042,
+   "G2": -0.0301,
+   "G3": -0.0175,
+   "G4": -0.0495
+  },
+  "(1−q)×½": {
+   "G1k": -0.0049,
+   "G2": -0.0613,
+   "G3": -0.0206,
+   "G4": -0.0889
+  },
+  "(1−q)×2": {
+   "G1k": 0.0324,
+   "G2": 0.0153,
+   "G3": 0.0105,
+   "G4": 0.031
+  },
+  "upd×½": {
+   "G1k": null,
+   "G2": null,
+   "G3": 0.0,
+   "G4": null
+  },
+  "upd×2": {
+   "G1k": null,
+   "G2": null,
+   "G3": -0.0006,
+   "G4": null
+  }
+ },
+ "H101b hazug target π_új szerint": {
+  "π_új=0,8": 0.8958,
+  "alap": 0.8932,
+  "π_új=0,95": 0.888,
+  "π_új=0,99": 0.8854
+ },
+ "H101b helyesbítés+specialista target π_új szerint": {
+  "π_új=0,8": 0.8824,
+  "alap": 0.8949,
+  "π_új=0,95": 0.8991,
+  "π_új=0,99": 0.9032
+ }
+}
