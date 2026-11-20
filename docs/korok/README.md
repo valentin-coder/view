@@ -95,10 +95,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 95 | [95-konszolidacio.md](95-konszolidacio.md) | Konszolidáció (feltáró LOO, négy generátor): lényeges a prioritás (PK + osztálykivétel), az eseményenkénti vágás, az N és a hibrid; a feltalálás, a kontextusindukció és a q-csoportok a generátorokon hatástalan. A G4-lemaradás oka a hibrid rögzített kódja a rosszul kalibrált bevált forrásnál (a 93. kori diagnózis visszavonva). |
 | 96 | [96-lassan-tanulo-forras.md](96-lassan-tanulo-forras.md) | Lassan tanuló bevált forrás (κ = 300, előregisztrált): a G4-en nem segít, a TFB-2-n ront → **nem alapértelmezés**; a FROZEN_91 v3-előnye a G1k/G2/G3-on friss seedeken megismétlődik, a G4-en nincs előny. |
 | 97 | [97-forras-valtozaspont.md](97-forras-valtozaspont.md) | Forrás-változáspont mint hipotézis-komponens: a kereső megtalálja, de nem javít (fejlesztési negatív; nincs előregisztrált teszt). |
+| 98 | [98-regi-tipusok.md](98-regi-tipusok.md) | A G1 ritkábban mért típusai a FROZEN_91-gyel (előregisztrált): post +0,077 a v3-hoz; a „más régió”-t az N jel nélkül kezeli (a jel fölösleges); de **a helyes szabály-helyesbítést gyakran elutasítja** (−0,128) – a „gyanús új forrás” eddigi legnagyobb ára. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **98. kör (folyamatban):** a G1 ritkábban mért típusai (szabály-helyesbítés, kivételes alfaj, más régió jellel) a FROZEN_91-gyel a G1k-n.
-2. **99. kör:** divergens és kritikai kör (a 94–98. kör mérlege, összegzés a sorozat egészéről).
+1. **99. kör:** divergens és kritikai kör (a 94–98. kör mérlege; a sorozat egészének összegzése).
+2. **100. kör:** megerősítés-függő új-forrás bizalom (a szemét-komponens súlya a forrás megerősítettségétől függ), előregisztrálva a helyesbítés-típusú és a hazug-típusú meglepetéseken.
 3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
