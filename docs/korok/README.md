@@ -107,10 +107,10 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 107 | [107-szabaly-vagas.md](107-szabaly-vagas.md) | A szabályok időbeli vágása (előregisztrált): a szabályváltozásnál +0,095 (n.s.), máshol bitre azonos, de az A7-ben ront – **frissítés vs. revízió** (Katsuno–Mendelzon): ugyanaz a megfigyelés-minta, a döntést a változás alapgyakorisága hozza. Nem alapértelmezés. |
 | 108 | [108-reprodukalhatosag.md](108-reprodukalhatosag.md) | Reprodukálhatósági pillanatkép: a megnevezett konfigurációk (alapértelmezés: FROZEN_91; alternatíva: F91_Q), a generátorok, az érvényességi eszközök és az újrafuttatási parancsok. |
 | 109 | [109-divergens-17.md](109-divergens-17.md) | Kritikai kör: **plató** – nyolc jelöltből egy sem lett alapértelmezés; a maradék döntések (frissítés vs. revízió, jó vs. rossz új forrás, zaj vs. igaz meglepetés) a környezet alapgyakoriságain múlnak, amelyeket a szimbolikus réteg nem tud eldönteni – ez a neurális rész szerepének negatív úton kapott indoklása. |
+| 110 | [110-osszefoglalo-jelentes.md](110-osszefoglalo-jelentes.md) | **Összefoglaló műszaki jelentés** az 1–109. körről: architektúra és ismert elemei, a jelenlegi konfiguráció, bizonyított és cáfolt állítások, a tárcsák, módszertan, ajánlás. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **110. kör:** összefoglaló műszaki jelentés a 108 körről (architektúra, bizonyított és cáfolt állítások, módszertan).
-2. **111. kör:** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
-3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
+1. **111. kör:** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
+2. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
