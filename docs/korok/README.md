@@ -112,5 +112,5 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **111. kör:** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
+1. **111. kör (folyamatban):** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
 2. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

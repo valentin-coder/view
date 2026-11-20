@@ -22,6 +22,7 @@ import random
 from .core import Lit, Obs, Rule, Schema
 
 KINDS4 = ("visszhang", "romló forrás", "jó új specialista", "hazug forrás")
+KINDS4_EXTRA = ("bevált másoló", "független megerősítő")   # 111. kör: a függetlenségi feltevés próbája
 FIELD_REL = {"f1": 0.97, "f2": 0.9, "f3": 0.8, "f4": 0.65}
 
 
@@ -100,6 +101,18 @@ def surprise4(kind, w: World4, rng, c, t):
         for e, p in picks:
             v = w.truth(e)[p] if rng.random() < 0.99 else (not w.truth(e)[p])
             new.append(Obs(next(c), "spec", t, 0.9, lit=Lit("has", e, p, v)))
+            target.append((e, p))
+    elif kind in KINDS4_EXTRA:
+        # 111. kör: a leggyengébb bevált terepforrás (f4) 10 jelentése, köztük (ha van) legfeljebb 5 hibás. A „másoló”
+        # ugyanazt ismétli (korrelált hiba), a „független megerősítő” a valódi értéket közli ugyanazokra a kérdésekre.
+        f4 = sorted({(e, p, v) for (src, e, p, v) in w.reports if src == "f4"})
+        wrong = [x for x in f4 if x[2] != w.truth(x[0]).get(x[1])]
+        right = [x for x in f4 if x[2] == w.truth(x[0]).get(x[1])]
+        picks = rng.sample(wrong, min(5, len(wrong)))
+        picks += rng.sample(right, min(10 - len(picks), len(right)))
+        for e, p, v in picks:
+            val = v if kind == "bevált másoló" else w.truth(e)[p]
+            new.append(Obs(next(c), "mirror" if kind == "bevált másoló" else "indep", t, 0.9, lit=Lit("has", e, p, val)))
             target.append((e, p))
     return new, target
 
