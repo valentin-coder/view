@@ -108,6 +108,7 @@ def configured(overrides: dict):
             self.source_changepoints = cfg.get("source_changepoints", False)
             self.chg_prior = cfg.get("chg_prior", 0.01)
             self.newcomer_corrob = cfg.get("newcomer_corrob", False)
+            self.q_temper = cfg.get("q_temper", 1.0)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -180,3 +181,6 @@ F91_TDK = {**F91_TK, "rel_hybrid_kappa": 300.0}
 F91_DK = {**FROZEN_91, "rel_hybrid_kappa": 300.0}
 # 100. kör: megerősítés-függő új-forrás bizalom (jelölt)
 F91_C = {**FROZEN_91, "newcomer_corrob": True}
+# 102. kör: óvatos hitelesség (jelölt)
+F91_Q = {**FROZEN_91, "q_temper": 2.0}
+V3_Q = {"q_temper": 2.0}   # csak a temperálás a v3-hoz (a configured() a v4-alapot is beállítja, ezért külön kezelendő)

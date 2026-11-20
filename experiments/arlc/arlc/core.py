@@ -141,6 +141,7 @@ class Memory:
         self.source_changepoints = False         # 97. kör: forrás-változáspont mint hipotézis-komponens
         self.chg_prior = 0.01                    # 97. kör: egy forrás egy időpontbeli változásának prior-esélye
         self.newcomer_corrob = False             # 100. kör: az új forrás π-je a nyers megerősítéstől függ
+        self.q_temper = 1.0                      # 102. kör: (1 − q) szorzója a megfigyeléskor (1,0: változatlan)
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -1020,6 +1021,9 @@ class Memory:
 
     # ------------------------------------------------------------ public API
     def observe(self, o: Obs) -> dict:
+        if self.q_temper != 1.0:
+            # 102. kör: óvatos hitelesség – a deklarált hibavalószínűség rögzített szorzása (temperálás)
+            o = Obs(o.id, o.source, o.time, min(0.999, max(0.501, 1 - (1 - o.q) * self.q_temper)), o.lit, o.rule)
         self._ccache.clear()
         self._emc.clear()
         self._scache.clear()

@@ -103,7 +103,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **102. kör:** óvatos hitelesség ((1 − q) × 2, rögzített temperálás) előregisztráltan, friss seedeken, négy generátoron és a feladatcsomagon.
+1. **102. kör (folyamatban):** óvatos hitelesség ((1 − q) × 2, rögzített temperálás) előregisztráltan, friss seedeken, négy generátoron és a feladatcsomagon.
 2. **103. kör:** egyszerűsítés (v5-mag), ekvivalencia-ellenőrzéssel.
 3. **104. kör:** divergens és kritikai kör.
 4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
