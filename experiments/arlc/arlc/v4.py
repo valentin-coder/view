@@ -107,6 +107,7 @@ def configured(overrides: dict):
             self.rel_hybrid_kappa = cfg.get("rel_hybrid_kappa", None)
             self.source_changepoints = cfg.get("source_changepoints", False)
             self.chg_prior = cfg.get("chg_prior", 0.01)
+            self.newcomer_corrob = cfg.get("newcomer_corrob", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -177,3 +178,5 @@ F91_TK = {**FROZEN_91, "theory_mix": (0.9, 300.0, 0.5, 2.0)}
 F91_TDK = {**F91_TK, "rel_hybrid_kappa": 300.0}
 # 96. kör: a hibrid bevált adatforrása lassan tanuló béta-kóddal (κ = 300) a rögzített helyett (jelölt)
 F91_DK = {**FROZEN_91, "rel_hybrid_kappa": 300.0}
+# 100. kör: megerősítés-függő új-forrás bizalom (jelölt)
+F91_C = {**FROZEN_91, "newcomer_corrob": True}

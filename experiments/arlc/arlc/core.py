@@ -140,6 +140,7 @@ class Memory:
         self.rel_hybrid_kappa: Optional[float] = None  # 95. kör: a bevált adatforrás béta-kódjának κ-ja (None: rögzített)
         self.source_changepoints = False         # 97. kör: forrás-változáspont mint hipotézis-komponens
         self.chg_prior = 0.01                    # 97. kör: egy forrás egy időpontbeli változásának prior-esélye
+        self.newcomer_corrob = False             # 100. kör: az új forrás π-je a nyers megerősítéstől függ
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -560,6 +561,52 @@ class Memory:
         dlt = self.source_newcomer[3] if self.source_newcomer is not None else 0
         return self._first_seen()[src] < self.now - dlt
 
+    def _corrob_pi(self, src: str, pi0: float) -> float:
+        """100. kör: az új forrás becsületes-súlya a nyers megerősítésből (a hipotézistől függetlenül). Egy szemét-
+        forrás állítása egy független állítással 1/2 eséllyel egyezik, egy becsületesé kb. q eséllyel; így minden egyezés
+        log2(q/0,5), minden ellentmondás log2((1−q)/0,5) bittel tolja a log-esélyt."""
+        key = (len(self.obs), src)
+        c = self._corr_cache.get(key) if hasattr(self, "_corr_cache") else None
+        if c is None:
+            if not hasattr(self, "_corr_cache") or getattr(self, "_corr_n", None) != len(self.obs):
+                self._corr_cache, self._corr_n = {}, len(self.obs)
+            mem = defaultdict(set)              # nyers tagság (más források isa-állításaiból)
+            facts = defaultdict(list)           # (e, p) -> [(érték, q)] más forrásoktól
+            rules = defaultdict(list)           # (c, p) -> [(érték, q)] más forrásoktól
+            for o in self.obs:
+                if o.source == src:
+                    continue
+                if o.lit is not None and o.lit.pred == "isa" and o.lit.pos:
+                    mem[o.lit.subj].add(o.lit.obj)
+                elif o.lit is not None and o.lit.pred == "has":
+                    facts[(o.lit.subj, o.lit.obj)].append((o.lit.pos, o.q))
+                elif o.rule is not None and o.rule.pred == "has" and o.rule.cond is None:
+                    rules[(o.rule.body, o.rule.obj)].append((o.rule.pos, o.q))
+            members = defaultdict(set)
+            for e, cs in mem.items():
+                for cat in cs:
+                    members[cat].add(e)
+            lr = 0.0
+            for o in self.obs:
+                if o.source != src:
+                    continue
+                if o.lit is not None and o.lit.pred == "has":
+                    e, p, v = o.lit.subj, o.lit.obj, o.lit.pos
+                    others = list(facts.get((e, p), [])) + [x for cat in mem.get(e, ()) for x in rules.get((cat, p), [])]
+                elif o.rule is not None and o.rule.pred == "has" and o.rule.cond is None:
+                    cat, p, v = o.rule.body, o.rule.obj, o.rule.pos
+                    others = [x for e in members.get(cat, ()) for x in facts.get((e, p), [])] + list(rules.get((cat, p), []))
+                else:
+                    continue
+                for val, q in others:
+                    q = min(max(q, 0.51), 0.999)
+                    lr += math.log2(q / 0.5) if val == v else math.log2((1 - q) / 0.5)
+            c = lr
+            self._corr_cache[key] = c
+        lo = math.log2(pi0 / (1 - pi0)) + c
+        lo = max(-30.0, min(30.0, lo))
+        return 1.0 / (1.0 + 2 ** (-lo))
+
     def _seg(self, o: Obs, H: Hyp) -> str:
         """97. kör: a megfigyelés forrás-szegmense: a forrás neve, vagy „forrás@t”, ha a hipotézis a forrásnak t-ben
         változáspontot tulajdonít, és a megfigyelés t-ben vagy később történt."""
@@ -606,7 +653,10 @@ class Memory:
                 # szemét-esélye nagyobb, mint a bevált forrásé
                 sname = src[0] if isinstance(src, tuple) else src
                 pn, po, k1n, dlt = self.source_newcomer
-                sm = (pn, k1n) if first_seen.get(sname, self.now) >= self.now - dlt else (po, k1n)
+                is_new = first_seen.get(sname, self.now) >= self.now - dlt
+                if is_new and self.newcomer_corrob:
+                    pn = self._corrob_pi(sname.split("@")[0], pn)
+                sm = (pn, k1n) if is_new else (po, k1n)
             if theory and self.theory_mix is not None:
                 # 48. kör: „nagyjából helyes, néhány hibával” (κ1 a q körül) vagy „egészében téves” (q0, κ0)
                 pi, k1, q0m, k0 = self.theory_mix[:4]
