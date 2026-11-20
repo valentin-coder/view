@@ -194,3 +194,5 @@ V5_CORE = {**FROZEN_91, "q_groups": False, "ind_exc_cost": False, "source_moves"
 F91_R = {**FROZEN_91, "rule_cuts": True}
 # 112. kör: másolásfelismerés (jelölt)
 F91_D = {**FROZEN_91, "copy_detection": True}
+# 112. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 112. kör minden kritériumán átment)
+FROZEN_112 = F91_D

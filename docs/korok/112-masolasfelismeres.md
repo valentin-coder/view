@@ -49,3 +49,43 @@ Kikapcsolva bitre azonos (ekvivalencia: EGYEZIK).
 - **H112e (feladatcsomag):** egyetlen pontossági tétel sem rosszabb 0,05-nél többel.
 
 **Döntési szabály:** ha mind teljesül, az F91_D lesz az új befagyasztott konfiguráció (FROZEN_112).
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-112/`](../../experiments/arlc/results/kor-112/); elemzés:
+[`analyze_r112.py`](../../experiments/arlc/arlc/analyze_r112.py) → `results/kor-112/analysis.json`. 120 + 216 futás +
+feladatcsomag, eltérés nincs.
+
+| hibás részhalmaz (előtte → utána) | bevált másoló | független megerősítő | észlelt másolás (másoló) |
+|---|---|---|---|
+| v3 | 0,56 → 0,00 | 0,56 → 0,92 | 0/20 |
+| FROZEN_91 | 0,46 → 0,00 | 0,46 → 0,78 | 0/20 |
+| **F91_D** | 0,46 → **0,50** | 0,46 → 0,78 (azonos) | **17/20** |
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H112a:** F91_D − FROZEN_91 (utána) > 0 | **+0,498** [+0,36; +0,64] | **teljesül** |
+| **H112b:** F91_D utána ≥ FROZEN_91 előtte − 0,15 | +0,04 (a meglepetés előtti szint fölött) | **teljesül** |
+| **H112c (megerősítő):** ≥ −0,02 | 0,000 (bitre azonos) | **teljesül** |
+| **H112d (a többi 9 típus, post):** ≥ −0,01 | 0,000; 0,000; +0,000; 0,000 | **teljesül** |
+| **H112e (feladatcsomag):** | egyetlen tétel sem változott | **teljesül** |
+
+**A döntési szabály szerint az F91_D az új befagyasztott konfiguráció (`FROZEN_112`).** Ez a 91. kör óta az első, és a
+96–111. kör kilenc jelöltje közül az egyetlen, amely minden előre rögzített kritériumon átment.
+
+### Értelmezés
+
+1. **A 111. kör legsúlyosabb sebezhetősége kezelhető, metaadat nélkül.** A másolást a rendszer 20-ból 17 esetben felismeri,
+   és az érintett kérdéseken a meglepetés előtti szintre áll vissza.
+2. **Miért működik, ahol a tárcsák nem (104., 109. kör)?** A másolás **nem alapgyakoriság-kérdés,** hanem szerkezeti
+   bizonyíték. Az egyezés mintázata (szó szerint ugyanazok az állítások, a hibásak is) a világ alapgyakoriságaitól
+   függetlenül olcsóbb magyarázat. A tárcsákkal szemben (jó vagy rossz új forrás egyetlen állításból) itt **sok állítás
+   együttes mintázata** dönt. Ez a 100. kör korlátjának pozitív párja: ahol a bizonyíték szerkezete elég gazdag, a
+   szimbolikus réteg önmagában is dönt.
+3. **A horgony-újraindítás nélkül a mechanizmus keveset ért** (fejlesztés: 0,10). Ez a 81. kör óta harmadszor mutatja:
+   **a keresés útja ugyanolyan fontos, mint a kódhossz.** Egy új hipotézis-komponens csak akkor ér valamit, ha a kereső a
+   régi döntéseket is újra tudja nyitni.
+4. **Nem ártalmatlan minden helyzetben:** egy valóban független forrás, amely egy bevált forrással sok állításban szó szerint
+   egyezik (mert mindkettő igazat mond), másolónak minősülhet. A megerősítő kontrollban ez nem történt meg, mert ott az
+   egyezések nem okoztak ütközést (a javaslat csak ütközésből indul). Egy egyező, de ütköző független forrás (pl. két
+   független forrás ugyanabban téved) ritka, de lehetséges eset.

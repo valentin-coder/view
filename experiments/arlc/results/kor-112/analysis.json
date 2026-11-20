@@ -1,0 +1,104 @@
+{
+ "n_copy": 120,
+ "n_test": 216,
+ "másoló/megerősítő": {
+  "bevált másoló | v3": {
+   "wrong_before": 0.5575,
+   "wrong_after": 0.0,
+   "target_before": 0.775,
+   "target_after": 0.505,
+   "post": 0.8789,
+   "észlelt másolás": 0
+  },
+  "bevált másoló | FROZEN_91": {
+   "wrong_before": 0.4575,
+   "wrong_after": 0.0,
+   "target_before": 0.725,
+   "target_after": 0.505,
+   "post": 0.8728,
+   "észlelt másolás": 0
+  },
+  "bevált másoló | F91_D": {
+   "wrong_before": 0.4575,
+   "wrong_after": 0.4975,
+   "target_before": 0.725,
+   "target_after": 0.735,
+   "post": 0.9033,
+   "észlelt másolás": 17
+  },
+  "független megerősítő | v3": {
+   "wrong_before": 0.5575,
+   "wrong_after": 0.9175,
+   "target_before": 0.775,
+   "target_after": 0.96,
+   "post": 0.9378,
+   "észlelt másolás": 0
+  },
+  "független megerősítő | FROZEN_91": {
+   "wrong_before": 0.4575,
+   "wrong_after": 0.7775,
+   "target_before": 0.725,
+   "target_after": 0.89,
+   "post": 0.9194,
+   "észlelt másolás": 0
+  },
+  "független megerősítő | F91_D": {
+   "wrong_before": 0.4575,
+   "wrong_after": 0.7775,
+   "target_before": 0.725,
+   "target_after": 0.89,
+   "post": 0.9194,
+   "észlelt másolás": 0
+  }
+ },
+ "H112a hibás részhalmaz utána: D − F91": {
+  "n_seeds": 20,
+  "mean_diff": 0.4975,
+  "ci95": [
+   0.36,
+   0.64
+  ]
+ },
+ "H112b D utána − F91 előtte": 0.04,
+ "H112c megerősítő target utána: D − F91": {
+  "n_seeds": 20,
+  "mean_diff": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ]
+ },
+ "H112d G1k post: D − F91": {
+  "n_seeds": 12,
+  "mean_diff": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ]
+ },
+ "H112d G2 post: D − F91": {
+  "n_seeds": 12,
+  "mean_diff": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ]
+ },
+ "H112d G3 post: D − F91": {
+  "n_seeds": 12,
+  "mean_diff": 0.0003753753753753808,
+  "ci95": [
+   0.0,
+   0.0011261261261261424
+  ]
+ },
+ "H112d G4 post: D − F91": {
+  "n_seeds": 12,
+  "mean_diff": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ]
+ },
+ "feladatcsomag eltérések": {}
+}

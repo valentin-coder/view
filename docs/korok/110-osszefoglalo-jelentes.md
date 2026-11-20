@@ -49,6 +49,8 @@ q-csoport, feltalálás), plusz:
 4. **hibrid megbízhatóság:** bevált forrás rögzített kóddal, új forrás adaptív keverékkel (91. kör);
 5. eseményenkénti vágásár (91. kör).
 
+**Utólagos frissítés (112. kör): az új alapértelmezés `FROZEN_112` = `FROZEN_91` + másolásfelismerés horgony-újraindítással.** A 111. kör másoló-sebezhetőségét megszünteti, máshol bitre azonos.
+
 **Megnevezett alternatíva: `F91_Q`** („óvatos”, a deklarált hibavalószínűség kétszerese). A generatív világokon mindenhol
 jobb, a kézi feladatok egy részén gyengébb (102., 105. kör). **A B fázishoz ez a biztonságosabb.**
 
