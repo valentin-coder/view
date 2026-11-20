@@ -115,6 +115,10 @@ def configured(overrides: dict):
             self.copy_prior = cfg.get("copy_prior", 0.01)
             self.reopen_search = cfg.get("reopen_search", False)
             self.copy_acyclic = cfg.get("copy_acyclic", False)
+            self.copy_min_shared = cfg.get("copy_min_shared", 1)
+            self.reseed_once = cfg.get("reseed_once", False)
+            self.copy_time_order = cfg.get("copy_time_order", False)
+            self.copy_new_only = cfg.get("copy_new_only", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -206,3 +210,7 @@ F112_CPO = {**F112_O, "source_changepoints": True}
 FROZEN_115 = F112_RO
 # 117. kör: aciklikus másolási gráf (jelölt)
 F115_A = {**FROZEN_115, "copy_acyclic": True}
+# 117. kör: aciklikus másolás + gyorsítás (jelölt)
+F115_AS = {**F115_A, "copy_min_shared": 3, "reseed_once": True}
+F115_AST = {**F115_AS, "copy_time_order": True}
+F115_N = {**F115_AST, "copy_new_only": True}

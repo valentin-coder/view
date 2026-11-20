@@ -151,6 +151,10 @@ class Memory:
         self.copy_prior = 0.01                   # 112. kör: egy forráspár másolási kapcsolatának prior-esélye
         self.reopen_search = False               # 115. kör: általános újranyitó keresés időhorgonyokból
         self.copy_acyclic = False                # 117. kör: a másolási gráf aciklikus (az eredeti megmarad)
+        self.copy_min_shared = 1                 # 117. kör: másolás csak legalább ennyi szó szerint egyező állításnál
+        self.reseed_once = False                 # 117. kör: a horgony-újraindítás páronként csak egyszer
+        self.copy_time_order = False             # 117. kör: a másolás iránya az időrendből
+        self.copy_new_only = False               # 117. kör: másolás csak új forrás részvételével
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -607,6 +611,22 @@ class Memory:
             self._cs, self._cs_key = cs, len(self.obs)
         return self._cs
 
+    def _first_claim_time(self, src: str, o: Obs) -> int:
+        """117. kör: mikor tette meg először az src forrás az o állítását."""
+        c = self._claim(o)
+        return min((x.time for x in self.obs if x.source == src and self._claim(x) == c), default=10 ** 9)
+
+    def _shared_claims(self, a: str, b: str) -> int:
+        """117. kör: hány szó szerint egyező állítása van két forrásnak (gyorsítótárazva)."""
+        key = (len(self.obs), min(a, b), max(a, b))
+        sc = getattr(self, "_sc_cache", None)
+        if sc is None or getattr(self, "_sc_n", None) != len(self.obs):
+            sc, self._sc_n = {}, len(self.obs)
+            self._sc_cache = sc
+        if key not in sc:
+            sc[key] = sum(1 for srcs in self._claim_sources().values() if a in srcs and b in srcs)
+        return sc[key]
+
     @staticmethod
     def _dup_reaches(dup, a, b) -> bool:
         """117. kör: elérhető-e b az a-ból a másolási gráfban (másoló -> eredeti élek)."""
@@ -840,9 +860,14 @@ class Memory:
                     # 112. kör: ha az állítást egy másik forrás is szó szerint megtette, javasolható, hogy az egyik a
                     # másik másolója (mindkét irány)
                     for s1 in sorted(self._claim_sources().get(self._claim(o), ())):
-                        if s1 != o.source:
+                        if self.copy_new_only and self._established(o.source) and self._established(s1):
+                            continue              # 117. kör: két bevált forrás között nem keres másolást
+                        if s1 != o.source and (self.copy_min_shared <= 1
+                                               or self._shared_claims(o.source, s1) >= self.copy_min_shared):
                             for pair in ((o.source, s1), (s1, o.source)):
                                 if pair not in H.dup and (pair[1], pair[0]) not in H.dup:
+                                    if self.copy_time_order and self._first_claim_time(pair[1], o) > self._first_claim_time(pair[0], o):
+                                        continue          # 117. kör: a másoló nem előzheti meg az eredetit
                                     if self.copy_acyclic and self._dup_reaches(H.dup, pair[1], pair[0]):
                                         continue          # 117. kör: a másolási gráf nem lehet körös
                                     yield replace(H, dup=H.dup | {pair})
@@ -1172,7 +1197,12 @@ class Memory:
             # 112. kör: ha egy jelölt másolást feltételez, a másoló megjelenése előtti horgonyból is újraindul a javítás
             # (különben a másoló korábbi állításaira hozott döntések – félretevés, kivétel – megmaradnak)
             anchors = getattr(self, "_src_anchor", {})
+            done = getattr(self, "_reseeded", set())
+            self._reseeded = done
             for pair in sorted({pr for h in list(cands.values()) for pr in h.dup}):
+                if self.reseed_once and pair in done:
+                    continue
+                done.add(pair)
                 a = anchors.get(pair[0])
                 if a is not None and pair not in a.dup:
                     for H5 in self._repair(replace(a, dup=a.dup | {pair}), self.depth, seen):

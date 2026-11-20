@@ -118,6 +118,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **117. kör:** aciklikus másolási gráf (a 116. kori fejlesztési lelet) és gyorsítás (a 2,5–25×-ös lassulás).
+1. **117. kör (folyamatban):** a másolásfelismerés javítása (aciklikus, időrendes, csak új forrással) és gyorsítása, előregisztrálva.
 2. **119. kör:** divergens és kritikai kör.
 3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
