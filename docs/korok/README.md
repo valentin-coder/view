@@ -113,6 +113,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **112. kör:** másolásfelismerés mint hipotézis-komponens („s₂ az s₁ másolata”; a hamis értékekben való egyezés mint bizonyíték), előregisztrálva.
+1. **112. kör (folyamatban):** másolásfelismerés mint hipotézis-komponens („s₂ az s₁ másolata”; a hamis értékekben való egyezés mint bizonyíték), előregisztrálva.
 2. **114. kör:** divergens és kritikai kör.
 3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

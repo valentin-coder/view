@@ -111,6 +111,8 @@ def configured(overrides: dict):
             self.q_temper = cfg.get("q_temper", 1.0)
             self.rule_cuts = cfg.get("rule_cuts", False)
             self.rule_change_prior = cfg.get("rule_change_prior", 0.01)
+            self.copy_detection = cfg.get("copy_detection", False)
+            self.copy_prior = cfg.get("copy_prior", 0.01)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -190,3 +192,5 @@ V3_Q = {"q_temper": 2.0}   # csak a temperálás a v3-hoz (a configured() a v4-a
 V5_CORE = {**FROZEN_91, "q_groups": False, "ind_exc_cost": False, "source_moves": False}
 # 107. kör: szabályok időbeli vágása (jelölt)
 F91_R = {**FROZEN_91, "rule_cuts": True}
+# 112. kör: másolásfelismerés (jelölt)
+F91_D = {**FROZEN_91, "copy_detection": True}

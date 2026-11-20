@@ -61,6 +61,7 @@ class Hyp:
     cut: tuple = ()           # ((obs_id, end_time), ...) rendezve
     ind: tuple = ()           # indukált Obs-ok
     chg: frozenset = frozenset()  # 97. kör: forrás-változáspontok {(forrás, időpont)}
+    dup: frozenset = frozenset()  # 112. kör: forrásmásolás {(másoló, eredeti)}
 
     def key(self):
         k = self.__dict__.get("_key")
@@ -68,11 +69,13 @@ class Hyp:
             k = (self.rej, self.exc, self.iso, self.cut, tuple(o.rule for o in self.ind))
             if self.chg:
                 k = k + (self.chg,)
+            if self.dup:
+                k = k + (("dup", self.dup),)
             object.__setattr__(self, "_key", k)
         return k
 
 
-_HYP_FIELDS = ("rej", "exc", "iso", "cut", "ind", "chg")
+_HYP_FIELDS = ("rej", "exc", "iso", "cut", "ind", "chg", "dup")
 
 
 def replace(obj, **kw):
@@ -144,6 +147,8 @@ class Memory:
         self.q_temper = 1.0                      # 102. kör: (1 − q) szorzója a megfigyeléskor (1,0: változatlan)
         self.rule_cuts = False                   # 107. kör: szabályok és statikus tények időbeli vágása (rendszerváltás)
         self.rule_change_prior = 0.01            # 107. kör: egy tulajdonság egy időpontbeli rendszerváltásának prior-esélye
+        self.copy_detection = False              # 112. kör: forrásmásolás mint hipotézis-komponens
+        self.copy_prior = 0.01                   # 112. kör: egy forráspár másolási kapcsolatának prior-esélye
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -195,6 +200,8 @@ class Memory:
         rules, facts = [], []
         for o in list(self.obs) + list(H.ind):
             if o.id in H.rej:
+                continue
+            if H.dup and o.id < IND_BASE and self._absorbed(o, H):
                 continue
             if o.time > t and (o.rule is not None or self._mutable(o) or self.rule_cuts):
                 continue
@@ -464,6 +471,8 @@ class Memory:
             return cl_cache[k]
         hyb = self.rel_hybrid and self.reliability == "beta"
         for o in self.obs:
+            if H.dup and self._absorbed(o, H):
+                continue
             q_o = self.source_q.get(o.source, o.q)
             if hyb:
                 fixed_w = 1.0 if (self.rel_hybrid_kappa is None and self._established(self._seg(o, H))
@@ -531,6 +540,8 @@ class Memory:
                 bits += cnt * (-math.log2(q) + (-math.log2(1 - self.delta) if active else 1.0))
         if H.chg:
             bits += len(H.chg) * -math.log2(self.chg_prior)      # 97. kör: forrás-változáspont ára
+        if H.dup:
+            bits += len(H.dup) * -math.log2(self.copy_prior)     # 112. kör: forrásmásolás ára
         if self.rule_cuts:
             bits += sum(self._cut_events(H.cut).values())
         elif self.cut_per_event:
@@ -561,6 +572,30 @@ class Memory:
             key = (o.lit.subj, g, end) if self.cut_per_event else ("obs", oid)
             ev[key] = -math.log2(self.s.update_prior.get(g, 1e-3))
         return ev
+
+    @staticmethod
+    def _claim(o: Obs):
+        if o.lit is not None:
+            return ("L", o.lit.pred, o.lit.subj, o.lit.obj, o.lit.pos)
+        r = o.rule
+        return ("R", r.body, r.pred, r.obj, r.pos, r.cond)
+
+    def _claim_sources(self) -> dict:
+        """112. kör: állítás -> az azt tevő források halmaza (a megfigyelések számához gyorsítótárazva)."""
+        if getattr(self, "_cs_key", None) != len(self.obs):
+            cs = defaultdict(set)
+            for o in self.obs:
+                cs[self._claim(o)].add(o.source)
+            self._cs, self._cs_key = cs, len(self.obs)
+        return self._cs
+
+    def _absorbed(self, o: Obs, H: Hyp) -> bool:
+        """112. kör: a másoló forrás állítása, amely szó szerint egyezik az eredeti forrás egy állításával, nem független
+        bizonyíték: nem számít sem a zárásban, sem a pontszámban."""
+        if not H.dup:
+            return False
+        srcs = self._claim_sources().get(self._claim(o), ())
+        return any(s2 == o.source and s1 in srcs for (s2, s1) in H.dup)
 
     def _first_seen(self) -> dict:
         """86. kör: forrásonként az első megfigyelés ideje (a megfigyelések számához gyorsítótárazva)."""
@@ -641,6 +676,8 @@ class Memory:
         stats: dict = {}
         corr = self._corroborated(H) if self.corroboration else None
         for o in self.obs:
+            if H.dup and self._absorbed(o, H):
+                continue
             q0 = o.q if (self.vetted is None or o.source in self.vetted) else self.newcomer_q
             q0 = self.source_q.get(o.source, q0)
             seg = self._seg(o, H)
@@ -764,6 +801,14 @@ class Memory:
                     continue
                 if o.q < 1.0:
                     yield replace(H, rej=H.rej | {o.id})
+                if self.copy_detection and o.id < IND_BASE:
+                    # 112. kör: ha az állítást egy másik forrás is szó szerint megtette, javasolható, hogy az egyik a
+                    # másik másolója (mindkét irány)
+                    for s1 in sorted(self._claim_sources().get(self._claim(o), ())):
+                        if s1 != o.source:
+                            for pair in ((o.source, s1), (s1, o.source)):
+                                if pair not in H.dup and (pair[1], pair[0]) not in H.dup:
+                                    yield replace(H, dup=H.dup | {pair})
                 if (self.source_changepoints and o.lit is not None and self._established(o.source)
                         and o.time == self.now and (o.source, o.time) not in H.chg):
                     # 97. kör: a bevált forrás most érkező jelentései egy új (gyanús) szegmenshez tartoznak
@@ -892,6 +937,7 @@ class Memory:
             c += sum(-math.log2(self.s.update_prior.get(self._group(self.by_id[i].lit), 1e-3))
                      for i, _ in set(H2.cut) - set(H.cut))
         c += len(H2.chg - H.chg) * -math.log2(self.chg_prior)
+        c += len(H2.dup - H.dup) * -math.log2(self.copy_prior)
         c -= 4.0 * (len(H.ind) - len(H2.ind))
         return c
 
@@ -1061,6 +1107,10 @@ class Memory:
         if self.use_decay < 1.0:
             for k in list(self.uses):
                 self.uses[k] *= self.use_decay
+        if self.copy_detection and all(x.source != o.source for x in self.obs):
+            # 112. kör: a forrás első megjelenése előtti legjobb hipotézis (horgony a másolás-újraindításhoz)
+            self._src_anchor = getattr(self, "_src_anchor", {})
+            self._src_anchor[o.source] = self.best
         self.obs.append(o)
         self.by_id[o.id] = o
         self.now = max(self.now, o.time)
@@ -1077,6 +1127,16 @@ class Memory:
             for H2 in self._repair(H, self.depth, seen):
                 cands[H2.key()] = H2
                 parent.setdefault(H2.key(), H)
+        if self.copy_detection:
+            # 112. kör: ha egy jelölt másolást feltételez, a másoló megjelenése előtti horgonyból is újraindul a javítás
+            # (különben a másoló korábbi állításaira hozott döntések – félretevés, kivétel – megmaradnak)
+            anchors = getattr(self, "_src_anchor", {})
+            for pair in sorted({pr for h in list(cands.values()) for pr in h.dup}):
+                a = anchors.get(pair[0])
+                if a is not None and pair not in a.dup:
+                    for H5 in self._repair(replace(a, dup=a.dup | {pair}), self.depth, seen):
+                        cands[H5.key()] = H5
+                        parent.setdefault(H5.key(), None)
         if not cands:
             for H in self.beam:
                 H2 = replace(H, rej=H.rej | {o.id})
