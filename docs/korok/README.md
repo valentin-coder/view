@@ -92,12 +92,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 92 | [92-biztonsagi-ellenorzes.md](92-biztonsagi-ellenorzes.md) | A FROZEN_91 biztonsági ellenőrzése (előregisztrált): szemét-tankönyv és rivális elméletek rendben, hazug forrás +0,60 a v3-hoz; a feladatcsomagban a TFB-9 −0,06 (H92a nem teljesül; ok: rögzített kód a deklaráltnál zajosabb forrásnál). Kiderült: **a FROZEN_88 az E1 alapfeladatot teljesen elrontotta** – a régi csomag futtatása mostantól a befagyasztás feltétele. |
 | 93 | [93-g4.md](93-g4.md) | Negyedik generátor (G4: forrásfüggőség és -változás, előregisztrált): a forrás-felismerés itt is erős (+0,26), a visszhang nem árt; az általános előny nem jelenik meg (+0,010, n.s.). Jósolt gyengeségek: romló bevált forrás (0,000), jó új specialista (−0,092). A pre-lemaradás oka: a tankönyv elmélet-keverékének adaptív komponense. |
 | 94 | [94-divergens-14.md](94-divergens-14.md) | Kritikai kör: négy generátor után a forrás-felismerés általános, a szerkezeti újítások ott segítenek, ahol a világban megvan a szerkezet. A Pólya-koncentráció „vándorol” (vakond-ütögetés); elvi javítás: erős becsületes prior + külön szemét-komponens. Javaslat: konszolidáció. |
+| 95 | [95-konszolidacio.md](95-konszolidacio.md) | Konszolidáció (feltáró LOO, négy generátor): lényeges a prioritás (PK + osztálykivétel), az eseményenkénti vágás, az N és a hibrid; a feltalálás, a kontextusindukció és a q-csoportok a generátorokon hatástalan. A G4-lemaradás oka a hibrid rögzített kódja a rosszul kalibrált bevált forrásnál (a 93. kori diagnózis visszavonva). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **95. kör:** κ₁ = 300 a becsületes komponensre (elmélet és bevált adatforrás), előregisztrálva négy generátoron és a feladatcsomagon.
-2. **96. kör:** konszolidáció – egyet-elhagyó abláció négy generátoron.
-3. **97. kör:** a forrás megbízhatóságának változáspontja (romló bevált forrás).
-4. **99. kör:** divergens és kritikai kör.
-5. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **96. kör:** lassan tanuló bevált forrás (Dκ, κ = 300) a hibrid rögzített kódja helyett, előregisztrálva négy generátoron és a feladatcsomagon.
+2. **97. kör:** a forrás megbízhatóságának változáspontja (romló bevált forrás).
+3. **99. kör:** divergens és kritikai kör.
+4. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
