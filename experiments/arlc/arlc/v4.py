@@ -114,6 +114,7 @@ def configured(overrides: dict):
             self.copy_detection = cfg.get("copy_detection", False)
             self.copy_prior = cfg.get("copy_prior", 0.01)
             self.reopen_search = cfg.get("reopen_search", False)
+            self.copy_acyclic = cfg.get("copy_acyclic", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -203,3 +204,5 @@ F112_RO = {**F112_O, "rule_cuts": True}
 F112_CPO = {**F112_O, "source_changepoints": True}
 # 115. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 115. kör minden kritériumán átment)
 FROZEN_115 = F112_RO
+# 117. kör: aciklikus másolási gráf (jelölt)
+F115_A = {**FROZEN_115, "copy_acyclic": True}

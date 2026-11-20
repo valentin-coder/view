@@ -150,6 +150,7 @@ class Memory:
         self.copy_detection = False              # 112. kör: forrásmásolás mint hipotézis-komponens
         self.copy_prior = 0.01                   # 112. kör: egy forráspár másolási kapcsolatának prior-esélye
         self.reopen_search = False               # 115. kör: általános újranyitó keresés időhorgonyokból
+        self.copy_acyclic = False                # 117. kör: a másolási gráf aciklikus (az eredeti megmarad)
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -606,6 +607,23 @@ class Memory:
             self._cs, self._cs_key = cs, len(self.obs)
         return self._cs
 
+    @staticmethod
+    def _dup_reaches(dup, a, b) -> bool:
+        """117. kör: elérhető-e b az a-ból a másolási gráfban (másoló -> eredeti élek)."""
+        g = defaultdict(set)
+        for x, y in dup:
+            g[x].add(y)
+        stack, seen = [a], {a}
+        while stack:
+            x = stack.pop()
+            if x == b:
+                return True
+            for y in g.get(x, ()):
+                if y not in seen:
+                    seen.add(y)
+                    stack.append(y)
+        return False
+
     def _absorbed(self, o: Obs, H: Hyp) -> bool:
         """112. kör: a másoló forrás állítása, amely szó szerint egyezik az eredeti forrás egy állításával, nem független
         bizonyíték: nem számít sem a zárásban, sem a pontszámban."""
@@ -825,6 +843,8 @@ class Memory:
                         if s1 != o.source:
                             for pair in ((o.source, s1), (s1, o.source)):
                                 if pair not in H.dup and (pair[1], pair[0]) not in H.dup:
+                                    if self.copy_acyclic and self._dup_reaches(H.dup, pair[1], pair[0]):
+                                        continue          # 117. kör: a másolási gráf nem lehet körös
                                     yield replace(H, dup=H.dup | {pair})
                 if (self.source_changepoints and o.lit is not None and self._established(o.source)
                         and o.time == self.now and (o.source, o.time) not in H.chg):

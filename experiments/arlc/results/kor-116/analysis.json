@@ -1,0 +1,127 @@
+{
+ "n": 90,
+ "táblázat": {
+  "részleges új másoló | v3": {
+   "pre": 0.8944,
+   "post": 0.8767,
+   "target": 0.48,
+   "sec": 11.32,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "részleges új másoló | FROZEN_91": {
+   "pre": 0.9011,
+   "post": 0.8833,
+   "target": 0.47,
+   "sec": 25.89,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "részleges új másoló | FROZEN_115": {
+   "pre": 0.8956,
+   "post": 0.8989,
+   "target": 0.76,
+   "sec": 1628.29,
+   "n": 10,
+   "kör": 7,
+   "másolás": 8
+  },
+  "jó forrás visszhangja | v3": {
+   "pre": 0.8944,
+   "post": 0.8989,
+   "target": 0.95,
+   "sec": 9.44,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "jó forrás visszhangja | FROZEN_91": {
+   "pre": 0.9011,
+   "post": 0.9033,
+   "target": 0.95,
+   "sec": 23.37,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "jó forrás visszhangja | FROZEN_115": {
+   "pre": 0.8956,
+   "post": 0.9011,
+   "target": 0.96,
+   "sec": 985.93,
+   "n": 10,
+   "kör": 7,
+   "másolás": 7
+  },
+  "hazug forrás | v3": {
+   "pre": 0.8944,
+   "post": 0.8789,
+   "target": 0.725,
+   "sec": 22.28,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "hazug forrás | FROZEN_91": {
+   "pre": 0.9011,
+   "post": 0.9011,
+   "target": 0.8875,
+   "sec": 30.59,
+   "n": 10,
+   "kör": 0,
+   "másolás": 0
+  },
+  "hazug forrás | FROZEN_115": {
+   "pre": 0.8956,
+   "post": 0.8956,
+   "target": 0.9125,
+   "sec": 1188.87,
+   "n": 10,
+   "kör": 8,
+   "másolás": 9
+  }
+ },
+ "H116a pre: F115 − F91": {
+  "n_seeds": 10,
+  "mean_diff": -0.005555555555555558,
+  "ci95": [
+   -0.019999999999999983,
+   0.007777777777777784
+  ]
+ },
+ "H116b hazug target: F115 − v3": {
+  "n_seeds": 10,
+  "mean_diff": 0.1875,
+  "ci95": [
+   0.0875,
+   0.3125
+  ]
+ },
+ "H116c részleges másoló target: F115 − F91": {
+  "n_seeds": 10,
+  "mean_diff": 0.29000000000000004,
+  "ci95": [
+   0.16999999999999998,
+   0.41000000000000003
+  ]
+ },
+ "H116d körök aránya (F115)": 0.733,
+ "post: F115 − v3": {
+  "n_seeds": 10,
+  "mean_diff": 0.013703703703703718,
+  "ci95": [
+   0.0025925925925925795,
+   0.0251851851851852
+  ]
+ },
+ "post: F91 − v3": {
+  "n_seeds": 10,
+  "mean_diff": 0.011111111111111138,
+  "ci95": [
+   0.0040740740740741075,
+   0.020740740740740747
+  ]
+ }
+}

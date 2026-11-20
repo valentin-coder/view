@@ -113,11 +113,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 113 | [113-hamis-riasztas.md](113-hamis-riasztas.md) | A másolásfelismerés hamis riasztása (előregisztrált): független, szó szerint egyező tanúknál 0/28 hamis riasztás, bitre azonos a FROZEN_91-gyel – a másolás csak a hamis értékekben való egyezést magyarázva nyer. |
 | 114 | [114-divergens-18.md](114-divergens-18.md) | Kritikai kör: **tárcsák vs. szerkezeti bizonyítékok** – az előregisztrált sikerek (PK, hibrid + V, másolás) mind sok megfigyelést egyszerre magyaráznak; a tárcsák egyetlen állításon múlnak, ott a prior dönt. Javaslat: általános újranyitó keresés, ötödik generátor. |
 | 115 | [115-ujranyito-kereses.md](115-ujranyito-kereses.md) | Általános újranyitó keresés + szabály-vágás, a frissítés–revízió szemantikával (előregisztrált): **minden kritérium teljesül** – a szabályváltozás 0,18 → 0,93, a revízió érintetlen. **Új befagyasztott: FROZEN_115.** Ára: kb. 2,5× lassabb. |
+| 116 | [116-g5.md](116-g5.md) | Ötödik generátor (forrásfüggőségi hálózat a háttérben, előregisztrált): a hazug forrás (+0,19) és az új részleges másoló (+0,29) kezelése áll; **a másolási reláció 73%-ban körös** (logikai hiba, kis kár), és a FROZEN_115 itt **40–60× lassabb** (16–27 perc/eset). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **116. kör (folyamatban):** ötödik generátor (forrásfüggőségi hálózat a háttérben) a FROZEN_115 után, előregisztrálva.
-2. **117. kör:** aciklikus másolási gráf (a 116. kori fejlesztési lelet) és gyorsítás (a 2,5–25×-ös lassulás).
-3. **119. kör:** divergens és kritikai kör.
-4. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
+1. **117. kör:** aciklikus másolási gráf (a 116. kori fejlesztési lelet) és gyorsítás (a 2,5–25×-ös lassulás).
+2. **119. kör:** divergens és kritikai kör.
+3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
