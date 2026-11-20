@@ -106,9 +106,11 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 106 | [106-tartozkodas.md](106-tartozkodas.md) | Tartózkodás a pontszám-különbség alapján (előregisztrált): a szelektív pontosság +0,008, 4%-os lefedettség-áron; a Brier nem javul, a nyaláb-átlag jobban kalibrál. A visszatartott válaszok 75%-ban helyesek lettek volna. |
 | 107 | [107-szabaly-vagas.md](107-szabaly-vagas.md) | A szabályok időbeli vágása (előregisztrált): a szabályváltozásnál +0,095 (n.s.), máshol bitre azonos, de az A7-ben ront – **frissítés vs. revízió** (Katsuno–Mendelzon): ugyanaz a megfigyelés-minta, a döntést a változás alapgyakorisága hozza. Nem alapértelmezés. |
 | 108 | [108-reprodukalhatosag.md](108-reprodukalhatosag.md) | Reprodukálhatósági pillanatkép: a megnevezett konfigurációk (alapértelmezés: FROZEN_91; alternatíva: F91_Q), a generátorok, az érvényességi eszközök és az újrafuttatási parancsok. |
+| 109 | [109-divergens-17.md](109-divergens-17.md) | Kritikai kör: **plató** – nyolc jelöltből egy sem lett alapértelmezés; a maradék döntések (frissítés vs. revízió, jó vs. rossz új forrás, zaj vs. igaz meglepetés) a környezet alapgyakoriságain múlnak, amelyeket a szimbolikus réteg nem tud eldönteni – ez a neurális rész szerepének negatív úton kapott indoklása. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **109. kör:** divergens és kritikai kör.
-2. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **110. kör:** összefoglaló műszaki jelentés a 108 körről (architektúra, bizonyított és cáfolt állítások, módszertan).
+2. **111. kör:** forrásmásolás bevált forrásról (a függetlenségi feltevés próbája), előregisztrálva.
+3. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.
