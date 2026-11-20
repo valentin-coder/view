@@ -116,7 +116,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **115. kör:** általános újranyitó keresés (horgonyból újraindulás minden új szerkezeti komponensnél), a 97. és 107. kör jelöltjeinek újramérésével, előregisztrálva.
+1. **115. kör (folyamatban):** általános újranyitó keresés (horgonyból újraindulás minden új szerkezeti komponensnél), a 97. és 107. kör jelöltjeinek újramérésével, előregisztrálva.
 2. **116. kör:** ötödik generátor (forrásfüggőségi hálózatok) a FROZEN_112 után, előregisztrálva.
 3. **119. kör:** divergens és kritikai kör.
 4. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

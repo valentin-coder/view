@@ -113,6 +113,7 @@ def configured(overrides: dict):
             self.rule_change_prior = cfg.get("rule_change_prior", 0.01)
             self.copy_detection = cfg.get("copy_detection", False)
             self.copy_prior = cfg.get("copy_prior", 0.01)
+            self.reopen_search = cfg.get("reopen_search", False)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -196,3 +197,7 @@ F91_R = {**FROZEN_91, "rule_cuts": True}
 F91_D = {**FROZEN_91, "copy_detection": True}
 # 112. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 112. kör minden kritériumán átment)
 FROZEN_112 = F91_D
+# 115. kör: általános újranyitó keresés (jelöltek)
+F112_O = {**FROZEN_112, "reopen_search": True}
+F112_RO = {**F112_O, "rule_cuts": True}
+F112_CPO = {**F112_O, "source_changepoints": True}

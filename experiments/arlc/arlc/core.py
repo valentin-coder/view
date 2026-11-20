@@ -149,6 +149,7 @@ class Memory:
         self.rule_change_prior = 0.01            # 107. kör: egy tulajdonság egy időpontbeli rendszerváltásának prior-esélye
         self.copy_detection = False              # 112. kör: forrásmásolás mint hipotézis-komponens
         self.copy_prior = 0.01                   # 112. kör: egy forráspár másolási kapcsolatának prior-esélye
+        self.reopen_search = False               # 115. kör: általános újranyitó keresés időhorgonyokból
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -203,7 +204,7 @@ class Memory:
                 continue
             if H.dup and o.id < IND_BASE and self._absorbed(o, H):
                 continue
-            if o.time > t and (o.rule is not None or self._mutable(o) or self.rule_cuts):
+            if o.time > t and (o.rule is not None or self._mutable(o) or (self.rule_cuts and self._after_change(o, H))):
                 continue
             if o.id in cut and t >= cut[o.id]:
                 continue
@@ -557,6 +558,22 @@ class Memory:
         if self.eta:
             bits += self.eta * sum(n for tok, n in self.uses.items() if self._lost(tok, H))
         return bits
+
+    def _after_change(self, o: Obs, H: Hyp) -> bool:
+        """115. kör: egy (statikus) megfigyelés csak akkor érvényes a saját időpontjától, ha a hipotézis ugyanarra a
+        tulajdonságra egy legkésőbb ekkor végződő vágást (változást, frissítést) tételez fel. Vágás nélkül (revízió)
+        a helyesbítés visszamenőleg is érvényes (Katsuno–Mendelzon)."""
+        if not H.cut or o.lit is None:
+            return False
+        prop = o.lit.obj
+        for oid, end in H.cut:
+            x = self.by_id.get(oid)
+            if x is None or end > o.time:
+                continue
+            xp = x.rule.obj if x.rule is not None else x.lit.obj
+            if xp == prop:
+                return True
+        return False
 
     def _cut_events(self, cuts) -> dict:
         """A vágások eseményei és áruk. 91. kör: változó csoportú tény (entitás, csoport, vég) eseményenként;
@@ -1107,6 +1124,10 @@ class Memory:
         if self.use_decay < 1.0:
             for k in list(self.uses):
                 self.uses[k] *= self.use_decay
+        if self.reopen_search and all(x.time != o.time for x in self.obs):
+            # 115. kör: minden új időpont első megfigyelése előtti legjobb hipotézis (időhorgony)
+            self._time_anchor = getattr(self, "_time_anchor", {})
+            self._time_anchor[o.time] = self.best
         if self.copy_detection and all(x.source != o.source for x in self.obs):
             # 112. kör: a forrás első megjelenése előtti legjobb hipotézis (horgony a másolás-újraindításhoz)
             self._src_anchor = getattr(self, "_src_anchor", {})
@@ -1137,6 +1158,25 @@ class Memory:
                     for H5 in self._repair(replace(a, dup=a.dup | {pair}), self.depth, seen):
                         cands[H5.key()] = H5
                         parent.setdefault(H5.key(), None)
+        if self.reopen_search:
+            # 115. kör: általános újranyitás – egy új változáspont vagy egy t-ben végződő vágás esetén a javítás a t előtti
+            # időhorgonyból is újraindul a komponenssel
+            ta = getattr(self, "_time_anchor", {})
+            beam_chg = {c for h in self.beam for c in h.chg}
+            beam_cut = {c for h in self.beam for c in h.cut}
+            for h in list(cands.values()):
+                for c in sorted(h.chg - beam_chg):
+                    a = ta.get(c[1])
+                    if a is not None and c not in a.chg:
+                        for H5 in self._repair(replace(a, chg=a.chg | {c}), self.depth, seen):
+                            cands[H5.key()] = H5
+                            parent.setdefault(H5.key(), None)
+                for c in sorted(set(h.cut) - beam_cut):
+                    a = ta.get(c[1])
+                    if a is not None and c[0] not in dict(a.cut) and c[0] in self.by_id:
+                        for H5 in self._repair(replace(a, cut=tuple(sorted(a.cut + (c,)))), self.depth, seen):
+                            cands[H5.key()] = H5
+                            parent.setdefault(H5.key(), None)
         if not cands:
             for H in self.beam:
                 H2 = replace(H, rej=H.rej | {o.id})
