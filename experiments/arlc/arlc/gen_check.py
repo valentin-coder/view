@@ -14,6 +14,7 @@ from .g1k import make_case_k
 from .generator2 import make_case2
 from .generator3 import KINDS3, make_case3
 from .generator4 import make_case4
+from .generator5 import make_case5
 from .run_r55 import make_case
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results", "kor-87")
@@ -68,6 +69,9 @@ def check(gen, seed, pop="A", kind="hazug forrás", with_new=False):
     elif gen == "G4":
         sch, obs, new, pre, post, tq, w = make_case4(seed, kind)
         obs, g = obs + (new if with_new else []), "G4"
+    elif gen == "G5":
+        sch, obs, new, pre, post, tq, w = make_case5(seed, kind)
+        obs, g = obs + (new if with_new else []), "G5"
     elif gen == "G2":
         sch, obs, *_ = make_case2(seed, "hazug forrás")
         w, g = world_g2(seed), "G2"

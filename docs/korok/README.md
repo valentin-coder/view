@@ -117,7 +117,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **116. kör:** ötödik generátor (forrásfüggőségi hálózatok) a FROZEN_112 után, előregisztrálva.
-2. **117. kör:** gyorsítás (a 2,5×-ös lassulás és a 76. kör óta halasztott szabályszintű memó).
+1. **116. kör (folyamatban):** ötödik generátor (forrásfüggőségi hálózat a háttérben) a FROZEN_115 után, előregisztrálva.
+2. **117. kör:** aciklikus másolási gráf (a 116. kori fejlesztési lelet) és gyorsítás (a 2,5–25×-ös lassulás).
 3. **119. kör:** divergens és kritikai kör.
 4. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

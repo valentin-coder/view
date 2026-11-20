@@ -26,7 +26,7 @@ def obs_true(o, w, gen):
     G3: időfüggő világ, a megfigyelés a saját időbélyegén igaz-e."""
     if gen == "G3":
         return obs_true_g3(o, w)
-    if gen == "G4":
+    if gen in ("G4", "G5"):
         return obs_true_g4(o, w)
     if o.rule is not None:
         r = o.rule
