@@ -112,11 +112,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 112 | [112-masolasfelismeres.md](112-masolasfelismeres.md) | Másolásfelismerés horgony-újraindítással (előregisztrált): **minden kritérium teljesül** – a másoló kára megszűnik (0,00 → 0,50, a meglepetés előtti szint fölött), máshol bitre azonos. **Új befagyasztott: FROZEN_112.** A szerkezeti bizonyíték (sok állítás egyezési mintázata) ott is dönt, ahol a tárcsák nem. |
 | 113 | [113-hamis-riasztas.md](113-hamis-riasztas.md) | A másolásfelismerés hamis riasztása (előregisztrált): független, szó szerint egyező tanúknál 0/28 hamis riasztás, bitre azonos a FROZEN_91-gyel – a másolás csak a hamis értékekben való egyezést magyarázva nyer. |
 | 114 | [114-divergens-18.md](114-divergens-18.md) | Kritikai kör: **tárcsák vs. szerkezeti bizonyítékok** – az előregisztrált sikerek (PK, hibrid + V, másolás) mind sok megfigyelést egyszerre magyaráznak; a tárcsák egyetlen állításon múlnak, ott a prior dönt. Javaslat: általános újranyitó keresés, ötödik generátor. |
+| 115 | [115-ujranyito-kereses.md](115-ujranyito-kereses.md) | Általános újranyitó keresés + szabály-vágás, a frissítés–revízió szemantikával (előregisztrált): **minden kritérium teljesül** – a szabályváltozás 0,18 → 0,93, a revízió érintetlen. **Új befagyasztott: FROZEN_115.** Ára: kb. 2,5× lassabb. |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **115. kör (folyamatban):** általános újranyitó keresés (horgonyból újraindulás minden új szerkezeti komponensnél), a 97. és 107. kör jelöltjeinek újramérésével, előregisztrálva.
-2. **116. kör:** ötödik generátor (forrásfüggőségi hálózatok) a FROZEN_112 után, előregisztrálva.
+1. **116. kör:** ötödik generátor (forrásfüggőségi hálózatok) a FROZEN_112 után, előregisztrálva.
+2. **117. kör:** gyorsítás (a 2,5×-ös lassulás és a 76. kör óta halasztott szabályszintű memó).
 3. **119. kör:** divergens és kritikai kör.
 4. **B fázis:** amint hálózat vagy helyben elérhető modell van – forrástípus- és alapgyakoriság-becslés LLM-mel.

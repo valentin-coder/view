@@ -57,3 +57,42 @@ Mindkét kapcsoló kikapcsolva bitre azonos (ekvivalencia: EGYEZIK).
 - **H115e (feladatcsomag):** egyetlen pontossági tétel sem rosszabb 0,05-nél többel.
 
 **Döntési szabály:** ha mind teljesül, az F112_RO lesz az új befagyasztott konfiguráció (FROZEN_115).
+
+## 2. rész: eredmények
+
+Nyers adat: [`results/kor-115/`](../../experiments/arlc/results/kor-115/); elemzés:
+[`analyze_r115.py`](../../experiments/arlc/arlc/analyze_r115.py) → `results/kor-115/analysis.json`. 495 futás + feladatcsomag,
+eltérés nincs. (A H115d elemzése a G1k-n a szabály-helyesbítés típust is tartalmazza, ami szigorúbb, mint az előregisztrált
+„9 típus”.)
+
+| | G3 szabályváltozás target / hist | G1k szabály-helyesbítés (revízió) target |
+|---|---|---|
+| v3 | 0,242 / 0,758 | 0,932 |
+| FROZEN_112 | 0,184 / 0,749 | 0,944 |
+| **F112_RO** | **0,933 / 0,867** | 0,944 (azonos) |
+
+| hipotézis | eredmény | ítélet |
+|---|---|---|
+| **H115a (target):** RO − F112 > 0 | **+0,749** [+0,56; +0,92] | **teljesül** |
+| **H115b (hist):** RO − F112 > 0 | **+0,117** [+0,022; +0,236] | **teljesül** |
+| **H115c (revízió):** ≥ −0,02 | 0,000 | **teljesül** |
+| **H115d (post, a többi típus):** ≥ −0,01 | G1k −0,003; G2 −0,008; G3 +0,001; G4 −0,004 | **teljesül** |
+| **H115e (feladatcsomag):** | egyetlen pontossági tétel sem változik (E2a átfordulás: 2/4/6 → 2/3/3, leíró) | **teljesül** |
+
+**A döntési szabály szerint az F112_RO az új befagyasztott konfiguráció (`FROZEN_115`).**
+
+### Értelmezés
+
+1. **A szabályváltozás, a sorozat régóta nyitott hiánya (87., 88., 107. kör), megoldott.** A rendszer a megváltozott szabályt
+   most 93%-ban helyesen kezeli (a v3 24%, a FROZEN_112 18%), és a múltra vonatkozó kérdésekben is jobb.
+2. **A 107. kori kudarcnak két oka volt, és mindkettő a keresésben vagy a szemantikában rejlett, nem az árazásban.** (a)
+   A kereső nem nyitotta újra a korábbi döntéseket: az időhorgony ezt pótolja. (b) Az időbeli szemantika minden
+   megfigyelésre érvényes volt, ezért a revíziót is frissítésként kezelte. Most a hipotézis szerkezete (vágás vagy
+   félretevés) dönti el, melyik szemantika érvényes. **Ez a frissítés–revízió megkülönböztetés egy működő, előregisztráltan
+   tesztelt megvalósítása,** amely a 107. kör szerint csak „tárcsa” volt. Valójában szerkezeti kérdés: a vágás egy
+   változás-*esemény* (sok régi megfigyelést egyszerre magyaráz), ezért a 114. kör szerinti szerkezeti bizonyítékok közé
+   tartozik.
+3. **Ára a futási idő:** az újranyitó keresés kb. 2,5-szer lassabb (a G2-n 149 s vs. 61 s esetenként). Ez az eredeti
+   „azonnali” célnak ellentmond, és a 76. kör óta halasztott gyorsítás (szabályszintű memó) most sürgősebb.
+4. **A forrás-változáspont (97. kör) az újranyitással sem működik.** A romló forrás hibái egyenként is ütköznek a
+   szabályokkal, így nincs mit egy eseménnyel magyarázni. Ez megerősíti a 114. kör különbségtételét.

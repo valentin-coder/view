@@ -15,7 +15,8 @@ Ez a kör nem mér semmit. Összegyűjti, mi van a kódban, mi melyik körből j
 | `V5_CORE` | − q-csoport, − indukált kivétel-ár, − forráslépés | elvetve (A7) | 103 |
 | `F91_R` | + szabályok időbeli vágása | elvetve (A7) | 107 |
 | `source_changepoints` | forrás-változáspont | kikapcsolva (fejlesztési negatív) | 97 |
-| **`FROZEN_112`** (= `F91_D`) | `FROZEN_91` + másolásfelismerés horgony-újraindítással | **alapértelmezés a 112. kör óta** | 111, 112 |
+| `FROZEN_112` (= `F91_D`) | `FROZEN_91` + másolásfelismerés horgony-újraindítással | alapértelmezés a 112–114. körben | 111, 112 |
+| **`FROZEN_115`** (= `F112_RO`) | `FROZEN_112` + általános újranyitó keresés + szabály-vágás (frissítés–revízió szemantikával) | **alapértelmezés a 115. kör óta** (kb. 2,5× lassabb) | 107, 115 |
 
 Minden kapcsoló kikapcsolva bitre azonos a korábbi viselkedéssel. Ellenőrzés:
 `PYTHONHASHSEED=0 python -m arlc.equiv_check check <referencia.json>` (a referencia a 72. kori kódból mentve).

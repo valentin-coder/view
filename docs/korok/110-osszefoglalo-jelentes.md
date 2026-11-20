@@ -49,7 +49,7 @@ q-csoport, feltalálás), plusz:
 4. **hibrid megbízhatóság:** bevált forrás rögzített kóddal, új forrás adaptív keverékkel (91. kör);
 5. eseményenkénti vágásár (91. kör).
 
-**Utólagos frissítés (112. kör): az új alapértelmezés `FROZEN_112` = `FROZEN_91` + másolásfelismerés horgony-újraindítással.** A 111. kör másoló-sebezhetőségét megszünteti, máshol bitre azonos.
+**Utólagos frissítések:** (112. kör) `FROZEN_112` = `FROZEN_91` + másolásfelismerés horgony-újraindítással – a 111. kör másoló-sebezhetőségét megszünteti; (115. kör) **`FROZEN_115`** = `FROZEN_112` + általános újranyitó keresés + szabály-vágás a frissítés–revízió szemantikával – a szabályváltozást 0,18-ról 0,93-ra javítja, a revíziót érintetlenül hagyja, kb. 2,5× lassabb.
 
 **Megnevezett alternatíva: `F91_Q`** („óvatos”, a deklarált hibavalószínűség kétszerese). A generatív világokon mindenhol
 jobb, a kézi feladatok egy részén gyengébb (102., 105. kör). **A B fázishoz ez a biztonságosabb.**
@@ -91,7 +91,7 @@ helyes értéke a környezet alapgyakoriságaitól függ.**
 |---|---|---|
 | jó vagy rossz új forrás (egyetlen állításból) | milyen gyakoriak a hazug források | 98, 100, 101 |
 | zaj vagy igaz meglepetés | mennyire zajosak a források | 102, 105 |
-| frissítés (a világ változott) vagy revízió (a tudás téves volt) | milyen gyakran változik egy szabály | 107 |
+| frissítés (a világ változott) vagy revízió (a tudás téves volt) | a 115. kör óta szerkezeti kérdés: a vágás (változás-esemény) vagy a félretevés dönti el a szemantikát | 107, 115 |
 | adaptív vagy rögzített forrás-kód | mennyire pontosak a deklarált hitelességek | 89, 91, 96 |
 
 **Ez a sorozat legfontosabb elvi eredménye:** a szimbolikus réteg gyorsan és gradiens nélkül átrendeződik, de hogy

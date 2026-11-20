@@ -201,3 +201,5 @@ FROZEN_112 = F91_D
 F112_O = {**FROZEN_112, "reopen_search": True}
 F112_RO = {**F112_O, "rule_cuts": True}
 F112_CPO = {**F112_O, "source_changepoints": True}
+# 115. kör: ÚJ BEFAGYASZTOTT konfiguráció (az előregisztrált 115. kör minden kritériumán átment)
+FROZEN_115 = F112_RO
