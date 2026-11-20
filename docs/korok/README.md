@@ -99,6 +99,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **98. kör:** a korábbi körök fő állításainak újramérése a FROZEN_91-gyel a G1k-n (rivális elméletek, más régió jelzett kontextussal, átkategorizálás), auditokkal.
+1. **98. kör (folyamatban):** a G1 ritkábban mért típusai (szabály-helyesbítés, kivételes alfaj, más régió jellel) a FROZEN_91-gyel a G1k-n.
 2. **99. kör:** divergens és kritikai kör (a 94–98. kör mérlege, összegzés a sorozat egészéről).
 3. **Halasztva:** a szabályok időbeli vágása (G3 szabályváltozás); forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
