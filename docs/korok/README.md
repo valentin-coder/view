@@ -102,12 +102,12 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 | 102 | [102-ovatos-hitelesseg.md](102-ovatos-hitelesseg.md) | Óvatos hitelesség (előregisztrált): a generatív világokon javít (a v3-on is; először a v3 fölött a G4-en), de a korai kézi feladatokon (TFB-2, feltalálás) ront → nem alapértelmezés. **A konzervativizmus tárcsája:** a „gyors átrendeződés” és a zajtűrés ellentéte. |
 | 103 | [103-egyszerusites.md](103-egyszerusites.md) | Egyszerűsítés (előregisztrált): a generátorokon semleges, de a feladatcsomagban az A7 összeomlik – **a q-csoport helyességi javítás**, amelyet a generátorok nem tesztelnek; a 95. kori „hatástalan” ítélet generátor-relatív volt. Nem alapértelmezés. |
 | 104 | [104-divergens-16.md](104-divergens-16.md) | Kritikai kör: a maradék problémák **tárcsák**, amelyek helyes értéke a környezet alapgyakoriságaitól függ – ezért nincs mindenhol jobb rögzített konfiguráció. Javaslat: epizódokon átívelő meta-kalibráció; tartózkodás. |
+| 105 | [105-meta-kalibracio.md](105-meta-kalibracio.md) | Meta-kalibráció: a fejlesztési ellenőrzés szerint a generatív környezetek optimuma azonos (q × 2), a teszt nem volna informatív. **Két megnevezett konfiguráció:** FROZEN_91 („bízó”) és F91_Q („óvatos”, a B fázishoz a biztonságosabb). |
 | – | [ellenorizendo.md](ellenorizendo.md) | Az összes ellenőrizendő hivatkozás és nyitott irodalmi kérdés körök szerint. |
 
 ## Következő körök (tervezett)
 
-1. **105. kör:** meta-kalibráció epizódokon át (a q_temper és a π_új empirikus Bayes-becslése), előregisztrálva.
-2. **106. kör:** tartózkodás a pontszám-különbség alapján (Brier, szelektív pontosság).
-3. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
-4. **109. kör:** divergens és kritikai kör.
-5. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
+1. **106. kör:** tartózkodás a pontszám-különbség alapján (Brier, szelektív pontosság).
+2. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
+3. **109. kör:** divergens és kritikai kör.
+4. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
