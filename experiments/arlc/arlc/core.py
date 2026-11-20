@@ -142,6 +142,8 @@ class Memory:
         self.chg_prior = 0.01                    # 97. kör: egy forrás egy időpontbeli változásának prior-esélye
         self.newcomer_corrob = False             # 100. kör: az új forrás π-je a nyers megerősítéstől függ
         self.q_temper = 1.0                      # 102. kör: (1 − q) szorzója a megfigyeléskor (1,0: változatlan)
+        self.rule_cuts = False                   # 107. kör: szabályok és statikus tények időbeli vágása (rendszerváltás)
+        self.rule_change_prior = 0.01            # 107. kör: egy tulajdonság egy időpontbeli rendszerváltásának prior-esélye
         self.source_mix: Optional[dict] = None   # 80. kör: forrás -> (π, κ1) kétkomponensű megbízhatósági prior (típus-metaadatból)
         self.source_mix_default: Optional[tuple] = None  # 80. kör: a source_mix-ben nem szereplő (ismeretlen) források (π, κ1)-e
         self.q_groups = False                  # 48. kör: a forrás állításai deklarált hitelesség szerint külön csoport
@@ -194,7 +196,7 @@ class Memory:
         for o in list(self.obs) + list(H.ind):
             if o.id in H.rej:
                 continue
-            if o.time > t and (o.rule is not None or self._mutable(o)):
+            if o.time > t and (o.rule is not None or self._mutable(o) or self.rule_cuts):
                 continue
             if o.id in cut and t >= cut[o.id]:
                 continue
@@ -529,7 +531,9 @@ class Memory:
                 bits += cnt * (-math.log2(q) + (-math.log2(1 - self.delta) if active else 1.0))
         if H.chg:
             bits += len(H.chg) * -math.log2(self.chg_prior)      # 97. kör: forrás-változáspont ára
-        if self.cut_per_event:
+        if self.rule_cuts:
+            bits += sum(self._cut_events(H.cut).values())
+        elif self.cut_per_event:
             # 91. kör: egy változás egy esemény (entitás, csoport, vég-időpont); az ugyanott végződő további régi
             # megfigyelések vágása ingyenes (különben a régi jelentések száma szorozná a változás árát)
             for (subj, g, end) in {(self.by_id[oid].lit.subj, self._group(self.by_id[oid].lit), end) for oid, end in H.cut}:
@@ -542,6 +546,21 @@ class Memory:
         if self.eta:
             bits += self.eta * sum(n for tok, n in self.uses.items() if self._lost(tok, H))
         return bits
+
+    def _cut_events(self, cuts) -> dict:
+        """A vágások eseményei és áruk. 91. kör: változó csoportú tény (entitás, csoport, vég) eseményenként;
+        107. kör: szabály vagy statikus tény vágása a tulajdonság „rendszerváltása” (tulajdonság, vég), eseményenként."""
+        ev = {}
+        for oid, end in cuts:
+            o = self.by_id[oid]
+            if self.rule_cuts and (o.rule is not None or not self._mutable(o)):
+                prop = o.rule.obj if o.rule is not None else o.lit.obj
+                ev[("chg", prop, end)] = -math.log2(self.rule_change_prior)
+                continue
+            g = self._group(o.lit)
+            key = (o.lit.subj, g, end) if self.cut_per_event else ("obs", oid)
+            ev[key] = -math.log2(self.s.update_prior.get(g, 1e-3))
+        return ev
 
     def _first_seen(self) -> dict:
         """86. kör: forrásonként az első megfigyelés ideje (a megfigyelések számához gyorsítótárazva)."""
@@ -758,6 +777,15 @@ class Memory:
                                  and self._group(x.lit) == g and x.time > o.time]
                         if later and o.id not in dict(H.cut):
                             yield replace(H, cut=tuple(sorted(H.cut + ((o.id, min(later)),))))
+                if (self.rule_cuts and full and o.id < IND_BASE and o.id not in dict(H.cut)
+                        and (o.rule is not None or (o.lit is not None and not self._mutable(o)))):
+                    # 107. kör: egy szabály vagy statikus tény a későbbi, ugyanarról a tulajdonságról szóló megfigyelésig érvényes
+                    prop = o.rule.obj if o.rule is not None else o.lit.obj
+                    later = [x.time for x in obs_in if x.time > o.time and
+                             ((x.rule is not None and x.rule.obj == prop) or
+                              (x.lit is not None and x.lit.obj == prop and (o.rule is not None or x.lit.subj == o.lit.subj)))]
+                    if later:
+                        yield replace(H, cut=tuple(sorted(H.cut + ((o.id, min(later)),))))
             elif tok[0] == "inst" and full and self.mode != "arlc-noexc":
                 yield replace(H, exc=H.exc | {(tok[1], tok[2])})
                 if self.class_exceptions:
@@ -854,7 +882,10 @@ class Memory:
                   else None)
             c += unit if pb is None else pb
         c += sum(self.ctx_cost.get(src, self.c_ctx) for src in H2.iso - H.iso)
-        if self.cut_per_event:
+        if self.rule_cuts:
+            e2, e1 = self._cut_events(H2.cut), self._cut_events(H.cut)
+            c += sum(v for k, v in e2.items() if k not in e1)
+        elif self.cut_per_event:
             ev = lambda cuts: {(self.by_id[i].lit.subj, self._group(self.by_id[i].lit), end) for i, end in cuts}
             c += sum(-math.log2(self.s.update_prior.get(g, 1e-3)) for (_, g, _) in ev(H2.cut) - ev(H.cut))
         else:

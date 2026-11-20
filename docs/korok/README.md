@@ -108,6 +108,6 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
+1. **107. kör (folyamatban):** a szabályok időbeli vágása (G3 szabályváltozás), előregisztrálva.
 2. **109. kör:** divergens és kritikai kör.
 3. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).

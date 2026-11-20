@@ -109,6 +109,8 @@ def configured(overrides: dict):
             self.chg_prior = cfg.get("chg_prior", 0.01)
             self.newcomer_corrob = cfg.get("newcomer_corrob", False)
             self.q_temper = cfg.get("q_temper", 1.0)
+            self.rule_cuts = cfg.get("rule_cuts", False)
+            self.rule_change_prior = cfg.get("rule_change_prior", 0.01)
             if "source_mix" in cfg:
                 self.source_mix = cfg["source_mix"]
                 self.source_mix_default = cfg.get("source_mix_default")
@@ -186,3 +188,5 @@ F91_Q = {**FROZEN_91, "q_temper": 2.0}
 V3_Q = {"q_temper": 2.0}   # csak a temperálás a v3-hoz (a configured() a v4-alapot is beállítja, ezért külön kezelendő)
 # 103. kör: egyszerűsített mag (a 95. kori LOO szerint a mért világokban hatástalan vagy enyhén káros kapcsolók nélkül)
 V5_CORE = {**FROZEN_91, "q_groups": False, "ind_exc_cost": False, "source_moves": False}
+# 107. kör: szabályok időbeli vágása (jelölt)
+F91_R = {**FROZEN_91, "rule_cuts": True}
