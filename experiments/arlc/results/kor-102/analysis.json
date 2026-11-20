@@ -1,0 +1,403 @@
+{
+ "n": 540,
+ "táblázat": {
+  "G1k hazug forrás | v3": {
+   "pre": 0.8423,
+   "post": 0.8154,
+   "target": 0.5917
+  },
+  "G1k hazug forrás | v3+Q": {
+   "pre": 0.8447,
+   "post": 0.8404,
+   "target": 0.7583
+  },
+  "G1k hazug forrás | FROZEN_91": {
+   "pre": 0.8812,
+   "post": 0.8773,
+   "target": 0.8333
+  },
+  "G1k hazug forrás | F91+Q": {
+   "pre": 0.8916,
+   "post": 0.8916,
+   "target": 0.8917
+  },
+  "G1k átkategorizálás | v3": {
+   "pre": 0.8423,
+   "post": 0.8392,
+   "target": 0.7752
+  },
+  "G1k átkategorizálás | v3+Q": {
+   "pre": 0.8447,
+   "post": 0.842,
+   "target": 0.7836
+  },
+  "G1k átkategorizálás | FROZEN_91": {
+   "pre": 0.8812,
+   "post": 0.8791,
+   "target": 0.7733
+  },
+  "G1k átkategorizálás | F91+Q": {
+   "pre": 0.8916,
+   "post": 0.8891,
+   "target": 0.7844
+  },
+  "G2 hazug forrás | v3": {
+   "pre": 0.9014,
+   "post": 0.882,
+   "target": 0.6917
+  },
+  "G2 hazug forrás | v3+Q": {
+   "pre": 0.9189,
+   "post": 0.9091,
+   "target": 0.8
+  },
+  "G2 hazug forrás | FROZEN_91": {
+   "pre": 0.9262,
+   "post": 0.9238,
+   "target": 0.9167
+  },
+  "G2 hazug forrás | F91+Q": {
+   "pre": 0.9501,
+   "post": 0.9501,
+   "target": 0.9583
+  },
+  "G2 torzított forrás | v3": {
+   "pre": 0.9014,
+   "post": 0.8216,
+   "target": 0.6481
+  },
+  "G2 torzított forrás | v3+Q": {
+   "pre": 0.9189,
+   "post": 0.904,
+   "target": 0.7778
+  },
+  "G2 torzított forrás | FROZEN_91": {
+   "pre": 0.9262,
+   "post": 0.9233,
+   "target": 0.9081
+  },
+  "G2 torzított forrás | F91+Q": {
+   "pre": 0.9501,
+   "post": 0.9501,
+   "target": 0.9415
+  },
+  "G3 hazug forrás | v3": {
+   "pre": 0.9196,
+   "post": 0.9057,
+   "target": 0.7083
+  },
+  "G3 hazug forrás | v3+Q": {
+   "pre": 0.9187,
+   "post": 0.9104,
+   "target": 0.7833
+  },
+  "G3 hazug forrás | FROZEN_91": {
+   "pre": 0.9272,
+   "post": 0.9251,
+   "target": 0.8917
+  },
+  "G3 hazug forrás | F91+Q": {
+   "pre": 0.9344,
+   "post": 0.9338,
+   "target": 0.9167
+  },
+  "G3 állapotváltozás | v3": {
+   "pre": 0.9196,
+   "post": 0.8901,
+   "target": 0.2667
+  },
+  "G3 állapotváltozás | v3+Q": {
+   "pre": 0.9187,
+   "post": 0.8892,
+   "target": 0.2667
+  },
+  "G3 állapotváltozás | FROZEN_91": {
+   "pre": 0.9272,
+   "post": 0.9246,
+   "target": 0.8333
+  },
+  "G3 állapotváltozás | F91+Q": {
+   "pre": 0.9344,
+   "post": 0.9302,
+   "target": 0.8333
+  },
+  "G4 hazug forrás | v3": {
+   "pre": 0.9037,
+   "post": 0.88,
+   "target": 0.65
+  },
+  "G4 hazug forrás | v3+Q": {
+   "pre": 0.9326,
+   "post": 0.917,
+   "target": 0.8333
+  },
+  "G4 hazug forrás | FROZEN_91": {
+   "pre": 0.8963,
+   "post": 0.8956,
+   "target": 0.8917
+  },
+  "G4 hazug forrás | F91+Q": {
+   "pre": 0.9252,
+   "post": 0.9252,
+   "target": 0.9167
+  },
+  "G4 jó új specialista | v3": {
+   "pre": 0.9037,
+   "post": 0.9319,
+   "target": 0.9667
+  },
+  "G4 jó új specialista | v3+Q": {
+   "pre": 0.9326,
+   "post": 0.9437,
+   "target": 0.9467
+  },
+  "G4 jó új specialista | FROZEN_91": {
+   "pre": 0.8963,
+   "post": 0.9133,
+   "target": 0.8533
+  },
+  "G4 jó új specialista | F91+Q": {
+   "pre": 0.9252,
+   "post": 0.9437,
+   "target": 0.9867
+  },
+  "G4 romló forrás | v3": {
+   "pre": 0.9037,
+   "post": 0.8881,
+   "target": 0.7933
+  },
+  "G4 romló forrás | v3+Q": {
+   "pre": 0.9326,
+   "post": 0.9274,
+   "target": 0.9133
+  },
+  "G4 romló forrás | FROZEN_91": {
+   "pre": 0.8963,
+   "post": 0.883,
+   "target": 0.8
+  },
+  "G4 romló forrás | F91+Q": {
+   "pre": 0.9252,
+   "post": 0.9215,
+   "target": 0.9133
+  },
+  "G1k összes | v3": {
+   "pre": 0.8423,
+   "post": 0.8273,
+   "target": 0.6835
+  },
+  "G1k összes | v3+Q": {
+   "pre": 0.8447,
+   "post": 0.8412,
+   "target": 0.771
+  },
+  "G1k összes | FROZEN_91": {
+   "pre": 0.8812,
+   "post": 0.8782,
+   "target": 0.8033
+  },
+  "G1k összes | F91+Q": {
+   "pre": 0.8916,
+   "post": 0.8903,
+   "target": 0.838
+  },
+  "G2 összes | v3": {
+   "pre": 0.9014,
+   "post": 0.8518,
+   "target": 0.6699
+  },
+  "G2 összes | v3+Q": {
+   "pre": 0.9189,
+   "post": 0.9065,
+   "target": 0.7889
+  },
+  "G2 összes | FROZEN_91": {
+   "pre": 0.9262,
+   "post": 0.9236,
+   "target": 0.9124
+  },
+  "G2 összes | F91+Q": {
+   "pre": 0.9501,
+   "post": 0.9501,
+   "target": 0.9499
+  },
+  "G3 összes | v3": {
+   "pre": 0.9196,
+   "post": 0.8979,
+   "target": 0.4875
+  },
+  "G3 összes | v3+Q": {
+   "pre": 0.9187,
+   "post": 0.8998,
+   "target": 0.525
+  },
+  "G3 összes | FROZEN_91": {
+   "pre": 0.9272,
+   "post": 0.9249,
+   "target": 0.8625
+  },
+  "G3 összes | F91+Q": {
+   "pre": 0.9344,
+   "post": 0.932,
+   "target": 0.875
+  },
+  "G4 összes | v3": {
+   "pre": 0.9037,
+   "post": 0.9,
+   "target": 0.8033
+  },
+  "G4 összes | v3+Q": {
+   "pre": 0.9326,
+   "post": 0.9294,
+   "target": 0.8978
+  },
+  "G4 összes | FROZEN_91": {
+   "pre": 0.8963,
+   "post": 0.8973,
+   "target": 0.8483
+  },
+  "G4 összes | F91+Q": {
+   "pre": 0.9252,
+   "post": 0.9301,
+   "target": 0.9389
+  }
+ },
+ "H102a G1k post: F91+Q − F91": {
+  "n_seeds": 15,
+  "mean_diff": 0.012144849046079915,
+  "ci95": [
+   -0.0001151358646132102,
+   0.02720766193516703
+  ]
+ },
+ "H102e G1k post: v3+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.013878752112470324,
+  "ci95": [
+   0.004160713377887356,
+   0.024050568035217938
+  ]
+ },
+ "G1k post: F91+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.0630403801788678,
+  "ci95": [
+   0.04559367236181219,
+   0.08204624753162605
+  ]
+ },
+ "H102a G2 post: F91+Q − F91": {
+  "n_seeds": 15,
+  "mean_diff": 0.02653392380930315,
+  "ci95": [
+   0.01209346793104101,
+   0.042871692805074794
+  ]
+ },
+ "H102e G2 post: v3+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.05476102659272777,
+  "ci95": [
+   0.010595951954029818,
+   0.11923600160579587
+  ]
+ },
+ "G2 post: F91+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.09831573883323651,
+  "ci95": [
+   0.05067221865369404,
+   0.1665211227990561
+  ]
+ },
+ "H102a G3 post: F91+Q − F91": {
+  "n_seeds": 15,
+  "mean_diff": 0.007192562789436526,
+  "ci95": [
+   -0.002400244549040087,
+   0.017674407536248788
+  ]
+ },
+ "H102e G3 post: v3+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.0019041227589164933,
+  "ci95": [
+   -0.004440785432124006,
+   0.008994970163344903
+  ]
+ },
+ "G3 post: F91+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.03416986968745667,
+  "ci95": [
+   0.020107384316822383,
+   0.04656503411530117
+  ]
+ },
+ "H102a G4 post: F91+Q − F91": {
+  "n_seeds": 15,
+  "mean_diff": 0.032839506172839504,
+  "ci95": [
+   0.02246913580246914,
+   0.04469135802469134
+  ]
+ },
+ "H102e G4 post: v3+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.029382716049382702,
+  "ci95": [
+   0.020740740740740733,
+   0.037777777777777764
+  ]
+ },
+ "G4 post: F91+Q − v3": {
+  "n_seeds": 15,
+  "mean_diff": 0.030123456790123463,
+  "ci95": [
+   0.021481481481481515,
+   0.03901234567901234
+  ]
+ },
+ "H102b forrás-célkérdések: F91+Q − F91": {
+  "n_seeds": 60,
+  "mean_diff": 0.05,
+  "ci95": [
+   0.027083333333333334,
+   0.075
+  ]
+ },
+ "feladatcsomag": {
+  "FROZEN_91": {
+   "E1 RR (átkat.+alosztály)": 0.75,
+   "E1 kollaterális": 0.0,
+   "E2a átfordulás N=2/8/16": "2/4/6",
+   "E2a monoton": true,
+   "E3 helyes döntés": 0.75,
+   "E4 pontosság (ε=0,05)": 0.9722222222222222,
+   "E4 hamis átrendezés/50": 0.0,
+   "A7 (frissítés/revízió) pontosság": 1.0,
+   "TFB-9 pontosság (zaj 0,15)": 0.7830459770114943,
+   "TFB-9 vesztes fa aktív": 0.6666666666666666,
+   "TFB-2 pontosság": 1.0,
+   "TFB-8 pontosság": 1.0,
+   "Quine: G sosem esik": true,
+   "Feltalálás: általánosítás": 1.0
+  },
+  "F91+Q": {
+   "E1 RR (átkat.+alosztály)": 0.87,
+   "E1 kollaterális": 0.00944282060650347,
+   "E2a átfordulás N=2/8/16": "3/6/9",
+   "E2a monoton": true,
+   "E3 helyes döntés": 0.75,
+   "E4 pontosság (ε=0,05)": 0.9722222222222222,
+   "E4 hamis átrendezés/50": 0.0,
+   "A7 (frissítés/revízió) pontosság": 1.0,
+   "TFB-9 pontosság (zaj 0,15)": 0.9532019704433498,
+   "TFB-9 vesztes fa aktív": 0.0,
+   "TFB-2 pontosság": 0.8,
+   "TFB-8 pontosság": 1.0,
+   "Quine: G sosem esik": true,
+   "Feltalálás: általánosítás": 0.75
+  }
+ }
+}
