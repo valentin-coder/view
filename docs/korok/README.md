@@ -107,7 +107,7 @@ terve) a beszélgetésben készült. A 6. kör megvalósítása: [`../../experim
 
 ## Következő körök (tervezett)
 
-1. **106. kör:** tartózkodás a pontszám-különbség alapján (Brier, szelektív pontosság).
+1. **106. kör (folyamatban):** tartózkodás a pontszám-különbség alapján (Brier, szelektív pontosság).
 2. **107. kör:** a szabályok időbeli vágása (G3 szabályváltozás).
 3. **109. kör:** divergens és kritikai kör.
 4. **Halasztva:** forrásmásolás bevált forrásról; szabályszintű zárás-memó (76. kör).
